@@ -1,23 +1,27 @@
 import type { DisplayStatus } from "../../lib/pgx/drugResult";
 
-/** Every status is shown as an icon plus words, never color alone. */
+/**
+ * Every status is an icon plus words, never color alone. Text/background pairs
+ * are AA: emerald-800/emerald-50 ~7:1, amber-900/amber-50 ~8:1,
+ * slate-800/slate-100 ~11:1, royal/mist ~6.7:1.
+ */
 const STYLES: Record<DisplayStatus, string> = {
-  "Typical": "border-green-700 bg-green-50 text-green-900",
-  "Your genes may change how this works": "border-amber-700 bg-amber-50 text-amber-950",
-  "Can't tell from this file": "border-slate-500 bg-slate-100 text-slate-900",
-  "Needs a clinician-run calculation": "border-indigo-700 bg-indigo-50 text-indigo-950",
+  "Typical": "border-emerald-700/30 bg-emerald-50 text-emerald-800",
+  "Your genes may change how this works": "border-amber-700/40 bg-amber-50 text-amber-900",
+  "Can't tell from this file": "border-slate-500/40 bg-slate-100 text-slate-800",
+  "Needs a clinician-run calculation": "border-royal/30 bg-mist text-royal",
 };
 
 function Icon({ status }: { status: DisplayStatus }) {
   const common = {
     "aria-hidden": true,
     focusable: false,
-    width: 18,
-    height: 18,
+    width: 16,
+    height: 16,
     viewBox: "0 0 24 24",
     fill: "none",
     stroke: "currentColor",
-    strokeWidth: 2.2,
+    strokeWidth: 2.4,
     strokeLinecap: "round" as const,
     strokeLinejoin: "round" as const,
     className: "shrink-0",
@@ -36,7 +40,7 @@ function Icon({ status }: { status: DisplayStatus }) {
 
 export default function StatusChip({ status }: { status: DisplayStatus }) {
   return (
-    <span className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm font-semibold ${STYLES[status]}`}>
+    <span className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm font-semibold leading-5 ${STYLES[status]}`}>
       <Icon status={status} />
       <span>{status}</span>
     </span>
