@@ -153,8 +153,9 @@ patient in one click, and see plainly what was read.
 1. THE component SHALL offer a labeled file input and three buttons: "Load
    sample patient: Maya", "Load sample patient: Alex", "Load sample patient: Sam".
 2. WHEN a file is chosen or a sample button is pressed THE component SHALL run
-   the text through `parseVcf()` and show the sample ID, genome build, positions
-   read, no-calls, phased calls, and lines skipped.
+   the text through `analyzeVcf()` (`parseVcf()` then `callStarAlleles()`) and
+   show the sample ID, genome build, positions read, no-calls, phased calls,
+   lines skipped, and how many genes could be determined.
 3. WHEN the result has warnings THE component SHALL show each one with an icon
    and the word "Warning", never by color alone.
 4. WHEN a file cannot be read or a sample cannot be fetched THE component SHALL

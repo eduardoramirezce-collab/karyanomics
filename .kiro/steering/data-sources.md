@@ -24,10 +24,10 @@ fileMatchPattern: ["data/**/*", "lib/pgx/**/*", "scripts/**/*", "tests/**/*"]
 
 ## VCF-to-phenotype handoff (Kai)
 
-- `data/allele-definitions.json` currently contains TODO placeholders, not usable allele coordinates. Never use them for a real call.
-- Missing required reference/no-call positions, unknown GRCh38 status, phase ambiguity, or unsupported allele calls resolve to `Indeterminate`. Never assume variants in trans or infer `*1` from a variant-only VCF.
-- The phenotype-to-guidance side consumes a `DiplotypeCall[]` only when the caller's coverage and quality checks are complete.
-- PharmCAT reference outputs in `data/samples/` are the answer key for sample VCFs in `public/samples/`. Once the caller exists, tests must compare CYP2C19 calls and phenotype with those outputs before guidance is connected.
+- `data/allele-definitions.json` and `data/cpic-diplotype-phenotypes.json` are generated from pinned PharmCAT 3.4.0 and CPIC sources by `npm run fetch:pgx-definitions`; never edit coordinates by hand.
+- `callStarAlleles` produces research diplotypes and phenotypes for eight genes; missing/no-call positions become Indeterminate. An unphased double heterozygote may be reported in trans with `ambiguous: true`; guidance must reject it. Never infer `*1` from an absent VCF record.
+- The phenotype-to-guidance side consumes a `DiplotypeCall[]` only with independent, complete build/coverage/assay-quality evidence. FILTER PASS by itself is insufficient clinical quality proof.
+- PharmCAT reference outputs in `data/samples/` are the answer keys for the three sample VCFs; the caller tests compare with them. These fixtures do not validate patient assays.
 - Sample provenance (answer keys generated with PharmCAT 3.4.0):
   - `maya.vcf`: PharmCAT example 2 VCF, unmodified (CYP2C19 *2/*2).
   - `alex.vcf`: PharmCAT example 1 VCF, unmodified (all reference).

@@ -3,27 +3,31 @@
 ## Introduction
 
 This spec covers the PGx engine: the client-side pipeline that turns a genotype
-**VCF file** into a cited, source-backed recommendation. Nothing is hand-made;
-every result is computed from the file. The pipeline is:
+**VCF file** into research diplotype/phenotype calls. The bundled Maya sample
+reaches a source-linked demo; uploaded files do not produce guidance. The target pipeline is:
 
 1. **Input:** a single-sample GRCh38 VCF (user upload or a bundled sample),
    plus an optional "outside call" input for CYP2D6.
 2. **Parse VCF** (`parseVcf`): read `CHROM`, `POS`, `REF`, `ALT`, and the
    sample's `GT` field (phased `|` or unphased `/`) into `VcfVariant[]`.
-3. **Call star alleles** (`callDiplotypes`): match variants at defined positions
+3. **Call star alleles** (`callStarAlleles`): match variants at defined positions
    to star alleles and produce a diplotype per gene (e.g. CYP2C19 `*2/*2`).
 4. **Diplotype → phenotype** using CPIC tables (e.g. Poor Metabolizer).
 5. **Phenotype + drug → CPIC recommendation** (`assess`).
 6. **Report:** a plain-language patient view and a clinician view (behind the
    NPI gate).
 
-Target genes for a future validated caller: **CYP2C19, CYP2C9, VKORC1,
-SLCO1B1, TPMT, NUDT15, CYP4F2, ABCG2.** The current code parses VCFs but
-does not call any diplotype or phenotype. CYP2D6 needs a specialized outside
-call in this workflow; DPYD is outside the eight-gene target.
+Genes called from VCF: **CYP2C19, CYP2C9, VKORC1, CYP4F2, SLCO1B1, ABCG2, TPMT,
+NUDT15.** CYP2D6 is not callable from a VCF and comes only from the optional
+outside-call input. Other genes PharmCAT reports (e.g. DPYD) are out of scope
+today.
+
+Some drugs use several genes under one CPIC guideline: warfarin (CYP2C9, VKORC1,
+CYP4F2), rosuvastatin (SLCO1B1, ABCG2), and azathioprine/mercaptopurine (TPMT,
+NUDT15).
 
 Genetic data is processed entirely client-side and is never sent to a server.
-All clinical wording comes from a reviewed source file, and all allele positions
+Demo clinical wording comes from a source-linked snapshot awaiting qualified review, and all allele positions
 come from `data/allele-definitions.json` — never from model memory.
 
 ## Glossary
@@ -87,7 +91,7 @@ variants, so that each gene resolves to star alleles or to Indeterminate.
    SHALL return `Indeterminate` for that gene and SHALL NOT assume reference.
 4. WHERE allele definitions are read THE system SHALL read them from
    `data/allele-definitions.json` and SHALL NOT use any invented position.
-5. THE `callDiplotypes` function SHALL be pure and SHALL NOT perform any network
+5. THE `callStarAlleles` function SHALL be pure and SHALL NOT perform any network
    or storage I/O.
 
 ### Requirement 4: CYP2D6 via outside call only
@@ -124,17 +128,36 @@ drug and get a source-backed result, so that the result traces to a real source.
 #### Acceptance criteria
 
 1. WHEN `assess` receives a supported phenotype, a supported drug, and a matching
-   indication THEN the system SHALL return a matched result with the reviewed
+   indication THEN the system SHALL return a matched result with the source-linked
    recommendation text, strength, implications, and source.
 2. WHEN `assess` receives a phenotype of `Indeterminate` THEN the system SHALL
    return an `indeterminate` result and SHALL NOT return a recommendation.
-3. WHEN `assess` receives a drug or gene not in the reviewed data THEN the system
+3. WHEN `assess` receives a drug or gene not in the scoped demo data THEN the system
    SHALL return an `insufficient_data` result with a reason.
-4. WHEN `assess` receives a supported pair but no reviewed recommendation matches
+4. WHEN `assess` receives a supported pair but no source row matches
    the indication THEN the system SHALL return `insufficient_data` and SHALL NOT
    substitute a different indication's recommendation.
 5. THE `assess` function SHALL be pure, SHALL NOT perform network or storage
    I/O, and SHALL NOT compute or output a medication dose.
+
+### Requirement 6a: Drugs that use several genes
+
+**User story:** As a patient, I want a result for warfarin, rosuvastatin, or a
+thiopurine to reflect every gene CPIC uses for it, so that I never see a
+half-answer presented as a full one.
+
+#### Acceptance criteria
+
+1. WHEN `assess` evaluates warfarin THEN the system SHALL use CYP2C9, VKORC1, and
+   CYP4F2 as the CPIC warfarin guideline specifies.
+2. WHEN `assess` evaluates rosuvastatin THEN the system SHALL use SLCO1B1 and
+   ABCG2.
+3. WHEN `assess` evaluates azathioprine or mercaptopurine THEN the system SHALL
+   use TPMT and NUDT15.
+4. IF any gene the guideline requires is `Indeterminate` THEN the system SHALL
+   NOT present a result from the remaining genes as complete, and SHALL return
+   `indeterminate` or `insufficient_data` with a reason naming the missing gene,
+   unless the reviewed CPIC data gives a recommendation for that case.
 
 ### Requirement 7: End-to-end sample (Maya)
 

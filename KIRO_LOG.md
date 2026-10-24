@@ -30,3 +30,13 @@ Record actual Kiro activity with its prompt/task, files changed, checks, and com
 - Codex researched CPIC's exact recommendation lookup keys and added a research-only source-row router for clopidogrel, thiopurines and statins, while flagging warfarin's separate algorithm. This was not a Kiro session; no new patient guidance was published.
 - Codex added the nine-area medication research taxonomy, exact-RxNorm grouping, `/drugs` browse page, tests and source/gap documentation. This was not a Kiro session; Kiro steering and tasks were updated so both teammates' AI tools see the same boundaries.
 - Codex added the NLM Prescribable RxNorm generic/brand display-name snapshot, candidate refresh/validation, lookup, UI, tests and documentation. This was not a Kiro session; the shared steering and spec record the brand-name/clinical-identity boundary.
+
+## 2026-10-24 — Gene scope and star-allele caller (Kai/Kiro)
+
+- Kai recorded Kiro Vibe mode work at 14:10 to extend VCF scope with NUDT15, CYP4F2 and ABCG2 and to add rosuvastatin; see `745d1e1`.
+- Kai recorded Kiro Vibe mode work at 14:40 for `callStarAlleles`, generated PharmCAT 3.4.0 definitions and CPIC phenotype table, EARS spec, and sample/fast-check tests; see `88d0257`. The caller matches the bundled PharmCAT reports but is not a clinically validated assay.
+
+## 2026-10-24 — Caller and guidance integration (Edu/Codex)
+
+- Codex merged Kai's latest `main` into `clinical-data`, reconciled shared types and docs, and wired the Maya synthetic VCF call into the clopidogrel demo. Uploaded VCFs remain outside guidance because assay-quality and coverage evidence is still missing.
+- Codex blocked multi-sample/invalid VCF warnings at the caller, rejected ambiguous research-route calls, and read CPIC activity scores from caller output. This was not a Kiro coding session.

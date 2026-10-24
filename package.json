@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
+    "fetch:pgx-definitions": "node scripts/fetch-pgx-definitions.mjs",
     "build:patient-data": "node scripts/build-patient-snapshot.mjs",
     "fetch:clinpgx": "node scripts/fetch-clinpgx.mjs",
     "fetch:gene-catalog": "node scripts/fetch-gene-drug-catalog.mjs",

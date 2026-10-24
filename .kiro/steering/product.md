@@ -21,7 +21,7 @@ education and demonstration only — not a medical device, not medical advice.
 
 ## Pipeline (how a result is produced)
 
-Target pipeline: a validated call will ultimately be computed from a genotype file. Today VCF parsing and sample selection work, but the allele/phenotype caller is not implemented. The guidance demo uses a separate, clearly labeled synthetic phenotype:
+Target pipeline: a validated call will ultimately be computed from a genotype file. Today the eight-gene research caller and sample selection work; the bundled Maya VCF drives a clearly labeled guidance demo. Uploaded VCFs do not produce medication guidance:
 
 1. **Input:** a single-sample GRCh38 VCF (user upload or a bundled sample),
    plus an optional "outside call" input for CYP2D6.
@@ -42,7 +42,7 @@ rather than guessing.
 
 ## Scope
 
-Target eight-gene scope: **CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT, NUDT15, CYP4F2, ABCG2.** The current guidance snapshot covers only CYP2C19 + clopidogrel for ACS/PCI. The CPIC A/B pair catalog for all eight genes is a research index, not patient guidance. Kai's full PharmCAT sample reports remain caller-validation fixtures.
+The research VCF caller covers **CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT, NUDT15, CYP4F2, ABCG2** using pinned PharmCAT 3.4.0 definitions. The current guidance snapshot covers only CYP2C19 + clopidogrel for ACS/PCI. The CPIC A/B pair catalog for all eight genes is a research index, not patient guidance. Kai's full PharmCAT sample reports remain caller-validation fixtures.
 
 The `/drugs` page browses the 34 distinct ingredients in that research index by
 the team's nine therapeutic areas: Analgesics, Cardiovascular, Endocrine, GI,
@@ -56,14 +56,14 @@ ingredient combination, formulation, or permission to issue PGx guidance.
 
 **CYP2D6 is not callable from a VCF.** It comes only from an optional
 outside-call input; if absent, CYP2D6 is `Indeterminate` with the explanation
-"CYP2D6 cannot be determined from this file." DPYD remains outside the eight-gene target scope. NUDT15 is a target gene, but no validated NUDT15 allele/phenotype caller exists yet.
+"CYP2D6 cannot be determined from this file." DPYD remains outside the eight-gene target scope. NUDT15 is included in the research caller; clinical assay validation remains pending.
 
 Genetic data stays on the device and is never sent to any server route; no real
 patient data is stored in the repo.
 
 ## Branch ownership
 
-- Kai: VCF input → validated diplotype/phenotype. Owns the implemented parser and reference fixtures, plus pending allele definitions and caller.
+- Kai: VCF input → validated diplotype/phenotype. Owns the implemented parser and reference fixtures, and the implemented pinned allele definitions and eight-gene caller.
 - Edu: validated phenotype + exact drug identity + indication → CPIC-linked guidance. Owns the curated recommendation snapshot, `assess`, patient-safe projection, source validation, and clinical-data docs.
 - Shared contract: `DiplotypeCall[]` in `lib/pgx/types.ts`; a call is eligible for guidance only after the caller confirms build, coverage, quality, and ambiguity. Source label alone is not verification.
 - Shared README/steering/spec changes should go through review into `main` so both branches inherit the same direction.

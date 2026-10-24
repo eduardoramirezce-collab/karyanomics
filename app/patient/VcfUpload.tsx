@@ -3,20 +3,21 @@
 /**
  * VCF input for the patient side (pipeline stage 1: "Input").
  *
- * Two ways in, one parser:
+ * Two ways in, one pipeline:
  * - Upload: the file is read with File.text() in the browser. It is never
  *   sent to any server route or external service.
  * - Load sample patient: fetches a bundled, synthetic VCF from
  *   /public/samples/ (a static GET, nothing is sent) and runs it through the
- *   same parseVcf().
+ *   same analyzeVcf() (parseVcf + callStarAlleles), on the device.
  *
- * This component only parses and summarizes the file. It shows no clinical
- * interpretation; star-allele calling and recommendations are later stages.
+ * This component summarizes the file and how many genes could be determined.
+ * It shows no clinical interpretation (no diplotypes, phenotypes, or advice);
+ * the per-gene calls are passed to onParsed for later screens.
  */
 
 import { useId, useRef, useState, type ChangeEvent } from "react";
-import { parseVcf } from "@/lib/pgx/parseVcf";
-import type { ParsedVcf } from "@/lib/pgx/types";
+import { analyzeVcf } from "@/lib/pgx/analyzeVcf";
+import type { DiplotypeCall, ParsedVcf } from "@/lib/pgx/types";
 
 /**
  * Bundled sample patients. All are synthetic test files (no real people).
@@ -50,15 +51,15 @@ export type VcfSource =
   | { kind: "sample"; name: string; id: string };
 
 interface VcfUploadProps {
-  /** Called with the parse result so later pipeline stages can use it. */
-  onParsed?: (result: ParsedVcf, source: VcfSource) => void;
+  /** Called with the parse result and per-gene calls for later screens. */
+  onParsed?: (result: ParsedVcf, source: VcfSource, calls: DiplotypeCall[]) => void;
 }
 
 type Status =
   | { state: "idle" }
   | { state: "loading"; label: string }
   | { state: "error"; message: string }
-  | { state: "done"; result: ParsedVcf; source: VcfSource };
+  | { state: "done"; result: ParsedVcf; calls: DiplotypeCall[]; source: VcfSource };
 
 const buttonClass =
   "rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-900 transition-colors hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-100 dark:hover:bg-gray-800";
@@ -70,9 +71,9 @@ export default function VcfUpload({ onParsed }: VcfUploadProps) {
   const busy = status.state === "loading";
 
   function finish(text: string, source: VcfSource) {
-    const result = parseVcf(text);
-    setStatus({ state: "done", result, source });
-    onParsed?.(result, source);
+    const { parsed, calls } = analyzeVcf(text);
+    setStatus({ state: "done", result: parsed, calls, source });
+    onParsed?.(parsed, source, calls);
   }
 
   async function handleFile(event: ChangeEvent<HTMLInputElement>) {
@@ -169,7 +170,7 @@ export default function VcfUpload({ onParsed }: VcfUploadProps) {
           </p>
         )}
         {status.state === "done" && (
-          <ParseSummary result={status.result} source={status.source} />
+          <ParseSummary result={status.result} calls={status.calls} source={status.source} />
         )}
       </div>
     </section>
@@ -177,11 +178,20 @@ export default function VcfUpload({ onParsed }: VcfUploadProps) {
 }
 
 /** A plain summary of what was read. No clinical interpretation here. */
-function ParseSummary({ result, source }: { result: ParsedVcf; source: VcfSource }) {
+function ParseSummary({
+  result,
+  calls,
+  source,
+}: {
+  result: ParsedVcf;
+  calls: DiplotypeCall[];
+  source: VcfSource;
+}) {
   const noCalls = result.variants.filter(
     (v) => v.gt[0] === null || v.gt[1] === null,
   ).length;
   const phased = result.variants.filter((v) => v.phased).length;
+  const determined = calls.filter((c) => c.diplotype !== null).length;
 
   return (
     <div className="flex flex-col gap-4 rounded-lg border border-gray-200 p-4 dark:border-gray-800">
@@ -202,6 +212,10 @@ function ParseSummary({ result, source }: { result: ParsedVcf; source: VcfSource
         <dd>{phased}</dd>
         <dt className="text-gray-600 dark:text-gray-400">Lines skipped</dt>
         <dd>{result.skippedLines.length}</dd>
+        <dt className="text-gray-600 dark:text-gray-400">Genes determined</dt>
+        <dd>
+          {determined} of {calls.length}
+        </dd>
       </dl>
 
       {result.warnings.length > 0 && (

@@ -1,9 +1,9 @@
 /**
  * Browser-safe intake for PGx files. It validates the container and reports
- * coverage; it does not infer star alleles or clinical phenotypes from raw SNPs.
+ * coverage. VCFs receive research-only calls; no upload is clinically verified.
  */
 import type { GeneResult } from "./types";
-import { parseVcf } from "./parseVcf";
+import { analyzeVcf } from "./analyzeVcf";
 
 export type UploadKind = "lab_report_json" | "consumer_raw_tsv" | "vcf" | "unsupported";
 export type UploadReadiness = "review_required" | "missing_calls" | "needs_external_caller" | "invalid";
@@ -70,7 +70,7 @@ function inspectReport(text: string): UploadInspection {
 }
 
 function inspectVcf(text: string): UploadInspection {
-  const parsed = parseVcf(text);
+  const { parsed, calls } = analyzeVcf(text);
   const issues = [
     ...parsed.warnings.map((warning) => warning.message),
     ...parsed.skippedLines.slice(0, 10).map((line) => `Line ${line.line}: ${line.reason}`),
@@ -79,18 +79,22 @@ function inspectVcf(text: string): UploadInspection {
   const invalid = !parsed.fileFormat?.startsWith("VCFv4.") ||
     parsed.sampleCount !== 1 || parsed.variants.length === 0 ||
     parsed.skippedLines.length > 0 ||
-    parsed.warnings.some((warning) => warning.code === "missing_header");
+    parsed.genomeBuild !== "GRCh38" || parsed.warnings.length > 0;
   return {
     kind: "vcf",
-    readiness: invalid ? "invalid" : "needs_external_caller",
+    readiness: invalid ? "invalid" : "review_required",
     message: invalid
       ? "VCF structure or sample could not be safely read."
-      : "VCF parsed. Allele calling and quality review are still required.",
+      : "VCF parsed and research diplotypes called. Assay verification is required before medication guidance.",
     metrics: {
       records: parsed.variants.length,
       noCalls: parsed.variants.filter((variant) => variant.gt.includes(null)).length,
     },
-    geneResults: [],
+    geneResults: invalid ? [] : calls.map((call) => ({
+      gene: call.gene, diplotype: call.diplotype,
+      phenotype: call.phenotype ?? "n/a", source: call.source,
+      ambiguous: call.ambiguous,
+    })),
     issues,
   };
 }

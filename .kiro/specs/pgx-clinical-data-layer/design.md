@@ -8,7 +8,7 @@ and drug can first identify a CPIC source row for clinician review; only a
 separately reviewed snapshot can produce patient wording.
 
 ```
-trusted caller (pending) → DiplotypeCall[] + per-gene evidence
+trusted caller evidence (pending) → DiplotypeCall[] + per-gene evidence
   ├─ research-recommendation-route.ts → exact CPIC row ID for review only
   │    reads data/cpic-recommendation-routes.v1.json
   └─ assess.ts → CYP2C19/clopidogrel ACS/PCI synthetic demo only

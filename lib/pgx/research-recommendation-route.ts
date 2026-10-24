@@ -18,8 +18,6 @@ export interface ResearchRouteInput {
   population: string | null;
   calls: DiplotypeCall[];
   evidence: CallerEvidence[];
-  /** CYP2C9 recommendation keys use activity score, not phenotype wording. */
-  activityScores?: Record<string, number>;
 }
 
 export type ResearchRouteResult =
@@ -109,7 +107,7 @@ export function findResearchRecommendationRoute(input: ResearchRouteInput): Rese
     const call = calls.get(gene)!;
     const proof = evidence.get(gene);
     return !proof || call.source !== "vcf" || !call.diplotype ||
-      !call.phenotype || excludedPhenotypes.has(call.phenotype) ||
+      !call.phenotype || excludedPhenotypes.has(call.phenotype) || call.ambiguous ||
       proof.genomeBuild !== "GRCh38" || proof.coverage !== "complete" ||
       proof.quality !== "pass" || !proof.callerVersion.trim() ||
       !proof.phenotypeTableVersion.trim();
@@ -117,13 +115,14 @@ export function findResearchRecommendationRoute(input: ResearchRouteInput): Rese
 
   const numericGenes = new Set(contextRoutes.flatMap((route) =>
     Object.entries(route.lookupKey).filter(([, value]) => isNumericKey(value)).map(([gene]) => gene)));
-  if ([...numericGenes].some((gene) => !Number.isFinite(input.activityScores?.[gene]))) {
+  if ([...numericGenes].some((gene) => !Number.isFinite(Number(calls.get(gene)?.activityScore)) ||
+    calls.get(gene)?.activityScore === null || calls.get(gene)?.activityScore === "")) {
     return { status: "activity_score_required", requiredGenes };
   }
   const matches = contextRoutes.filter((route) => Object.entries(route.lookupKey).every(([gene, value]) =>
     calls.get(gene)?.phenotype === route.phenotypes[gene as keyof typeof route.phenotypes] &&
     (isNumericKey(value)
-      ? input.activityScores?.[gene] === Number(value)
+      ? Number(calls.get(gene)?.activityScore) === Number(value)
       : calls.get(gene)?.phenotype === value),
   ));
   if (!matches.length) return { status: "no_exact_source_row", requiredGenes };

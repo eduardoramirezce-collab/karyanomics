@@ -9,9 +9,9 @@ Built at **Hackachusetts 2026** · Track: **Healthcare & Biotech** · Built with
 > **Live demo:** _coming soon_
 > **Demo video:** _coming soon_
 
-**Implemented today:** a browser-only VCF parser and upload with three sample files, structural checks for PGx JSON and four-column raw text, a separate fictional guidance example, and a versioned five-row CYP2C19/clopidogrel CPIC snapshot with a patient-safe browser projection. A research-only catalog joins the **eight target genes** to **41 current CPIC A/B gene–drug pair entries** representing **34 distinct drugs**. The `/drugs` page groups these by therapeutic area and medication family, and displays their generic names plus **60 current U.S. brand-name mappings** from NLM Prescribable RxNorm. These names are display aliases, not proof of an exact product or a person's recommended medication. Uploaded VCFs are **not** converted to phenotypes or recommendations. The clinician portal, NPI check, NDC lookup, openFDA panel, validated VCF-to-phenotype caller, and reviewed recommendation coverage beyond the first pair remain planned. See [API and upload register](./docs/API_AND_UPLOAD_REGISTER.md), [clinical change log](./docs/CLINICAL_CHANGELOG.md), and [current gaps](./docs/CURRENT_GAPS.md).
+**Implemented today:** a browser-only VCF parser, eight-gene star-allele caller and upload with three sample files, structural checks for PGx JSON and four-column raw text, a Maya VCF-driven guidance demo, and a versioned five-row CYP2C19/clopidogrel CPIC snapshot with a patient-safe browser projection. A research-only catalog joins the **eight target genes** to **41 current CPIC A/B gene–drug pair entries** representing **34 distinct drugs**. The `/drugs` page groups these by therapeutic area and medication family, and displays their generic names plus **60 current U.S. brand-name mappings** from NLM Prescribable RxNorm. These names are display aliases, not proof of an exact product or a person's recommended medication. Uploaded VCFs yield research calls but no medication guidance; the bundled Maya sample reaches the clopidogrel demo through Kai's caller. The clinician portal, NPI check, NDC lookup, openFDA panel, assay-quality verification, and reviewed recommendation coverage beyond the first pair remain planned. See [API and upload register](./docs/API_AND_UPLOAD_REGISTER.md), [clinical change log](./docs/CLINICAL_CHANGELOG.md), and [current gaps](./docs/CURRENT_GAPS.md).
 
-**Team handoff:** Kai owns VCF → diplotype/phenotype (`parseVcf`, allele definitions, caller); Edu owns phenotype + drug + indication → CPIC-linked guidance (`assess`, curated snapshot, patient-safe projection). `DiplotypeCall[]` in `lib/pgx/types.ts` is the boundary. The parser and sample fixtures are merged; the allele/phenotype caller is pending. A complete, verified call is required before guidance; missing/ambiguous calls remain Indeterminate. Shared README/steering changes should be merged to `main` through review so both branches inherit one direction.
+**Team handoff:** Kai owns VCF → diplotype/phenotype (`parseVcf`, allele definitions, caller); Edu owns phenotype + drug + indication → CPIC-linked guidance (`assess`, curated snapshot, patient-safe projection). `DiplotypeCall[]` in `lib/pgx/types.ts` is the boundary. The parser, pinned PharmCAT 3.4.0 definitions, eight-gene caller, and sample fixtures are merged. The caller does not yet establish clinical assay quality. A complete, verified call is required before guidance; missing/ambiguous calls remain Indeterminate. Shared README/steering changes should be merged to `main` through review so both branches inherit one direction.
 
 **Research routing in progress:** an exact phenotype/activity-score + drug + population matcher now identifies CPIC recommendation IDs for clopidogrel, thiopurines and selected statins, and flags warfarin for its separate guideline algorithm. It returns provenance for clinician review, **not a medication recommendation to a patient**. See [phenotype-to-guidance research and caller handoff](./docs/PHENOTYPE_TO_GUIDANCE_RESEARCH.md).
 
@@ -52,12 +52,12 @@ These examples identify source pairs to investigate. Only CYP2C19 + clopidogrel 
 | Gene | Called from | Drugs |
 | --- | --- | --- |
 | CYP2C19 | VCF | clopidogrel, citalopram/escitalopram, sertraline, omeprazole |
-| CYP2C9 + VKORC1 + CYP4F2 | target; caller pending | warfarin |
-| SLCO1B1 + ABCG2 | target; caller pending | statins (pair coverage varies by gene and drug) |
-| TPMT + NUDT15 | target; caller pending | azathioprine, mercaptopurine, thioguanine |
+| CYP2C9 + VKORC1 + CYP4F2 | VCF research caller | warfarin |
+| SLCO1B1 + ABCG2 | VCF research caller | statins (pair coverage varies by gene and drug) |
+| TPMT + NUDT15 | VCF research caller | azathioprine, mercaptopurine, thioguanine |
 | CYP2D6 | outside call only; outside eight-gene target | codeine, tramadol, ondansetron |
 
-CYP2D6 cannot be reliably called from this generic VCF path because copy-number and structural analysis are needed. It comes only from an optional **outside-call** input; if none is provided it shows as **Indeterminate** with the explanation "CYP2D6 cannot be determined from this file." DPYD is outside the eight-gene target. NUDT15 is in scope, but its allele/phenotype caller remains pending.
+CYP2D6 cannot be reliably called from this generic VCF path because copy-number and structural analysis are needed. It comes only from an optional **outside-call** input; if none is provided it shows as **Indeterminate** with the explanation "CYP2D6 cannot be determined from this file." DPYD is outside the eight-gene target. NUDT15 is called in the research pipeline, subject to the same evidence limits.
 
 ---
 
@@ -65,7 +65,7 @@ CYP2D6 cannot be reliably called from this generic VCF path because copy-number 
 
 ### Current demo
 
-Open `/patient` to upload a VCF or load Maya, Alex, or Sam sample VCFs. The page shows parsed positions, no-calls, and warnings only; it does not call diplotypes or interpret uploaded files. A separate fictional phenotype example demonstrates the source-backed patient wording, and is **not** derived from the selected VCF. JSON and raw TSV intake is a separate format preview. The clinician portal remains planned. No real genetic data is stored in the repo.
+Open `/patient` to upload a VCF or load Maya, Alex, or Sam sample VCFs. The page shows parsed positions, no-calls, warnings, and a research call count; uploaded files receive no medication guidance. Loading the bundled Maya sample drives the clopidogrel/ACS-PCI demo through the caller. JSON and raw TSV intake is a separate format preview. The clinician portal remains planned. No real genetic data is stored in the repo.
 
 ### Run locally
 
@@ -83,6 +83,7 @@ Open http://localhost:3000.
 ```bash
 npm test                 # unit + property-based tests
 npm run fetch:clinpgx    # fetch an ignored candidate for review; does not update bundled data
+npm run fetch:pgx-definitions # regenerate caller definitions and phenotype table for review
 ```
 
 No API keys are required; all external APIs used are public.
@@ -91,7 +92,7 @@ No API keys are required; all external APIs used are public.
 
 ## How it works
 
-The target pipeline is below. Today, VCF input and parsing (steps 1–2) and a separate synthetic phenotype-to-guidance lookup (step 5) work. Star-allele and phenotype calling (steps 3–4), their verification gate, and the end-to-end handoff remain open:
+The target pipeline is below. Today, parsing and eight-gene calling (steps 1–4) work on the sample fixtures; the Maya fixture also reaches a separate demo guidance lookup. Clinical verification and broader recommendation coverage remain open:
 
 1. **Input:** a single-sample GRCh38 VCF (your upload or a bundled sample), plus an optional "outside call" input for CYP2D6.
 2. **Parse VCF:** read `CHROM`, `POS`, `REF`, `ALT`, and the sample's `GT` field (phased `|` or unphased `/`).
@@ -103,7 +104,7 @@ The target pipeline is below. Today, VCF input and parsing (steps 1–2) and a s
 ```
 Browser (patient + clinician screens)
   └─ PGx engine (lib/pgx):
-       VCF → parseVcf → callDiplotypes → phenotype → CPIC recommendation
+       VCF → analyzeVcf (parseVcf + callStarAlleles) → demo lookup
        (optional CYP2D6 outside call joins at the diplotype step)
          └─ reads allele definitions + cited snapshot in /data
               (genetic data never leaves the device)
@@ -113,7 +114,7 @@ Server routes (Next.js)
   └─ /api/npi   → CMS NPPES NPI Registry API
 
 Build time
-  └─ scripts/fetch-clinpgx.ts → ClinPGx / CPIC → /data/*.json
+  └─ scripts/fetch-pgx-definitions.mjs → PharmCAT / CPIC → /data/*.json
 ```
 
 **Stack:** Next.js (App Router) · TypeScript · Tailwind CSS · Vitest · fast-check · html5-qrcode
@@ -133,7 +134,8 @@ karyanomics/
 │   └── api/
 ├── lib/pgx/               # PGx engine: types, VCF parser, star-allele caller, phenotype, recommendations
 ├── data/                  # Cited gene-drug snapshot + allele definitions + sample patients
-│   ├── allele-definitions.json   # Star-allele defining positions per gene
+│   ├── allele-definitions.json   # Pinned PharmCAT defining positions for eight genes
+│   ├── cpic-diplotype-phenotypes.json # CPIC phenotype lookup
 │   └── samples/                   # PharmCAT reference outputs for each sample patient (answer key)
 ├── public/samples/        # Sample patient VCFs (Maya, Alex, Sam), fetched by the browser
 ├── scripts/               # Data snapshot scripts

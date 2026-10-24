@@ -13,7 +13,8 @@ karyanomics/
 │   └── api/               # Server routes (/api/drug, /api/npi)
 ├── lib/pgx/               # PGx engine: types, VCF parser, star-allele caller, phenotype, recommendations
 ├── data/                  # Cited gene-drug snapshot + allele definitions + sample patients
-│   ├── allele-definitions.json   # Star-allele defining positions per gene (from ClinPGx/PharmCAT)
+│   ├── allele-definitions.json         # Generated PharmCAT 3.4.0 allele definitions
+│   ├── cpic-diplotype-phenotypes.json  # Generated CPIC phenotype lookup
 │   └── samples/                   # PharmCAT reference outputs per sample patient (answer key)
 ├── scripts/               # Build-time data snapshot scripts (fetch-clinpgx.mjs)
 ├── tests/                 # Unit and property-based tests
@@ -39,48 +40,19 @@ karyanomics/
 
 ## PGx pipeline (how a VCF becomes a result)
 
-The target flow is a chain of stages that connect through fixed contracts in
-`lib/pgx/types.ts`. Today, only VCF parsing and a separate synthetic phenotype
-guidance demo run; the allele/phenotype caller is pending.
+`analyzeVcf(text)` runs the browser-only parser and Kai's eight-gene
+`callStarAlleles` against pinned PharmCAT 3.4.0 definitions and CPIC phenotype
+data. CYP2D6 remains Indeterminate without a specialized outside call.
+Missing/no-call positions become Indeterminate; assumed phase is marked
+`ambiguous: true`. The three bundled samples match PharmCAT answer keys.
 
-```
-VCF file           →  VcfVariant[]  →  "*2/*2"         →  "Poor Metabolizer"  →  cited result
-(single-sample,       (parseVcf)       (callDiplotypes)   (phenotype lookup)     (assess)
- GRCh38)
-
-                                        ▲
-                     optional CYP2D6 outside call joins here (not from the VCF)
-```
-
-- **parseVcf:** read `CHROM`, `POS`, `REF`, `ALT`, and the sample's `GT` (phased
-  `|` or unphased `/`) into `ParsedVcf` with variants, skipped lines and warnings.
-- **callDiplotypes:** match variants at defining positions (from
-  `data/allele-definitions.json`) to star alleles, producing a `DiplotypeCall`
-  per gene. Missing coverage → `Indeterminate` (never assume reference).
-- **phenotype lookup:** map a diplotype to a phenotype using CPIC tables.
-- **assess:** take a **phenotype** (plus drug and indication), look it up in
-  `/data`, and return the cited recommendation. Pure, no network or storage I/O,
-  never outputs a dose.
-- **research recommendation router:** after a trusted caller provides per-gene
-  evidence, match exact CPIC lookup keys from the versioned offline route file.
-  It returns a source row for review, not patient advice. Warfarin needs a
-  separate algorithm; a phenotype-only handoff is insufficient for it.
-
-Key points for anyone building here:
-
-- Target genes for the eventual validated caller: **CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT, NUDT15, CYP4F2, ABCG2.** VCF parsing works today; no validated allele/phenotype call is produced yet.
-- **CYP2D6 is never called from a VCF.** It comes only from an optional
-  outside-call input and joins at the diplotype stage. With no outside call,
-  CYP2D6 is `Indeterminate` ("CYP2D6 cannot be determined from this file").
-- The stages are independent and meet only at their contracts, so they can be
-  built and tested in order: `parseVcf` → `callDiplotypes` → phenotype → `assess`.
-- **Sample patients (Maya, Alex, Sam) are synthetic VCF fixtures** in `public/samples/`,
-  with PharmCAT reference outputs in `data/samples/` as the answer key. They do
-  not yet exercise the full pipeline.
-- Clinical demo wording is source-linked and awaits qualified review; do not
-  present it as verbatim or clinically approved. Allele positions are never
-  invented. The current `data/allele-definitions.json` has placeholders and
-  cannot support calls.
+The Maya sample alone reaches the CYP2C19/clopidogrel ACS/PCI demo through
+`toMayaSampleAssessment()` and the patient-safe snapshot. Its wording remains
+`humanClinicalReview: false`. Uploaded VCFs yield research calls but do not
+reach medication guidance. The research recommendation router uses exact drug,
+population, phenotype and activity-score keys and rejects ambiguous calls. It
+returns source-row IDs, not medication advice. Clinical assay quality, coverage
+provenance, clinician review and product identity remain to be implemented.
 
 ## Boundaries
 

@@ -26,12 +26,13 @@ describe("local PGx intake", () => {
     expect(result.readiness).toBe("needs_external_caller");
   });
 
-  it("recognizes a VCF but requires an external caller", () => {
+  it("recognizes a VCF but keeps research calls unverified", () => {
     const vcf = "##fileformat=VCFv4.2\n##reference=GRCh38\n#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\tSAMPLE\n1\t123\trs1\tA\tG\t.\tPASS\t.\tGT\t0/1\n";
     const result = inspectPgxUpload("test.vcf", vcf);
     expect(result.kind).toBe("vcf");
     expect(result.metrics.records).toBe(1);
-    expect(result.geneResults).toEqual([]);
+    expect(result.readiness).toBe("review_required");
+    expect(result.geneResults.every((gene) => gene.phenotype === "Indeterminate")).toBe(true);
   });
 
   it("rejects malformed VCF rows and unsupported formats", () => {

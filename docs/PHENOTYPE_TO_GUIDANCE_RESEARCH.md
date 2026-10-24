@@ -39,15 +39,15 @@ The versioned `data/cpic-recommendation-routes.v1.json` contains 134 exact CPIC 
 
 Sources: [CPIC API](https://api.cpicpgx.org/), [2022 clopidogrel guideline](https://files.cpicpgx.org/data/guideline/publication/clopidogrel/2022/35034351.pdf), [2025 thiopurine update](https://files.cpicpgx.org/data/guideline/publication/thiopurines/2026/41618934.pdf), [2022 statin guideline](https://files.cpicpgx.org/data/guideline/publication/statins/2022/publication.pdf), [2017 warfarin guideline](https://files.cpicpgx.org/data/guideline/publication/warfarin/2017/28198005.pdf).
 
-## Contract Kai's caller must satisfy
+## Caller handoff and remaining verification
 
 For **each required gene**, the handoff needs the gene symbol, diplotype/genotype, exact CPIC phenotype (or activity score where required), source/tool version, phenotype-table version, GRCh38 confirmation, coverage of all required positions, quality status, and missing/ambiguous-call status. These verification fields must come from a trusted caller or reviewed lab workflow, not be accepted from an uploaded JSON assertion. The route matcher currently accepts only complete, quality-passing VCF calls as research input; it does not turn them into patient guidance. A lab-report path needs its own verification process.
 
-PharmCAT warns that an absent VCF position is a **no-call**, not a reference allele. Kai's caller must explicitly handle reference positions, no-calls, phasing and gene-specific methods before we mark any result complete. Its sample output can be compared with PharmCAT 3.4.0 reference reports, but those examples are test fixtures, not proof that real patient data is valid. [PharmCAT VCF requirements](https://pharmcat.clinpgx.org/using/VCF-Requirements/), [PharmCAT disclaimers](https://pharmcat.clinpgx.org/Disclaimers/).
+PharmCAT warns that an absent VCF position is a **no-call**, not a reference allele. Kai's caller handles explicit reference/no-call positions and flags assumed phase; its output matches the bundled PharmCAT 3.4.0 reference reports. These fixtures do not establish assay quality or clinical validity for uploaded data. The route matcher now reads activity scores from `DiplotypeCall` and rejects `ambiguous: true` calls. There is still no trusted per-gene quality evidence, so uploaded files do not enter the guidance path. [PharmCAT VCF requirements](https://pharmcat.clinpgx.org/using/VCF-Requirements/), [PharmCAT disclaimers](https://pharmcat.clinpgx.org/Disclaimers/).
 
 ## Integration sequence
 
-1. Kai produces a validated per-gene call and evidence record. If a required gene is missing, low quality, ambiguous, or has incomplete coverage, return `Indeterminate`.
+1. Add independently validated per-gene assay evidence to Kai's existing caller output. If a required gene is missing, low quality, ambiguous, or has incomplete coverage, return `Indeterminate`.
 2. Resolve a medication to an exact ingredient/RxNorm identity. Do not infer from a fuzzy name, barcode, or adverse-event record. Require the indication/population that the guideline expects.
 3. Use the research router to identify the exact CPIC recommendation ID and confirm the guideline version. Reject missing activity scores, multi-gene gaps, multiple matches and unsupported contexts. Warfarin goes to a separate reviewed algorithm workflow.
 4. A qualified reviewer checks the source row's actual recommendation, patient population, contraindications, alternatives, wording, and ClinPGx data-usage terms. Only reviewed rows enter a versioned clinician guidance snapshot.

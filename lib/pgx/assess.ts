@@ -15,7 +15,7 @@ export function assess(input: ClinicalAssessmentInput): ClinicalAssessment {
   }
 
   const geneResult = geneResults[0];
-  if (!geneResult.diplotype || geneResult.phenotype === "Indeterminate" ||
+  if (!geneResult.diplotype || geneResult.ambiguous || geneResult.phenotype === "Indeterminate" ||
       !["vcf", "outside-call", "demo"].includes(geneResult.source)) {
     return { status: "indeterminate", reason: "missing_or_unverified_call" };
   }

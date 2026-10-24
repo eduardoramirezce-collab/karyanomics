@@ -11,7 +11,7 @@ Updated 2026-10-24. This document distinguishes **implemented** access from prop
 | CPIC `recommendation_view` research index | Candidate script only | Phenotype and lookup-key metadata for guidelines linked to the eight targets | `scripts/fetch-recommendation-index.mjs` → ignored `data/candidates/` | Not promoted to guidance; some lookup keys require genes outside our eight-gene scope. |
 | CPIC exact research routes | Implemented, offline source-row matcher | 134 source IDs/keys for clopidogrel, statins and thiopurines; warfarin guideline metadata | `scripts/build-recommendation-routes.mjs` → ignored candidate; `data/cpic-recommendation-routes.v1.json` and `lib/pgx/research-recommendation-route.ts` | No recommendation text or doses. Requires exact context, complete caller evidence and activity scores where needed; never makes patient advice. |
 | ClinPGx data usage policy | Linked and review pending | Terms | Snapshot and inventory | Confirm redistribution terms before public release; do not assume a blanket license. |
-| PharmCAT | Sample fixtures and PharmCAT 3.4.0 answer keys added; **caller not integrated** | Reference output for allele/phenotype validation | `public/samples/`, `data/samples/` | GRCh38 and all required positions, including reference/no-call; browser VCF parser does not call alleles. |
+| PharmCAT | Pinned PharmCAT 3.4.0 definitions, CPIC phenotype table, and eight-gene caller integrated | Reference output for allele/phenotype validation | `public/samples/`, `data/samples/` | GRCh38 and all required positions, including reference/no-call; browser caller produces research diplotypes/phenotypes, without clinical assay verification. |
 | 23andMe-style raw data | Local parser implemented | rsID/chromosome/position/genotype coverage counts | `lib/pgx/upload.ts` | Preview only; no clinical phenotype inference. |
 | RxNorm/RxNav product normalization | Planned | Product/NDC → exact ingredient and RxCUI | No product resolver yet | Brand names are present for display and exact alias search, but a brand string alone is insufficient to verify a scanned/entered product or clinical context. |
 | NLM RxClass API | Researched, not integrated | Standardized drug classes | No code yet | Potential later cross-check for medication families; current nine-area taxonomy is an explicitly editorial mapping to existing CPIC guideline families. See [official RxClass API](https://www.lhncbc.nlm.nih.gov/RxNav/APIs/RxClassAPIs.html) and its terms. |
@@ -23,24 +23,24 @@ Updated 2026-10-24. This document distinguishes **implemented** access from prop
 
 ## Browser upload path
 
-`file input or sample selection → local VCF parser / other-format inspector → format and no-call summary → (future: validated allele/phenotype caller and verification gate) → CPIC lookup`.
+`file input or sample selection → local VCF parser / other-format inspector → format and no-call summary → research allele/phenotype caller → (future: clinical verification gate) → CPIC lookup`.
 
 The parser currently accepts:
 
 - `karyanomics-pgx-v1` JSON with `format`, `geneResults[]` (`gene`, `diplotype`, `phenotype`, `callStatus`), plus recommended `labName`, `reportDate`, `assayMethod`, `coveredVariants`. See [`data/examples/synthetic-pgx-report.v1.json`](../data/examples/synthetic-pgx-report.v1.json). Parsed values remain **unverified** regardless of a self-declared `complete` status; they are not fed to `assess()` automatically.
-- Uncompressed VCF 4.x: Kai's `parseVcf` reads the first sample's genotypes and reports build/sample/line warnings; `VcfUpload` offers three synthetic sample files. The other-format inspector reuses this parser for VCF previews. No allele/phenotype call. A full pipeline must reject unsuitable sample/build, validate coverage, reference bases, quality, phase, and PharmCAT-required positions. CYP2D6/HLA need outside calls.
+- Uncompressed VCF 4.x: Kai's `parseVcf` reads the first sample's genotypes and reports build/sample/line warnings; `VcfUpload` offers three synthetic sample files. The other-format inspector also uses the caller for research-only VCF calls. A clinical pipeline must reject unsuitable sample/build, validate coverage, reference bases, quality, phase, and PharmCAT-required positions. CYP2D6/HLA need outside calls.
 - Four-column consumer raw TXT/TSV (`rsid`, chromosome, position, genotype): structural preflight and no-call counts only. Genome build, strand and assay coverage are not established.
 
 PDFs, compressed files, arbitrary JSON, and multi-sample VCF interpretation are not supported. All files are read in the browser; the intake code has no `fetch`, API route, local storage, or logging. The page shows only category and counts for uploads. Its assessment module imports `data/patient-guidance.v1.json`, an allowlisted public snapshot without clinician recommendation wording, strength, alternatives, or doses. `npm run build:patient-data` regenerates that file and `npm run validate:clinical` checks it against the source snapshot.
 
 ## Category meanings
 
-- `review_required`: structured report parsed, but authenticity, coverage and lab interpretation must be checked.
+- `review_required`: structured report or VCF research calls are parsed, but authenticity, coverage, assay quality and lab interpretation must be checked.
 - `missing_calls`: structured report contains an incomplete/uncertain result; no guidance.
-- `needs_external_caller`: VCF or raw SNP data needs a validated allele/phenotype workflow.
+- `needs_external_caller`: raw SNP data needs a validated allele/phenotype workflow.
 - `invalid`: file cannot be safely recognized.
 
-Only the explicitly complete fictional phenotype uses the source-backed `assess()` lookup in the UI today. Five CYP2C19 phenotypes are covered for clopidogrel/ACS-PCI; the VCF allele/phenotype caller is still unimplemented. The example is separate from the sample VCF chooser. Its wording still awaits clinical review. The UI does not expose the full CPIC recommendation or doses to a patient.
+Only the bundled Maya VCF sample uses the source-backed demo lookup in the UI today. Five CYP2C19 phenotypes are covered for clopidogrel/ACS-PCI; the bundled Maya sample now drives that demo through the VCF caller. Uploaded files do not reach guidance. Its wording still awaits clinical review. The UI does not expose the full CPIC recommendation or doses to a patient.
 
 ## Refresh and review
 

@@ -11,7 +11,7 @@ export function assessPatient(input: ClinicalAssessmentInput): PatientAssessment
     return { status: "indeterminate", message: "A verified, complete PGx call is required." };
   }
   const geneResults = input.geneResults.filter((result) => result.gene.toUpperCase() === snapshot.pair.gene);
-  if (geneResults.length !== 1 || !geneResults[0].diplotype || geneResults[0].phenotype === "Indeterminate" ||
+  if (geneResults.length !== 1 || !geneResults[0].diplotype || geneResults[0].ambiguous || geneResults[0].phenotype === "Indeterminate" ||
       !["vcf", "outside-call", "demo"].includes(geneResults[0].source)) {
     return { status: "indeterminate", message: "The PGx call could not be determined." };
   }

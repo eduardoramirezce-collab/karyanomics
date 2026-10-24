@@ -36,8 +36,8 @@ describe("source-backed PGx assessment", () => {
     ["Rapid Metabolizer", "*1/*17", 8480384, "no_pgx_change_identified"],
     ["Ultrarapid Metabolizer", "*17/*17", 8480383, "no_pgx_change_identified"],
   ] as const)("matches the exact ACS/PCI row for %s", (phenotype, diplotype, recommendationId, finding) => {
-    const calls: DiplotypeCall[] = [{ gene: "CYP2C19", diplotype, phenotype, source: "vcf" }];
-    const result = assess({ geneResults: calls, drug: "RxNorm:32968", context: "acs_pci", callStatus: "complete" });
+    const calls: DiplotypeCall[] = [{ gene: "CYP2C19", diplotype, phenotype, activityScore: null, ambiguous: false, source: "vcf" }];
+    const result = assess({ geneResults: calls.map((call) => ({ ...call, phenotype: call.phenotype ?? "Indeterminate" })), drug: "RxNorm:32968", context: "acs_pci", callStatus: "complete" });
     expect(result.status).toBe("matched");
     if (result.status !== "matched") return;
     expect(result.source.recommendationId).toBe(recommendationId);

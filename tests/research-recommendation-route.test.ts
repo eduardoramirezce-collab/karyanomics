@@ -5,8 +5,8 @@ import { findResearchRecommendationRoute } from "../lib/pgx/research-recommendat
 import type { CallerEvidence } from "../lib/pgx/research-recommendation-route";
 import type { DiplotypeCall } from "../lib/pgx/types";
 
-const call = (gene: string, phenotype: string): DiplotypeCall =>
-  ({ gene, phenotype, diplotype: "synthetic/test", source: "vcf" });
+const call = (gene: string, phenotype: string, activityScore: string | null = null): DiplotypeCall =>
+  ({ gene, phenotype, diplotype: "synthetic/test", activityScore, ambiguous: false, source: "vcf" });
 const proof = (gene: string): CallerEvidence => ({
   gene, genomeBuild: "GRCh38", coverage: "complete", quality: "pass",
   callerVersion: "test-caller", phenotypeTableVersion: "test-table",
@@ -45,6 +45,10 @@ describe("research-only phenotype to CPIC source-row routing", () => {
       ...base, calls: [call("TPMT", "Normal Metabolizer"),
         { ...call("NUDT15", "Intermediate Metabolizer"), source: "lab-report" }],
     }).status).toBe("unverified_gene_call");
+    expect(findResearchRecommendationRoute({
+      ...base, calls: [call("TPMT", "Normal Metabolizer"),
+        { ...call("NUDT15", "Intermediate Metabolizer"), ambiguous: true }],
+    }).status).toBe("unverified_gene_call");
   });
 
   it("uses the exact indication for clopidogrel and rejects a missing context", () => {
@@ -69,12 +73,13 @@ describe("research-only phenotype to CPIC source-row routing", () => {
       evidence: [proof("SLCO1B1"), proof("CYP2C9")],
     };
     expect(findResearchRecommendationRoute(fluvastatin).status).toBe("activity_score_required");
-    expect(findResearchRecommendationRoute({ ...fluvastatin, activityScores: { CYP2C9: 2 } }).status)
+    expect(findResearchRecommendationRoute({ ...fluvastatin,
+      calls: [call("SLCO1B1", "Normal Function"), call("CYP2C9", "Normal Metabolizer", "2")],
+    }).status)
       .toBe("source_row_for_clinician_review");
     expect(findResearchRecommendationRoute({
       ...fluvastatin,
-      calls: [call("SLCO1B1", "Normal Function"), call("CYP2C9", "Poor Metabolizer")],
-      activityScores: { CYP2C9: 2 },
+      calls: [call("SLCO1B1", "Normal Function"), call("CYP2C9", "Poor Metabolizer", "2")],
     }).status).toBe("no_exact_source_row");
     expect(findResearchRecommendationRoute({
       drug: "rosuvastatin", population: "general",
@@ -107,7 +112,7 @@ describe("research-only phenotype to CPIC source-row routing", () => {
     const fixtureCall = (gene: string): DiplotypeCall => {
       const row = records.get(gene)!;
       return { gene, diplotype: row["Source Diplotype"],
-        phenotype: row["Phenotype"], source: "vcf" };
+        phenotype: row["Phenotype"], activityScore: row["Activity Score"] === "n/a" ? null : row["Activity Score"], ambiguous: false, source: "vcf" };
     };
     const thiopurine = findResearchRecommendationRoute({
       drug: "azathioprine", population: "general",
@@ -122,7 +127,6 @@ describe("research-only phenotype to CPIC source-row routing", () => {
       drug: "fluvastatin", population: "general",
       calls: [fixtureCall("SLCO1B1"), fixtureCall("CYP2C9")],
       evidence: [proof("SLCO1B1"), proof("CYP2C9")],
-      activityScores: { CYP2C9: Number(records.get("CYP2C9")!["Activity Score"]) },
     });
     expect(fluvastatin.status).toBe("source_row_for_clinician_review");
     // These are reference report values, not calls made from Maya's VCF by this app.
