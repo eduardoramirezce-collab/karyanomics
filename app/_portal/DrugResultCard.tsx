@@ -1,6 +1,7 @@
 import type { DrugResult } from "../../lib/pgx/drugResult";
 import Diplotype from "./Diplotype";
 import StatusChip from "./StatusChip";
+import { textLink } from "./ui";
 
 /** Renders only what buildDrugResult returns. Clinician rows appear only on clinician results. */
 export default function DrugResultCard({ result }: { result: DrugResult }) {
@@ -78,9 +79,8 @@ export default function DrugResultCard({ result }: { result: DrugResult }) {
               <li key={index} className="rounded-lg border border-ink/10 bg-white p-3 text-sm text-ink">
                 <p className="font-semibold">{row.population ?? "No population"}</p>
                 {row.kind === "source_row" ? (
-<<<<<<< HEAD
                   <>
-                    <p>
+                    <p className="text-ink/85">
                       CPIC classification (strength): {row.classification} · Recommendation ID {row.recommendationId} ·
                       Guideline version {row.guidelineVersion} · {row.reviewNote}
                     </p>
@@ -102,12 +102,6 @@ export default function DrugResultCard({ result }: { result: DrugResult }) {
                       </p>
                     </div>
                   </>
-=======
-                  <p className="text-ink/85">
-                    CPIC classification (strength): {row.classification} · Recommendation ID {row.recommendationId} ·
-                    Guideline version {row.guidelineVersion} · {row.reviewNote}
-                  </p>
->>>>>>> origin/feature/visual-polish
                 ) : (
                   <p className="text-ink/85">{row.note}</p>
                 )}
