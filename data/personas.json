@@ -1,0 +1,18 @@
+[
+  {
+    "id": "maya",
+    "name": "Maya",
+    "fictional": true,
+    "description": "Synthetic demo case: CYP2C19 poor metabolizer after coronary stent placement.",
+    "drug": "clopidogrel",
+    "context": "acs_pci",
+    "callStatus": "complete",
+    "geneResults": [
+      {
+        "gene": "CYP2C19",
+        "diplotype": "*2/*2",
+        "phenotype": "Poor Metabolizer"
+      }
+    ]
+  }
+]

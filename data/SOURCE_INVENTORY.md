@@ -6,12 +6,12 @@ sources may support a PGx recommendation**. It is the reference for reviewers.
 
 Retrieved and verified: 2026-10-24.
 
-## Rule: only CPIC/ClinPGx content may back a PGx recommendation
+## Rule: only a specific, reviewed prescribing guideline may back an action
 
 | Source | May back a PGx recommendation? |
 | --- | --- |
-| ClinPGx / CPIC | ✅ Yes — the sole source of recommendation wording and strength |
-| PharmCAT examples | ⚠️ Input shape only — supplies example phenotype results, not recommendations |
+| CPIC guidelines via ClinPGx | ✅ Yes, for the exact gene, drug, phenotype, and indication |
+| PharmCAT examples | ⚠️ Test fixtures for phenotype and report matching, not a second independent evidence source |
 | openFDA | ❌ No — drug identity (NDC) and adverse-event reports only |
 | NPPES | ❌ No — clinician identity (NPI) only |
 
@@ -29,11 +29,10 @@ caused an event. NPI/openFDA data must never be turned into clinical advice.
   2022 update).
 - **API:** `https://api.cpicpgx.org/v1/` (PostgREST). Guideline page:
   `https://www.clinpgx.org/guideline/PA166251443`.
-- **License:** CPIC curated content is released under **CC0 1.0** (public
-  domain dedication) — see https://cpicpgx.org/license/. NOTE: this corrects the
-  README's "CC BY-SA 4.0" note, which applies to ClinPGx/PharmGKB aggregate
-  data, not to CPIC's own curated recommendation text used here. **Flagged for
-  human review**: confirm the license line in the README before submission.
+- **Usage terms:** The former CPIC license URL now redirects to the ClinPGx data
+  usage policy. The current API also points to that policy. Do **not** assume
+  CPIC API output is CC0 without confirming the applicable terms. Keep data
+  attribution and confirm the exact license before public redistribution.
 
 ## 2. PharmCAT examples
 
@@ -43,8 +42,9 @@ caused an event. NPI/openFDA data must never be turned into clinical advice.
   terms match the CPIC vocabulary, which is what lets a PharmCAT result be
   matched against CPIC recommendations.
 - **Source:** https://pharmcat.clinpgx.org/examples/
-- **Use here:** defines the `PhenotypeInput` contract only. We do **not** import
-  PharmCAT recommendation output; recommendations come from CPIC.
+- **Use here:** regression examples for phenotype calls and report structure.
+  We do **not** treat PharmCAT reports as independent corroboration of the CPIC
+  recommendation they display.
 
 ## 3. openFDA
 
@@ -83,7 +83,7 @@ respectively.
 
 ## Items flagged for human review
 
-- **README license line** vs CPIC CC0 (see section 1).
+- **README license line** and CPIC API redistribution terms (see section 1).
 - Any gene–drug pair added later must have its source URL + guideline version
   verified against the CPIC API before it is marked reviewed (not
   `needsHumanReview`).

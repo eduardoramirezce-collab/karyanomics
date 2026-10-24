@@ -30,7 +30,10 @@ A reviewed projection of the CPIC CYP2C19/clopidogrel guideline. Shape:
 - each recommendation: `phenotype`, `indication`, `strength`,
   `recommendation`, `implications`, `comments`, `needsHumanReview`
 
-All text fields are copied verbatim from the CPIC API; none are authored here.
+The snapshot contains short, source-backed demo explanations keyed to CPIC
+recommendation IDs. These paraphrases are explicitly marked as not yet
+clinically reviewed. A refresh creates an ignored candidate file; it does not
+replace this snapshot automatically.
 
 ### Types: `lib/pgx/types.ts`
 

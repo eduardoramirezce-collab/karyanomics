@@ -40,8 +40,9 @@ a real source and reviewers can audit it.
    file.
 4. IF a source mapping is uncertain or unverified THEN the system SHALL mark it
    with a `needs_human_review` flag rather than presenting it as reviewed.
-5. THE system SHALL NOT contain clinical recommendation wording that was
-   generated from model memory; all wording SHALL be copied from the cited source.
+5. THE system SHALL NOT contain clinical recommendation wording generated
+   from model memory. A source-backed paraphrase SHALL retain its source ID
+   and SHALL be marked as awaiting qualified clinical review.
 
 ### Requirement 2: Shared types
 

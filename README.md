@@ -139,7 +139,7 @@ See [`KIRO_LOG.md`](./KIRO_LOG.md) and the [`.kiro/`](./.kiro) directory for the
 
 | Source | Used for | License / note |
 | --- | --- | --- |
-| [ClinPGx](https://www.clinpgx.org/) (PharmGKB + CPIC) | Gene-drug pairs, guidelines, variant data | CC BY-SA 4.0 |
+| [ClinPGx](https://www.clinpgx.org/) (PharmGKB + CPIC) | Gene-drug pairs, guidelines, variant data | Review the [current data usage policy](https://www.clinpgx.org/page/dataUsagePolicy) before redistribution. |
 | [CPIC guidelines](https://cpicpgx.org/guidelines/) | Phenotype-based recommendations | Cited per recommendation |
 | [openFDA](https://open.fda.gov/) | NDC lookup, drug adverse event reports | U.S. FDA public data. A report is not proof the drug caused the event. |
 | [CMS NPPES NPI Registry](https://npiregistry.cms.hhs.gov/) | Clinician NPI verification | U.S. CMS public data |
@@ -161,4 +161,13 @@ Karyanomics is a hackathon prototype for education and demonstration only. It is
 
 ## License
 
-Code: MIT. Bundled data in `/data` derived from ClinPGx is shared under CC BY-SA 4.0.
+Code: MIT. Licensing of bundled source-derived data must be confirmed against the current [ClinPGx data usage policy](https://www.clinpgx.org/page/dataUsagePolicy) before redistribution.
+
+## Clinical data work in progress
+
+The first source-backed engine path is CYP2C19 + clopidogrel for ACS/PCI, using
+synthetic input. See [clinical data pipeline](./docs/CLINICAL_DATA_PIPELINE.md)
+for source roles, test-input requirements, refresh steps, and the limits of PGx
+interpretation. The bundled explanations are marked as awaiting qualified
+clinical review. `npm run fetch:clinpgx` writes an ignored candidate snapshot;
+it does not silently replace the app's checked demo data.

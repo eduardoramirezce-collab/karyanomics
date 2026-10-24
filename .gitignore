@@ -38,6 +38,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# API refreshes are candidates until clinical review; do not publish them by accident.
+/data/candidates/
 next-env.d.ts
 # Kiro: keep the .kiro folder tracked (specs, steering, hooks, settings)
 !.kiro/

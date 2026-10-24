@@ -51,3 +51,44 @@ export interface DrugAssessment {
   /** Human-readable source/guideline this assessment cites. */
   source: string;
 }
+
+/** Context is part of the lookup key; it must be confirmed, not guessed. */
+export type ClinicalContext = "acs_pci";
+
+export interface ClinicalAssessmentInput {
+  geneResults: GeneResult[];
+  drug: string;
+  context: ClinicalContext | null;
+  /** Complete means all positions required for the reported phenotype were assessed. */
+  callStatus: "complete" | "incomplete" | "unverified";
+}
+
+export type ClinicalAssessment =
+  | {
+      status: "matched";
+      gene: string;
+      drug: string;
+      phenotype: string;
+      context: ClinicalContext;
+      strength: string;
+      finding: "reduced_activation" | "no_pgx_change_identified";
+      patientText: string;
+      clinicianSummary: string;
+      source: {
+        guidelineUrl: string;
+        guidelineVersion: number;
+        publicationPmid: string;
+        recommendationId: number;
+        retrievedAt: string;
+      };
+      humanClinicalReview: boolean;
+    }
+  | {
+      status: "indeterminate" | "insufficient_data";
+      reason:
+        | "missing_or_unverified_call"
+        | "ambiguous_gene_result"
+        | "unsupported_pair"
+        | "context_required"
+        | "unsupported_phenotype";
+    };

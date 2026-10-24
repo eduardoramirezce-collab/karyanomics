@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "snapshotId": "cpic-cyp2c19-clopidogrel-2026-10-24",
+  "retrievedAt": "2026-10-24",
+  "reviewStatus": "source_checked_demo_only",
+  "source": {
+    "name": "CPIC",
+    "guidelineId": "PA166251443",
+    "guidelineVersion": 71,
+    "guidelineUrl": "https://www.clinpgx.org/guideline/PA166251443",
+    "apiUrl": "https://api.cpicpgx.org/v1/recommendation_view?drugname=eq.clopidogrel",
+    "publicationPmid": "35034351",
+    "usageTermsUrl": "https://www.clinpgx.org/page/dataUsagePolicy"
+  },
+  "pair": {
+    "gene": "CYP2C19",
+    "drug": "clopidogrel",
+    "rxnormId": "RxNorm:32968",
+    "cpicLevel": "A"
+  },
+  "records": [
+    {
+      "sourceRecommendationId": 8480389,
+      "phenotype": "Poor Metabolizer",
+      "context": "acs_pci",
+      "strength": "Strong",
+      "finding": "reduced_activation",
+      "patientText": "Your CYP2C19 result may reduce how well clopidogrel works for this condition. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": "CPIC guidance for CYP2C19 poor metabolizers with ACS or PCI supports considering an alternative antiplatelet when appropriate. Review the full guideline and contraindications.",
+      "humanClinicalReview": false
+    },
+    {
+      "sourceRecommendationId": 8480385,
+      "phenotype": "Normal Metabolizer",
+      "context": "acs_pci",
+      "strength": "Strong",
+      "finding": "no_pgx_change_identified",
+      "patientText": "This CYP2C19 result does not identify a clopidogrel-related genetic change covered by this guideline. Other factors still affect treatment.",
+      "clinicianSummary": "The CPIC guideline does not call for a CYP2C19-based change for a normal metabolizer with ACS or PCI. Review the full guideline and patient context.",
+      "humanClinicalReview": false
+    }
+  ]
+}
