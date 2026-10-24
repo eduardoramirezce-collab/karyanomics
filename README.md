@@ -125,7 +125,8 @@ karyanomics/
 ├── lib/pgx/               # PGx engine: types, VCF parser, star-allele caller, phenotype, recommendations
 ├── data/                  # Cited gene-drug snapshot + allele definitions + sample patients
 │   ├── allele-definitions.json   # Star-allele defining positions per gene
-│   └── samples/                   # Sample VCFs + PharmCAT reference outputs (answer key)
+│   └── samples/                   # PharmCAT reference outputs for each sample patient (answer key)
+├── public/samples/        # Sample patient VCFs (Maya, Alex, Sam), fetched by the browser
 ├── scripts/               # Data snapshot scripts
 ├── tests/                 # Unit and property-based tests
 └── KIRO_LOG.md            # Running log of how we used Kiro

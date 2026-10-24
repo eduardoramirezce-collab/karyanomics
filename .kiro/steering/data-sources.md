@@ -11,7 +11,13 @@ fileMatchPattern: ["lib/pgx/**", "data/**", "scripts/**"]
 
 ## VCF allele calling
 
-- PharmCAT example files in `data/samples/` are the answer key. Tests must check
-  that `callDiplotypes` on `maya.vcf` produces the same CYP2C19 diplotype and
-  phenotype as `maya.phenotype.json`.
+- PharmCAT reference outputs in `data/samples/` are the answer key for the sample
+  VCFs in `public/samples/`. Tests must check that `callDiplotypes` on
+  `public/samples/maya.vcf` produces the same CYP2C19 diplotype and phenotype as
+  `data/samples/maya.phenotype.json`.
+- Sample provenance (answer keys generated with PharmCAT 3.4.0):
+  - `maya.vcf`: PharmCAT example 2 VCF, unmodified (CYP2C19 *2/*2).
+  - `alex.vcf`: PharmCAT example 1 VCF, unmodified (all reference).
+  - `sam.vcf`: PharmCAT example 1 with GT set to 0/1 at rs1057910, rs4149056,
+    rs9923231 (existing PharmCAT rows, no coordinates added).
 - Never invent allele positions; read them from `data/allele-definitions.json`.

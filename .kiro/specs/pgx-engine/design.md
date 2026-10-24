@@ -17,7 +17,7 @@ app/ (patient UI)
          reads
            data/allele-definitions.json       (allele defining positions)
            data/cpic-*.v1.json                 (reviewed, versioned, cited)
-           data/samples/*.vcf + *.phenotype.json (answer key)
+           public/samples/*.vcf + data/samples/*.phenotype.json (answer key)
          types from
            lib/pgx/types.ts
 ```
@@ -72,7 +72,7 @@ Never returns a dose; never calls the network.
   (CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT). Positions sourced from
   ClinPGx/PharmCAT, never invented. Currently placeholder (`TODO`) coordinates.
 - `data/cpic-cyp2c19-clopidogrel.v1.json`: reviewed CPIC recommendation, verbatim.
-- `data/samples/maya.vcf` + `data/samples/maya.phenotype.json`: a synthetic
+- `public/samples/maya.vcf` + `data/samples/maya.phenotype.json`: a synthetic
   sample patient and its PharmCAT reference output (the answer key).
 
 ## Identifier map (how sources connect)

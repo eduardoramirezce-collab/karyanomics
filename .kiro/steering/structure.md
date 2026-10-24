@@ -14,10 +14,11 @@ karyanomics/
 ├── lib/pgx/               # PGx engine: types, VCF parser, star-allele caller, phenotype, recommendations
 ├── data/                  # Cited gene-drug snapshot + allele definitions + sample patients
 │   ├── allele-definitions.json   # Star-allele defining positions per gene (from ClinPGx/PharmCAT)
-│   └── samples/                   # Sample VCFs + PharmCAT reference outputs (answer key)
+│   └── samples/                   # PharmCAT reference outputs per sample patient (answer key)
 ├── scripts/               # Build-time data snapshot scripts (fetch-clinpgx.ts)
 ├── tests/                 # Unit and property-based tests
 ├── public/                # Static assets
+│   └── samples/           # Sample patient VCFs (maya, alex, sam), fetched by the browser
 └── KIRO_LOG.md            # Running log of how Kiro was used
 ```
 
@@ -68,8 +69,8 @@ Key points for anyone building here:
   CYP2D6 is `Indeterminate` ("CYP2D6 cannot be determined from this file").
 - The stages are independent and meet only at their contracts, so they can be
   built and tested in order: `parseVcf` → `callDiplotypes` → phenotype → `assess`.
-- **Sample patients (e.g. Maya) are real VCF files** in `data/samples/`, with a
-  PharmCAT reference output as the answer key. They are synthetic (not real
+- **Sample patients (Maya, Alex, Sam) are real VCF files** in `public/samples/`,
+  with PharmCAT reference outputs in `data/samples/` as the answer key. They are synthetic (not real
   people) but exercise the full pipeline end to end.
 - Clinical wording is never synthetic: it is copied verbatim from the cited CPIC
   source in `/data`. Allele positions are never invented: they come from
