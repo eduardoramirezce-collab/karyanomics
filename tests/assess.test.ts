@@ -22,7 +22,7 @@ describe("source-backed PGx assessment", () => {
     const result = assess({
       ...maya,
       geneResults: [
-        { gene: "CYP2C19", diplotype: "*1/*1", phenotype: "Normal Metabolizer" },
+        { gene: "CYP2C19", diplotype: "*1/*1", phenotype: "Normal Metabolizer", source: "demo" },
       ],
     });
     expect(result.status).toBe("matched");
@@ -35,7 +35,7 @@ describe("source-backed PGx assessment", () => {
     [{ ...maya, callStatus: "incomplete" }],
     [{ ...maya, callStatus: "unverified" }],
     [{ ...maya, geneResults: [] }],
-    [{ ...maya, geneResults: [{ gene: "CYP2C19", diplotype: null, phenotype: "Indeterminate" }] }],
+    [{ ...maya, geneResults: [{ gene: "CYP2C19", diplotype: null, phenotype: "Indeterminate", source: "vcf" }] }],
   ] as const)("does not interpret incomplete or ambiguous genetic input", (input) => {
     expect(assess(input as ClinicalAssessmentInput).status).toBe("indeterminate");
   });
@@ -52,7 +52,7 @@ describe("source-backed PGx assessment", () => {
     expect(
       assess({
         ...maya,
-        geneResults: [{ gene: "CYP2C19", diplotype: "*1/*2", phenotype: "Intermediate Metabolizer" }],
+        geneResults: [{ gene: "CYP2C19", diplotype: "*1/*2", phenotype: "Intermediate Metabolizer", source: "vcf" }],
       }).status,
     ).toBe("insufficient_data");
   });

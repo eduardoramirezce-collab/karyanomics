@@ -18,7 +18,9 @@ inclusion: always
 
 ## Data integrity
 - Never invent clinical content. Every recommendation must come from data/recommendations.json, and every entry must cite a CPIC guideline and a PMID.
-- If a gene has no data for this user, or cannot be determined (e.g. CYP2D6 from a raw file), return "Indeterminate". Never guess a phenotype.
+- If a gene has no data for this user, or cannot be determined (e.g. CYP2D6, which is not callable from a VCF), return "Indeterminate". Never guess a phenotype.
+- If a VCF lacks coverage at any defining position for a gene, return "Indeterminate" for that gene. Never assume reference.
+- Reject VCFs that are not single-sample or not GRCh38 with a clear user-facing error.
 - openFDA adverse event data must always be shown with: "These are reports, not proof the drug caused the reaction."
 
 ## Privacy

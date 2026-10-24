@@ -11,7 +11,8 @@
       {
         "gene": "CYP2C19",
         "diplotype": "*2/*2",
-        "phenotype": "Poor Metabolizer"
+        "phenotype": "Poor Metabolizer",
+        "source": "demo"
       }
     ]
   }

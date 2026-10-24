@@ -53,7 +53,7 @@ function inspectReport(text: string): UploadInspection {
     }
     if (seen.has(row.gene)) return empty("lab_report_json", "invalid", "Duplicate gene results were found.");
     seen.add(row.gene);
-    genes.push({ gene: row.gene, diplotype: row.diplotype as string | null, phenotype: row.phenotype });
+    genes.push({ gene: row.gene, diplotype: row.diplotype as string | null, phenotype: row.phenotype, source: "lab-report" });
     if (row.callStatus !== "complete" || !row.diplotype || row.phenotype === "Indeterminate") noCalls++;
   }
   const issues = ["Upload metadata is self-reported; a clinician/lab must verify assay coverage, quality and result authenticity before clinical use."];

@@ -11,9 +11,15 @@ fileMatchPattern: ["data/**/*", "lib/pgx/**/*", "scripts/**/*", "tests/**/*"]
 - Key guidance by gene, normalized drug identifier, phenotype, and clinical indication. A gene-drug pair alone is not enough.
 - Preserve guideline ID, version, recommendation ID, retrieval date, strength, PMID, source URL, and review status.
 - Distinguish a complete reference call from a missing position, no-call, unsupported allele, and unverified test report. None means normal.
-- Consumer-array text and VCF uploads require preflight checks; they do not directly establish a star-allele diplotype or clinical phenotype.
 - Never claim a normal metabolizer will respond well or that a drug is safe. PGx covers only specific genetic factors.
 - Never use openFDA adverse-event counts, population allele frequencies, or NPI lookup to infer an individual's medication response.
-- CYP2D6 and HLA calls need specialized methods; do not infer them from a few consumer-array SNPs.
+- CYP2D6 and HLA calls need specialized methods; do not infer them from a few VCF SNPs.
 - PubMed citation URLs use `https://pubmed.ncbi.nlm.nih.gov/<PMID>/`.
 - Clinical text remains `humanClinicalReview: false` until a qualified reviewer checks wording and population match.
+
+## VCF-to-phenotype handoff (Kai)
+
+- `data/allele-definitions.json` currently contains TODO placeholders, not usable allele coordinates. Never use them for a real call.
+- PharmCAT example VCF and phenotype output can be used as reference fixtures only after the exact downloaded version and provenance are recorded.
+- Missing required reference/no-call positions, unknown GRCh38 status, phase ambiguity, or unsupported allele calls resolve to `Indeterminate`. Never assume variants in trans or infer `*1` from a variant-only VCF.
+- The phenotype-to-guidance side consumes a `DiplotypeCall[]` only when the caller's coverage and quality checks are complete.

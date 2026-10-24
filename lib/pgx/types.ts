@@ -8,11 +8,11 @@
 
 /**
  * A single gene's result for a person: the raw diplotype and the
- * phenotype it calls. CYP2D6 from consumer arrays may be indeterminate,
- * so the phenotype can be unknown.
+ * phenotype it calls. CYP2D6 is never callable from a VCF, so the
+ * phenotype can be "Indeterminate".
  */
 export interface GeneResult {
-  /** Gene symbol, e.g. "CYP2C19", "CYP2D6", "SLCO1B1". */
+  /** Gene symbol, e.g. "CYP2C19", "CYP2C9", "SLCO1B1". */
   gene: string;
   /** Star-allele diplotype, e.g. "*1/*2". Null if not determinable. */
   diplotype: string | null;
@@ -21,6 +21,62 @@ export interface GeneResult {
    * e.g. "Poor Metabolizer". "Indeterminate" when it can't be called.
    */
   phenotype: string;
+  /** Where this result came from: VCF calling, or an external CYP2D6 outside call. */
+  source: "vcf" | "outside-call" | "lab-report" | "demo";
+}
+
+/**
+ * One variant record read from a single-sample VCF: the position, the
+ * reference and alternate alleles, and the sample's genotype call.
+ */
+export interface VcfVariant {
+  /** Chromosome, e.g. "chr10" or "10" as written in the VCF. */
+  chrom: string;
+  /** 1-based position on the chromosome. */
+  pos: number;
+  /** Reference allele. */
+  ref: string;
+  /** Alternate allele(s) from the ALT column. */
+  alt: string[];
+  /**
+   * The sample's genotype as allele indices (0 = REF, 1 = first ALT, ...).
+   * e.g. [1, 1] for a homozygous ALT call.
+   */
+  gt: [number, number];
+  /** True if the GT was phased ("|"), false if unphased ("/"). */
+  phased: boolean;
+}
+
+/**
+ * The defining variants for a single star allele of a gene. A diplotype
+ * is called by matching VcfVariant calls against these definitions.
+ * Coordinates are sourced from ClinPGx/PharmCAT, never invented.
+ */
+export interface AlleleDefinition {
+  /** Gene symbol, e.g. "CYP2C19". */
+  gene: string;
+  /** Star-allele name, e.g. "*2". */
+  allele: string;
+  /** Positions and alleles that define this star allele. */
+  variants: { chrom: string; pos: number; ref: string; alt: string }[];
+}
+
+/**
+ * The called diplotype and phenotype for one gene, with its source. A
+ * null diplotype with phenotype "Indeterminate" means the gene could not
+ * be called (missing coverage, or CYP2D6 with no outside call).
+ */
+export interface DiplotypeCall {
+  /** Gene symbol, e.g. "CYP2C19". */
+  gene: string;
+  /** Star-allele diplotype, e.g. "*2/*2". Null if not determinable. */
+  diplotype: string | null;
+  /** Phenotype derived from the diplotype, or "Indeterminate". */
+  phenotype: string;
+  /** Where this call came from. */
+  source: "vcf" | "outside-call";
+  /** Optional human-readable note, e.g. why a gene is Indeterminate. */
+  note?: string;
 }
 
 /** Patient-facing outcome level for a gene-drug pair. */
@@ -51,6 +107,7 @@ export interface DrugAssessment {
   /** Human-readable source/guideline this assessment cites. */
   source: string;
 }
+
 
 /** Context is part of the lookup key; it must be confirmed, not guessed. */
 export type ClinicalContext = "acs_pci";

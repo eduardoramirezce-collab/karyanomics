@@ -1,0 +1,131 @@
+{
+  "_comment": "Star-allele defining positions per gene, read by callDiplotypes(). Allele names only for now. Every chrom/pos/ref/alt is a TODO placeholder: Kai will fill these from ClinPGx/PharmCAT. NEVER invent genomic coordinates.",
+  "genome": "GRCh38",
+  "source": "TODO: ClinPGx / PharmCAT allele definition tables",
+  "retrievedAt": "TODO",
+  "genes": [
+    {
+      "gene": "CYP2C19",
+      "alleles": [
+        {
+          "gene": "CYP2C19",
+          "allele": "*1",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        },
+        {
+          "gene": "CYP2C19",
+          "allele": "*2",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        },
+        {
+          "gene": "CYP2C19",
+          "allele": "*3",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        },
+        {
+          "gene": "CYP2C19",
+          "allele": "*17",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        }
+      ]
+    },
+    {
+      "gene": "CYP2C9",
+      "alleles": [
+        {
+          "gene": "CYP2C9",
+          "allele": "*1",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        },
+        {
+          "gene": "CYP2C9",
+          "allele": "*2",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        },
+        {
+          "gene": "CYP2C9",
+          "allele": "*3",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        }
+      ]
+    },
+    {
+      "gene": "VKORC1",
+      "alleles": [
+        {
+          "gene": "VKORC1",
+          "allele": "-1639G>A (rs9923231)",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        }
+      ]
+    },
+    {
+      "gene": "SLCO1B1",
+      "alleles": [
+        {
+          "gene": "SLCO1B1",
+          "allele": "*1",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        },
+        {
+          "gene": "SLCO1B1",
+          "allele": "*5",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        }
+      ]
+    },
+    {
+      "gene": "TPMT",
+      "alleles": [
+        {
+          "gene": "TPMT",
+          "allele": "*1",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        },
+        {
+          "gene": "TPMT",
+          "allele": "*2",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        },
+        {
+          "gene": "TPMT",
+          "allele": "*3A",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        },
+        {
+          "gene": "TPMT",
+          "allele": "*3C",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        }
+      ]
+    }
+  ]
+}

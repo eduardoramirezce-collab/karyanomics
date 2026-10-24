@@ -20,7 +20,7 @@ The same prescription can work well for one person, do nothing for another, and 
 ## What Karyanomics does
 
 ### Patient side
-- **Load a genotype:** pick a demo persona, or upload a 23andMe-style raw data file. The file is parsed **in your browser and never uploaded**.
+- **Load a genotype:** upload a VCF file, or load one of three sample patients. The file is parsed **in your browser and never uploaded**.
 - **Scan or search a medication:** scan the barcode (NDC) on a pill bottle with your phone camera, or type the drug name.
 - **Get a plain-language result:** one of three levels, with a short explanation and the guideline it comes from:
   - ✅ Typical response expected
@@ -39,16 +39,15 @@ The patient side **never tells anyone to start, stop, or change a dose**. That d
 
 ### Gene-drug coverage (CPIC level A)
 
-| Gene | Drugs |
-| --- | --- |
-| CYP2C19 | clopidogrel, citalopram/escitalopram, sertraline, omeprazole |
-| CYP2D6 | codeine, tramadol, ondansetron |
-| CYP2C9 + VKORC1 | warfarin |
-| SLCO1B1 | simvastatin |
-| TPMT / NUDT15 | azathioprine, mercaptopurine |
-| DPYD | fluorouracil, capecitabine |
+| Gene | Called from | Drugs |
+| --- | --- | --- |
+| CYP2C19 | VCF | clopidogrel, citalopram/escitalopram, sertraline, omeprazole |
+| CYP2C9 + VKORC1 | VCF | warfarin |
+| SLCO1B1 | VCF | simvastatin |
+| TPMT | VCF | azathioprine, mercaptopurine |
+| CYP2D6 | outside call only | codeine, tramadol, ondansetron |
 
-CYP2D6 can't be reliably determined from consumer genotyping arrays (copy-number variation), so raw-file results show it as **Indeterminate** rather than guessing.
+CYP2D6 can't be called from a VCF (it needs copy-number and structural analysis that genotyping/VCF data doesn't capture). It comes only from an optional **outside-call** input; if none is provided it shows as **Indeterminate** with the explanation "CYP2D6 cannot be determined from this file." DPYD and NUDT15 are out of scope for VCF calling today.
 
 ---
 
@@ -56,10 +55,10 @@ CYP2D6 can't be reliably determined from consumer genotyping arrays (copy-number
 
 ### For judges
 1. Open the live demo link above (no login required).
-2. **Patient:** choose a demo persona, e.g. **Maya** (CYP2C19 poor metabolizer), then search `clopidogrel`. Try **Dev** (CYP2D6 ultrarapid metabolizer) with `codeine`.
+2. **Patient:** click **Load sample patient: Maya**, then search `clopidogrel`. The app parses Maya's VCF, calls her CYP2C19 diplotype (`*2/*2` → Poor Metabolizer), and shows the result.
 3. **Clinician:** click **"I'm a clinician"**, then **"Judge demo access"** to view the full clinical detail without a real NPI.
 
-All personas are fictional. No real genetic data is stored in this repo.
+All sample patients are synthetic. No real genetic data is stored in this repo.
 
 ### Run locally
 
@@ -85,11 +84,22 @@ No API keys are required; all external APIs used are public.
 
 ## How it works
 
+The app computes everything from a genotype file. The pipeline:
+
+1. **Input:** a single-sample GRCh38 VCF (your upload or a bundled sample), plus an optional "outside call" input for CYP2D6.
+2. **Parse VCF:** read `CHROM`, `POS`, `REF`, `ALT`, and the sample's `GT` field (phased `|` or unphased `/`).
+3. **Call star alleles:** match variants at defined positions to star alleles and produce a diplotype per gene (e.g. CYP2C19 `*2/*2`).
+4. **Diplotype → phenotype** using CPIC tables (e.g. Poor Metabolizer).
+5. **Phenotype + drug → CPIC recommendation.**
+6. **Report:** a plain-language patient view, and a clinician view behind the NPI gate.
+
 ```
 Browser (patient + clinician screens)
-  └─ PGx engine (lib/pgx): genotype → phenotype → CPIC recommendation
-       └─ reads a bundled, cited snapshot in /data
-            (genetic data never leaves the device)
+  └─ PGx engine (lib/pgx):
+       VCF → parseVcf → callDiplotypes → phenotype → CPIC recommendation
+       (optional CYP2D6 outside call joins at the diplotype step)
+         └─ reads allele definitions + cited snapshot in /data
+              (genetic data never leaves the device)
 
 Server routes (Next.js)
   ├─ /api/drug  → openFDA NDC + drug adverse event APIs
@@ -114,8 +124,10 @@ karyanomics/
 │   ├── patient/
 │   ├── physician/
 │   └── api/
-├── lib/pgx/               # PGx engine: types, phenotype calls, recommendations, raw-file parser
-├── data/                  # Curated gene-drug snapshot + demo personas
+├── lib/pgx/               # PGx engine: types, VCF parser, star-allele caller, phenotype, recommendations
+├── data/                  # Cited gene-drug snapshot + allele definitions + sample patients
+│   ├── allele-definitions.json   # Star-allele defining positions per gene
+│   └── samples/                   # Sample VCFs + PharmCAT reference outputs (answer key)
 ├── scripts/               # Data snapshot scripts
 ├── tests/                 # Unit and property-based tests
 └── KIRO_LOG.md            # Running log of how we used Kiro
@@ -143,6 +155,7 @@ See [`KIRO_LOG.md`](./KIRO_LOG.md) and the [`.kiro/`](./.kiro) directory for the
 | --- | --- | --- |
 | [ClinPGx](https://www.clinpgx.org/) (PharmGKB + CPIC) | Gene-drug pairs, guidelines, variant data | Review the [current data usage policy](https://www.clinpgx.org/page/dataUsagePolicy) before redistribution. |
 | [CPIC guidelines](https://cpicpgx.org/guidelines/) | Phenotype-based recommendations | Cited per recommendation |
+| [PharmCAT](https://pharmcat.org) | Sample VCFs and reference outputs used to validate our allele caller | See PharmCAT terms |
 | [openFDA](https://open.fda.gov/) | NDC lookup, drug adverse event reports | U.S. FDA public data. A report is not proof the drug caused the event. |
 | [CMS NPPES NPI Registry](https://npiregistry.cms.hhs.gov/) | Clinician NPI verification | U.S. CMS public data |
 | [PubMed / NCBI](https://pubmed.ncbi.nlm.nih.gov/) | Citations (PMIDs) | U.S. NLM public data |
