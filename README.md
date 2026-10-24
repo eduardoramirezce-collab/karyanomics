@@ -9,9 +9,9 @@ Built at **Hackachusetts 2026** · Track: **Healthcare & Biotech** · Built with
 > **Live demo:** _coming soon_
 > **Demo video:** _coming soon_
 
-**Implemented today:** a browser-only file intake page (`/patient`), structural checks for PGx JSON / VCF / four-column raw text, a fictional Maya example, and a versioned five-row CPIC snapshot with a separate patient-safe browser snapshot. Uploaded files are **not** interpreted into recommendations. The clinician portal, NPI check, NDC lookup, openFDA panel, validated VCF-to-phenotype caller, and broader gene–drug coverage below are planned, not yet implemented. See [API and upload register](./docs/API_AND_UPLOAD_REGISTER.md), [clinical change log](./docs/CLINICAL_CHANGELOG.md), and [current gaps](./docs/CURRENT_GAPS.md).
+**Implemented today:** a browser-only VCF parser and upload with three sample files, structural checks for PGx JSON and four-column raw text, a separate fictional guidance example, and a versioned five-row CPIC snapshot with a patient-safe browser projection. Uploaded VCFs are **not** converted to phenotypes or recommendations. The clinician portal, NPI check, NDC lookup, openFDA panel, validated VCF-to-phenotype caller, and broader gene–drug coverage below are planned. See [API and upload register](./docs/API_AND_UPLOAD_REGISTER.md), [clinical change log](./docs/CLINICAL_CHANGELOG.md), and [current gaps](./docs/CURRENT_GAPS.md).
 
-**Team handoff:** Kai owns VCF → diplotype/phenotype (`parseVcf`, allele definitions, caller); Edu owns phenotype + drug + indication → CPIC-linked guidance (`assess`, reviewed snapshot, patient-safe projection). `DiplotypeCall[]` in `lib/pgx/types.ts` is the boundary. A complete, verified call is required before guidance; missing/ambiguous calls remain Indeterminate. Shared README/steering changes should be merged to `main` through review so both branches inherit one direction.
+**Team handoff:** Kai owns VCF → diplotype/phenotype (`parseVcf`, allele definitions, caller); Edu owns phenotype + drug + indication → CPIC-linked guidance (`assess`, curated snapshot, patient-safe projection). `DiplotypeCall[]` in `lib/pgx/types.ts` is the boundary. The parser and sample fixtures are merged; the allele/phenotype caller is pending. A complete, verified call is required before guidance; missing/ambiguous calls remain Indeterminate. Shared README/steering changes should be merged to `main` through review so both branches inherit one direction.
 
 ---
 
@@ -57,7 +57,7 @@ CYP2D6 can't be called from a VCF (it needs copy-number and structural analysis 
 
 ### Current demo
 
-Open `/patient` and show the fictional Maya example. The browser intake can recognize VCF, PGx JSON, and raw TSV formats, but it does not yet call diplotypes or interpret uploaded files. The clinician portal and three-VCF-sample flow described below are planned. No real genetic data is stored in the repo.
+Open `/patient` to upload a VCF or load Maya, Alex, or Sam sample VCFs. The page shows parsed positions, no-calls, and warnings only; it does not call diplotypes or interpret uploaded files. A separate fictional phenotype example demonstrates the source-backed patient wording, and is **not** derived from the selected VCF. JSON and raw TSV intake is a separate format preview. The clinician portal remains planned. No real genetic data is stored in the repo.
 
 ### Run locally
 
@@ -83,7 +83,7 @@ No API keys are required; all external APIs used are public.
 
 ## How it works
 
-The target pipeline is below. Today, the VCF-to-phenotype caller is still being built; only the synthetic Maya phenotype exercises the guidance lookup:
+The target pipeline is below. Today, VCF input and parsing (steps 1–2) and a separate synthetic phenotype-to-guidance lookup (step 5) work. Star-allele and phenotype calling (steps 3–4), their verification gate, and the end-to-end handoff remain open:
 
 1. **Input:** a single-sample GRCh38 VCF (your upload or a bundled sample), plus an optional "outside call" input for CYP2D6.
 2. **Parse VCF:** read `CHROM`, `POS`, `REF`, `ALT`, and the sample's `GT` field (phased `|` or unphased `/`).
@@ -126,7 +126,8 @@ karyanomics/
 ├── lib/pgx/               # PGx engine: types, VCF parser, star-allele caller, phenotype, recommendations
 ├── data/                  # Cited gene-drug snapshot + allele definitions + sample patients
 │   ├── allele-definitions.json   # Star-allele defining positions per gene
-│   └── samples/                   # Sample VCFs + PharmCAT reference outputs (answer key)
+│   └── samples/                   # PharmCAT reference outputs for each sample patient (answer key)
+├── public/samples/        # Sample patient VCFs (Maya, Alex, Sam), fetched by the browser
 ├── scripts/               # Data snapshot scripts
 ├── tests/                 # Unit and property-based tests
 └── KIRO_LOG.md            # Running log of how we used Kiro
@@ -136,13 +137,12 @@ karyanomics/
 
 ## How we used Kiro
 
-_Full write-up coming at submission. Summary of the approach:_
+Current use and planned extensions (see `KIRO_LOG.md` for the actual sessions):
 
-- **Spec-driven development:** separate feature specs for the PGx engine, data snapshot, patient app, and clinician portal, with requirements written in EARS format. Bugfix specs for issues found during integration.
+- **Spec-driven development:** Kiro Vibe mode was used for the VCF direction, parser, upload component, fixtures, and EARS-style VCF-input requirements. The clinical-data and PGx-engine specs track the remaining handoff.
 - **Steering:** a `clinical-safety.md` steering file, always included, that enforces our core rule: patient-facing text never instructs starting, stopping, or dosing a medication, and every recommendation cites its source.
-- **Agent hooks:** schema validation and tests on every data change; safety and accessibility checks on patient-facing components.
-- **MCP:** let Kiro call ClinPGx and openFDA directly while building the data layer and API routes.
-- **Property-based testing:** safety rules written as properties (e.g. no genotype and drug combination ever produces patient text telling someone to stop a medication).
+- **Validation:** parser tests include generated-input properties; clinical snapshots have a separate provenance validator. Agent hooks for automatic checks are planned.
+- **API use:** the CPIC candidate-fetch script is build-time only. openFDA routes and any Kiro MCP integrations are planned.
 
 See [`KIRO_LOG.md`](./KIRO_LOG.md) and the [`.kiro/`](./.kiro) directory for the details.
 
@@ -170,8 +170,8 @@ Karyanomics is a hackathon prototype for education and demonstration only. It is
 
 ## Team
 
-- **Kai** — product, clinical data and PGx engine
-- **Edu** — front end, API integrations, clinician portal
+- **Kai** — VCF input, parser, sample reference files, and VCF → diplotype/phenotype caller
+- **Edu** — phenotype + drug + indication → CPIC-linked guidance, patient-safe projection, source tracking and clinical-data integration
 
 ## License
 

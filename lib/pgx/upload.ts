@@ -3,6 +3,7 @@
  * coverage; it does not infer star alleles or clinical phenotypes from raw SNPs.
  */
 import type { GeneResult } from "./types";
+import { parseVcf } from "./parseVcf";
 
 export type UploadKind = "lab_report_json" | "consumer_raw_tsv" | "vcf" | "unsupported";
 export type UploadReadiness = "review_required" | "missing_calls" | "needs_external_caller" | "invalid";
@@ -68,34 +69,30 @@ function inspectReport(text: string): UploadInspection {
   };
 }
 
-function inspectVcf(lines: string[]): UploadInspection {
-  const fileformat = lines.some((line) => /^##fileformat=VCFv4\./.test(line));
-  const buildLines = lines.filter((line) => /^##(?:reference|contig)=/.test(line));
-  const grch38 = buildLines.some((line) => /(?:GRCh38|hg38|b38)(?:[^\d]|$)/i.test(line));
-  const header = lines.find((line) => line.startsWith("#CHROM\t"));
-  if (!fileformat || !header) return empty("vcf", "invalid", "VCF header is missing or invalid.");
-  const columns = header.split("\t");
-  if (!(["#CHROM", "POS", "ID", "REF", "ALT", "QUAL", "FILTER", "INFO"].every((c, i) => columns[i] === c))) {
-    return empty("vcf", "invalid", "VCF required columns are missing.");
-  }
-  let records = 0; let noCalls = 0;
-  for (const line of lines) {
-    if (!line || line.startsWith("#")) continue;
-    const cells = line.split("\t");
-    if (cells.length < 8 || !/^\d+$/.test(cells[1])) return empty("vcf", "invalid", "A VCF data row is malformed.");
-    records++;
-    if (columns.length > 9) {
-      const gtIndex = cells[8]?.split(":").indexOf("GT") ?? -1;
-      const gt = gtIndex < 0 ? undefined : cells[9]?.split(":")[gtIndex];
-      if (!gt || gt.includes(".")) noCalls++;
-    }
-  }
-  const issues = ["A VCF needs a validated GRCh38 reference and a PharmCAT-compatible allele-calling workflow; this preview does not infer a phenotype.",
-    "A variant-only VCF may omit required reference positions. Missing is not a normal genotype."];
-  if (!grch38) issues.unshift("GRCh38 could not be confirmed from the VCF header.");
-  if (columns.length < 10) issues.unshift("No sample genotype column was found.");
-  if (columns.length > 10) issues.unshift("Multiple samples detected; this preview cannot select a patient.");
-  return { kind: "vcf", readiness: "needs_external_caller", message: "VCF structure recognized. Allele calling and quality review are still required.", metrics: { records, noCalls }, geneResults: [], issues };
+function inspectVcf(text: string): UploadInspection {
+  const parsed = parseVcf(text);
+  const issues = [
+    ...parsed.warnings.map((warning) => warning.message),
+    ...parsed.skippedLines.slice(0, 10).map((line) => `Line ${line.line}: ${line.reason}`),
+    "A variant-only VCF may omit required reference positions. Missing is not a normal genotype.",
+  ];
+  const invalid = !parsed.fileFormat?.startsWith("VCFv4.") ||
+    parsed.sampleCount !== 1 || parsed.variants.length === 0 ||
+    parsed.skippedLines.length > 0 ||
+    parsed.warnings.some((warning) => warning.code === "missing_header");
+  return {
+    kind: "vcf",
+    readiness: invalid ? "invalid" : "needs_external_caller",
+    message: invalid
+      ? "VCF structure or sample could not be safely read."
+      : "VCF parsed. Allele calling and quality review are still required.",
+    metrics: {
+      records: parsed.variants.length,
+      noCalls: parsed.variants.filter((variant) => variant.gt.includes(null)).length,
+    },
+    geneResults: [],
+    issues,
+  };
 }
 
 function inspectConsumerRaw(lines: string[]): UploadInspection {
@@ -127,7 +124,7 @@ export function inspectPgxUpload(filename: string, text: string): UploadInspecti
   const lower = filename.toLowerCase();
   if (lower.endsWith(".json")) return inspectReport(text);
   const lines = text.replace(/^\uFEFF/, "").split(/\r?\n/);
-  if (lines.some((line) => line.startsWith("##fileformat=VCF")) || lower.endsWith(".vcf")) return inspectVcf(lines);
+  if (lines.some((line) => line.startsWith("##fileformat=VCF")) || lower.endsWith(".vcf")) return inspectVcf(text);
   if (lower.endsWith(".txt") || lower.endsWith(".tsv")) return inspectConsumerRaw(lines);
   return empty("unsupported", "invalid", "Supported files are PGx report JSON, VCF, and four-column raw genotype TXT/TSV.");
 }

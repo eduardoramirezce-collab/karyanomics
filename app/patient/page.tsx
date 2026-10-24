@@ -7,6 +7,7 @@ import { assessPatient } from "../../lib/pgx/assess-patient";
 import { inspectPgxUpload, type UploadInspection } from "../../lib/pgx/upload";
 import type { ClinicalAssessmentInput } from "../../lib/pgx/types";
 import personas from "../../data/personas.json";
+import VcfUpload from "./VcfUpload";
 
 const demo = assessPatient(personas[0] as ClinicalAssessmentInput);
 
@@ -36,10 +37,11 @@ export default function PatientPage() {
         <h1 className="text-3xl font-bold">PGx file intake</h1>
         <p>Choose a file to check its format and missing calls. The file stays in your browser. This prototype does not store or send your genetic data.</p>
       </header>
+      <VcfUpload />
       <section className="space-y-3 rounded-xl border border-gray-300 p-5 dark:border-gray-700" aria-labelledby="upload-heading">
-        <h2 id="upload-heading" className="text-xl font-semibold">Check a PGx file</h2>
-        <p className="text-sm">Accepted: structured PGx report JSON, GRCh38 VCF, or four-column raw genotype TXT/TSV. PDF and compressed files are not supported.</p>
-        <input type="file" accept=".json,.vcf,.txt,.tsv" aria-label="Choose a PGx file" onChange={(event) => void onFile(event.target.files?.[0])} className="block w-full rounded border p-2 focus-visible:outline-2 focus-visible:outline-blue-500" />
+        <h2 id="upload-heading" className="text-xl font-semibold">Check another PGx file</h2>
+        <p className="text-sm">Structured PGx report JSON and four-column raw genotype TXT/TSV are checked for format only. PDF and compressed files are not supported.</p>
+        <input type="file" accept=".json,.txt,.tsv" aria-label="Choose a PGx report or raw genotype file" onChange={(event) => void onFile(event.target.files?.[0])} className="block w-full rounded border p-2 focus-visible:outline-2 focus-visible:outline-blue-500" />
         {error && <p role="alert" className="font-medium">{error}</p>}
         {inspection && <div className="space-y-2" aria-live="polite">
           <p className="font-semibold">{fileName}: {inspection.message}</p>
@@ -51,7 +53,7 @@ export default function PatientPage() {
       </section>
       <section className="space-y-3 rounded-xl border border-gray-300 p-5 dark:border-gray-700" aria-labelledby="demo-heading">
         <h2 id="demo-heading" className="text-xl font-semibold">Fictional example</h2>
-        <p>Maya is a synthetic case used to show how a verified result could be matched to a specific guideline.</p>
+        <p>This separate fictional phenotype example shows how a verified result could be matched to a specific guideline. It is not derived from the VCF above.</p>
         <button type="button" onClick={() => setShowDemo((value) => !value)} className="rounded bg-blue-700 px-4 py-2 font-medium text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500">{showDemo ? "Hide" : "Show"} example</button>
         {showDemo && demo.status === "matched" && <div className="space-y-2" aria-live="polite">
           <p className="font-semibold">Clopidogrel · ACS/PCI</p>

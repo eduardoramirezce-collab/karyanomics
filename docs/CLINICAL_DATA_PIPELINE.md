@@ -63,10 +63,14 @@ the guideline ID/version, recommendation ID, PMID, retrieval date, classificatio
 population/indication, exact matched phenotype, and a clinical review flag.
 
 The current snapshot supports only CYP2C19 + clopidogrel for **ACS/PCI**. It
-uses CPIC guideline PA166251443, version 71, and two source recommendation IDs.
+uses CPIC guideline PA166251443, version 71, and five source recommendation IDs.
 The app-facing explanations are paraphrases marked as **not yet clinically
 reviewed**. The refresh script writes a candidate file and does not alter the
 bundled snapshot.
+
+Kai's parser now reads VCF variants and the repository includes three sample
+VCFs with PharmCAT 3.4.0 answer keys. Allele/phenotype calling and the
+verification gate are still pending; no uploaded VCF reaches guidance.
 
 ## How to work in Kiro on `clinical-data`
 

@@ -26,25 +26,86 @@ export interface GeneResult {
 }
 
 /**
- * One variant record read from a single-sample VCF: the position, the
- * reference and alternate alleles, and the sample's genotype call.
+ * One variant record read from a VCF: the position, the reference and
+ * alternate alleles, and the (first) sample's genotype call.
  */
 export interface VcfVariant {
-  /** Chromosome, e.g. "chr10" or "10" as written in the VCF. */
+  /**
+   * Chromosome, normalized to the "chr" form regardless of how the file
+   * wrote it: "10" and "chr10" both become "chr10"; "MT" becomes "chrM".
+   */
   chrom: string;
   /** 1-based position on the chromosome. */
   pos: number;
-  /** Reference allele. */
+  /** ID column (usually an rsID), or null if ".". */
+  id: string | null;
+  /** Reference allele, uppercased. */
   ref: string;
-  /** Alternate allele(s) from the ALT column. */
+  /** Alternate allele(s) from the ALT column; empty if ALT is ".". */
   alt: string[];
+  /** FILTER column (e.g. "PASS"), or null if ".". */
+  filter: string | null;
   /**
    * The sample's genotype as allele indices (0 = REF, 1 = first ALT, ...).
-   * e.g. [1, 1] for a homozygous ALT call.
+   * e.g. [1, 1] for a homozygous ALT call. null = no call (".") for that
+   * chromosome copy, e.g. "./." is [null, null].
    */
-  gt: [number, number];
+  gt: [number | null, number | null];
+  /**
+   * The genotype resolved to allele letters: each entry is REF, one of ALT,
+   * or null for a no-call. Always consistent with `gt`.
+   */
+  alleles: [string | null, string | null];
   /** True if the GT was phased ("|"), false if unphased ("/"). */
   phased: boolean;
+}
+
+/** Genome build detected from the VCF's ## metadata. */
+export type GenomeBuild = "GRCh38" | "GRCh37" | "unknown";
+
+/** Machine-readable reasons the parser flags a whole file. */
+export type VcfWarningCode =
+  | "build_not_grch38"
+  | "build_unknown"
+  | "multiple_samples"
+  | "no_samples"
+  | "missing_header"
+  | "missing_fileformat"
+  | "no_variants";
+
+/** A file-level problem found while parsing. Parsing continues where possible. */
+export interface VcfWarning {
+  code: VcfWarningCode;
+  /** Plain-language explanation suitable for showing to the user. */
+  message: string;
+}
+
+/** A data line the parser could not read, with its 1-based line number. */
+export interface SkippedVcfLine {
+  line: number;
+  reason: string;
+}
+
+/**
+ * The full result of parsing a VCF in the browser. The parser never throws:
+ * problems are reported through `warnings` (whole file) and `skippedLines`
+ * (individual malformed lines).
+ */
+export interface ParsedVcf {
+  /** Value of ##fileformat (e.g. "VCFv4.2"), or null if absent. */
+  fileFormat: string | null;
+  /** Genome build detected from ## metadata. */
+  genomeBuild: GenomeBuild;
+  /** ID of the sample whose genotypes were read (the first sample). */
+  sampleId: string | null;
+  /** Number of sample columns in the file. */
+  sampleCount: number;
+  /** Parsed variant records for the first sample. */
+  variants: VcfVariant[];
+  /** Data lines that were skipped, with line numbers and reasons. */
+  skippedLines: SkippedVcfLine[];
+  /** File-level warnings (build, sample count, missing header, ...). */
+  warnings: VcfWarning[];
 }
 
 /**
@@ -74,7 +135,7 @@ export interface DiplotypeCall {
   /** Phenotype derived from the diplotype, or "Indeterminate". */
   phenotype: string;
   /** Where this call came from. */
-  source: "vcf" | "outside-call";
+  source: "vcf" | "outside-call" | "lab-report" | "demo";
   /** Optional human-readable note, e.g. why a gene is Indeterminate. */
   note?: string;
 }
@@ -107,8 +168,6 @@ export interface DrugAssessment {
   /** Human-readable source/guideline this assessment cites. */
   source: string;
 }
-
-
 /** Context is part of the lookup key; it must be confirmed, not guessed. */
 export type ClinicalContext = "acs_pci";
 

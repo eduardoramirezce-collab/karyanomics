@@ -20,6 +20,12 @@ fileMatchPattern: ["data/**/*", "lib/pgx/**/*", "scripts/**/*", "tests/**/*"]
 ## VCF-to-phenotype handoff (Kai)
 
 - `data/allele-definitions.json` currently contains TODO placeholders, not usable allele coordinates. Never use them for a real call.
-- PharmCAT example VCF and phenotype output can be used as reference fixtures only after the exact downloaded version and provenance are recorded.
 - Missing required reference/no-call positions, unknown GRCh38 status, phase ambiguity, or unsupported allele calls resolve to `Indeterminate`. Never assume variants in trans or infer `*1` from a variant-only VCF.
 - The phenotype-to-guidance side consumes a `DiplotypeCall[]` only when the caller's coverage and quality checks are complete.
+- PharmCAT reference outputs in `data/samples/` are the answer key for sample VCFs in `public/samples/`. Once the caller exists, tests must compare CYP2C19 calls and phenotype with those outputs before guidance is connected.
+- Sample provenance (answer keys generated with PharmCAT 3.4.0):
+  - `maya.vcf`: PharmCAT example 2 VCF, unmodified (CYP2C19 *2/*2).
+  - `alex.vcf`: PharmCAT example 1 VCF, unmodified (all reference).
+  - `sam.vcf`: PharmCAT example 1 with GT set to 0/1 at rs1057910, rs4149056,
+    rs9923231 (existing PharmCAT rows, no coordinates added).
+- Never invent allele positions; read them from `data/allele-definitions.json`.

@@ -1,18 +1,18 @@
 # Tasks — PGx engine (VCF pipeline)
 
-- [ ] 1. Confirm shared types in `lib/pgx/types.ts`
-  - `VcfVariant`, `AlleleDefinition`, `DiplotypeCall`, and `GeneResult.source` are type-only contracts.
-  - Put implementations in `parse-vcf.ts` and `call-diplotypes.ts`; do not add throwing stubs to `types.ts`.
+- [x] 1. Confirm shared types in `lib/pgx/types.ts`
+  - `VcfVariant`, `ParsedVcf`, `AlleleDefinition`, `DiplotypeCall`, and `GeneResult.source` are shared contracts. Implementations belong in their own modules; `types.ts` has no throwing stubs.
   - _Requirements: 1.1, 3.1, 4.2_
 
-- [ ] 2. Implement `parseVcf(text)` in `lib/pgx/parse-vcf.ts`
-  - Parse data lines into `VcfVariant`; set `phased` from `|` vs `/`; skip
-    malformed lines and record line numbers; never throw; no I/O.
+- [x] 2. Implement `parseVcf(text)` in `lib/pgx/parseVcf.ts`
+  - Done in the vcf-input spec. Returns `ParsedVcf` (variants + warnings +
+    skipped lines); never throws; no I/O.
   - _Requirements: 1.1, 1.2, 1.3, 1.4_
 
-- [ ] 3. Add input validation (single-sample, GRCh38)
-  - Reject non-single-sample or non-GRCh38 VCFs with a clear user-facing error
-    before any result is produced.
+- [ ] 3. Gate results on input validation (single-sample, GRCh38)
+  - `parseVcf` only warns (`build_not_grch38`, `build_unknown`,
+    `multiple_samples`, `no_samples`). Before any gene result is produced, turn
+    the blocking warnings into a clear user-facing error.
   - _Requirements: 2.1, 2.2_
 
 - [ ] 4. Implement `callDiplotypes(variants, defs)` in `lib/pgx/call-diplotypes.ts`
@@ -30,19 +30,18 @@
   - Map diplotype to CPIC standard phenotype; no mapping → Indeterminate.
   - _Requirements: 5.1, 5.2_
 
-- [ ] 7. Implement `assess(phenotype, drug, indication)` in `lib/pgx/assess.ts`
-  - Pure, client-side, no dose, no I/O; matched / indeterminate /
-    insufficient_data with reasons; reads reviewed CPIC data file.
+- [x] 7. Implement the scoped `assess(geneResults, drug, indication, callStatus)` in `lib/pgx/assess.ts`
+  - Pure, no I/O; matched / indeterminate / insufficient_data with reasons. CYP2C19 + clopidogrel + ACS/PCI only; uploaded calls do not pass the verification gate.
   - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5_
 
-- [ ] 8. Create the reviewed CYP2C19 + clopidogrel data file
-  - Verbatim CPIC recommendation text; source url, cpic version, retrieval date,
-    indication, strength. No model-authored clinical wording.
+- [ ] 8. Complete qualified review of the CYP2C19 + clopidogrel data file
+  - Five source-linked rows exist; all remain `humanClinicalReview: false`. Confirm indication, wording, version, and usage terms before treating the snapshot as clinically reviewed.
   - _Requirements: 6.1_
 
-- [ ] 9. Add the Maya sample patient + answer key
-  - `data/samples/maya.vcf` (synthetic, labeled) and
+- [x] 9. Add the Maya sample patient + answer key
+  - `public/samples/maya.vcf` (synthetic, labeled) and
     `data/samples/maya.phenotype.json` (PharmCAT reference output).
+    Done in the vcf-input spec, with Alex and Sam as well.
   - _Requirements: 7.1_
 
 - [ ] 10. End-to-end + unit tests
@@ -60,4 +59,4 @@
 ## Branch handoff status (2026-10-24)
 
 - Edu's `clinical-data` branch implements step 7 for one exact gene/drug/indication: CYP2C19 + clopidogrel + ACS/PCI, with five phenotype rows. Source-linked wording is **not yet clinically reviewed**, so task 8 is still open as written.
-- Kai's VCF parser/caller, sample VCF and PharmCAT answer key remain open. Do not present the end-to-end pipeline as complete before these are tested together.
+- Kai's `parseVcf`, VCF upload UI, sample VCFs and PharmCAT answer keys are merged from `feature/vcf-input`. The allele/phenotype caller remains open. No parsed VCF is fed to `assess` yet.

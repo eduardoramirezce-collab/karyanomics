@@ -6,7 +6,7 @@ Updated 2026-10-24. This document distinguishes **implemented** access from prop
 | --- | --- | --- | --- | --- |
 | CPIC API (`api.cpicpgx.org/v1`) | Implemented, build-time script only | Guideline, pair, recommendation_view | `scripts/fetch-clinpgx.mjs` → ignored `data/candidates/` | Source rows for reviewed, versioned PGx snapshot; candidate never auto-publishes. 600 ms spacing. |
 | ClinPGx data usage policy | Linked and review pending | Terms | Snapshot and inventory | Confirm redistribution terms before public release; do not assume a blanket license. |
-| PharmCAT | Research workflow documented, **not integrated** | VCF-to-allele/phenotype calling | External validated pipeline needed | GRCh38 and all required positions, including reference/no-call; browser VCF intake does not call alleles. |
+| PharmCAT | Sample fixtures and PharmCAT 3.4.0 answer keys added; **caller not integrated** | Reference output for allele/phenotype validation | `public/samples/`, `data/samples/` | GRCh38 and all required positions, including reference/no-call; browser VCF parser does not call alleles. |
 | 23andMe-style raw data | Local parser implemented | rsID/chromosome/position/genotype coverage counts | `lib/pgx/upload.ts` | Preview only; no clinical phenotype inference. |
 | RxNorm/RxNav | Planned | Ingredient and RxCUI normalization | No code yet | Required before a scanned/entered product can be joined to a CPIC drug. |
 | openFDA NDC/event | Planned | Product lookup / separate adverse-event context | No code yet | Never backs a PGx recommendation or a causal claim. |
@@ -17,12 +17,12 @@ Updated 2026-10-24. This document distinguishes **implemented** access from prop
 
 ## Browser upload path
 
-`file input → size/type check → local text parser → format and no-call category → verification gate → (future: validated phenotype) → CPIC lookup`.
+`file input or sample selection → local VCF parser / other-format inspector → format and no-call summary → (future: validated allele/phenotype caller and verification gate) → CPIC lookup`.
 
 The parser currently accepts:
 
 - `karyanomics-pgx-v1` JSON with `format`, `geneResults[]` (`gene`, `diplotype`, `phenotype`, `callStatus`), plus recommended `labName`, `reportDate`, `assayMethod`, `coveredVariants`. See [`data/examples/synthetic-pgx-report.v1.json`](../data/examples/synthetic-pgx-report.v1.json). Parsed values remain **unverified** regardless of a self-declared `complete` status; they are not fed to `assess()` automatically.
-- Uncompressed VCF 4.x: structural preflight, GRCh38 header check, row/no-call counts. No allele/phenotype call. A full pipeline must validate sample, build, coverage, reference bases, quality, and PharmCAT-required positions. CYP2D6/HLA need outside calls.
+- Uncompressed VCF 4.x: Kai's `parseVcf` reads the first sample's genotypes and reports build/sample/line warnings; `VcfUpload` offers three synthetic sample files. The other-format inspector reuses this parser for VCF previews. No allele/phenotype call. A full pipeline must reject unsuitable sample/build, validate coverage, reference bases, quality, phase, and PharmCAT-required positions. CYP2D6/HLA need outside calls.
 - Four-column consumer raw TXT/TSV (`rsid`, chromosome, position, genotype): structural preflight and no-call counts only. Genome build, strand and assay coverage are not established.
 
 PDFs, compressed files, arbitrary JSON, and multi-sample VCF interpretation are not supported. All files are read in the browser; the intake code has no `fetch`, API route, local storage, or logging. The page shows only category and counts for uploads. Its assessment module imports `data/patient-guidance.v1.json`, an allowlisted public snapshot without clinician recommendation wording, strength, alternatives, or doses. `npm run build:patient-data` regenerates that file and `npm run validate:clinical` checks it against the source snapshot.
@@ -34,7 +34,7 @@ PDFs, compressed files, arbitrary JSON, and multi-sample VCF interpretation are 
 - `needs_external_caller`: VCF or raw SNP data needs a validated allele/phenotype workflow.
 - `invalid`: file cannot be safely recognized.
 
-Only explicitly complete fictional or validated caller results use the source-backed `assess()` lookup today. Five CYP2C19 phenotypes are covered for clopidogrel/ACS-PCI; the VCF caller is still unimplemented. It is labeled as synthetic and its wording still awaits clinical review. The UI does not expose the full CPIC recommendation or doses to a patient.
+Only the explicitly complete fictional phenotype uses the source-backed `assess()` lookup in the UI today. Five CYP2C19 phenotypes are covered for clopidogrel/ACS-PCI; the VCF allele/phenotype caller is still unimplemented. The example is separate from the sample VCF chooser. Its wording still awaits clinical review. The UI does not expose the full CPIC recommendation or doses to a patient.
 
 ## Refresh and review
 

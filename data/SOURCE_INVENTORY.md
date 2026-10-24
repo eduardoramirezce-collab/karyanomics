@@ -42,9 +42,11 @@ caused an event. NPI/openFDA data must never be turned into clinical advice.
   terms match the CPIC vocabulary, which is what lets a PharmCAT result be
   matched against CPIC recommendations.
 - **Source:** https://pharmcat.clinpgx.org/examples/
-- **Planned use:** regression examples for phenotype calls and report structure.
-  PharmCAT is **not yet integrated**. We do **not** treat its reports as
-  independent corroboration of the CPIC recommendation they display.
+- **Current use:** three sample VCFs in `public/samples/` and PharmCAT 3.4.0
+  answer keys in `data/samples/` are regression fixtures for a future caller.
+  The parser does not yet compare calls to these outputs. PharmCAT is **not
+  integrated as a caller**, and its reports are not independent corroboration
+  of the CPIC recommendation they display.
 
 ## 3. openFDA (planned; no app route yet)
 
@@ -77,9 +79,10 @@ PharmCAT result   CPIC recommendation        openFDA              NPPES
                                                  generic_name        NPI number
 ```
 
-Only the top path (PharmCAT phenotype → CPIC recommendation) produces clinical
-guidance. The openFDA and NPPES links are for drug display and clinician access
-respectively.
+Only the top path (a validated phenotype → matching CPIC recommendation) is
+eligible to produce clinical guidance. The VCF-to-phenotype caller is not yet
+implemented. The openFDA and NPPES links are for drug display and clinician
+access respectively.
 
 ## Items flagged for human review
 

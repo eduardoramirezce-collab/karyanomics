@@ -33,8 +33,7 @@
 - Have a qualified clinical reviewer verify the source-backed demo wording,
   population/indication mapping, and applicable usage terms before describing
   the snapshot as clinically reviewed.
-- Integrate the synthetic persona in the frontend; it is not yet a user-facing
-  persona picker.
+- The synthetic phenotype is exposed only as a separate example, not as a result of a selected sample VCF.
 
 ## Upload and source-awareness increment (2026-10-24)
 
@@ -53,4 +52,5 @@
 - [x] Match five CYP2C19 phenotypes to exact clopidogrel ACS/PCI CPIC recommendation IDs.
 - [x] Accept only exact clopidogrel or RxNorm:32968 identifiers; keep NDC/brand normalization out of scope until sourced.
 - [x] Reject self-reported lab-report calls, even when their own JSON says complete.
-- [ ] Integrate with Kai's caller after he pushes, and verify sample VCF → phenotype → guidance end to end.
+- [x] Merge Kai's VCF parser, upload component, and sample reference fixtures without duplicating VCF parsing or presenting a parsed file as verified.
+- [ ] Integrate with Kai's allele/phenotype caller after it is implemented and validated; verify sample VCF → phenotype → guidance end to end.

@@ -9,7 +9,7 @@ There is no server component in the genetic path.
 ```
 app/ (patient UI)
   └─ lib/pgx/
-       parseVcf(text)            -> VcfVariant[]          (pure)
+       parseVcf(text)            -> ParsedVcf             (pure)
        callDiplotypes(vars, defs) -> DiplotypeCall[]       (pure)
          (+ optional CYP2D6 outside call joins here)
        phenotype lookup           -> DiplotypeCall.phenotype
@@ -17,7 +17,7 @@ app/ (patient UI)
          reads
            data/allele-definitions.json       (allele defining positions)
            data/cpic-*.v1.json                 (reviewed, versioned, cited)
-           data/samples/*.vcf + *.phenotype.json (answer key)
+           public/samples/*.vcf + data/samples/*.phenotype.json (answer key)
          types from
            lib/pgx/types.ts
 ```
@@ -27,7 +27,7 @@ never in the genetic path, and never to generate a recommendation.
 
 ## Components
 
-### `parseVcf(text: string): VcfVariant[]`
+### `parseVcf(text: string): ParsedVcf`
 
 Reads a VCF's text. Ignores `##` meta lines and the `#CHROM` header. For each
 data line, extracts `CHROM`, `POS`, `REF`, `ALT` (split on `,`), and the single
@@ -35,8 +35,9 @@ sample's `GT` from the `FORMAT`/sample columns. Determines `phased` from the `|`
 vs `/` separator and parses allele indices into `gt`. Malformed lines are skipped
 with their line number recorded; the function never throws on input content.
 
-Input validation (single-sample, GRCh38) happens at the boundary before or within
-this stage; non-conforming files are rejected with a user-facing error.
+The parser reports build and sample warnings; the blocking eligibility gate is
+still to be implemented before any allele call or guidance. Parsed variants
+alone are never considered verified clinical calls.
 
 ### `callDiplotypes(variants: VcfVariant[], defs: AlleleDefinition[]): DiplotypeCall[]`
 
@@ -71,8 +72,9 @@ Never returns a dose; never calls the network.
 - `data/allele-definitions.json`: star-allele defining positions per gene
   (CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT). Positions sourced from
   ClinPGx/PharmCAT, never invented. Currently placeholder (`TODO`) coordinates.
-- `data/cpic-cyp2c19-clopidogrel.v1.json`: reviewed CPIC recommendation, verbatim.
-- `data/samples/maya.vcf` + `data/samples/maya.phenotype.json`: a synthetic
+- `data/cpic-cyp2c19-clopidogrel.v1.json`: source-linked CPIC demo rows;
+  `humanClinicalReview: false` pending qualified clinical review.
+- `public/samples/maya.vcf` + `data/samples/maya.phenotype.json`: a synthetic
   sample patient and its PharmCAT reference output (the answer key).
 
 ## Identifier map (how sources connect)

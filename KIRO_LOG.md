@@ -16,4 +16,12 @@ Record actual Kiro activity with its prompt/task, files changed, checks, and com
 ## 2026-10-24 — Clinical guidance increment (Edu/clinical-data)
 
 - Codex merged the main VCF contract, extended five source-linked CYP2C19/clopidogrel ACS/PCI rows, and aligned patient-safe output and tests. This was not a Kiro coding session.
-- Kai's VCF parser, allele caller, and reference fixtures remain his branch work.
+- Kai's VCF parser and reference fixtures were subsequently pushed on `feature/vcf-input`; his allele/phenotype caller remains open.
+
+## 2026-10-24 — VCF input increment (Kai/feature/vcf-input)
+
+- Kai recorded using Kiro Vibe mode to build `lib/pgx/parseVcf.ts`, `app/patient/VcfUpload.tsx`, three sample VCFs and PharmCAT 3.4.0 answer keys, plus EARS requirements and parser tests. See commit `bfdd24f`.
+
+## 2026-10-24 — Branch integration (Edu/clinical-data)
+
+- Codex merged Kai's VCF input branch with the clinical guidance branch, reused his parser for VCF inspection, and retained the verification boundary before `assess`. The caller and end-to-end VCF-to-guidance path are still pending. This integration was not a Kiro session.

@@ -1,5 +1,11 @@
 # Clinical data and API change log
 
+## 2026-10-24 — Kai's VCF input integrated with Edu's guidance branch
+
+- Merged `feature/vcf-input` commit `bfdd24f` into `clinical-data`: browser-only `parseVcf`, the VCF upload component, three synthetic sample VCFs, PharmCAT 3.4.0 reference outputs, and parser tests. No source-backed CPIC row or API was changed.
+- Reused `parseVcf` inside the existing VCF format inspector and retained the JSON/raw-TSV inspector as a separate path. The patient page now has one VCF chooser and a separate fictional phenotype guidance example; choosing a VCF does not produce a drug assessment.
+- Reconciled shared types, steering, specs, README, and API/gap register. `callDiplotypes`, phenotype lookup, validated coverage and quality gate, and VCF-to-guidance testing remain open. The source snapshot remains `humanClinicalReview: false`.
+
 ## 2026-10-24 — Browser intake and source register
 
 - Merged latest `main` steering commits (`69fbec6`, `649993e`) into `clinical-data`; reconciled conflicting source-policy guidance.

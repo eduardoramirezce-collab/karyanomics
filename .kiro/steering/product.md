@@ -21,7 +21,7 @@ education and demonstration only — not a medical device, not medical advice.
 
 ## Pipeline (how a result is produced)
 
-Target pipeline: a validated call will ultimately be computed from a genotype file. Today the VCF caller is not implemented, and the guidance demo uses a clearly labeled synthetic phenotype:
+Target pipeline: a validated call will ultimately be computed from a genotype file. Today VCF parsing and sample selection work, but the allele/phenotype caller is not implemented. The guidance demo uses a separate, clearly labeled synthetic phenotype:
 
 1. **Input:** a single-sample GRCh38 VCF (user upload or a bundled sample),
    plus an optional "outside call" input for CYP2D6.
@@ -55,7 +55,7 @@ patient data is stored in the repo.
 
 ## Branch ownership
 
-- Kai: VCF input → validated diplotype/phenotype. Owns parser, allele definitions, caller, and reference fixtures.
+- Kai: VCF input → validated diplotype/phenotype. Owns the implemented parser and reference fixtures, plus pending allele definitions and caller.
 - Edu: validated phenotype + exact drug identity + indication → CPIC-linked guidance. Owns the curated recommendation snapshot, `assess`, patient-safe projection, source validation, and clinical-data docs.
 - Shared contract: `DiplotypeCall[]` in `lib/pgx/types.ts`; a call is eligible for guidance only after the caller confirms build, coverage, quality, and ambiguity. Source label alone is not verification.
 - Shared README/steering/spec changes should go through review into `main` so both branches inherit the same direction.

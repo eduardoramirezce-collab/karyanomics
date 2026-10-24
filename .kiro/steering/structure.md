@@ -14,10 +14,11 @@ karyanomics/
 ├── lib/pgx/               # PGx engine: types, VCF parser, star-allele caller, phenotype, recommendations
 ├── data/                  # Cited gene-drug snapshot + allele definitions + sample patients
 │   ├── allele-definitions.json   # Star-allele defining positions per gene (from ClinPGx/PharmCAT)
-│   └── samples/                   # Sample VCFs + PharmCAT reference outputs (answer key)
-├── scripts/               # Build-time data snapshot scripts (fetch-clinpgx.ts)
+│   └── samples/                   # PharmCAT reference outputs per sample patient (answer key)
+├── scripts/               # Build-time data snapshot scripts (fetch-clinpgx.mjs)
 ├── tests/                 # Unit and property-based tests
 ├── public/                # Static assets
+│   └── samples/           # Sample patient VCFs (maya, alex, sam), fetched by the browser
 └── KIRO_LOG.md            # Running log of how Kiro was used
 ```
 
@@ -38,8 +39,9 @@ karyanomics/
 
 ## PGx pipeline (how a VCF becomes a result)
 
-Everything is computed from a genotype file. The flow is a chain of stages that
-connect through small, fixed contracts in `lib/pgx/types.ts`.
+The target flow is a chain of stages that connect through fixed contracts in
+`lib/pgx/types.ts`. Today, only VCF parsing and a separate synthetic phenotype
+guidance demo run; the allele/phenotype caller is pending.
 
 ```
 VCF file           →  VcfVariant[]  →  "*2/*2"         →  "Poor Metabolizer"  →  cited result
@@ -51,7 +53,7 @@ VCF file           →  VcfVariant[]  →  "*2/*2"         →  "Poor Metabolize
 ```
 
 - **parseVcf:** read `CHROM`, `POS`, `REF`, `ALT`, and the sample's `GT` (phased
-  `|` or unphased `/`) into `VcfVariant[]`. Skips malformed lines, never crashes.
+  `|` or unphased `/`) into `ParsedVcf` with variants, skipped lines and warnings.
 - **callDiplotypes:** match variants at defining positions (from
   `data/allele-definitions.json`) to star alleles, producing a `DiplotypeCall`
   per gene. Missing coverage → `Indeterminate` (never assume reference).
@@ -68,12 +70,13 @@ Key points for anyone building here:
   CYP2D6 is `Indeterminate` ("CYP2D6 cannot be determined from this file").
 - The stages are independent and meet only at their contracts, so they can be
   built and tested in order: `parseVcf` → `callDiplotypes` → phenotype → `assess`.
-- **Sample patients (e.g. Maya) are real VCF files** in `data/samples/`, with a
-  PharmCAT reference output as the answer key. They are synthetic (not real
-  people) but exercise the full pipeline end to end.
-- Clinical wording is never synthetic: it is copied verbatim from the cited CPIC
-  source in `/data`. Allele positions are never invented: they come from
-  `data/allele-definitions.json`.
+- **Sample patients (Maya, Alex, Sam) are synthetic VCF fixtures** in `public/samples/`,
+  with PharmCAT reference outputs in `data/samples/` as the answer key. They do
+  not yet exercise the full pipeline.
+- Clinical demo wording is source-linked and awaits qualified review; do not
+  present it as verbatim or clinically approved. Allele positions are never
+  invented. The current `data/allele-definitions.json` has placeholders and
+  cannot support calls.
 
 ## Boundaries
 
