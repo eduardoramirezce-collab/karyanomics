@@ -78,36 +78,31 @@ export default function DrugResultCard({ result }: { result: DrugResult }) {
               <li key={index} className="rounded-lg border border-ink/10 bg-white p-3 text-sm text-ink">
                 <p className="font-semibold">{row.population ?? "No population"}</p>
                 {row.kind === "source_row" ? (
-<<<<<<< HEAD
                   <>
-                    <p>
+                    <p className="text-ink/85">
                       CPIC classification (strength): {row.classification} · Recommendation ID {row.recommendationId} ·
                       Guideline version {row.guidelineVersion} · {row.reviewNote}
                     </p>
-                    <div className="mt-2 flex flex-col gap-1 border-t border-slate-200 pt-2">
-                      <p className="font-semibold text-slate-900">CPIC recommendation (verbatim)</p>
-                      <blockquote className="border-l-4 border-slate-300 pl-3 text-slate-900">{row.drugRecommendation || "Not available in the bundled source rows."}</blockquote>
+                    <div className="mt-2 flex flex-col gap-2 border-t border-ink/10 pt-3">
+                      <p className="font-semibold text-ink">CPIC recommendation (verbatim)</p>
+                      <blockquote className="border-l-4 border-royal/30 pl-3 text-ink">{row.drugRecommendation || "Not available in the bundled source rows."}</blockquote>
                       {Object.keys(row.implications).length > 0 && (
-                        <dl className="flex flex-col gap-1">
+                        <dl className="flex flex-col gap-2">
                           {Object.entries(row.implications).map(([gene, text]) => (
                             <div key={gene}>
-                              <dt className="font-mono font-semibold">{gene} implications (verbatim)</dt>
-                              <dd>{text}</dd>
+                              <dt className="font-semibold text-ink">{gene} implications (verbatim)</dt>
+                              <dd className="text-ink/85">{text}</dd>
                             </div>
                           ))}
                         </dl>
                       )}
                       <p>
-                        <a className={textLink} href={row.guidelineUrl} target="_blank" rel="noreferrer">CPIC guideline (source)</a>
+                        <a className="font-medium text-royal underline decoration-royal/40 underline-offset-4 hover:decoration-royal" href={row.guidelineUrl} target="_blank" rel="noreferrer">
+                          CPIC guideline (source)
+                        </a>
                       </p>
                     </div>
                   </>
-=======
-                  <p className="text-ink/85">
-                    CPIC classification (strength): {row.classification} · Recommendation ID {row.recommendationId} ·
-                    Guideline version {row.guidelineVersion} · {row.reviewNote}
-                  </p>
->>>>>>> origin/feature/visual-polish
                 ) : (
                   <p className="text-ink/85">{row.note}</p>
                 )}
