@@ -25,7 +25,7 @@ The parser currently accepts:
 - Uncompressed VCF 4.x: structural preflight, GRCh38 header check, row/no-call counts. No allele/phenotype call. A full pipeline must validate sample, build, coverage, reference bases, quality, and PharmCAT-required positions. CYP2D6/HLA need outside calls.
 - Four-column consumer raw TXT/TSV (`rsid`, chromosome, position, genotype): structural preflight and no-call counts only. Genome build, strand and assay coverage are not established.
 
-PDFs, compressed files, arbitrary JSON, and multi-sample VCF interpretation are not supported. All files are read in the browser; the intake code has no `fetch`, API route, local storage, or logging. The page shows only category and counts for uploads, not clinician details.
+PDFs, compressed files, arbitrary JSON, and multi-sample VCF interpretation are not supported. All files are read in the browser; the intake code has no `fetch`, API route, local storage, or logging. The page shows only category and counts for uploads. Its assessment module imports `data/patient-guidance.v1.json`, an allowlisted public snapshot without clinician recommendation wording, strength, alternatives, or doses. `npm run build:patient-data` regenerates that file and `npm run validate:clinical` checks it against the source snapshot.
 
 ## Category meanings
 

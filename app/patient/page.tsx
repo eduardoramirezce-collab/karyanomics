@@ -3,12 +3,12 @@
 /** Local-only PGx file intake and a clearly fictional, source-backed demo. */
 import { useState } from "react";
 import Link from "next/link";
-import { assess } from "../../lib/pgx/assess";
+import { assessPatient } from "../../lib/pgx/assess-patient";
 import { inspectPgxUpload, type UploadInspection } from "../../lib/pgx/upload";
 import type { ClinicalAssessmentInput } from "../../lib/pgx/types";
 import personas from "../../data/personas.json";
 
-const demo = assess(personas[0] as ClinicalAssessmentInput);
+const demo = assessPatient(personas[0] as ClinicalAssessmentInput);
 
 export default function PatientPage() {
   const [inspection, setInspection] = useState<UploadInspection | null>(null);
@@ -56,7 +56,7 @@ export default function PatientPage() {
         {showDemo && demo.status === "matched" && <div className="space-y-2" aria-live="polite">
           <p className="font-semibold">Clopidogrel · ACS/PCI</p>
           <p>{demo.patientText}</p>
-          <p className="text-sm">Source: <a className="underline" href={demo.source.guidelineUrl} target="_blank" rel="noreferrer">CPIC guideline</a>. Demo wording awaits qualified clinical review.</p>
+          <p className="text-sm">Source: <a className="underline" href={demo.guidelineUrl} target="_blank" rel="noreferrer">CPIC guideline</a>. Demo wording awaits qualified clinical review.</p>
         </div>}
       </section>
       <p className="text-sm">For demonstration only. A PGx result covers specific genetic factors; it cannot predict whether a medication will be safe or effective for you. Discuss treatment decisions with a prescriber or pharmacist.</p>

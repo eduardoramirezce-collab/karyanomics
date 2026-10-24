@@ -8,6 +8,9 @@ const snapshot = JSON.parse(
 );
 const errors = [];
 const key = (row) => `${row.phenotype}|${row.context}`;
+const patientSnapshot = JSON.parse(
+  await readFile(join(root, "data/patient-guidance.v1.json"), "utf8"),
+);
 
 if (snapshot.schemaVersion !== 1) errors.push("Unexpected schema version");
 if (snapshot.reviewStatus !== "source_checked_demo_only") {
@@ -43,6 +46,22 @@ if (!Array.isArray(snapshot.records) || snapshot.records.length === 0) {
     if (/\b(start|stop|take|dose|mg|milligram)\b/i.test(row.patientText)) {
       errors.push(`Patient wording may imply a medication action or dose: ${key(row)}`);
     }
+  }
+}
+
+if (patientSnapshot.sourceSnapshotId !== snapshot.snapshotId ||
+    patientSnapshot.records?.length !== snapshot.records.length) {
+  errors.push("Patient snapshot is out of sync with clinical snapshot");
+}
+if (/clinicianSummary|alternatives|strength|dose|dosing/i.test(JSON.stringify(patientSnapshot))) {
+  errors.push("Patient snapshot contains clinician-only or dosing fields");
+}
+for (const row of snapshot.records) {
+  const publicRow = patientSnapshot.records?.find((item) => key(item) === key(row));
+  if (!publicRow || publicRow.patientText !== row.patientText ||
+      publicRow.sourceRecommendationId !== row.sourceRecommendationId ||
+      publicRow.humanClinicalReview !== row.humanClinicalReview) {
+    errors.push(`Patient snapshot differs from clinical source: ${key(row)}`);
   }
 }
 

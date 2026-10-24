@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "sourceSnapshotId": "cpic-cyp2c19-clopidogrel-2026-10-24",
+  "reviewStatus": "source_checked_demo_only",
+  "source": {
+    "guidelineUrl": "https://www.clinpgx.org/guideline/PA166251443",
+    "guidelineVersion": 71,
+    "publicationPmid": "35034351"
+  },
+  "pair": {
+    "gene": "CYP2C19",
+    "drug": "clopidogrel"
+  },
+  "records": [
+    {
+      "phenotype": "Poor Metabolizer",
+      "context": "acs_pci",
+      "patientText": "Your CYP2C19 result may reduce how well clopidogrel works for this condition. Discuss the result with your prescriber or pharmacist.",
+      "sourceRecommendationId": 8480389,
+      "humanClinicalReview": false
+    },
+    {
+      "phenotype": "Normal Metabolizer",
+      "context": "acs_pci",
+      "patientText": "This CYP2C19 result does not identify a clopidogrel-related genetic change covered by this guideline. Other factors still affect treatment.",
+      "sourceRecommendationId": 8480385,
+      "humanClinicalReview": false
+    }
+  ]
+}

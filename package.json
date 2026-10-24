@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
+    "build:patient-data": "node scripts/build-patient-snapshot.mjs",
     "fetch:clinpgx": "node scripts/fetch-clinpgx.mjs",
     "validate:clinical": "node scripts/validate-clinical-data.mjs"
   },

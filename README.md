@@ -9,7 +9,7 @@ Built at **Hackachusetts 2026** · Track: **Healthcare & Biotech** · Built with
 > **Live demo:** _coming soon_
 > **Demo video:** _coming soon_
 
-**Implemented today:** a browser-only file intake page (`/patient`), structural checks for PGx JSON / VCF / four-column raw text, a fictional Maya example, and a versioned two-row CPIC snapshot. Uploaded files are **not** interpreted into recommendations. The clinician portal, NPI check, NDC lookup, openFDA panel, and broader gene–drug coverage below are planned, not yet implemented. See [API and upload register](./docs/API_AND_UPLOAD_REGISTER.md), [clinical change log](./docs/CLINICAL_CHANGELOG.md), and [current gaps](./docs/CURRENT_GAPS.md).
+**Implemented today:** a browser-only file intake page (`/patient`), structural checks for PGx JSON / VCF / four-column raw text, a fictional Maya example, and a versioned two-row CPIC snapshot with a separate patient-safe browser snapshot. Uploaded files are **not** interpreted into recommendations. The clinician portal, NPI check, NDC lookup, openFDA panel, and broader gene–drug coverage below are planned, not yet implemented. See [API and upload register](./docs/API_AND_UPLOAD_REGISTER.md), [clinical change log](./docs/CLINICAL_CHANGELOG.md), and [current gaps](./docs/CURRENT_GAPS.md).
 
 ---
 
