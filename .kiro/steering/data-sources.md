@@ -16,6 +16,8 @@ fileMatchPattern: ["data/**/*", "lib/pgx/**/*", "scripts/**/*", "tests/**/*"]
 - CYP2D6 and HLA calls need specialized methods; do not infer them from a few VCF SNPs.
 - PubMed citation URLs use `https://pubmed.ncbi.nlm.nih.gov/<PMID>/`.
 - Clinical text remains `humanClinicalReview: false` until a qualified reviewer checks wording and population match.
+- `data/target-genes.v1.json` fixes the eight-gene hackathon scope: CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT, NUDT15, CYP4F2, ABCG2. `data/cpic-gene-drug-catalog.v1.json` is a research-only join between these genes, Kai's synthetic PharmCAT reports, and CPIC A/B `pair_view` metadata. A gene–drug pair is not a phenotype-specific recommendation. Never use catalog entries as patient guidance or infer a missing phenotype from them.
+- For multi-gene guidelines, require every needed call and the exact source lookup key; never interpret a single gene row in isolation. Candidate recommendation rows stay ignored under `data/candidates/` until reviewed for phenotype, population, clinical context, and terms.
 
 ## VCF-to-phenotype handoff (Kai)
 

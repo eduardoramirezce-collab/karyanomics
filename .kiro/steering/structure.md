@@ -64,7 +64,7 @@ VCF file           →  VcfVariant[]  →  "*2/*2"         →  "Poor Metabolize
 
 Key points for anyone building here:
 
-- Genes called from VCF: **CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT.**
+- Target genes for the eventual validated caller: **CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT, NUDT15, CYP4F2, ABCG2.** VCF parsing works today; no validated allele/phenotype call is produced yet.
 - **CYP2D6 is never called from a VCF.** It comes only from an optional
   outside-call input and joins at the diplotype stage. With no outside call,
   CYP2D6 is `Indeterminate` ("CYP2D6 cannot be determined from this file").

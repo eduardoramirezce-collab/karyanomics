@@ -55,3 +55,11 @@
 - [x] Merge Kai's VCF parser, upload component, and sample reference fixtures without duplicating VCF parsing or presenting a parsed file as verified.
 - [x] Compare the CYP2C19 rows in Kai's PharmCAT reference reports with the exact CPIC guidance lookup in a fixture-only handoff test. This validates shared vocabulary, not VCF allele calling.
 - [ ] Integrate with Kai's allele/phenotype caller after it is implemented and validated; verify sample VCF → phenotype → guidance end to end.
+
+## Eight target genes (2026-10-24)
+
+- [x] Limit the target catalog to CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT, NUDT15, CYP4F2, and ABCG2, while retaining Kai's full PharmCAT 3.4.0 sample reports as validation fixtures.
+- [x] Join these eight genes to current, non-provisional CPIC A/B `pair_view` metadata. Store a versioned research-only index with exact RxNorm IDs and guideline URLs; 41 pair entries cover all eight genes.
+- [x] Provide an exact drug/RxNorm candidate lookup that groups multi-gene pairs without generating patient advice.
+- [ ] Review source usage terms and each guideline's recommendation lookup key, other required genes, population, and indication before extending `assess()` beyond CYP2C19/clopidogrel ACS/PCI.
+- [ ] Validate Kai's future allele/phenotype caller against the sample answer keys before connecting any new personalized guidance.

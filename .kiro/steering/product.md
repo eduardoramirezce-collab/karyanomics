@@ -42,13 +42,11 @@ rather than guessing.
 
 ## Scope
 
-Planned VCF gene coverage: **CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT.** The current guidance snapshot covers only CYP2C19 + clopidogrel for ACS/PCI.
+Target eight-gene scope: **CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT, NUDT15, CYP4F2, ABCG2.** The current guidance snapshot covers only CYP2C19 + clopidogrel for ACS/PCI. The CPIC A/B pair catalog for all eight genes is a research index, not patient guidance. Kai's full PharmCAT sample reports remain caller-validation fixtures.
 
 **CYP2D6 is not callable from a VCF.** It comes only from an optional
 outside-call input; if absent, CYP2D6 is `Indeterminate` with the explanation
-"CYP2D6 cannot be determined from this file." DPYD and NUDT15 are out of scope
-for VCF calling today (azathioprine and mercaptopurine remain covered under
-TPMT).
+"CYP2D6 cannot be determined from this file." DPYD remains outside the eight-gene target scope. NUDT15 is a target gene, but no validated NUDT15 allele/phenotype caller exists yet.
 
 Genetic data stays on the device and is never sent to any server route; no real
 patient data is stored in the repo.

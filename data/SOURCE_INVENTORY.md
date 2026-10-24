@@ -47,6 +47,10 @@ caused an event. NPI/openFDA data must never be turned into clinical advice.
   The parser does not yet compare calls to these outputs. PharmCAT is **not
   integrated as a caller**, and its reports are not independent corroboration
   of the CPIC recommendation they display.
+- **Eight-gene research index:** `data/target-genes.v1.json` fixes the agreed
+  scope. `data/cpic-gene-drug-catalog.v1.json` links those genes and synthetic
+  sample calls to 41 non-provisional CPIC A/B pair records. It is discovery
+  metadata only; it does not map a phenotype to an action.
 
 ## 3. openFDA (planned; no app route yet)
 

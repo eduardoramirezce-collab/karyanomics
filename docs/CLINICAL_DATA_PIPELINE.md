@@ -62,7 +62,9 @@ Adverse-event data stays in its own context panel. A source row should retain
 the guideline ID/version, recommendation ID, PMID, retrieval date, classification,
 population/indication, exact matched phenotype, and a clinical review flag.
 
-The current snapshot supports only CYP2C19 + clopidogrel for **ACS/PCI**. It
+The eight-gene target scope is CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT,
+NUDT15, CYP4F2, and ABCG2. Their 41 CPIC A/B gene–drug pairs are indexed as
+research metadata only. The current snapshot supports only CYP2C19 + clopidogrel for **ACS/PCI**. It
 uses CPIC guideline PA166251443, version 71, and five source recommendation IDs.
 The app-facing explanations are paraphrases marked as **not yet clinically
 reviewed**. The refresh script writes a candidate file and does not alter the

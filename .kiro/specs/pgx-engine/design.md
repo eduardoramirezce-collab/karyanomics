@@ -69,9 +69,13 @@ Never returns a dose; never calls the network.
 
 ### Data files
 
-- `data/allele-definitions.json`: star-allele defining positions per gene
-  (CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT). Positions sourced from
-  ClinPGx/PharmCAT, never invented. Currently placeholder (`TODO`) coordinates.
+- `data/allele-definitions.json`: currently has placeholder (`TODO`) coordinates
+  for the original five planned genes. The agreed target also includes NUDT15,
+  CYP4F2, and ABCG2; their validated definitions and caller work are pending.
+  Positions must be sourced from ClinPGx/PharmCAT, never invented.
+- `data/target-genes.v1.json` and `data/cpic-gene-drug-catalog.v1.json`:
+  eight-gene scope and research-only CPIC A/B pair metadata. Neither supplies
+  phenotype-specific patient guidance.
 - `data/cpic-cyp2c19-clopidogrel.v1.json`: source-linked CPIC demo rows;
   `humanClinicalReview: false` pending qualified clinical review.
 - `public/samples/maya.vcf` + `data/samples/maya.phenotype.json`: a synthetic

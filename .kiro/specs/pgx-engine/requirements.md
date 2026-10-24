@@ -17,9 +17,10 @@ every result is computed from the file. The pipeline is:
 6. **Report:** a plain-language patient view and a clinician view (behind the
    NPI gate).
 
-Genes called from VCF: **CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT.** CYP2D6 is not
-callable from a VCF and comes only from the optional outside-call input. DPYD and
-NUDT15 are out of scope for VCF calling today.
+Target genes for a future validated caller: **CYP2C19, CYP2C9, VKORC1,
+SLCO1B1, TPMT, NUDT15, CYP4F2, ABCG2.** The current code parses VCFs but
+does not call any diplotype or phenotype. CYP2D6 needs a specialized outside
+call in this workflow; DPYD is outside the eight-gene target.
 
 Genetic data is processed entirely client-side and is never sent to a server.
 All clinical wording comes from a reviewed source file, and all allele positions

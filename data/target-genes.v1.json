@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "status": "hackathon_scope",
+  "genes": [
+    "CYP2C19",
+    "CYP2C9",
+    "VKORC1",
+    "SLCO1B1",
+    "TPMT",
+    "NUDT15",
+    "CYP4F2",
+    "ABCG2"
+  ]
+}

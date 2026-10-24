@@ -60,3 +60,4 @@
 
 - Edu's `clinical-data` branch implements step 7 for one exact gene/drug/indication: CYP2C19 + clopidogrel + ACS/PCI, with five phenotype rows. Source-linked wording is **not yet clinically reviewed**, so task 8 is still open as written.
 - Kai's `parseVcf`, VCF upload UI, sample VCFs and PharmCAT answer keys are merged from `feature/vcf-input`. The allele/phenotype caller remains open. No parsed VCF is fed to `assess` yet.
+- The agreed target now includes NUDT15, CYP4F2, and ABCG2 alongside the original five genes. The eight-gene CPIC pair catalog is research metadata; Kai's caller and Edu's phenotype-specific guidance still require separate validation for those additions.

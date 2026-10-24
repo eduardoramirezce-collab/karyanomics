@@ -10,7 +10,9 @@
     "test": "vitest run",
     "build:patient-data": "node scripts/build-patient-snapshot.mjs",
     "fetch:clinpgx": "node scripts/fetch-clinpgx.mjs",
-    "validate:clinical": "node scripts/validate-clinical-data.mjs"
+    "fetch:gene-catalog": "node scripts/fetch-gene-drug-catalog.mjs",
+    "fetch:recommendation-index": "node scripts/fetch-recommendation-index.mjs",
+    "validate:clinical": "node scripts/validate-clinical-data.mjs && node scripts/validate-gene-drug-catalog.mjs"
   },
   "dependencies": {
     "next": "16.4.3",

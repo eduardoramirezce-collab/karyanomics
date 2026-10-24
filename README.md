@@ -9,7 +9,7 @@ Built at **Hackachusetts 2026** · Track: **Healthcare & Biotech** · Built with
 > **Live demo:** _coming soon_
 > **Demo video:** _coming soon_
 
-**Implemented today:** a browser-only VCF parser and upload with three sample files, structural checks for PGx JSON and four-column raw text, a separate fictional guidance example, and a versioned five-row CPIC snapshot with a patient-safe browser projection. Uploaded VCFs are **not** converted to phenotypes or recommendations. The clinician portal, NPI check, NDC lookup, openFDA panel, validated VCF-to-phenotype caller, and broader gene–drug coverage below are planned. See [API and upload register](./docs/API_AND_UPLOAD_REGISTER.md), [clinical change log](./docs/CLINICAL_CHANGELOG.md), and [current gaps](./docs/CURRENT_GAPS.md).
+**Implemented today:** a browser-only VCF parser and upload with three sample files, structural checks for PGx JSON and four-column raw text, a separate fictional guidance example, and a versioned five-row CYP2C19/clopidogrel CPIC snapshot with a patient-safe browser projection. A research-only catalog joins the **eight target genes** to **41 current CPIC A/B gene–drug pair entries**; these entries identify relevant guidelines, not a person's recommended medication. Uploaded VCFs are **not** converted to phenotypes or recommendations. The clinician portal, NPI check, NDC lookup, openFDA panel, validated VCF-to-phenotype caller, and reviewed recommendation coverage beyond the first pair remain planned. See [API and upload register](./docs/API_AND_UPLOAD_REGISTER.md), [clinical change log](./docs/CLINICAL_CHANGELOG.md), and [current gaps](./docs/CURRENT_GAPS.md).
 
 **Team handoff:** Kai owns VCF → diplotype/phenotype (`parseVcf`, allele definitions, caller); Edu owns phenotype + drug + indication → CPIC-linked guidance (`assess`, curated snapshot, patient-safe projection). `DiplotypeCall[]` in `lib/pgx/types.ts` is the boundary. The parser and sample fixtures are merged; the allele/phenotype caller is pending. A complete, verified call is required before guidance; missing/ambiguous calls remain Indeterminate. Shared README/steering changes should be merged to `main` through review so both branches inherit one direction.
 
@@ -39,17 +39,19 @@ The patient side **never tells anyone to start, stop, or change a dose**. That d
 
 > **Note on the NPI gate:** NPIs are public, so this is a demo access check, not real authentication. A production version would add identity verification (license check or clinician single sign-on).
 
-### Gene-drug coverage (CPIC level A)
+### Target gene–drug research scope
+
+These examples identify source pairs to investigate. Only CYP2C19 + clopidogrel for ACS/PCI has a demo guidance lookup; no uploaded VCF produces guidance.
 
 | Gene | Called from | Drugs |
 | --- | --- | --- |
 | CYP2C19 | VCF | clopidogrel, citalopram/escitalopram, sertraline, omeprazole |
-| CYP2C9 + VKORC1 | VCF | warfarin |
-| SLCO1B1 | VCF | simvastatin |
-| TPMT | VCF | azathioprine, mercaptopurine |
-| CYP2D6 | outside call only | codeine, tramadol, ondansetron |
+| CYP2C9 + VKORC1 + CYP4F2 | target; caller pending | warfarin |
+| SLCO1B1 + ABCG2 | target; caller pending | statins (pair coverage varies by gene and drug) |
+| TPMT + NUDT15 | target; caller pending | azathioprine, mercaptopurine, thioguanine |
+| CYP2D6 | outside call only; outside eight-gene target | codeine, tramadol, ondansetron |
 
-CYP2D6 can't be called from a VCF (it needs copy-number and structural analysis that genotyping/VCF data doesn't capture). It comes only from an optional **outside-call** input; if none is provided it shows as **Indeterminate** with the explanation "CYP2D6 cannot be determined from this file." DPYD and NUDT15 are out of scope for VCF calling today.
+CYP2D6 cannot be reliably called from this generic VCF path because copy-number and structural analysis are needed. It comes only from an optional **outside-call** input; if none is provided it shows as **Indeterminate** with the explanation "CYP2D6 cannot be determined from this file." DPYD is outside the eight-gene target. NUDT15 is in scope, but its allele/phenotype caller remains pending.
 
 ---
 

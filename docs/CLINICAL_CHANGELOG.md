@@ -1,5 +1,11 @@
 # Clinical data and API change log
 
+## 2026-10-24 — Eight target genes indexed
+
+- Joined the eight target genes to official CPIC `pair_view` metadata, retaining non-provisional A/B rows used for recommendations. The research-only catalog has 41 gene–drug pair entries across all eight genes. Kai's full synthetic PharmCAT 3.4.0 reports remain validation fixtures, not the target scope.
+- Added exact drug/RxNorm candidate lookup and catalog validation. Warfarin and thiopurine lookups preserve their multi-gene associations. No new patient-specific recommendation row was published; CYP2C19/clopidogrel ACS/PCI remains the only demo guidance path.
+- Source usage terms and all other phenotype, population, indication and multi-gene lookups still require review. The refresh script writes an ignored candidate rather than replacing the committed catalog.
+
 ## 2026-10-24 — Kai's VCF input integrated with Edu's guidance branch
 
 - Merged `feature/vcf-input` commit `bfdd24f` into `clinical-data`: browser-only `parseVcf`, the VCF upload component, three synthetic sample VCFs, PharmCAT 3.4.0 reference outputs, and parser tests. No source-backed CPIC row or API was changed.
