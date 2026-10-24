@@ -7,12 +7,45 @@ import { eyebrow, primaryButton } from "./_portal/ui";
 
 const PRIVACY_FACTS = ["Read on your device", "Never uploaded", "Not stored on a server"];
 
+const PROMISES = [
+  {
+    title: "Linked to published research",
+    text: "Every result links straight to the published guideline it comes from, so you know it's based on real research.",
+  },
+  {
+    title: "Updated as research grows",
+    text: "Medical research keeps changing. Every week, we check your genetic data against the newest findings. If there's something new for your test, we'll let you know.",
+  },
+  {
+    title: "Share with your provider",
+    text: "You can give your doctor or pharmacist access to your results too.",
+  },
+];
+
 export default function Home() {
   return (
     <main>
       <Hero />
       <HowItWorks />
       <GeneChips />
+
+      <section aria-labelledby="promises-heading" className="bg-white py-20 lg:py-28">
+        <Reveal className="mx-auto w-full max-w-6xl px-5" stagger={0.08}>
+          <p data-reveal className={eyebrow}>Why Karyanomics</p>
+          <h2 id="promises-heading" data-reveal className="display mt-3 max-w-3xl text-5xl text-ink sm:text-6xl lg:text-7xl">
+            Results you can trust, kept up to date
+          </h2>
+          <ul className="mt-12 grid gap-5 md:grid-cols-3">
+            {PROMISES.map((promise, index) => (
+              <li key={promise.title} data-reveal className="flex flex-col gap-4 rounded-[1.75rem] border border-ink/10 bg-paper p-7 sm:p-9">
+                <span aria-hidden="true" className="display text-5xl leading-none text-royal">{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="text-2xl font-semibold tracking-tight text-ink">{promise.title}</h3>
+                <p className="text-base leading-relaxed text-ink/80 sm:text-lg">{promise.text}</p>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </section>
 
       <section aria-labelledby="privacy-heading" className="on-ink relative isolate overflow-hidden bg-ink py-24 text-white lg:py-36">
         <span aria-hidden="true" className="absolute -top-40 right-[-10rem] -z-10 h-[34rem] w-[34rem] rounded-full bg-royal/50 blur-3xl" />

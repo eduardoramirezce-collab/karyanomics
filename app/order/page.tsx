@@ -6,8 +6,8 @@ import OrderForm from "./OrderForm";
 
 const STEPS = [
   { title: "Order a test", text: "Fill in the form. We send you a saliva kit." },
-  { title: "Get your results", text: "A lab reads 8 genes from your sample." },
-  { title: "Check your medications", text: "Sign in to see how your genes may affect common medicines." },
+  { title: "Get your results", text: "A lab tests your sample, including 8 commonly studied genes. We'll let you know when your results are ready and set up your portal login." },
+  { title: "Check your medications", text: "Sign in to see which medications may work differently for you." },
 ];
 
 export default function OrderPage() {
@@ -19,7 +19,7 @@ export default function OrderPage() {
           <p className={eyebrow}>Order</p>
           <h1 className="display max-w-4xl text-[2.75rem] text-ink sm:text-7xl lg:text-[6.5rem]">Order your test</h1>
           <p className="max-w-xl text-lg text-ink/80 sm:text-xl">
-            One saliva sample. Results for 8 genes that affect common medications.
+            One saliva sample. Results including 8 commonly studied genes that affect common medications.
           </p>
         </div>
       </header>

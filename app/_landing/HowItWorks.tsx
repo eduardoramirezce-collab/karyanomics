@@ -5,9 +5,9 @@ import { gsap, MOTION_OK, useGSAP } from "../_motion/gsap";
 import { eyebrow } from "../_portal/ui";
 
 const STEPS = [
-  { title: "Order", text: "Order a saliva kit. A lab reads 8 genes that affect common medicines." },
-  { title: "Upload or sync", text: "Load your DNA file. It is read on this device and never uploaded." },
-  { title: "Check your medicines", text: "Search a medicine or a group. See if your genes may change how it works." },
+  { title: "Order", text: "Order your test and we'll mail you a saliva kit." },
+  { title: "Get notified", text: "We'll let you know when your results are ready and set up your login for the portal." },
+  { title: "Check your medications", text: "Sign in and see which medications may work differently for you." },
 ];
 
 /**

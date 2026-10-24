@@ -16,7 +16,7 @@ export default function GeneChips() {
           <div>
             <p className={eyebrow}>The panel</p>
             <h2 id="genes-heading" className="display mt-3 max-w-3xl text-5xl text-ink sm:text-6xl lg:text-7xl">
-              8 genes, read in your browser
+              Includes 8 genes, with more on the way
             </h2>
           </div>
           <p className="max-w-sm text-base text-ink/80">Hover, tap, or focus a gene to see what it does.</p>

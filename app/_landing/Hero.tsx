@@ -36,7 +36,7 @@ export default function Hero() {
             Your genes have a say in your <em className="italic text-royal">medicine.</em>
           </h1>
           <p className="max-w-xl text-lg leading-relaxed text-ink/80 sm:text-xl">
-            Upload your DNA file and see how 8 genes may affect 34 common medications. Your data never leaves your device.
+            Take a genetic test that shows which medications may work differently for you.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/login" className={primaryButton}>
