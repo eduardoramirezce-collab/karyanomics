@@ -41,4 +41,5 @@ npm run start            # serve the production build
 npm test                 # run unit + property-based tests (vitest run)
 npm run lint             # run ESLint
 npm run fetch:clinpgx    # refresh the bundled gene-drug snapshot (optional)
+npm run fetch:pgx-definitions  # regenerate allele definitions + CPIC phenotype table
 ```

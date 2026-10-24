@@ -13,7 +13,8 @@ karyanomics/
 │   └── api/               # Server routes (/api/drug, /api/npi)
 ├── lib/pgx/               # PGx engine: types, VCF parser, star-allele caller, phenotype, recommendations
 ├── data/                  # Cited gene-drug snapshot + allele definitions + sample patients
-│   ├── allele-definitions.json   # Star-allele defining positions per gene (from ClinPGx/PharmCAT)
+│   ├── allele-definitions.json         # Defining positions + named alleles per gene (generated, PharmCAT v3.4.0)
+│   ├── cpic-diplotype-phenotypes.json  # CPIC diplotype → phenotype table (generated)
 │   └── samples/                   # PharmCAT reference outputs per sample patient (answer key)
 ├── scripts/               # Build-time data snapshot scripts (fetch-clinpgx.ts)
 ├── tests/                 # Unit and property-based tests
@@ -44,7 +45,7 @@ connect through small, fixed contracts in `lib/pgx/types.ts`.
 
 ```
 VCF file           →  VcfVariant[]  →  "*2/*2"         →  "Poor Metabolizer"  →  cited result
-(single-sample,       (parseVcf)       (callDiplotypes)   (phenotype lookup)     (assess)
+(single-sample,       (parseVcf)       (callStarAlleles: diplotype + phenotype)   (assess)
  GRCh38)
 
                                         ▲
@@ -53,10 +54,13 @@ VCF file           →  VcfVariant[]  →  "*2/*2"         →  "Poor Metabolize
 
 - **parseVcf:** read `CHROM`, `POS`, `REF`, `ALT`, and the sample's `GT` (phased
   `|` or unphased `/`) into `VcfVariant[]`. Skips malformed lines, never crashes.
-- **callDiplotypes:** match variants at defining positions (from
-  `data/allele-definitions.json`) to star alleles, producing a `DiplotypeCall`
-  per gene. Missing coverage → `Indeterminate` (never assume reference).
-- **phenotype lookup:** map a diplotype to a phenotype using CPIC tables.
+- **callStarAlleles** (`lib/pgx/callStarAlleles.ts`): match variants at defining
+  positions (from `data/allele-definitions.json`) to named alleles, producing one
+  `DiplotypeCall` per gene, then look up CPIC's phenotype in
+  `data/cpic-diplotype-phenotypes.json`. Missing coverage, no-calls, or a variant
+  no allele explains → `Indeterminate` (never assume reference). Unphased
+  double heterozygotes are assigned in trans and flagged `ambiguous`.
+  `analyzeVcf(text)` runs parse + call in one step.
 - **assess:** take a **phenotype** (plus drug and indication), look it up in
   `/data`, and return the cited recommendation. Pure, no network or storage I/O,
   never outputs a dose.
@@ -69,7 +73,7 @@ Key points for anyone building here:
   outside-call input and joins at the diplotype stage. With no outside call,
   CYP2D6 is `Indeterminate` ("CYP2D6 cannot be determined from this file").
 - The stages are independent and meet only at their contracts, so they can be
-  built and tested in order: `parseVcf` → `callDiplotypes` → phenotype → `assess`.
+  built and tested in order: `parseVcf` → `callStarAlleles` → `assess`.
 - **Sample patients (Maya, Alex, Sam) are real VCF files** in `public/samples/`,
   with PharmCAT reference outputs in `data/samples/` as the answer key. They are synthetic (not real
   people) but exercise the full pipeline end to end.

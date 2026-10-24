@@ -2,7 +2,8 @@
 
 - [x] 1. Confirm shared types in `lib/pgx/types.ts`
   - `VcfVariant`, `ParsedVcf`, `AlleleDefinition`, `DiplotypeCall`,
-    `GeneResult.source`, and the `callDiplotypes` stub are present.
+    and `GeneResult.source` are present (the `callDiplotypes` stub was later
+    replaced by `callStarAlleles`).
   - _Requirements: 1.1, 3.1, 4.2_
 
 - [x] 2. Implement `parseVcf(text)` in `lib/pgx/parseVcf.ts`
@@ -16,19 +17,18 @@
     the blocking warnings into a clear user-facing error.
   - _Requirements: 2.1, 2.2_
 
-- [ ] 4. Implement `callDiplotypes(variants, defs)` in `lib/pgx/call-diplotypes.ts`
-  - Match variants to allele definitions per chromosome → homozygous /
-    heterozygous diplotype; missing defining position → Indeterminate (never
-    assume reference); read defs from `data/allele-definitions.json`; pure, no I/O.
+- [x] 4. Call diplotypes: `callStarAlleles(parsed)` in `lib/pgx/callStarAlleles.ts`
+  - Done in the star-allele-caller spec (8 genes, answer-key tested).
   - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5_
 
 - [ ] 5. Add CYP2D6 outside-call handling
-  - Never call CYP2D6 from VCF; merge an optional outside call with
-    `source: "outside-call"`; absent → Indeterminate with the fixed explanation.
+  - Never calling CYP2D6 from VCF is done (always Indeterminate with the fixed
+    explanation). Still to do: merge an optional outside call with
+    `source: "outside-call"`.
   - _Requirements: 4.1, 4.2, 4.3_
 
-- [ ] 6. Implement diplotype → phenotype lookup in `lib/pgx/phenotype.ts`
-  - Map diplotype to CPIC standard phenotype; no mapping → Indeterminate.
+- [x] 6. Diplotype → phenotype lookup
+  - Done inside `callStarAlleles` using `data/cpic-diplotype-phenotypes.json`.
   - _Requirements: 5.1, 5.2_
 
 - [ ] 7. Implement `assess(phenotype, drug, indication)` in `lib/pgx/assess.ts`
@@ -63,7 +63,7 @@
 - [ ] 10. End-to-end + unit tests
   - `maya.vcf` → CYP2C19 `*2/*2`, Poor Metabolizer, equals `maya.phenotype.json`,
     then assessed against clopidogrel/ACS-PCI → matched with source, no dose.
-  - parseVcf line handling; callDiplotypes homo/hetero/missing; CYP2D6 cases.
+  - parseVcf line handling; callStarAlleles homo/hetero/missing; CYP2D6 cases.
   - _Requirements: 1.2, 1.3, 3.1, 3.2, 3.3, 4.3, 7.1, 7.2_
 
 - [ ] 11. Property-based (fast-check) safety tests

@@ -108,35 +108,86 @@ export interface ParsedVcf {
   warnings: VcfWarning[];
 }
 
-/**
- * The defining variants for a single star allele of a gene. A diplotype
- * is called by matching VcfVariant calls against these definitions.
- * Coordinates are sourced from ClinPGx/PharmCAT, never invented.
- */
-export interface AlleleDefinition {
-  /** Gene symbol, e.g. "CYP2C19". */
-  gene: string;
-  /** Star-allele name, e.g. "*2". */
-  allele: string;
-  /** Positions and alleles that define this star allele. */
-  variants: { chrom: string; pos: number; ref: string; alt: string }[];
+/** One genomic position that defines a gene's named alleles (from PharmCAT). */
+export interface DefinitionPosition {
+  /** Chromosome in "chr" form, e.g. "chr10". */
+  chrom: string;
+  /** 1-based GRCh38 position. */
+  pos: number;
+  /** rsID, or null if the position has none. */
+  rsid: string | null;
+  /** Reference letters, VCF style. */
+  ref: string;
+  /** Alternate letters, VCF style. */
+  alts: string[];
 }
 
 /**
- * The called diplotype and phenotype for one gene, with its source. A
- * null diplotype with phenotype "Indeterminate" means the gene could not
- * be called (missing coverage, or CYP2D6 with no outside call).
+ * A named allele (star allele such as "*2", or a named variant such as
+ * "rs9923231 variant (T)"). `alleles` has one entry per position of the gene:
+ * VCF-style letters, an IUPAC code, "X or Y", or null for the reference letter.
+ */
+export interface NamedAlleleDefinition {
+  name: string;
+  /** True for the gene's reference allele (e.g. CYP2C19 *38). */
+  reference: boolean;
+  alleles: (string | null)[];
+}
+
+/**
+ * Everything needed to call one gene from a VCF. Generated from PharmCAT by
+ * scripts/fetch-pgx-definitions.mjs; coordinates are never hand-written.
+ */
+export interface AlleleDefinition {
+  gene: string;
+  chrom: string;
+  pharmcatDefinitionVersion: string;
+  positions: DefinitionPosition[];
+  namedAlleles: NamedAlleleDefinition[];
+}
+
+/** Shape of data/allele-definitions.json. */
+export interface AlleleDefinitionsFile {
+  source: { name: string; tag: string; url: string; license: string };
+  genome: string;
+  retrievedAt: string;
+  genes: AlleleDefinition[];
+}
+
+/** CPIC's phenotype (and activity score, where CPIC uses one) for a diplotype. */
+export interface PhenotypeEntry {
+  phenotype: string;
+  activityScore: string | null;
+}
+
+/** Shape of data/cpic-diplotype-phenotypes.json: gene → "A/B" → entry. */
+export interface PhenotypeTableFile {
+  source: { name: string; url: string; license: string };
+  retrievedAt: string;
+  genes: Record<string, Record<string, PhenotypeEntry>>;
+}
+
+/**
+ * The called diplotype and phenotype for one gene, with its source.
+ * - Indeterminate gene: diplotype null, phenotype "Indeterminate", note says why.
+ * - Called gene: diplotype set; phenotype is CPIC's term, "Indeterminate" if
+ *   CPIC has no entry for that diplotype, or null if CPIC assigns no phenotype
+ *   for the gene at all (VKORC1, CYP4F2).
  */
 export interface DiplotypeCall {
   /** Gene symbol, e.g. "CYP2C19". */
   gene: string;
-  /** Star-allele diplotype, e.g. "*2/*2". Null if not determinable. */
+  /** Diplotype, e.g. "*2/*2". Null if the gene could not be called. */
   diplotype: string | null;
-  /** Phenotype derived from the diplotype, or "Indeterminate". */
-  phenotype: string;
+  /** CPIC phenotype term, "Indeterminate", or null (not applicable). */
+  phenotype: string | null;
+  /** CPIC activity score (e.g. "1.0") where CPIC uses one, else null. */
+  activityScore: string | null;
   /** Where this call came from. */
   source: "vcf" | "outside-call";
-  /** Optional human-readable note, e.g. why a gene is Indeterminate. */
+  /** True when the call depends on an assumed phase (unphased data). */
+  ambiguous: boolean;
+  /** Plain-language note, e.g. why a gene is Indeterminate. */
   note?: string;
 }
 
@@ -167,20 +218,4 @@ export interface DrugAssessment {
   citations: string[];
   /** Human-readable source/guideline this assessment cites. */
   source: string;
-}
-/**
- * Engine entry points for the VCF pipeline that are not built yet. These are
- * signature stubs only; they throw until implemented so callers fail loudly
- * rather than silently receiving fake results. (parseVcf lives in
- * lib/pgx/parseVcf.ts.)
- */
-
-/** Call per-gene diplotypes by matching variants against allele definitions. */
-export function callDiplotypes(
-  variants: VcfVariant[],
-  defs: AlleleDefinition[],
-): DiplotypeCall[] {
-  void variants;
-  void defs;
-  throw new Error("not implemented");
 }

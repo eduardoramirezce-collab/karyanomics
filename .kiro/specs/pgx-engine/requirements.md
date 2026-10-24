@@ -10,7 +10,7 @@ every result is computed from the file. The pipeline is:
    plus an optional "outside call" input for CYP2D6.
 2. **Parse VCF** (`parseVcf`): read `CHROM`, `POS`, `REF`, `ALT`, and the
    sample's `GT` field (phased `|` or unphased `/`) into `VcfVariant[]`.
-3. **Call star alleles** (`callDiplotypes`): match variants at defined positions
+3. **Call star alleles** (`callStarAlleles`): match variants at defined positions
    to star alleles and produce a diplotype per gene (e.g. CYP2C19 `*2/*2`).
 4. **Diplotype → phenotype** using CPIC tables (e.g. Poor Metabolizer).
 5. **Phenotype + drug → CPIC recommendation** (`assess`).
@@ -91,7 +91,7 @@ variants, so that each gene resolves to star alleles or to Indeterminate.
    SHALL return `Indeterminate` for that gene and SHALL NOT assume reference.
 4. WHERE allele definitions are read THE system SHALL read them from
    `data/allele-definitions.json` and SHALL NOT use any invented position.
-5. THE `callDiplotypes` function SHALL be pure and SHALL NOT perform any network
+5. THE `callStarAlleles` function SHALL be pure and SHALL NOT perform any network
    or storage I/O.
 
 ### Requirement 4: CYP2D6 via outside call only

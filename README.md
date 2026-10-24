@@ -75,8 +75,9 @@ npm run dev
 Open http://localhost:3000.
 
 ```bash
-npm test                 # unit + property-based tests
-npm run fetch:clinpgx    # refresh the bundled gene-drug snapshot (optional)
+npm test                       # unit + property-based tests
+npm run fetch:pgx-definitions  # regenerate allele definitions + CPIC phenotype table (optional)
+npm run fetch:clinpgx          # refresh the bundled gene-drug snapshot (optional)
 ```
 
 No API keys are required; all external APIs used are public.
@@ -97,7 +98,7 @@ The app computes everything from a genotype file. The pipeline:
 ```
 Browser (patient + clinician screens)
   └─ PGx engine (lib/pgx):
-       VCF → parseVcf → callDiplotypes → phenotype → CPIC recommendation
+       VCF → parseVcf → callStarAlleles (diplotype + CPIC phenotype) → CPIC recommendation
        (optional CYP2D6 outside call joins at the diplotype step)
          └─ reads allele definitions + cited snapshot in /data
               (genetic data never leaves the device)
@@ -127,8 +128,9 @@ karyanomics/
 │   └── api/
 ├── lib/pgx/               # PGx engine: types, VCF parser, star-allele caller, phenotype, recommendations
 ├── data/                  # Cited gene-drug snapshot + allele definitions + sample patients
-│   ├── allele-definitions.json   # Star-allele defining positions per gene
-│   └── samples/                   # PharmCAT reference outputs for each sample patient (answer key)
+│   ├── allele-definitions.json         # Defining positions + named alleles per gene (PharmCAT v3.4.0, generated)
+│   ├── cpic-diplotype-phenotypes.json  # CPIC diplotype → phenotype table (generated)
+│   └── samples/                         # PharmCAT reference outputs for each sample patient (answer key)
 ├── public/samples/        # Sample patient VCFs (Maya, Alex, Sam), fetched by the browser
 ├── scripts/               # Data snapshot scripts
 ├── tests/                 # Unit and property-based tests
@@ -157,7 +159,7 @@ See [`KIRO_LOG.md`](./KIRO_LOG.md) and the [`.kiro/`](./.kiro) directory for the
 | --- | --- | --- |
 | [ClinPGx](https://www.clinpgx.org/) (PharmGKB + CPIC) | Gene-drug pairs, guidelines, variant data | CC BY-SA 4.0 |
 | [CPIC guidelines](https://cpicpgx.org/guidelines/) | Phenotype-based recommendations | Cited per recommendation |
-| [PharmCAT](https://pharmcat.org) | Sample VCFs and reference outputs used to validate our allele caller | See PharmCAT terms |
+| [PharmCAT](https://pharmcat.org) | Allele definitions (v3.4.0), sample VCFs, and reference outputs used to validate our allele caller | MPL-2.0 |
 | [openFDA](https://open.fda.gov/) | NDC lookup, drug adverse event reports | U.S. FDA public data. A report is not proof the drug caused the event. |
 | [CMS NPPES NPI Registry](https://npiregistry.cms.hhs.gov/) | Clinician NPI verification | U.S. CMS public data |
 | [PubMed / NCBI](https://pubmed.ncbi.nlm.nih.gov/) | Citations (PMIDs) | U.S. NLM public data |
