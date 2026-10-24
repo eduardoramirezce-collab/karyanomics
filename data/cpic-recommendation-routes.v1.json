@@ -1,0 +1,2115 @@
+{
+  "schemaVersion": 1,
+  "status": "research_routing_only_not_patient_guidance",
+  "fetchedAt": "2026-10-24T18:05:47.467Z",
+  "builtAt": "2026-10-24T18:26:59.192Z",
+  "source": {
+    "name": "CPIC API recommendation_view and guideline",
+    "url": "https://api.cpicpgx.org/v1/",
+    "usageTermsUrl": "https://www.clinpgx.org/page/dataUsagePolicy",
+    "usageTermsReviewPending": true
+  },
+  "exclusion": "No Result, Indeterminate, and n/a lookup values excluded; no recommendation text or dose is stored.",
+  "guidelines": [
+    {
+      "name": "CYP2C19 and Clopidogrel",
+      "version": 71,
+      "url": "https://www.clinpgx.org/guideline/PA166251443",
+      "guidelineId": "PA166251443",
+      "genes": [
+        "CYP2C19"
+      ],
+      "notesonusage": null
+    },
+    {
+      "name": "SLCO1B1, ABCG2, CYP2C9, and Statins",
+      "version": 72,
+      "url": "https://www.clinpgx.org/guideline/PA166264281",
+      "guidelineId": "PA166264281",
+      "genes": [
+        "SLCO1B1",
+        "ABCG2",
+        "CYP2C9"
+      ],
+      "notesonusage": null
+    },
+    {
+      "name": "TPMT, NUDT15 and Thiopurines",
+      "version": 71,
+      "url": "https://www.clinpgx.org/guideline/PA166251442",
+      "guidelineId": "PA166251442",
+      "genes": [
+        "NUDT15",
+        "TPMT"
+      ],
+      "notesonusage": null
+    },
+    {
+      "name": "CYP2C9, VKORC1, CYP4F2 and Warfarin",
+      "version": 72,
+      "url": "https://www.clinpgx.org/guideline/PA166251465",
+      "guidelineId": "PA166251465",
+      "genes": [
+        "CYP2C9",
+        "CYP4F2",
+        "VKORC1"
+      ],
+      "notesonusage": "Warfarin recommendation does not follow simple diplotype to phenotype translation. Read the guideline text and follow the recommendation diagram found at http://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png"
+    }
+  ],
+  "routeCount": 134,
+  "routes": [
+    {
+      "recommendationId": 8480047,
+      "guidelineId": "PA166264281",
+      "drug": "atorvastatin",
+      "rxnormId": "RxNorm:83367",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Increased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Increased Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480048,
+      "guidelineId": "PA166264281",
+      "drug": "atorvastatin",
+      "rxnormId": "RxNorm:83367",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Normal Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Normal Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480049,
+      "guidelineId": "PA166264281",
+      "drug": "atorvastatin",
+      "rxnormId": "RxNorm:83367",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480050,
+      "guidelineId": "PA166264281",
+      "drug": "atorvastatin",
+      "rxnormId": "RxNorm:83367",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Decreased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Decreased Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480051,
+      "guidelineId": "PA166264281",
+      "drug": "atorvastatin",
+      "rxnormId": "RxNorm:83367",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Poor Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Poor Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480053,
+      "guidelineId": "PA166251442",
+      "drug": "azathioprine",
+      "rxnormId": "RxNorm:1256",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480054,
+      "guidelineId": "PA166251442",
+      "drug": "azathioprine",
+      "rxnormId": "RxNorm:1256",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480055,
+      "guidelineId": "PA166251442",
+      "drug": "azathioprine",
+      "rxnormId": "RxNorm:1256",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480056,
+      "guidelineId": "PA166251442",
+      "drug": "azathioprine",
+      "rxnormId": "RxNorm:1256",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480057,
+      "guidelineId": "PA166251442",
+      "drug": "azathioprine",
+      "rxnormId": "RxNorm:1256",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480059,
+      "guidelineId": "PA166251442",
+      "drug": "azathioprine",
+      "rxnormId": "RxNorm:1256",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480060,
+      "guidelineId": "PA166251442",
+      "drug": "azathioprine",
+      "rxnormId": "RxNorm:1256",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480061,
+      "guidelineId": "PA166251442",
+      "drug": "azathioprine",
+      "rxnormId": "RxNorm:1256",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480063,
+      "guidelineId": "PA166251442",
+      "drug": "azathioprine",
+      "rxnormId": "RxNorm:1256",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480064,
+      "guidelineId": "PA166251442",
+      "drug": "azathioprine",
+      "rxnormId": "RxNorm:1256",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480065,
+      "guidelineId": "PA166251442",
+      "drug": "azathioprine",
+      "rxnormId": "RxNorm:1256",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480066,
+      "guidelineId": "PA166251442",
+      "drug": "azathioprine",
+      "rxnormId": "RxNorm:1256",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480067,
+      "guidelineId": "PA166251442",
+      "drug": "azathioprine",
+      "rxnormId": "RxNorm:1256",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480068,
+      "guidelineId": "PA166251442",
+      "drug": "azathioprine",
+      "rxnormId": "RxNorm:1256",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480069,
+      "guidelineId": "PA166251442",
+      "drug": "azathioprine",
+      "rxnormId": "RxNorm:1256",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480070,
+      "guidelineId": "PA166251442",
+      "drug": "azathioprine",
+      "rxnormId": "RxNorm:1256",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480383,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "CVI ACS PCI",
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480384,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "CVI ACS PCI",
+      "lookupKey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480385,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "CVI ACS PCI",
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480386,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "CVI ACS PCI",
+      "lookupKey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480387,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "CVI ACS PCI",
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480388,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "CVI ACS PCI",
+      "lookupKey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480389,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "CVI ACS PCI",
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480391,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "CVI non-ACS non-PCI",
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "classification": "No Recommendation"
+    },
+    {
+      "recommendationId": 8480392,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "CVI non-ACS non-PCI",
+      "lookupKey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "classification": "No Recommendation"
+    },
+    {
+      "recommendationId": 8480393,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "CVI non-ACS non-PCI",
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480394,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "CVI non-ACS non-PCI",
+      "lookupKey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "classification": "No Recommendation"
+    },
+    {
+      "recommendationId": 8480395,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "CVI non-ACS non-PCI",
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "classification": "No Recommendation"
+    },
+    {
+      "recommendationId": 8480396,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "CVI non-ACS non-PCI",
+      "lookupKey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480397,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "CVI non-ACS non-PCI",
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480399,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "NVI",
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "classification": "No Recommendation"
+    },
+    {
+      "recommendationId": 8480400,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "NVI",
+      "lookupKey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "classification": "No Recommendation"
+    },
+    {
+      "recommendationId": 8480401,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "NVI",
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480402,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "NVI",
+      "lookupKey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480403,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "NVI",
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480404,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "NVI",
+      "lookupKey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480405,
+      "guidelineId": "PA166251443",
+      "drug": "clopidogrel",
+      "rxnormId": "RxNorm:32968",
+      "population": "NVI",
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480752,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.0",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "classification": "Optional"
+    },
+    {
+      "recommendationId": 8480753,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.0",
+        "SLCO1B1": "Decreased Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Decreased Function"
+      },
+      "classification": "Optional"
+    },
+    {
+      "recommendationId": 8480754,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.5",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "classification": "Optional"
+    },
+    {
+      "recommendationId": 8480755,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.5",
+        "SLCO1B1": "Decreased Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Decreased Function"
+      },
+      "classification": "Optional"
+    },
+    {
+      "recommendationId": 8480756,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.0",
+        "SLCO1B1": "Normal Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Normal Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480757,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.0",
+        "SLCO1B1": "Increased Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Increased Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480758,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.5",
+        "SLCO1B1": "Normal Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Normal Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480759,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.5",
+        "SLCO1B1": "Increased Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Increased Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480760,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.0",
+        "SLCO1B1": "Normal Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Normal Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480761,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.0",
+        "SLCO1B1": "Increased Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Increased Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480762,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.5",
+        "SLCO1B1": "Normal Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Normal Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480763,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.5",
+        "SLCO1B1": "Increased Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Increased Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480764,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "2.0",
+        "SLCO1B1": "Poor Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer",
+        "SLCO1B1": "Poor Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480765,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.0",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "classification": "Optional"
+    },
+    {
+      "recommendationId": 8480766,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.0",
+        "SLCO1B1": "Decreased Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Decreased Function"
+      },
+      "classification": "Optional"
+    },
+    {
+      "recommendationId": 8480767,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.5",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "classification": "Optional"
+    },
+    {
+      "recommendationId": 8480768,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.5",
+        "SLCO1B1": "Decreased Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Decreased Function"
+      },
+      "classification": "Optional"
+    },
+    {
+      "recommendationId": 8480769,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.0",
+        "SLCO1B1": "Poor Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Poor Function"
+      },
+      "classification": "Optional"
+    },
+    {
+      "recommendationId": 8480770,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.5",
+        "SLCO1B1": "Poor Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Poor Function"
+      },
+      "classification": "Optional"
+    },
+    {
+      "recommendationId": 8480771,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.0",
+        "SLCO1B1": "Poor Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Poor Function"
+      },
+      "classification": "Optional"
+    },
+    {
+      "recommendationId": 8480772,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.5",
+        "SLCO1B1": "Poor Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Poor Function"
+      },
+      "classification": "Optional"
+    },
+    {
+      "recommendationId": 8480773,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "2.0",
+        "SLCO1B1": "Normal Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer",
+        "SLCO1B1": "Normal Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480774,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "2.0",
+        "SLCO1B1": "Increased Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer",
+        "SLCO1B1": "Increased Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8480775,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "2.0",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8480776,
+      "guidelineId": "PA166264281",
+      "drug": "fluvastatin",
+      "rxnormId": "RxNorm:41127",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "2.0",
+        "SLCO1B1": "Decreased Function"
+      },
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer",
+        "SLCO1B1": "Decreased Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481056,
+      "guidelineId": "PA166264281",
+      "drug": "lovastatin",
+      "rxnormId": "RxNorm:6472",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Increased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Increased Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481057,
+      "guidelineId": "PA166264281",
+      "drug": "lovastatin",
+      "rxnormId": "RxNorm:6472",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Normal Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Normal Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481058,
+      "guidelineId": "PA166264281",
+      "drug": "lovastatin",
+      "rxnormId": "RxNorm:6472",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481059,
+      "guidelineId": "PA166264281",
+      "drug": "lovastatin",
+      "rxnormId": "RxNorm:6472",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Decreased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Decreased Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481060,
+      "guidelineId": "PA166264281",
+      "drug": "lovastatin",
+      "rxnormId": "RxNorm:6472",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Poor Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Poor Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481068,
+      "guidelineId": "PA166251442",
+      "drug": "mercaptopurine",
+      "rxnormId": "RxNorm:103",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481069,
+      "guidelineId": "PA166251442",
+      "drug": "mercaptopurine",
+      "rxnormId": "RxNorm:103",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481070,
+      "guidelineId": "PA166251442",
+      "drug": "mercaptopurine",
+      "rxnormId": "RxNorm:103",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481071,
+      "guidelineId": "PA166251442",
+      "drug": "mercaptopurine",
+      "rxnormId": "RxNorm:103",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481072,
+      "guidelineId": "PA166251442",
+      "drug": "mercaptopurine",
+      "rxnormId": "RxNorm:103",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481074,
+      "guidelineId": "PA166251442",
+      "drug": "mercaptopurine",
+      "rxnormId": "RxNorm:103",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481075,
+      "guidelineId": "PA166251442",
+      "drug": "mercaptopurine",
+      "rxnormId": "RxNorm:103",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481076,
+      "guidelineId": "PA166251442",
+      "drug": "mercaptopurine",
+      "rxnormId": "RxNorm:103",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481078,
+      "guidelineId": "PA166251442",
+      "drug": "mercaptopurine",
+      "rxnormId": "RxNorm:103",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481079,
+      "guidelineId": "PA166251442",
+      "drug": "mercaptopurine",
+      "rxnormId": "RxNorm:103",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481080,
+      "guidelineId": "PA166251442",
+      "drug": "mercaptopurine",
+      "rxnormId": "RxNorm:103",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481081,
+      "guidelineId": "PA166251442",
+      "drug": "mercaptopurine",
+      "rxnormId": "RxNorm:103",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481082,
+      "guidelineId": "PA166251442",
+      "drug": "mercaptopurine",
+      "rxnormId": "RxNorm:103",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481083,
+      "guidelineId": "PA166251442",
+      "drug": "mercaptopurine",
+      "rxnormId": "RxNorm:103",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481084,
+      "guidelineId": "PA166251442",
+      "drug": "mercaptopurine",
+      "rxnormId": "RxNorm:103",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481085,
+      "guidelineId": "PA166251442",
+      "drug": "mercaptopurine",
+      "rxnormId": "RxNorm:103",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481338,
+      "guidelineId": "PA166264281",
+      "drug": "pitavastatin",
+      "rxnormId": "RxNorm:861634",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Increased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Increased Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481339,
+      "guidelineId": "PA166264281",
+      "drug": "pitavastatin",
+      "rxnormId": "RxNorm:861634",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Normal Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Normal Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481340,
+      "guidelineId": "PA166264281",
+      "drug": "pitavastatin",
+      "rxnormId": "RxNorm:861634",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481341,
+      "guidelineId": "PA166264281",
+      "drug": "pitavastatin",
+      "rxnormId": "RxNorm:861634",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Decreased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Decreased Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481342,
+      "guidelineId": "PA166264281",
+      "drug": "pitavastatin",
+      "rxnormId": "RxNorm:861634",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Poor Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Poor Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481344,
+      "guidelineId": "PA166264281",
+      "drug": "pravastatin",
+      "rxnormId": "RxNorm:42463",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Increased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Increased Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481345,
+      "guidelineId": "PA166264281",
+      "drug": "pravastatin",
+      "rxnormId": "RxNorm:42463",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Normal Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Normal Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481346,
+      "guidelineId": "PA166264281",
+      "drug": "pravastatin",
+      "rxnormId": "RxNorm:42463",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481347,
+      "guidelineId": "PA166264281",
+      "drug": "pravastatin",
+      "rxnormId": "RxNorm:42463",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Decreased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Decreased Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481348,
+      "guidelineId": "PA166264281",
+      "drug": "pravastatin",
+      "rxnormId": "RxNorm:42463",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Poor Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Poor Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481355,
+      "guidelineId": "PA166264281",
+      "drug": "rosuvastatin",
+      "rxnormId": "RxNorm:301542",
+      "population": "general",
+      "lookupKey": {
+        "ABCG2": "Poor Function",
+        "SLCO1B1": "Decreased Function"
+      },
+      "phenotypes": {
+        "ABCG2": "Poor Function",
+        "SLCO1B1": "Decreased Function"
+      },
+      "classification": "Optional"
+    },
+    {
+      "recommendationId": 8481356,
+      "guidelineId": "PA166264281",
+      "drug": "rosuvastatin",
+      "rxnormId": "RxNorm:301542",
+      "population": "general",
+      "lookupKey": {
+        "ABCG2": "Poor Function",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "phenotypes": {
+        "ABCG2": "Poor Function",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "classification": "Optional"
+    },
+    {
+      "recommendationId": 8481357,
+      "guidelineId": "PA166264281",
+      "drug": "rosuvastatin",
+      "rxnormId": "RxNorm:301542",
+      "population": "general",
+      "lookupKey": {
+        "ABCG2": "Poor Function",
+        "SLCO1B1": "Poor Function"
+      },
+      "phenotypes": {
+        "ABCG2": "Poor Function",
+        "SLCO1B1": "Poor Function"
+      },
+      "classification": "Optional"
+    },
+    {
+      "recommendationId": 8481358,
+      "guidelineId": "PA166264281",
+      "drug": "rosuvastatin",
+      "rxnormId": "RxNorm:301542",
+      "population": "general",
+      "lookupKey": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Poor Function"
+      },
+      "phenotypes": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Poor Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481359,
+      "guidelineId": "PA166264281",
+      "drug": "rosuvastatin",
+      "rxnormId": "RxNorm:301542",
+      "population": "general",
+      "lookupKey": {
+        "ABCG2": "Poor Function",
+        "SLCO1B1": "Increased Function"
+      },
+      "phenotypes": {
+        "ABCG2": "Poor Function",
+        "SLCO1B1": "Increased Function"
+      },
+      "classification": "Optional"
+    },
+    {
+      "recommendationId": 8481360,
+      "guidelineId": "PA166264281",
+      "drug": "rosuvastatin",
+      "rxnormId": "RxNorm:301542",
+      "population": "general",
+      "lookupKey": {
+        "ABCG2": "Poor Function",
+        "SLCO1B1": "Normal Function"
+      },
+      "phenotypes": {
+        "ABCG2": "Poor Function",
+        "SLCO1B1": "Normal Function"
+      },
+      "classification": "Optional"
+    },
+    {
+      "recommendationId": 8481361,
+      "guidelineId": "PA166264281",
+      "drug": "rosuvastatin",
+      "rxnormId": "RxNorm:301542",
+      "population": "general",
+      "lookupKey": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Poor Function"
+      },
+      "phenotypes": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Poor Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481362,
+      "guidelineId": "PA166264281",
+      "drug": "rosuvastatin",
+      "rxnormId": "RxNorm:301542",
+      "population": "general",
+      "lookupKey": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Increased Function"
+      },
+      "phenotypes": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Increased Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481363,
+      "guidelineId": "PA166264281",
+      "drug": "rosuvastatin",
+      "rxnormId": "RxNorm:301542",
+      "population": "general",
+      "lookupKey": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Increased Function"
+      },
+      "phenotypes": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Increased Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481364,
+      "guidelineId": "PA166264281",
+      "drug": "rosuvastatin",
+      "rxnormId": "RxNorm:301542",
+      "population": "general",
+      "lookupKey": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Normal Function"
+      },
+      "phenotypes": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Normal Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481365,
+      "guidelineId": "PA166264281",
+      "drug": "rosuvastatin",
+      "rxnormId": "RxNorm:301542",
+      "population": "general",
+      "lookupKey": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Normal Function"
+      },
+      "phenotypes": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Normal Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481366,
+      "guidelineId": "PA166264281",
+      "drug": "rosuvastatin",
+      "rxnormId": "RxNorm:301542",
+      "population": "general",
+      "lookupKey": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Decreased Function"
+      },
+      "phenotypes": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Decreased Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481367,
+      "guidelineId": "PA166264281",
+      "drug": "rosuvastatin",
+      "rxnormId": "RxNorm:301542",
+      "population": "general",
+      "lookupKey": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "phenotypes": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481368,
+      "guidelineId": "PA166264281",
+      "drug": "rosuvastatin",
+      "rxnormId": "RxNorm:301542",
+      "population": "general",
+      "lookupKey": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Decreased Function"
+      },
+      "phenotypes": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Decreased Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481369,
+      "guidelineId": "PA166264281",
+      "drug": "rosuvastatin",
+      "rxnormId": "RxNorm:301542",
+      "population": "general",
+      "lookupKey": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "phenotypes": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481444,
+      "guidelineId": "PA166264281",
+      "drug": "simvastatin",
+      "rxnormId": "RxNorm:36567",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Increased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Increased Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481445,
+      "guidelineId": "PA166264281",
+      "drug": "simvastatin",
+      "rxnormId": "RxNorm:36567",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Normal Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Normal Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481446,
+      "guidelineId": "PA166264281",
+      "drug": "simvastatin",
+      "rxnormId": "RxNorm:36567",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481447,
+      "guidelineId": "PA166264281",
+      "drug": "simvastatin",
+      "rxnormId": "RxNorm:36567",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Decreased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Decreased Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481448,
+      "guidelineId": "PA166264281",
+      "drug": "simvastatin",
+      "rxnormId": "RxNorm:36567",
+      "population": "general",
+      "lookupKey": {
+        "SLCO1B1": "Poor Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Poor Function"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481488,
+      "guidelineId": "PA166251442",
+      "drug": "thioguanine",
+      "rxnormId": "RxNorm:10485",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481489,
+      "guidelineId": "PA166251442",
+      "drug": "thioguanine",
+      "rxnormId": "RxNorm:10485",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481490,
+      "guidelineId": "PA166251442",
+      "drug": "thioguanine",
+      "rxnormId": "RxNorm:10485",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481491,
+      "guidelineId": "PA166251442",
+      "drug": "thioguanine",
+      "rxnormId": "RxNorm:10485",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481492,
+      "guidelineId": "PA166251442",
+      "drug": "thioguanine",
+      "rxnormId": "RxNorm:10485",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481494,
+      "guidelineId": "PA166251442",
+      "drug": "thioguanine",
+      "rxnormId": "RxNorm:10485",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481495,
+      "guidelineId": "PA166251442",
+      "drug": "thioguanine",
+      "rxnormId": "RxNorm:10485",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481496,
+      "guidelineId": "PA166251442",
+      "drug": "thioguanine",
+      "rxnormId": "RxNorm:10485",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481498,
+      "guidelineId": "PA166251442",
+      "drug": "thioguanine",
+      "rxnormId": "RxNorm:10485",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481499,
+      "guidelineId": "PA166251442",
+      "drug": "thioguanine",
+      "rxnormId": "RxNorm:10485",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481500,
+      "guidelineId": "PA166251442",
+      "drug": "thioguanine",
+      "rxnormId": "RxNorm:10485",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481501,
+      "guidelineId": "PA166251442",
+      "drug": "thioguanine",
+      "rxnormId": "RxNorm:10485",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "classification": "Strong"
+    },
+    {
+      "recommendationId": 8481502,
+      "guidelineId": "PA166251442",
+      "drug": "thioguanine",
+      "rxnormId": "RxNorm:10485",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481503,
+      "guidelineId": "PA166251442",
+      "drug": "thioguanine",
+      "rxnormId": "RxNorm:10485",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481504,
+      "guidelineId": "PA166251442",
+      "drug": "thioguanine",
+      "rxnormId": "RxNorm:10485",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "classification": "Moderate"
+    },
+    {
+      "recommendationId": 8481505,
+      "guidelineId": "PA166251442",
+      "drug": "thioguanine",
+      "rxnormId": "RxNorm:10485",
+      "population": "general",
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "classification": "Moderate"
+    }
+  ]
+}

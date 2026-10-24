@@ -61,6 +61,10 @@ VCF file           →  VcfVariant[]  →  "*2/*2"         →  "Poor Metabolize
 - **assess:** take a **phenotype** (plus drug and indication), look it up in
   `/data`, and return the cited recommendation. Pure, no network or storage I/O,
   never outputs a dose.
+- **research recommendation router:** after a trusted caller provides per-gene
+  evidence, match exact CPIC lookup keys from the versioned offline route file.
+  It returns a source row for review, not patient advice. Warfarin needs a
+  separate algorithm; a phenotype-only handoff is insufficient for it.
 
 Key points for anyone building here:
 

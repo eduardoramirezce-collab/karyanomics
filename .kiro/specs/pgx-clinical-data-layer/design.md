@@ -2,17 +2,17 @@
 
 ## Overview
 
-The clinical data layer is a client-side, pure-function engine plus a reviewed,
-versioned data file. There is no server component for genetic assessment: a
-phenotype goes in, a source-backed result comes out, all in the browser.
+The clinical data layer is client-side pure functions over versioned source
+snapshots. There is no server component for genetic assessment. A phenotype
+and drug can first identify a CPIC source row for clinician review; only a
+separately reviewed snapshot can produce patient wording.
 
 ```
-app/ (patient UI)
-  └─ lib/pgx/assess.ts   assess(input, data) -> AssessmentResult   (pure)
-        reads
-          data/cpic-cyp2c19-clopidogrel.v1.json   (reviewed, versioned, cited)
-        types from
-          lib/pgx/types.ts   (shared with frontend)
+trusted caller (pending) → DiplotypeCall[] + per-gene evidence
+  ├─ research-recommendation-route.ts → exact CPIC row ID for review only
+  │    reads data/cpic-recommendation-routes.v1.json
+  └─ assess.ts → CYP2C19/clopidogrel ACS/PCI synthetic demo only
+       reads data/cpic-cyp2c19-clopidogrel.v1.json
 ```
 
 External APIs (openFDA, NPPES) are used elsewhere in the app via server routes,
@@ -22,13 +22,13 @@ never in the genetic assessment path, and never to generate a recommendation.
 
 ### Data file: `data/cpic-cyp2c19-clopidogrel.v1.json`
 
-A reviewed projection of the CPIC CYP2C19/clopidogrel guideline. Shape:
+A source-checked demo projection of the CPIC CYP2C19/clopidogrel guideline,
+**not yet clinically reviewed**. Actual shape:
 
-- `dataVersion`, `retrievedAt`, `source` (name, url, guidelineId, publication,
-  cpicVersion, license)
-- `pairs[]`: each with `gene`, `drug`, `rxnormId`, and `recommendations[]`
-- each recommendation: `phenotype`, `indication`, `strength`,
-  `recommendation`, `implications`, `comments`, `needsHumanReview`
+- `schemaVersion`, `snapshotId`, `retrievedAt`, `reviewStatus`, `source`
+- `pair` with `gene`, `drug`, `rxnormId`, and CPIC level
+- `records[]` with phenotype, ACS/PCI context, recommendation ID, strength,
+  source-linked demo paraphrases, and `humanClinicalReview: false`
 
 The snapshot contains short, source-backed demo explanations keyed to CPIC
 recommendation IDs. These paraphrases are explicitly marked as not yet
@@ -51,6 +51,19 @@ Pure function. Steps:
 4. Otherwise → `matched` with the recommendation and source provenance.
 
 The function never returns a dose and never calls the network.
+
+### Research source router: `research-recommendation-route.ts`
+
+`data/cpic-recommendation-routes.v1.json` pins CPIC guideline versions and 134
+exact lookup-key rows for clopidogrel, thiopurines and statins. The router
+requires exact drug/RxNorm identity, population, all required gene calls,
+complete GRCh38/quality evidence and activity score when the source key uses
+one. It checks phenotype and activity score against the same source row.
+Warfarin returns `guideline_algorithm_required`: the CPIC API says it does not
+follow simple diplotype-to-phenotype translation. The router returns only row
+ID, classification and provenance, never a prescribing instruction or dose.
+Caller evidence is a **trusted handoff contract**, not something upload JSON
+can self-assert. See `docs/PHENOTYPE_TO_GUIDANCE_RESEARCH.md`.
 
 ## Identifier map (how sources connect)
 
@@ -76,3 +89,8 @@ Vitest unit tests on `assess()`:
 - Unsupported drug → insufficient_data.
 - Supported pair, unmatched indication → insufficient_data (no substitution).
 - Provenance: matched result's source url/version equals the data file's source.
+
+Routing tests separately cover TPMT+NUDT15, statin multi-gene and CYP2C9
+activity-score keys, caller-evidence failure, indication mismatch, warfarin's
+algorithm boundary, and PharmCAT sample report vocabulary. The fixture tests
+do not claim the app called those phenotypes from a VCF.

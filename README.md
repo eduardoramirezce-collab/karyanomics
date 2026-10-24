@@ -13,6 +13,8 @@ Built at **Hackachusetts 2026** · Track: **Healthcare & Biotech** · Built with
 
 **Team handoff:** Kai owns VCF → diplotype/phenotype (`parseVcf`, allele definitions, caller); Edu owns phenotype + drug + indication → CPIC-linked guidance (`assess`, curated snapshot, patient-safe projection). `DiplotypeCall[]` in `lib/pgx/types.ts` is the boundary. The parser and sample fixtures are merged; the allele/phenotype caller is pending. A complete, verified call is required before guidance; missing/ambiguous calls remain Indeterminate. Shared README/steering changes should be merged to `main` through review so both branches inherit one direction.
 
+**Research routing in progress:** an exact phenotype/activity-score + drug + population matcher now identifies CPIC recommendation IDs for clopidogrel, thiopurines and selected statins, and flags warfarin for its separate guideline algorithm. It returns provenance for clinician review, **not a medication recommendation to a patient**. See [phenotype-to-guidance research and caller handoff](./docs/PHENOTYPE_TO_GUIDANCE_RESEARCH.md).
+
 ---
 
 ## The problem

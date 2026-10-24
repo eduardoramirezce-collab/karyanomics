@@ -1,5 +1,11 @@
 # Clinical data and API change log
 
+## 2026-10-24 — Exact source-row routing prepared
+
+- Researched current CPIC API lookup keys and primary guidelines for clopidogrel, thiopurines, statins and warfarin. Pinned guideline versions 71/72/71/72 respectively and 134 usable research-only source-row IDs for the first three families; warfarin is explicitly algorithm-based.
+- Added an offline matcher for exact drug/RxNorm, population, gene phenotype and CYP2C9 activity score. It requires complete caller evidence, returns only a source row for clinician review, and never sends a patient's data to CPIC or publishes new patient advice.
+- Documented the caller handoff, unresolved clinical review and data-usage terms in `docs/PHENOTYPE_TO_GUIDANCE_RESEARCH.md`. The existing clopidogrel ACS/PCI demo and its patient projection are unchanged.
+
 ## 2026-10-24 — Eight target genes indexed
 
 - Joined the eight target genes to official CPIC `pair_view` metadata, retaining non-provisional A/B rows used for recommendations. The research-only catalog has 41 gene–drug pair entries across all eight genes. Kai's full synthetic PharmCAT 3.4.0 reports remain validation fixtures, not the target scope.

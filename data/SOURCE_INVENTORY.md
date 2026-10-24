@@ -33,6 +33,11 @@ caused an event. NPI/openFDA data must never be turned into clinical advice.
   usage policy. The current API also points to that policy. Do **not** assume
   CPIC API output is CC0 without confirming the applicable terms. Keep data
   attribution and confirm the exact license before public redistribution.
+- **Research recommendation routing:** `data/cpic-recommendation-routes.v1.json`
+  pins 134 exact lookup keys and source IDs across clopidogrel, thiopurines and
+  statins, with guideline versions and population terms. It includes no
+  prescribing text or doses. Warfarin is indexed as algorithm-required, not a
+  phenotype lookup. These rows are not qualified clinical guidance.
 
 ## 2. PharmCAT examples
 

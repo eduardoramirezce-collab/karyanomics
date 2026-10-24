@@ -63,3 +63,12 @@
 - [x] Provide an exact drug/RxNorm candidate lookup that groups multi-gene pairs without generating patient advice.
 - [ ] Review source usage terms and each guideline's recommendation lookup key, other required genes, population, and indication before extending `assess()` beyond CYP2C19/clopidogrel ACS/PCI.
 - [ ] Validate Kai's future allele/phenotype caller against the sample answer keys before connecting any new personalized guidance.
+
+## Exact source-row routing while caller is pending (2026-10-24)
+
+- [x] Research CPIC recommendation lookup keys for the priority clopidogrel, thiopurine, statin, and warfarin guidelines.
+- [x] Version 134 exact research-only recommendation IDs/lookup keys with source guideline versions; exclude no-result rows and keep prescribing text out of the routing file.
+- [x] Match exact drug/RxNorm, population, required genes, phenotype, and CYP2C9 activity score; reject missing or incomplete caller evidence. Mark warfarin as algorithm-required.
+- [x] Record Kai's caller handoff fields and clinical-review gates in `docs/PHENOTYPE_TO_GUIDANCE_RESEARCH.md`.
+- [ ] Confirm ClinPGx usage terms and have qualified clinical review of the additional source rows before any new patient or clinician guidance is published.
+- [ ] Connect the validated Kai caller only after it provides the required per-gene evidence and passes PharmCAT fixture comparison.

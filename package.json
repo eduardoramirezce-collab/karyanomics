@@ -12,7 +12,8 @@
     "fetch:clinpgx": "node scripts/fetch-clinpgx.mjs",
     "fetch:gene-catalog": "node scripts/fetch-gene-drug-catalog.mjs",
     "fetch:recommendation-index": "node scripts/fetch-recommendation-index.mjs",
-    "validate:clinical": "node scripts/validate-clinical-data.mjs && node scripts/validate-gene-drug-catalog.mjs"
+    "build:recommendation-routes": "node scripts/build-recommendation-routes.mjs",
+    "validate:clinical": "node scripts/validate-clinical-data.mjs && node scripts/validate-gene-drug-catalog.mjs && node scripts/validate-recommendation-routes.mjs"
   },
   "dependencies": {
     "next": "16.4.3",

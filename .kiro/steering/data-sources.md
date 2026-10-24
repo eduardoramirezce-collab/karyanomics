@@ -18,6 +18,7 @@ fileMatchPattern: ["data/**/*", "lib/pgx/**/*", "scripts/**/*", "tests/**/*"]
 - Clinical text remains `humanClinicalReview: false` until a qualified reviewer checks wording and population match.
 - `data/target-genes.v1.json` fixes the eight-gene hackathon scope: CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT, NUDT15, CYP4F2, ABCG2. `data/cpic-gene-drug-catalog.v1.json` is a research-only join between these genes, Kai's synthetic PharmCAT reports, and CPIC A/B `pair_view` metadata. A gene–drug pair is not a phenotype-specific recommendation. Never use catalog entries as patient guidance or infer a missing phenotype from them.
 - For multi-gene guidelines, require every needed call and the exact source lookup key; never interpret a single gene row in isolation. Candidate recommendation rows stay ignored under `data/candidates/` until reviewed for phenotype, population, clinical context, and terms.
+- `data/cpic-recommendation-routes.v1.json` holds research-only CPIC recommendation IDs and lookup keys for clopidogrel, thiopurines and selected statins; it has no recommendation text. `findResearchRecommendationRoute()` needs exact context and complete caller evidence. It does not authorize patient advice. Warfarin needs a separate guideline algorithm and clinical factors; do not route it by phenotype alone. See `docs/PHENOTYPE_TO_GUIDANCE_RESEARCH.md`.
 
 ## VCF-to-phenotype handoff (Kai)
 
