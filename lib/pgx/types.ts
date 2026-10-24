@@ -25,6 +25,11 @@ export interface GeneResult {
   source: "vcf" | "outside-call" | "lab-report" | "demo";
   /** Unresolved phase must block assessment. */
   ambiguous?: boolean;
+  /**
+   * CPIC activity score as reported by the caller (e.g. DPYD "1.5"). Required
+   * when a guideline's lookup key is an activity score. Never computed here.
+   */
+  activityScore?: string | null;
 }
 
 /**
@@ -197,33 +202,14 @@ export interface DiplotypeCall {
 export type AssessmentLevel = "typical" | "caution" | "warning";
 
 /**
- * The assessment for one drug given a person's gene results: a
- * patient-facing level plus the clinician-facing CPIC detail, each
- * carrying the source it comes from.
+ * Clinical context (CPIC "population"). It is part of the lookup key and must be
+ * selected, never guessed. Each member maps to one exact CPIC population string:
+ * - acs_pci       → "CVI ACS PCI" (cardiovascular, ACS and/or PCI)
+ * - non_acs_pci   → "CVI non-ACS non-PCI" (other cardiovascular indications)
+ * - neurovascular → "NVI" (neurovascular indications)
+ * - general       → "general" (guidelines with a single population)
  */
-export interface DrugAssessment {
-  /** Drug name as assessed, e.g. "clopidogrel". */
-  drug: string;
-  /** Gene result(s) that drove this assessment. */
-  genes: GeneResult[];
-  /** Patient-facing outcome level. */
-  level: AssessmentLevel;
-  /** Short, plain-language explanation for the patient. */
-  summary: string;
-  /** The CPIC recommendation text for this phenotype + drug. */
-  recommendation: string;
-  /** Strength of the CPIC recommendation, e.g. "Strong", "Moderate". */
-  strength: string;
-  /** Suggested alternative drugs, if any. */
-  alternatives: string[];
-  /** PubMed IDs backing the recommendation. */
-  citations: string[];
-  /** Human-readable source/guideline this assessment cites. */
-  source: string;
-}
-
-/** Context is part of the lookup key; it must be confirmed, not guessed. */
-export type ClinicalContext = "acs_pci";
+export type ClinicalContext = "acs_pci" | "non_acs_pci" | "neurovascular" | "general";
 
 export interface ClinicalAssessmentInput {
   geneResults: GeneResult[];
@@ -233,17 +219,63 @@ export interface ClinicalAssessmentInput {
   callStatus: "complete" | "incomplete" | "unverified";
 }
 
+/**
+ * Project label for the direction of a source-backed finding. Not CPIC wording.
+ * - reduced_activation: clopidogrel rows whose recommendation differs from the
+ *   normal-metabolizer row (kept from the first reviewed-for-demo snapshot).
+ * - pgx_factor_identified: any other row whose recommendation differs from the
+ *   all-normal row of the same drug and population.
+ * - no_pgx_change_identified: the recommendation text is identical to the
+ *   all-normal row. This is not a promise of efficacy or safety.
+ * - source_no_recommendation: CPIC classifies the row "No Recommendation".
+ */
+export type GuidanceFinding =
+  | "reduced_activation"
+  | "pgx_factor_identified"
+  | "no_pgx_change_identified"
+  | "source_no_recommendation";
+
+/**
+ * Pointer to an external dosing method a guideline requires (warfarin). The app
+ * stores the reference only. It never runs, approximates, or summarizes it.
+ */
+export interface DosingAlgorithmReference {
+  name: string;
+  url: string;
+  pmid: string | null;
+  /** CPIC guideline `notesonusage`, copied byte-for-byte. */
+  cpicNotesOnUsageVerbatim: string;
+  clinicianMustUseAlgorithmDirectly: true;
+}
+
 export type ClinicalAssessment =
   | {
       status: "matched";
-      gene: string;
+      /** Every gene in the CPIC lookup key, sorted. */
+      genes: string[];
       drug: string;
-      phenotype: string;
+      /** CPIC `phenotypes` of the matched row, by gene. */
+      phenotypes: Record<string, string>;
+      /** CPIC `lookupkey` of the matched row (a phenotype or an activity score). */
+      lookupKey: Record<string, string>;
+      /** Taken from the matched record, never assumed. */
       context: ClinicalContext;
+      /** CPIC `classification`, copied unchanged. */
       strength: string;
-      finding: "reduced_activation" | "no_pgx_change_identified";
+      finding: Exclude<GuidanceFinding, "source_no_recommendation">;
       patientText: string;
-      clinicianSummary: string;
+      /** Legacy project paraphrase on the first five rows; null on every newer row. */
+      clinicianSummary: string | null;
+      /** CPIC `drugrecommendation`, copied byte-for-byte. Clinician-only. */
+      cpicRecommendationVerbatim: string;
+      /** CPIC `implications`, copied byte-for-byte, by gene. Clinician-only. */
+      cpicImplicationsVerbatim: Record<string, string>;
+      /** CPIC `comments`, copied byte-for-byte. Clinician-only. */
+      cpicCommentsVerbatim: string;
+      /** Only drugs CPIC itself names in the verbatim recommendation. Clinician-only. */
+      alternatives: string[];
+      /** True when the verbatim recommendation states a dose amount. Clinician-only. */
+      doseTextPresent: boolean;
       source: {
         guidelineUrl: string;
         guidelineVersion: number;
@@ -260,5 +292,13 @@ export type ClinicalAssessment =
         | "ambiguous_gene_result"
         | "unsupported_pair"
         | "context_required"
-        | "unsupported_phenotype";
+        | "context_not_supported"
+        | "unsupported_phenotype"
+        | "ambiguous_source_rows"
+        | "source_no_recommendation"
+        | "dosing_algorithm_required";
+      /** The CPIC row that states "No recommendation", when that is the reason. */
+      recommendationId?: number;
+      /** Set only for `dosing_algorithm_required`. */
+      dosingAlgorithmReference?: DosingAlgorithmReference;
     };

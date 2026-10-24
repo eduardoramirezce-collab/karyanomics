@@ -1,4 +1,10 @@
 # Clinical data and API change log
+## 2026-10-24 — Stage 0: context fix, verbatim CPIC text, runtime guard
+- `assess()` now returns the matched record's own `context` (was the literal `"acs_pci"`). `ClinicalContext` covers `acs_pci`, `non_acs_pci`, `neurovascular`, `general`; a test fails if a non-ACS record is ever reported as ACS/PCI.
+- Snapshot schema v2. Every record carries `cpicRecommendationVerbatim`, `cpicImplicationsVerbatim`, `cpicCommentsVerbatim` (copied byte-for-byte from the live CPIC API by `scripts/promote-cpic-candidate.mjs`), `alternatives` (only drugs CPIC names) and `doseTextPresent`. Clinician result also returns `publicationPmid`.
+- Runtime guard `lib/pgx/guidance-snapshot.ts` replaces the unchecked cast and throws on a malformed snapshot. Shared matcher `lib/pgx/guidance-match.ts` is used by both engines. Dead `DrugAssessment` removed.
+- Shared patient-text guard `lib/pgx/patient-text-guard.ts` (catches `75mg`, milligrams, avoid/switch/skip/change/discontinue/increase/decrease/reduce/titrate). The five existing patient strings failed it ("reduce", "change") and were replaced with templated paraphrases; still `humanClinicalReview: false`.
+- `validate:clinical` now requires a live candidate, checks verbatim fields byte-for-byte, dose text only inside verbatim fields, guideline version, and the patient-snapshot allowlist. `npm test` runs it; `npm run typecheck` added.
 
 ## 2026-10-24 — Current U.S. generic and brand-name snapshot
 

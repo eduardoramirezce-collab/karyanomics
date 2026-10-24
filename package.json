@@ -2,20 +2,26 @@
   "name": "karyanomics",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=22.18"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "vitest run && npm run validate:clinical",
+    "test:unit": "vitest run",
     "fetch:pgx-definitions": "node scripts/fetch-pgx-definitions.mjs",
-    "build:patient-data": "node scripts/build-patient-snapshot.mjs",
-    "fetch:clinpgx": "node scripts/fetch-clinpgx.mjs",
+    "build:patient-data": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/build-patient-snapshot.mjs",
+    "promote:cpic": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/promote-cpic-candidate.mjs",
+    "fetch:clinpgx": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/fetch-clinpgx.mjs",
     "fetch:gene-catalog": "node scripts/fetch-gene-drug-catalog.mjs",
     "fetch:drug-names": "node scripts/fetch-rxnorm-drug-names.mjs",
     "fetch:recommendation-index": "node scripts/fetch-recommendation-index.mjs",
     "build:recommendation-routes": "node scripts/build-recommendation-routes.mjs",
-    "validate:clinical": "node scripts/validate-clinical-data.mjs && node scripts/validate-gene-drug-catalog.mjs && node scripts/validate-recommendation-routes.mjs && node scripts/validate-rxnorm-drug-names.mjs"
+    "validate:clinical": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/validate-clinical-data.mjs && node scripts/validate-gene-drug-catalog.mjs && node scripts/validate-recommendation-routes.mjs && node scripts/validate-rxnorm-drug-names.mjs"
   },
   "dependencies": {
     "next": "16.4.3",

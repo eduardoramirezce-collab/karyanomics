@@ -1,58 +1,74 @@
-import snapshotData from "../../data/cpic-cyp2c19-clopidogrel.v1.json";
+/**
+ * Clinician engine: verified gene results + drug + clinical context → one exact
+ * CPIC source row, with its verbatim text and provenance.
+ *
+ * Pure: no network, storage, or logging. The bundled snapshots are parsed once,
+ * at module load, by parseGuidanceSnapshot(), which throws on a malformed file.
+ * Tests may pass their own snapshots as the second argument.
+ *
+ * It never computes a dose. Dose text appears only inside verbatim CPIC fields.
+ */
+
+import clopidogrel from "../../data/cpic-cyp2c19-clopidogrel.v1.json";
+import { matchGuidance } from "./guidance-match";
+import { parseGuidanceSnapshot, type GuidanceSnapshot } from "./guidance-snapshot";
 import type { ClinicalAssessment, ClinicalAssessmentInput } from "./types";
 
-/** Pure lookup over a reviewed-for-demo CPIC snapshot. No network or storage I/O. */
-export function assess(input: ClinicalAssessmentInput): ClinicalAssessment {
-  if (input.callStatus !== "complete") {
-    return { status: "indeterminate", reason: "missing_or_unverified_call" };
+/** Every bundled CPIC guidance snapshot, validated at module load. */
+export const BUNDLED_GUIDANCE_SNAPSHOTS: readonly GuidanceSnapshot[] = Object.freeze([
+  parseGuidanceSnapshot(clopidogrel, "cpic-cyp2c19-clopidogrel.v1.json"),
+]);
+
+export function assess(
+  input: ClinicalAssessmentInput,
+  snapshots: readonly GuidanceSnapshot[] = BUNDLED_GUIDANCE_SNAPSHOTS,
+): ClinicalAssessment {
+  const match = matchGuidance(input, snapshots.map((snapshot) => ({
+    pair: snapshot.pair,
+    requiresDosingAlgorithm: snapshot.dosingAlgorithm !== null,
+    records: snapshot.records,
+  })));
+
+  if (!match.ok) {
+    const snapshot = match.guidelineIndex === undefined ? undefined : snapshots[match.guidelineIndex];
+    if (match.reason === "dosing_algorithm_required" && snapshot?.dosingAlgorithm) {
+      return { status: match.status, reason: match.reason, dosingAlgorithmReference: snapshot.dosingAlgorithm };
+    }
+    return { status: match.status, reason: match.reason };
   }
 
-  const geneResults = input.geneResults.filter(
-    (result) => result.gene.toUpperCase() === snapshotData.pair.gene,
-  );
-  if (geneResults.length !== 1) {
-    return { status: "indeterminate", reason: "ambiguous_gene_result" };
-  }
-
-  const geneResult = geneResults[0];
-  if (!geneResult.diplotype || geneResult.ambiguous || geneResult.phenotype === "Indeterminate" ||
-      !["vcf", "outside-call", "demo"].includes(geneResult.source)) {
-    return { status: "indeterminate", reason: "missing_or_unverified_call" };
-  }
-
-  const drugId = input.drug.trim().toLowerCase();
-  if (drugId !== snapshotData.pair.drug && drugId !== snapshotData.pair.rxnormId.toLowerCase()) {
-    return { status: "insufficient_data", reason: "unsupported_pair" };
-  }
-  if (!input.context) {
-    return { status: "insufficient_data", reason: "context_required" };
-  }
-
-  const record = snapshotData.records.find(
-    (candidate) =>
-      candidate.phenotype === geneResult.phenotype &&
-      candidate.context === input.context,
-  );
-  if (!record) {
-    return { status: "insufficient_data", reason: "unsupported_phenotype" };
+  const snapshot = snapshots[match.guidelineIndex];
+  const record = snapshot.records[match.recordIndex];
+  if (record.finding === "source_no_recommendation" || record.patientText === null) {
+    return {
+      status: "insufficient_data",
+      reason: "source_no_recommendation",
+      recommendationId: record.sourceRecommendationId,
+    };
   }
 
   return {
     status: "matched",
-    gene: snapshotData.pair.gene,
-    drug: snapshotData.pair.drug,
-    phenotype: record.phenotype,
-    context: "acs_pci",
+    genes: Object.keys(record.lookupKey).sort(),
+    drug: snapshot.pair.drug,
+    phenotypes: { ...record.phenotypes },
+    lookupKey: { ...record.lookupKey },
+    context: record.context,
     strength: record.strength,
-    finding: record.finding as "reduced_activation" | "no_pgx_change_identified",
+    finding: record.finding,
     patientText: record.patientText,
     clinicianSummary: record.clinicianSummary,
+    cpicRecommendationVerbatim: record.cpicRecommendationVerbatim,
+    cpicImplicationsVerbatim: { ...record.cpicImplicationsVerbatim },
+    cpicCommentsVerbatim: record.cpicCommentsVerbatim,
+    alternatives: [...record.alternatives],
+    doseTextPresent: record.doseTextPresent,
     source: {
-      guidelineUrl: snapshotData.source.guidelineUrl,
-      guidelineVersion: snapshotData.source.guidelineVersion,
-      publicationPmid: snapshotData.source.publicationPmid,
+      guidelineUrl: snapshot.source.guidelineUrl,
+      guidelineVersion: snapshot.source.guidelineVersion,
+      publicationPmid: snapshot.source.publicationPmid,
       recommendationId: record.sourceRecommendationId,
-      retrievedAt: snapshotData.retrievedAt,
+      retrievedAt: snapshot.retrievedAt,
     },
     humanClinicalReview: record.humanClinicalReview,
   };
