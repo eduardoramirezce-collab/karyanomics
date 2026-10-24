@@ -12,7 +12,7 @@ for (const guideline of guidelines) {
   for (let offset = 0; offset < 20_000; offset += 1000) {
     const endpoint = new URL("https://api.cpicpgx.org/v1/recommendation_view");
     endpoint.searchParams.set("guidelinename", `eq.${guideline}`);
-    endpoint.searchParams.set("select", "recommendationid,lookupkey,drugname,guidelinename,guidelineurl,classification,phenotypes,population");
+    endpoint.searchParams.set("select", "recommendationid,lookupkey,drugname,guidelinename,guidelineurl,classification,phenotypes,population,drugrecommendation,implications");
     endpoint.searchParams.set("limit", "1000");
     endpoint.searchParams.set("offset", String(offset));
     const response = await fetch(endpoint, { headers: { Accept: "application/json" } });

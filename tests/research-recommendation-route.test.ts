@@ -94,7 +94,7 @@ describe("research-only phenotype to CPIC source-row routing", () => {
     expect(warfarin.status).toBe("guideline_algorithm_required");
     expect(warfarin.requiredGenes).toEqual(["CYP2C9", "CYP4F2", "VKORC1"]);
     expect(findResearchRecommendationRoute({
-      drug: "omeprazole", population: "general", calls: [], evidence: [],
+      drug: "amitriptyline", population: "general", calls: [], evidence: [],
     }).status).toBe("source_rows_not_indexed");
     expect(findResearchRecommendationRoute({
       drug: "unknown drug", population: "general", calls: [], evidence: [],

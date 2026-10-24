@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
   "status": "research_routing_only_not_patient_guidance",
-  "fetchedAt": "2026-10-24T18:05:47.467Z",
-  "builtAt": "2026-10-24T18:26:59.192Z",
+  "fetchedAt": "2026-10-24T20:54:48.191Z",
+  "builtAt": "2026-10-24T20:54:55.530Z",
   "source": {
     "name": "CPIC API recommendation_view and guideline",
     "url": "https://api.cpicpgx.org/v1/",
     "usageTermsUrl": "https://www.clinpgx.org/page/dataUsagePolicy",
     "usageTermsReviewPending": true
   },
-  "exclusion": "No Result, Indeterminate, and n/a lookup values excluded; no recommendation text or dose is stored.",
+  "exclusion": "No Result, Indeterminate, and n/a lookup values excluded. Rows keyed on genes outside the eight-gene catalog are excluded. drugRecommendation and implications are copied verbatim from CPIC for clinician display only.",
   "guidelines": [
     {
       "name": "CYP2C19 and Clopidogrel",
@@ -18,6 +18,84 @@
       "guidelineId": "PA166251443",
       "genes": [
         "CYP2C19"
+      ],
+      "notesonusage": null
+    },
+    {
+      "name": "CYP2C19 and Proton Pump Inhibitors",
+      "version": 68,
+      "url": "https://www.clinpgx.org/guideline/PA166251441",
+      "guidelineId": "PA166251441",
+      "genes": [
+        "CYP2C19"
+      ],
+      "notesonusage": null
+    },
+    {
+      "name": "CYP2C19 and Voriconazole",
+      "version": 71,
+      "url": "https://www.clinpgx.org/guideline/PA166251456",
+      "guidelineId": "PA166251456",
+      "genes": [
+        "CYP2C19"
+      ],
+      "notesonusage": null
+    },
+    {
+      "name": "CYP2C9 and NSAIDs",
+      "version": 69,
+      "url": "https://www.clinpgx.org/guideline/PA166251464",
+      "guidelineId": "PA166251464",
+      "genes": [
+        "CYP2C9"
+      ],
+      "notesonusage": null
+    },
+    {
+      "name": "CYP2C9, HLA-B and Phenytoin",
+      "version": 71,
+      "url": "https://www.clinpgx.org/guideline/PA166251461",
+      "guidelineId": "PA166251461",
+      "genes": [
+        "CYP2C9",
+        "HLA-B"
+      ],
+      "notesonusage": null
+    },
+    {
+      "name": "CYP2C9, VKORC1, CYP4F2 and Warfarin",
+      "version": 72,
+      "url": "https://www.clinpgx.org/guideline/PA166251465",
+      "guidelineId": "PA166251465",
+      "genes": [
+        "CYP2C9",
+        "CYP4F2",
+        "VKORC1"
+      ],
+      "notesonusage": "Warfarin recommendation does not follow simple diplotype to phenotype translation. Read the guideline text and follow the recommendation diagram found at http://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png"
+    },
+    {
+      "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
+      "version": 71,
+      "url": "https://www.clinpgx.org/guideline/PA166251445",
+      "guidelineId": "PA166251445",
+      "genes": [
+        "CYP2C19",
+        "CYP2D6"
+      ],
+      "notesonusage": null
+    },
+    {
+      "name": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
+      "version": 25,
+      "url": "https://www.clinpgx.org/guideline/PA166251452",
+      "guidelineId": "PA166251452",
+      "genes": [
+        "CYP2D6",
+        "CYP2C19",
+        "CYP2B6",
+        "SLC6A4",
+        "HTR2A"
       ],
       "notesonusage": null
     },
@@ -43,21 +121,9 @@
         "TPMT"
       ],
       "notesonusage": null
-    },
-    {
-      "name": "CYP2C9, VKORC1, CYP4F2 and Warfarin",
-      "version": 72,
-      "url": "https://www.clinpgx.org/guideline/PA166251465",
-      "guidelineId": "PA166251465",
-      "genes": [
-        "CYP2C9",
-        "CYP4F2",
-        "VKORC1"
-      ],
-      "notesonusage": "Warfarin recommendation does not follow simple diplotype to phenotype translation. Read the guideline text and follow the recommendation diagram found at http://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png"
     }
   ],
-  "routeCount": 134,
+  "routeCount": 225,
   "routes": [
     {
       "recommendationId": 8480047,
@@ -71,7 +137,11 @@
       "phenotypes": {
         "SLCO1B1": "Increased Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+      "implications": {
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      }
     },
     {
       "recommendationId": 8480048,
@@ -85,7 +155,11 @@
       "phenotypes": {
         "SLCO1B1": "Normal Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+      "implications": {
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      }
     },
     {
       "recommendationId": 8480049,
@@ -99,7 +173,11 @@
       "phenotypes": {
         "SLCO1B1": "Possible Decreased Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤40mg as a starting dose and adjust doses of atorvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for 40mg dose. If dose >40mg needed for desired efficacy, consider combination therapy (i.e., atorvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "SLCO1B1": "Increased atorvastatin exposure as compared to normal function which may translate to increased myopathy risk"
+      }
     },
     {
       "recommendationId": 8480050,
@@ -113,7 +191,11 @@
       "phenotypes": {
         "SLCO1B1": "Decreased Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤40mg as a starting dose and adjust doses of atorvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for 40mg dose. If dose >40mg needed for desired efficacy, consider combination therapy (i.e., atorvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "SLCO1B1": "Increased atorvastatin exposure as compared to normal function which may translate to increased myopathy risk"
+      }
     },
     {
       "recommendationId": 8480051,
@@ -127,7 +209,11 @@
       "phenotypes": {
         "SLCO1B1": "Poor Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of atorvastatin based on disease-specific guidelines. If dose >20mg is needed for desired efficacy, consider rosuvastatin or combination therapy (i.e., atorvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "SLCO1B1": "Increased atorvastatin exposure as compared to normal and decreased function which may translate to increased myopathy risk."
+      }
     },
     {
       "recommendationId": 8480053,
@@ -143,7 +229,12 @@
         "TPMT": "Normal Metabolizer",
         "NUDT15": "Normal Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with standard starting dose (e.g., 2 mg/kg/day for autoimmune diseases). During therapy, adjust doses of azathioprine based on disease-specific guidelines. It usually takes at least 2 weeks to reach steady state after each dose adjustment.",
+      "implications": {
+        "TPMT": "TPMT NMs have lower erythrocyte concentrations of TGN metabolites and higher concentrations of MeMPNs compared to TPMT IMs and TPMT PMs. This is the 'normal' pattern.",
+        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia and myelosuppression."
+      }
     },
     {
       "recommendationId": 8480054,
@@ -159,7 +250,12 @@
         "TPMT": "Normal Metabolizer",
         "NUDT15": "Intermediate Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with reduced starting doses (30-80% of standard starting dose) if standard starting dose is ≥2 mg/kg/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of azathioprine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "implications": {
+        "TPMT": "TPMT NMs have lower erythrocyte concentrations of TGN metabolites and higher concentrations of MeMPNs compared to TPMT IMs and TPMT PMs. This is the 'normal' pattern. TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression."
+      }
     },
     {
       "recommendationId": 8480055,
@@ -175,7 +271,12 @@
         "TPMT": "Normal Metabolizer",
         "NUDT15": "Possible Intermediate Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with reduced starting doses (30-80% of standard starting dose) if standard starting dose is ≥2 mg/kg/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of azathioprine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "implications": {
+        "TPMT": "TPMT NMs have lower erythrocyte concentrations of TGN metabolites and higher concentrations of MeMPNs compared to TPMT IMs and TPMT PMs. This is the 'normal' pattern. TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression."
+      }
     },
     {
       "recommendationId": 8480056,
@@ -191,7 +292,12 @@
         "TPMT": "Intermediate Metabolizer",
         "NUDT15": "Normal Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with reduced starting doses (30-80% of standard starting dose) if standard starting dose is ≥2 mg/kg/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of azathioprine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression."
+      }
     },
     {
       "recommendationId": 8480057,
@@ -207,7 +313,12 @@
         "TPMT": "Possible Intermediate Metabolizer",
         "NUDT15": "Normal Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with reduced starting doses (30-80% of standard starting dose) if standard starting dose is ≥2 mg/kg/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of azathioprine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression."
+      }
     },
     {
       "recommendationId": 8480059,
@@ -223,7 +334,12 @@
         "TPMT": "Possible Intermediate Metabolizer",
         "NUDT15": "Poor Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Consider alternative nonthiopurine immunosuppressant therapy.",
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8480060,
@@ -239,7 +355,12 @@
         "TPMT": "Intermediate Metabolizer",
         "NUDT15": "Poor Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Consider alternative nonthiopurine immunosuppressant therapy.",
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8480061,
@@ -255,7 +376,12 @@
         "TPMT": "Normal Metabolizer",
         "NUDT15": "Poor Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Consider alternative nonthiopurine immunosuppressant therapy.",
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8480063,
@@ -271,7 +397,12 @@
         "TPMT": "Poor Metabolizer",
         "NUDT15": "Possible Intermediate Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Consider alternative nonthiopurine immunosuppressant therapy.",
+      "implications": {
+        "TPMT": "TPMT PMs have extremely high erythrocyte concentrations of TGN metabolites and no MeMPN compared to TPMT NMs.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8480064,
@@ -287,7 +418,12 @@
         "TPMT": "Poor Metabolizer",
         "NUDT15": "Intermediate Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Consider alternative nonthiopurine immunosuppressant therapy.",
+      "implications": {
+        "TPMT": "TPMT PMs have extremely high erythrocyte concentrations of TGN metabolites and no MeMPN compared to TPMT NMs.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8480065,
@@ -303,7 +439,12 @@
         "TPMT": "Poor Metabolizer",
         "NUDT15": "Normal Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Consider alternative nonthiopurine immunosuppressant therapy.",
+      "implications": {
+        "TPMT": "TPMT PMs have extremely high erythrocyte concentrations of TGN metabolites and no MeMPN compared to TPMT NMs.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8480066,
@@ -319,7 +460,12 @@
         "TPMT": "Poor Metabolizer",
         "NUDT15": "Poor Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Consider alternative nonthiopurine immunosuppressant therapy.",
+      "implications": {
+        "TPMT": "TPMT PMs have extremely high erythrocyte concentrations of TGN metabolites and no MeMPN compared to TPMT NMs.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8480067,
@@ -335,7 +481,12 @@
         "TPMT": "Intermediate Metabolizer",
         "NUDT15": "Intermediate Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with reduced starting doses (20%-50% of standard starting dose) if standard starting dose is ≥ 2 mg/kg/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of azathioprine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM."
+      }
     },
     {
       "recommendationId": 8480068,
@@ -351,7 +502,12 @@
         "TPMT": "Possible Intermediate Metabolizer",
         "NUDT15": "Intermediate Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with reduced starting doses (20%-50% of standard starting dose) if standard starting dose is ≥ 2 mg/kg/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of azathioprine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM."
+      }
     },
     {
       "recommendationId": 8480069,
@@ -367,7 +523,12 @@
         "TPMT": "Intermediate Metabolizer",
         "NUDT15": "Possible Intermediate Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with reduced starting doses (20%-50% of standard starting dose) if standard starting dose is ≥ 2 mg/kg/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of azathioprine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM."
+      }
     },
     {
       "recommendationId": 8480070,
@@ -383,7 +544,228 @@
         "TPMT": "Possible Intermediate Metabolizer",
         "NUDT15": "Possible Intermediate Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with reduced starting doses (20%-50% of standard starting dose) if standard starting dose is ≥ 2 mg/kg/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of azathioprine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM."
+      }
+    },
+    {
+      "recommendationId": 8480112,
+      "guidelineId": "PA166251464",
+      "drug": "celecoxib",
+      "rxnormId": "RxNorm:140587",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "2.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer"
+      },
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.",
+      "implications": {
+        "CYP2C9": "Normal metabolism"
+      }
+    },
+    {
+      "recommendationId": 8480113,
+      "guidelineId": "PA166251464",
+      "drug": "celecoxib",
+      "rxnormId": "RxNorm:140587",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.5"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.",
+      "implications": {
+        "CYP2C9": "Mildly reduced metabolism"
+      }
+    },
+    {
+      "recommendationId": 8480114,
+      "guidelineId": "PA166251464",
+      "drug": "celecoxib",
+      "rxnormId": "RxNorm:140587",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with lowest recommended starting dose. Titrate dose upward to clinical effect or maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Carefully monitor adverse events such as blood pressure and kidney function during course of therapy.",
+      "implications": {
+        "CYP2C9": "Moderately reduced metabolism; higher plasma concentrations may increase probability of toxicities"
+      }
+    },
+    {
+      "recommendationId": 8480115,
+      "guidelineId": "PA166251464",
+      "drug": "celecoxib",
+      "rxnormId": "RxNorm:140587",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.5"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with 25-50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 25-50% of the maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Upward dose titration should not occur until after steady state is reached (at least 8 days for celecoxib after first dose in PMs). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider an alternate therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo.",
+      "implications": {
+        "CYP2C9": "Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      }
+    },
+    {
+      "recommendationId": 8480116,
+      "guidelineId": "PA166251464",
+      "drug": "celecoxib",
+      "rxnormId": "RxNorm:140587",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with 25-50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 25-50% of the maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Upward dose titration should not occur until after steady state is reached (at least 8 days for celecoxib after first dose in PMs). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider an alternate therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo.",
+      "implications": {
+        "CYP2C9": "Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      }
+    },
+    {
+      "recommendationId": 8480161,
+      "guidelineId": "PA166251452",
+      "drug": "citalopram",
+      "rxnormId": "RxNorm:2556",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "classification": "Strong",
+      "drugRecommendation": "Consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, and adequate efficacy is not achieved at standard maintenance dosing, consider titrating to a higher maintenance dose.",
+      "implications": {
+        "CYP2C19": "Increased metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 rapid and normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      }
+    },
+    {
+      "recommendationId": 8480162,
+      "guidelineId": "PA166251452",
+      "drug": "citalopram",
+      "rxnormId": "RxNorm:2556",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. If patient does not adequately respond to recommended maintenance dosing, consider titrating to a higher maintenance dose or switching to a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "implications": {
+        "CYP2C19": "Increase in metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      }
+    },
+    {
+      "recommendationId": 8480163,
+      "guidelineId": "PA166251452",
+      "drug": "citalopram",
+      "rxnormId": "RxNorm:2556",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with recommended starting dose",
+      "implications": {
+        "CYP2C19": "Normal metabolism"
+      }
+    },
+    {
+      "recommendationId": 8480164,
+      "guidelineId": "PA166251452",
+      "drug": "citalopram",
+      "rxnormId": "RxNorm:2556",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers.",
+      "implications": {
+        "CYP2C19": "Reduced metabolism when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      }
+    },
+    {
+      "recommendationId": 8480165,
+      "guidelineId": "PA166251452",
+      "drug": "citalopram",
+      "rxnormId": "RxNorm:2556",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers.",
+      "implications": {
+        "CYP2C19": "Reduced metabolism when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      }
+    },
+    {
+      "recommendationId": 8480166,
+      "guidelineId": "PA166251452",
+      "drug": "citalopram",
+      "rxnormId": "RxNorm:2556",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "classification": "Strong",
+      "drugRecommendation": "Consider a clinically appropriate antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, consider a lower starting dose, slower titration schedule and 50% reduction of the standard maintenance dose as compared to normal metabolizers.",
+      "implications": {
+        "CYP2C19": "Reduced metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal and intermediate metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      }
+    },
+    {
+      "recommendationId": 8480167,
+      "guidelineId": "PA166251452",
+      "drug": "citalopram",
+      "rxnormId": "RxNorm:2556",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "classification": "Strong",
+      "drugRecommendation": "Consider a clinically appropriate antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, consider a lower starting dose, slower titration schedule and 50% reduction of the standard maintenance dose as compared to normal metabolizers.",
+      "implications": {
+        "CYP2C19": "Reduced metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal and intermediate metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      }
     },
     {
       "recommendationId": 8480383,
@@ -397,7 +779,11 @@
       "phenotypes": {
         "CYP2C19": "Ultrarapid Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "If considering clopidogrel, use at standard dose (75 mg/day)",
+      "implications": {
+        "CYP2C19": "Increased clopidogrel active metabolite formation; lower on-treatment platelet reactivity; no association with higher bleeding risk"
+      }
     },
     {
       "recommendationId": 8480384,
@@ -411,7 +797,11 @@
       "phenotypes": {
         "CYP2C19": "Rapid Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "If considering clopidogrel, use at standard dose (75 mg/day)",
+      "implications": {
+        "CYP2C19": "Normal or increased clopidogrel active metabolite formation; normal or lower on-treatment platelet reactivity; no association with higher bleeding risk"
+      }
     },
     {
       "recommendationId": 8480385,
@@ -425,7 +815,11 @@
       "phenotypes": {
         "CYP2C19": "Normal Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "If considering clopidogrel, use at standard dose (75 mg/day)",
+      "implications": {
+        "CYP2C19": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity"
+      }
     },
     {
       "recommendationId": 8480386,
@@ -439,7 +833,11 @@
       "phenotypes": {
         "CYP2C19": "Likely Intermediate Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Avoid standard dose clopidogrel (75 mg) if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
+      "implications": {
+        "CYP2C19": "Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      }
     },
     {
       "recommendationId": 8480387,
@@ -453,7 +851,11 @@
       "phenotypes": {
         "CYP2C19": "Intermediate Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Avoid standard dose (75 mg) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
+      "implications": {
+        "CYP2C19": "Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      }
     },
     {
       "recommendationId": 8480388,
@@ -467,7 +869,11 @@
       "phenotypes": {
         "CYP2C19": "Likely Poor Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Avoid clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
+      "implications": {
+        "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      }
     },
     {
       "recommendationId": 8480389,
@@ -481,7 +887,11 @@
       "phenotypes": {
         "CYP2C19": "Poor Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Avoid clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
+      "implications": {
+        "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      }
     },
     {
       "recommendationId": 8480391,
@@ -495,7 +905,11 @@
       "phenotypes": {
         "CYP2C19": "Ultrarapid Metabolizer"
       },
-      "classification": "No Recommendation"
+      "classification": "No Recommendation",
+      "drugRecommendation": "No recommendation",
+      "implications": {
+        "CYP2C19": "Increased clopidogrel active metabolite formation; lower on-treatment platelet reactivity; no association with higher bleeding risk"
+      }
     },
     {
       "recommendationId": 8480392,
@@ -509,7 +923,11 @@
       "phenotypes": {
         "CYP2C19": "Rapid Metabolizer"
       },
-      "classification": "No Recommendation"
+      "classification": "No Recommendation",
+      "drugRecommendation": "No recommendation",
+      "implications": {
+        "CYP2C19": "Normal or increased clopidogrel active metabolite formation; normal or lower on-treatment platelet reactivity; no association with higher bleeding risk"
+      }
     },
     {
       "recommendationId": 8480393,
@@ -523,7 +941,11 @@
       "phenotypes": {
         "CYP2C19": "Normal Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "If considering clopidogrel, use at standard dose (75 mg/day)",
+      "implications": {
+        "CYP2C19": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity"
+      }
     },
     {
       "recommendationId": 8480394,
@@ -537,7 +959,11 @@
       "phenotypes": {
         "CYP2C19": "Likely Intermediate Metabolizer"
       },
-      "classification": "No Recommendation"
+      "classification": "No Recommendation",
+      "drugRecommendation": "No recommendation",
+      "implications": {
+        "CYP2C19": "Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      }
     },
     {
       "recommendationId": 8480395,
@@ -551,7 +977,11 @@
       "phenotypes": {
         "CYP2C19": "Intermediate Metabolizer"
       },
-      "classification": "No Recommendation"
+      "classification": "No Recommendation",
+      "drugRecommendation": "No recommendation",
+      "implications": {
+        "CYP2C19": "Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      }
     },
     {
       "recommendationId": 8480396,
@@ -565,7 +995,11 @@
       "phenotypes": {
         "CYP2C19": "Likely Poor Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Avoid clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
+      "implications": {
+        "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      }
     },
     {
       "recommendationId": 8480397,
@@ -579,7 +1013,11 @@
       "phenotypes": {
         "CYP2C19": "Poor Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Avoid clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
+      "implications": {
+        "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      }
     },
     {
       "recommendationId": 8480399,
@@ -593,7 +1031,11 @@
       "phenotypes": {
         "CYP2C19": "Ultrarapid Metabolizer"
       },
-      "classification": "No Recommendation"
+      "classification": "No Recommendation",
+      "drugRecommendation": "No recommendation",
+      "implications": {
+        "CYP2C19": "Increased clopidogrel active metabolite formation; lower on-treatment platelet reactivity"
+      }
     },
     {
       "recommendationId": 8480400,
@@ -607,7 +1049,11 @@
       "phenotypes": {
         "CYP2C19": "Rapid Metabolizer"
       },
-      "classification": "No Recommendation"
+      "classification": "No Recommendation",
+      "drugRecommendation": "No recommendation",
+      "implications": {
+        "CYP2C19": "Normal or increased clopidogrel active metabolite formation; normal or lower on-treatment platelet reactivity"
+      }
     },
     {
       "recommendationId": 8480401,
@@ -621,7 +1067,11 @@
       "phenotypes": {
         "CYP2C19": "Normal Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "If considering clopidogrel, use at standard dose (75 mg/day)",
+      "implications": {
+        "CYP2C19": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity"
+      }
     },
     {
       "recommendationId": 8480402,
@@ -635,7 +1085,11 @@
       "phenotypes": {
         "CYP2C19": "Likely Intermediate Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Consider an alternative P2Y12 inhibitor at standard dose if clinically indicated and no contraindication.",
+      "implications": {
+        "CYP2C19": "Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      }
     },
     {
       "recommendationId": 8480403,
@@ -649,7 +1103,11 @@
       "phenotypes": {
         "CYP2C19": "Intermediate Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Consider an alternative P2Y12 inhibitor at standard dose if clinically indicated and no contraindication.",
+      "implications": {
+        "CYP2C19": "Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      }
     },
     {
       "recommendationId": 8480404,
@@ -663,7 +1121,11 @@
       "phenotypes": {
         "CYP2C19": "Likely Poor Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Avoid clopidogrel if possible. Consider an alternative P2Y12 inhibitor at standard dose if clinically indicated and no contraindication.",
+      "implications": {
+        "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      }
     },
     {
       "recommendationId": 8480405,
@@ -677,7 +1139,353 @@
       "phenotypes": {
         "CYP2C19": "Poor Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Avoid clopidogrel if possible. Consider an alternative P2Y12 inhibitor at standard dose if clinically indicated and no contraindication.",
+      "implications": {
+        "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      }
+    },
+    {
+      "recommendationId": 8480522,
+      "guidelineId": "PA166251441",
+      "drug": "dexlansoprazole",
+      "rxnormId": "RxNorm:816346",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Increase starting daily dose by 100%. Daily dose may be given in divided doses. Monitor for efficacy.",
+      "implications": {
+        "CYP2C19": "Decreased plasma concentrations of PPIs compared to CYP2C19 NMs; increased risk of therapeutic failure"
+      }
+    },
+    {
+      "recommendationId": 8480523,
+      "guidelineId": "PA166251441",
+      "drug": "dexlansoprazole",
+      "rxnormId": "RxNorm:816346",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Initiate standard starting daily dose. Consider increasing dose by 50-100% for the treatment of H. pylori infection and erosive esophagitis. Daily dose may be given in divided doses.\nMonitor for efficacy.",
+      "implications": {
+        "CYP2C19": "Decreased plasma concentrations of PPIs compared to CYP2C19 NMs; increased risk of therapeutic failure"
+      }
+    },
+    {
+      "recommendationId": 8480524,
+      "guidelineId": "PA166251441",
+      "drug": "dexlansoprazole",
+      "rxnormId": "RxNorm:816346",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Initiate standard starting daily dose. Consider increasing dose by 50-100% for the treatment of H. pylori infection and erosive esophagitis. Daily dose may be given in divided doses.\nMonitor for efficacy.",
+      "implications": {
+        "CYP2C19": "Normal PPI metabolism; may be at increased risk of therapeutic failure compared to CYP2C19 IMs and PMs"
+      }
+    },
+    {
+      "recommendationId": 8480525,
+      "guidelineId": "PA166251441",
+      "drug": "dexlansoprazole",
+      "rxnormId": "RxNorm:816346",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "implications": {
+        "CYP2C19": "Likely increased plasma concentration of PPI compared to CYP2C19 NMs; likely increased chance of efficacy and potentially toxicity"
+      }
+    },
+    {
+      "recommendationId": 8480526,
+      "guidelineId": "PA166251441",
+      "drug": "dexlansoprazole",
+      "rxnormId": "RxNorm:816346",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "implications": {
+        "CYP2C19": "Increased plasma concentration of PPI compared to CYP2C19 NMs; increased chance of efficacy and potentially toxicity"
+      }
+    },
+    {
+      "recommendationId": 8480527,
+      "guidelineId": "PA166251441",
+      "drug": "dexlansoprazole",
+      "rxnormId": "RxNorm:816346",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "implications": {
+        "CYP2C19": "Likely increased plasma concentration of PPI compared to CYP2C19 NMs; likely increased chance of efficacy and potentially toxicity"
+      }
+    },
+    {
+      "recommendationId": 8480528,
+      "guidelineId": "PA166251441",
+      "drug": "dexlansoprazole",
+      "rxnormId": "RxNorm:816346",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "implications": {
+        "CYP2C19": "Increased plasma concentration of PPI compared to CYP2C19 NMs; increased chance of efficacy and potentially toxicity"
+      }
+    },
+    {
+      "recommendationId": 8480169,
+      "guidelineId": "PA166251452",
+      "drug": "escitalopram",
+      "rxnormId": "RxNorm:321988",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "classification": "Strong",
+      "drugRecommendation": "Consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, and adequate efficacy is not achieved at standard maintenance dosing, consider titrating to a higher maintenance dose.",
+      "implications": {
+        "CYP2C19": "Increased metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 rapid and normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      }
+    },
+    {
+      "recommendationId": 8480170,
+      "guidelineId": "PA166251452",
+      "drug": "escitalopram",
+      "rxnormId": "RxNorm:321988",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. If patient does not adequately respond to recommended maintenance dosing, consider titrating to a higher maintenance dose or switching to a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "implications": {
+        "CYP2C19": "Increase in metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      }
+    },
+    {
+      "recommendationId": 8480171,
+      "guidelineId": "PA166251452",
+      "drug": "escitalopram",
+      "rxnormId": "RxNorm:321988",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with recommended starting dose",
+      "implications": {
+        "CYP2C19": "Normal metabolism"
+      }
+    },
+    {
+      "recommendationId": 8480172,
+      "guidelineId": "PA166251452",
+      "drug": "escitalopram",
+      "rxnormId": "RxNorm:321988",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers.",
+      "implications": {
+        "CYP2C19": "Reduced metabolism when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      }
+    },
+    {
+      "recommendationId": 8480173,
+      "guidelineId": "PA166251452",
+      "drug": "escitalopram",
+      "rxnormId": "RxNorm:321988",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers.",
+      "implications": {
+        "CYP2C19": "Reduced metabolism when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      }
+    },
+    {
+      "recommendationId": 8480174,
+      "guidelineId": "PA166251452",
+      "drug": "escitalopram",
+      "rxnormId": "RxNorm:321988",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "classification": "Strong",
+      "drugRecommendation": "Consider a clinically appropriate antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, consider a lower starting dose, slower titration schedule and 50% reduction of the standard maintenance dose as compared to normal metabolizers.",
+      "implications": {
+        "CYP2C19": "Reduced metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal and intermediate metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      }
+    },
+    {
+      "recommendationId": 8480175,
+      "guidelineId": "PA166251452",
+      "drug": "escitalopram",
+      "rxnormId": "RxNorm:321988",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "classification": "Strong",
+      "drugRecommendation": "Consider a clinically appropriate antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, consider a lower starting dose, slower titration schedule and 50% reduction of the standard maintenance dose as compared to normal metabolizers.",
+      "implications": {
+        "CYP2C19": "Reduced metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal and intermediate metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      }
+    },
+    {
+      "recommendationId": 8480118,
+      "guidelineId": "PA166251464",
+      "drug": "flurbiprofen",
+      "rxnormId": "RxNorm:4502",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "2.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer"
+      },
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.",
+      "implications": {
+        "CYP2C9": "Normal metabolism"
+      }
+    },
+    {
+      "recommendationId": 8480119,
+      "guidelineId": "PA166251464",
+      "drug": "flurbiprofen",
+      "rxnormId": "RxNorm:4502",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.5"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.",
+      "implications": {
+        "CYP2C9": "Mildly reduced metabolism"
+      }
+    },
+    {
+      "recommendationId": 8480120,
+      "guidelineId": "PA166251464",
+      "drug": "flurbiprofen",
+      "rxnormId": "RxNorm:4502",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with lowest recommended starting dose. Titrate dose upward to clinical effect or maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Carefully monitor adverse events such as blood pressure and kidney function during course of therapy.",
+      "implications": {
+        "CYP2C9": "Moderately reduced metabolism; higher plasma concentrations may increase probability of toxicities"
+      }
+    },
+    {
+      "recommendationId": 8480121,
+      "guidelineId": "PA166251464",
+      "drug": "flurbiprofen",
+      "rxnormId": "RxNorm:4502",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.5"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with 25-50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 25-50% of the maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Upward dose titration should not occur until after steady state is reached (at least 8 days for celecoxib after first dose in PMs). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider an alternate therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo.",
+      "implications": {
+        "CYP2C9": "Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      }
+    },
+    {
+      "recommendationId": 8480122,
+      "guidelineId": "PA166251464",
+      "drug": "flurbiprofen",
+      "rxnormId": "RxNorm:4502",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with 25-50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 25-50% of the maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Upward dose titration should not occur until after steady state is reached (at least 8 days for celecoxib after first dose in PMs). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider an alternate therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo.",
+      "implications": {
+        "CYP2C9": "Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      }
     },
     {
       "recommendationId": 8480752,
@@ -693,7 +1501,12 @@
         "CYP2C9": "Intermediate Metabolizer",
         "SLCO1B1": "Possible Decreased Function"
       },
-      "classification": "Optional"
+      "classification": "Optional",
+      "drugRecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      }
     },
     {
       "recommendationId": 8480753,
@@ -709,7 +1522,12 @@
         "CYP2C9": "Intermediate Metabolizer",
         "SLCO1B1": "Decreased Function"
       },
-      "classification": "Optional"
+      "classification": "Optional",
+      "drugRecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      }
     },
     {
       "recommendationId": 8480754,
@@ -725,7 +1543,12 @@
         "CYP2C9": "Intermediate Metabolizer",
         "SLCO1B1": "Possible Decreased Function"
       },
-      "classification": "Optional"
+      "classification": "Optional",
+      "drugRecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      }
     },
     {
       "recommendationId": 8480755,
@@ -741,7 +1564,12 @@
         "CYP2C9": "Intermediate Metabolizer",
         "SLCO1B1": "Decreased Function"
       },
-      "classification": "Optional"
+      "classification": "Optional",
+      "drugRecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      }
     },
     {
       "recommendationId": 8480756,
@@ -757,7 +1585,12 @@
         "CYP2C9": "Poor Metabolizer",
         "SLCO1B1": "Normal Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      }
     },
     {
       "recommendationId": 8480757,
@@ -773,7 +1606,12 @@
         "CYP2C9": "Poor Metabolizer",
         "SLCO1B1": "Increased Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      }
     },
     {
       "recommendationId": 8480758,
@@ -789,7 +1627,12 @@
         "CYP2C9": "Poor Metabolizer",
         "SLCO1B1": "Normal Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      }
     },
     {
       "recommendationId": 8480759,
@@ -805,7 +1648,12 @@
         "CYP2C9": "Poor Metabolizer",
         "SLCO1B1": "Increased Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      }
     },
     {
       "recommendationId": 8480760,
@@ -821,7 +1669,12 @@
         "CYP2C9": "Intermediate Metabolizer",
         "SLCO1B1": "Normal Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      }
     },
     {
       "recommendationId": 8480761,
@@ -837,7 +1690,12 @@
         "CYP2C9": "Intermediate Metabolizer",
         "SLCO1B1": "Increased Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      }
     },
     {
       "recommendationId": 8480762,
@@ -853,7 +1711,12 @@
         "CYP2C9": "Intermediate Metabolizer",
         "SLCO1B1": "Normal Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      }
     },
     {
       "recommendationId": 8480763,
@@ -869,7 +1732,12 @@
         "CYP2C9": "Intermediate Metabolizer",
         "SLCO1B1": "Increased Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      }
     },
     {
       "recommendationId": 8480764,
@@ -885,7 +1753,12 @@
         "CYP2C9": "Normal Metabolizer",
         "SLCO1B1": "Poor Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If patient is tolerating 40mg per day but higher potency is needed, a higher dose (>40mg) or an alternative statin or combination therapy (i.e. fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391) could be considered. Prescriber should be aware of possible increased risk for myopathy with fluvastatin especially with doses >40mg per day.",
+      "implications": {
+        "CYP2C9": "Normal exposure.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
+      }
     },
     {
       "recommendationId": 8480765,
@@ -901,7 +1774,12 @@
         "CYP2C9": "Poor Metabolizer",
         "SLCO1B1": "Possible Decreased Function"
       },
-      "classification": "Optional"
+      "classification": "Optional",
+      "drugRecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      }
     },
     {
       "recommendationId": 8480766,
@@ -917,7 +1795,12 @@
         "CYP2C9": "Poor Metabolizer",
         "SLCO1B1": "Decreased Function"
       },
-      "classification": "Optional"
+      "classification": "Optional",
+      "drugRecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      }
     },
     {
       "recommendationId": 8480767,
@@ -933,7 +1816,12 @@
         "CYP2C9": "Poor Metabolizer",
         "SLCO1B1": "Possible Decreased Function"
       },
-      "classification": "Optional"
+      "classification": "Optional",
+      "drugRecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      }
     },
     {
       "recommendationId": 8480768,
@@ -949,7 +1837,12 @@
         "CYP2C9": "Poor Metabolizer",
         "SLCO1B1": "Decreased Function"
       },
-      "classification": "Optional"
+      "classification": "Optional",
+      "drugRecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      }
     },
     {
       "recommendationId": 8480769,
@@ -965,7 +1858,12 @@
         "CYP2C9": "Poor Metabolizer",
         "SLCO1B1": "Poor Function"
       },
-      "classification": "Optional"
+      "classification": "Optional",
+      "drugRecommendation": "Prescribe an alternative statin depending on the desired potency (see Table 2 and Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
+      }
     },
     {
       "recommendationId": 8480770,
@@ -981,7 +1879,12 @@
         "CYP2C9": "Poor Metabolizer",
         "SLCO1B1": "Poor Function"
       },
-      "classification": "Optional"
+      "classification": "Optional",
+      "drugRecommendation": "Prescribe an alternative statin depending on the desired potency (see Table 2 and Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
+      }
     },
     {
       "recommendationId": 8480771,
@@ -997,7 +1900,12 @@
         "CYP2C9": "Intermediate Metabolizer",
         "SLCO1B1": "Poor Function"
       },
-      "classification": "Optional"
+      "classification": "Optional",
+      "drugRecommendation": "Prescribe an alternative statin depending on the desired potency. (see Table 2 and Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
+      }
     },
     {
       "recommendationId": 8480772,
@@ -1013,7 +1921,12 @@
         "CYP2C9": "Intermediate Metabolizer",
         "SLCO1B1": "Poor Function"
       },
-      "classification": "Optional"
+      "classification": "Optional",
+      "drugRecommendation": "Prescribe an alternative statin depending on the desired potency. (see Table 2 and Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
+      }
     },
     {
       "recommendationId": 8480773,
@@ -1029,7 +1942,12 @@
         "CYP2C9": "Normal Metabolizer",
         "SLCO1B1": "Normal Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines.",
+      "implications": {
+        "CYP2C9": "Normal exposure.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      }
     },
     {
       "recommendationId": 8480774,
@@ -1045,7 +1963,12 @@
         "CYP2C9": "Normal Metabolizer",
         "SLCO1B1": "Increased Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines.",
+      "implications": {
+        "CYP2C9": "Normal exposure.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      }
     },
     {
       "recommendationId": 8480775,
@@ -1061,7 +1984,12 @@
         "CYP2C9": "Normal Metabolizer",
         "SLCO1B1": "Possible Decreased Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day.",
+      "implications": {
+        "CYP2C9": "Normal exposure.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      }
     },
     {
       "recommendationId": 8480776,
@@ -1077,7 +2005,318 @@
         "CYP2C9": "Normal Metabolizer",
         "SLCO1B1": "Decreased Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day.",
+      "implications": {
+        "CYP2C9": "Normal exposure.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      }
+    },
+    {
+      "recommendationId": 8480124,
+      "guidelineId": "PA166251464",
+      "drug": "ibuprofen",
+      "rxnormId": "RxNorm:5640",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "2.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer"
+      },
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.",
+      "implications": {
+        "CYP2C9": "Normal metabolism"
+      }
+    },
+    {
+      "recommendationId": 8480125,
+      "guidelineId": "PA166251464",
+      "drug": "ibuprofen",
+      "rxnormId": "RxNorm:5640",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.5"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.",
+      "implications": {
+        "CYP2C9": "Mildly reduced metabolism"
+      }
+    },
+    {
+      "recommendationId": 8480126,
+      "guidelineId": "PA166251464",
+      "drug": "ibuprofen",
+      "rxnormId": "RxNorm:5640",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with lowest recommended starting dose. Titrate dose upward to clinical effect or maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Carefully monitor adverse events such as blood pressure and kidney function during course of therapy.",
+      "implications": {
+        "CYP2C9": "Moderately reduced metabolism; higher plasma concentrations may increase probability of toxicities"
+      }
+    },
+    {
+      "recommendationId": 8480127,
+      "guidelineId": "PA166251464",
+      "drug": "ibuprofen",
+      "rxnormId": "RxNorm:5640",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.5"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with 25-50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 25-50% of the maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Upward dose titration should not occur until after steady state is reached (at least 8 days for celecoxib after first dose in PMs). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider an alternate therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo.",
+      "implications": {
+        "CYP2C9": "Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      }
+    },
+    {
+      "recommendationId": 8480128,
+      "guidelineId": "PA166251464",
+      "drug": "ibuprofen",
+      "rxnormId": "RxNorm:5640",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with 25-50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 25-50% of the maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Upward dose titration should not occur until after steady state is reached (at least 8 days for celecoxib after first dose in PMs). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider an alternate therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo.",
+      "implications": {
+        "CYP2C9": "Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      }
+    },
+    {
+      "recommendationId": 8481165,
+      "guidelineId": "PA166251441",
+      "drug": "lansoprazole",
+      "rxnormId": "RxNorm:17128",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Increase starting daily dose by 100%. Daily dose may be given in divided doses. Monitor for efficacy.",
+      "implications": {
+        "CYP2C19": "Decreased plasma concentrations of PPIs compared to CYP2C19 NMs; increased risk of therapeutic failure"
+      }
+    },
+    {
+      "recommendationId": 8481166,
+      "guidelineId": "PA166251441",
+      "drug": "lansoprazole",
+      "rxnormId": "RxNorm:17128",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate standard starting daily dose. Consider increasing dose by 50-100% for the treatment of H. pylori infection and erosive esophagitis. Daily dose may be given in divided doses.\nMonitor for efficacy.",
+      "implications": {
+        "CYP2C19": "Decreased plasma concentrations of PPIs compared to CYP2C19 NMs; increased risk of therapeutic failure"
+      }
+    },
+    {
+      "recommendationId": 8481167,
+      "guidelineId": "PA166251441",
+      "drug": "lansoprazole",
+      "rxnormId": "RxNorm:17128",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate standard starting daily dose. Consider increasing dose by 50-100% for the treatment of H. pylori infection and erosive esophagitis. Daily dose may be given in divided doses.\nMonitor for efficacy.",
+      "implications": {
+        "CYP2C19": "Normal PPI metabolism; may be at increased risk of therapeutic failure compared to CYP2C19 IMs and PMs"
+      }
+    },
+    {
+      "recommendationId": 8481168,
+      "guidelineId": "PA166251441",
+      "drug": "lansoprazole",
+      "rxnormId": "RxNorm:17128",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "implications": {
+        "CYP2C19": "Likely increased plasma concentration of PPI compared to CYP2C19 NMs; likely increased chance of efficacy and potentially toxicity"
+      }
+    },
+    {
+      "recommendationId": 8481169,
+      "guidelineId": "PA166251441",
+      "drug": "lansoprazole",
+      "rxnormId": "RxNorm:17128",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "implications": {
+        "CYP2C19": "Increased plasma concentration of PPI compared to CYP2C19 NMs; increased chance of efficacy and potentially toxicity"
+      }
+    },
+    {
+      "recommendationId": 8481170,
+      "guidelineId": "PA166251441",
+      "drug": "lansoprazole",
+      "rxnormId": "RxNorm:17128",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "implications": {
+        "CYP2C19": "Likely increased plasma concentration of PPI compared to CYP2C19 NMs; likely increased chance of efficacy and potentially toxicity"
+      }
+    },
+    {
+      "recommendationId": 8481171,
+      "guidelineId": "PA166251441",
+      "drug": "lansoprazole",
+      "rxnormId": "RxNorm:17128",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "implications": {
+        "CYP2C19": "Increased plasma concentration of PPI compared to CYP2C19 NMs; increased chance of efficacy and potentially toxicity"
+      }
+    },
+    {
+      "recommendationId": 8480130,
+      "guidelineId": "PA166251464",
+      "drug": "lornoxicam",
+      "rxnormId": "RxNorm:20890",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "2.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer"
+      },
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.",
+      "implications": {
+        "CYP2C9": "Normal metabolism"
+      }
+    },
+    {
+      "recommendationId": 8480131,
+      "guidelineId": "PA166251464",
+      "drug": "lornoxicam",
+      "rxnormId": "RxNorm:20890",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.5"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.",
+      "implications": {
+        "CYP2C9": "Mildly reduced metabolism"
+      }
+    },
+    {
+      "recommendationId": 8480132,
+      "guidelineId": "PA166251464",
+      "drug": "lornoxicam",
+      "rxnormId": "RxNorm:20890",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with lowest recommended starting dose. Titrate dose upward to clinical effect or maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Carefully monitor adverse events such as blood pressure and kidney function during course of therapy.",
+      "implications": {
+        "CYP2C9": "Moderately reduced metabolism; higher plasma concentrations may increase probability of toxicities"
+      }
+    },
+    {
+      "recommendationId": 8480133,
+      "guidelineId": "PA166251464",
+      "drug": "lornoxicam",
+      "rxnormId": "RxNorm:20890",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.5"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with 25-50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 25-50% of the maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Upward dose titration should not occur until after steady state is reached (at least 8 days for celecoxib after first dose in PMs). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider an alternate therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo.",
+      "implications": {
+        "CYP2C9": "Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      }
+    },
+    {
+      "recommendationId": 8480134,
+      "guidelineId": "PA166251464",
+      "drug": "lornoxicam",
+      "rxnormId": "RxNorm:20890",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with 25-50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 25-50% of the maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Upward dose titration should not occur until after steady state is reached (at least 8 days for celecoxib after first dose in PMs). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider an alternate therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo.",
+      "implications": {
+        "CYP2C9": "Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      }
     },
     {
       "recommendationId": 8481056,
@@ -1091,7 +2330,11 @@
       "phenotypes": {
         "SLCO1B1": "Increased Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+      "implications": {
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      }
     },
     {
       "recommendationId": 8481057,
@@ -1105,7 +2348,11 @@
       "phenotypes": {
         "SLCO1B1": "Normal Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+      "implications": {
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      }
     },
     {
       "recommendationId": 8481058,
@@ -1119,7 +2366,11 @@
       "phenotypes": {
         "SLCO1B1": "Possible Decreased Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins). If lovastatin therapy is warranted, limit dose to ≤20mg/day.",
+      "implications": {
+        "SLCO1B1": "Increased lovastatin acid exposure as compared to normal function which may translate to increased myopathy risk"
+      }
     },
     {
       "recommendationId": 8481059,
@@ -1133,7 +2384,11 @@
       "phenotypes": {
         "SLCO1B1": "Decreased Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins). If lovastatin therapy is warranted, limit dose to ≤20mg/day.",
+      "implications": {
+        "SLCO1B1": "Increased lovastatin acid exposure as compared to normal function which may translate to increased myopathy risk"
+      }
     },
     {
       "recommendationId": 8481060,
@@ -1147,7 +2402,101 @@
       "phenotypes": {
         "SLCO1B1": "Poor Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "implications": {
+        "SLCO1B1": "Increased lovastatin acid exposure as compared to normal and decreased function which may translate to increased myopathy risk"
+      }
+    },
+    {
+      "recommendationId": 8481062,
+      "guidelineId": "PA166251464",
+      "drug": "meloxicam",
+      "rxnormId": "RxNorm:41493",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "2.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer"
+      },
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.",
+      "implications": {
+        "CYP2C9": "Normal metabolism"
+      }
+    },
+    {
+      "recommendationId": 8481063,
+      "guidelineId": "PA166251464",
+      "drug": "meloxicam",
+      "rxnormId": "RxNorm:41493",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.5"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. In accordance with the meloxicam prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.",
+      "implications": {
+        "CYP2C9": "Mildly reduced metabolism"
+      }
+    },
+    {
+      "recommendationId": 8481064,
+      "guidelineId": "PA166251464",
+      "drug": "meloxicam",
+      "rxnormId": "RxNorm:41493",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with 50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 50% of the maximum recommended dose with caution. In accordance with the meloxicam prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Upward dose titration should not occur until after steady state is reached (at least 7 days). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider alternative therapy. Choose an alternative therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo or choose an NSAID metabolized by CYP2C9 but with a shorter half-life (see CPIC THERAPEUTIC RECOMMENDATIONS FOR CELECOXIB, FLURBIPROFEN, LORNOXICAM, AND IBUPROFEN BASED ON CYP2C9 PHENOTYPE).",
+      "implications": {
+        "CYP2C9": "Moderately reduced metabolism; higher plasma concentrations may increase probability of toxicities"
+      }
+    },
+    {
+      "recommendationId": 8481065,
+      "guidelineId": "PA166251464",
+      "drug": "meloxicam",
+      "rxnormId": "RxNorm:41493",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.5"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Choose an alternative therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo or choose an NSAID metabolized by CYP2C9 but with a shorter half-life (see CPIC THERAPEUTIC RECOMMENDATIONS FOR CELECOXIB, FLURBIPROFEN, LORNOXICAM, AND IBUPROFEN BASED ON CYP2C9 PHENOTYPE).",
+      "implications": {
+        "CYP2C9": "Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      }
+    },
+    {
+      "recommendationId": 8481066,
+      "guidelineId": "PA166251464",
+      "drug": "meloxicam",
+      "rxnormId": "RxNorm:41493",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Choose an alternative therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo or choose an NSAID metabolized by CYP2C9 but with a shorter half-life (see CPIC THERAPEUTIC RECOMMENDATIONS FOR CELECOXIB, FLURBIPROFEN, LORNOXICAM, AND IBUPROFEN BASED ON CYP2C9 PHENOTYPE).",
+      "implications": {
+        "CYP2C9": "Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      }
     },
     {
       "recommendationId": 8481068,
@@ -1163,7 +2512,12 @@
         "TPMT": "Normal Metabolizer",
         "NUDT15": "Normal Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with standard starting dose of mecaptopurine (e.g., 75 mg/m2/day for malignancy or 1.5 mg/kg/day for nonmalignancy). During therapy, adjust the doses of myelosuppressive agents, as per standard clinical practice. It usually takes at least 2 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "implications": {
+        "TPMT": "TPMT NMs have lower erythrocyte concentrations of TGN metabolites and higher concentrations of MeMPNs compared to TPMT IMs and TPMT PMs. This is the 'normal' pattern.",
+        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia and myelosuppression."
+      }
     },
     {
       "recommendationId": 8481069,
@@ -1179,7 +2533,12 @@
         "TPMT": "Normal Metabolizer",
         "NUDT15": "Intermediate Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with decreased starting doses (30-80% of standard starting dose) if starting dose is ≥75 mg/m2/day (for malignancy) or ≥1.5 mg/kg/day (for nonmalignancy). If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing mercaptopurine over other agents.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs when receiving standard dose. TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs when receiving standard dose.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression."
+      }
     },
     {
       "recommendationId": 8481070,
@@ -1195,7 +2554,12 @@
         "TPMT": "Normal Metabolizer",
         "NUDT15": "Possible Intermediate Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with decreased starting doses (30-80% of standard starting dose) if starting dose is ≥75 mg/m2/day (for malignancy) or ≥1.5 mg/kg/day (for nonmalignancy). If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing mercaptopurine over other agents.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs when receiving standard dose. TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs when receiving standard dose.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression."
+      }
     },
     {
       "recommendationId": 8481071,
@@ -1211,7 +2575,12 @@
         "TPMT": "Intermediate Metabolizer",
         "NUDT15": "Normal Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with decreased starting doses (30-80% of standard starting dose) if starting dose is ≥75 mg/m2/day (for malignancy) or ≥1.5 mg/kg/day (for nonmalignancy). If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing mercaptopurine over other agents.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs when receiving standard dose.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression."
+      }
     },
     {
       "recommendationId": 8481072,
@@ -1227,7 +2596,12 @@
         "TPMT": "Possible Intermediate Metabolizer",
         "NUDT15": "Normal Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with decreased starting doses (30-80% of standard starting dose) if starting dose is ≥75 mg/m2/day (for malignancy) or ≥1.5 mg/kg/day (for nonmalignancy). If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing mercaptopurine over other agents.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs when receiving standard dose.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression."
+      }
     },
     {
       "recommendationId": 8481074,
@@ -1243,7 +2617,12 @@
         "TPMT": "Possible Intermediate Metabolizer",
         "NUDT15": "Poor Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "For malignancy: initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily (e.g. 10 mg/m2/day given 3 days/week). During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For nonmalignancy: consider alternative nonthiopurine immunosuppressant therapy.",
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8481075,
@@ -1259,7 +2638,12 @@
         "TPMT": "Intermediate Metabolizer",
         "NUDT15": "Poor Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "For malignancy: initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily (e.g. 10 mg/m2/day given 3 days/week). During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For nonmalignancy: consider alternative nonthiopurine immunosuppressant therapy.",
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8481076,
@@ -1275,7 +2659,12 @@
         "TPMT": "Normal Metabolizer",
         "NUDT15": "Poor Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "For malignancy: initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily (e.g. 10 mg/m2/day given 3 days/week). During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For nonmalignancy: consider alternative nonthiopurine immunosuppressant therapy.",
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8481078,
@@ -1291,7 +2680,12 @@
         "TPMT": "Poor Metabolizer",
         "NUDT15": "Possible Intermediate Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "For malignancy: initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily (e.g. 10 mg/m2/day given 3 days/week). During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For nonmalignancy: consider alternative nonthiopurine immunosuppressant therapy.",
+      "implications": {
+        "TPMT": "TPMT PMs have extremelly high erythrocyte concentrations of TGN metabolites and no MeMPN compared to TPMT NMs.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8481079,
@@ -1307,7 +2701,12 @@
         "TPMT": "Poor Metabolizer",
         "NUDT15": "Intermediate Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "For malignancy: initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily (e.g. 10 mg/m2/day given 3 days/week). During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For nonmalignancy: consider alternative nonthiopurine immunosuppressant therapy.",
+      "implications": {
+        "TPMT": "TPMT PMs have extremelly high erythrocyte concentrations of TGN metabolites and no MeMPN compared to TPMT NMs.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8481080,
@@ -1323,7 +2722,12 @@
         "TPMT": "Poor Metabolizer",
         "NUDT15": "Normal Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "For malignancy: initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily (e.g. 10 mg/m2/day given 3 days/week). During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For nonmalignancy: consider alternative nonthiopurine immunosuppressant therapy.",
+      "implications": {
+        "TPMT": "TPMT PMs have extremelly high erythrocyte concentrations of TGN metabolites and no MeMPN compared to TPMT NMs.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8481081,
@@ -1339,7 +2743,12 @@
         "TPMT": "Poor Metabolizer",
         "NUDT15": "Poor Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "For malignancy: initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily (e.g. 10 mg/m2/day given 3 days/week). During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For nonmalignancy: consider alternative nonthiopurine immunosuppressant therapy.",
+      "implications": {
+        "TPMT": "TPMT PMs have extremelly high erythrocyte concentrations of TGN metabolites and no MeMPN compared to TPMT NMs.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8481082,
@@ -1355,7 +2764,12 @@
         "TPMT": "Intermediate Metabolizer",
         "NUDT15": "Intermediate Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with decreased starting doses (20-50% of standard starting dose) if starting dose is ≥75 mg/m2/day (for malignancy) or ≥1.5 mg/kg/day (for nonmalignancy). If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing mercaptopurine over other agents.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM."
+      }
     },
     {
       "recommendationId": 8481083,
@@ -1371,7 +2785,12 @@
         "TPMT": "Possible Intermediate Metabolizer",
         "NUDT15": "Intermediate Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with decreased starting doses (20-50% of standard starting dose) if starting dose is ≥75 mg/m2/day (for malignancy) or ≥1.5 mg/kg/day (for nonmalignancy). If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing mercaptopurine over other agents.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM."
+      }
     },
     {
       "recommendationId": 8481084,
@@ -1387,7 +2806,12 @@
         "TPMT": "Intermediate Metabolizer",
         "NUDT15": "Possible Intermediate Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with decreased starting doses (20-50% of standard starting dose) if starting dose is ≥75 mg/m2/day (for malignancy) or ≥1.5 mg/kg/day (for nonmalignancy). If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing mercaptopurine over other agents.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM."
+      }
     },
     {
       "recommendationId": 8481085,
@@ -1403,7 +2827,354 @@
         "TPMT": "Possible Intermediate Metabolizer",
         "NUDT15": "Possible Intermediate Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with decreased starting doses (20-50% of standard starting dose) if starting dose is ≥75 mg/m2/day (for malignancy) or ≥1.5 mg/kg/day (for nonmalignancy). If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing mercaptopurine over other agents.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM."
+      }
+    },
+    {
+      "recommendationId": 8481157,
+      "guidelineId": "PA166251441",
+      "drug": "omeprazole",
+      "rxnormId": "RxNorm:7646",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Increase starting daily dose by 100%. Daily dose may be given in divided doses. Monitor for efficacy.",
+      "implications": {
+        "CYP2C19": "Decreased plasma concentrations of PPIs compared to CYP2C19 NMs; increased risk of therapeutic failure"
+      }
+    },
+    {
+      "recommendationId": 8481158,
+      "guidelineId": "PA166251441",
+      "drug": "omeprazole",
+      "rxnormId": "RxNorm:7646",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate standard starting daily dose. Consider increasing dose by 50-100% for the treatment of H. pylori infection and erosive esophagitis. Daily dose may be given in divided doses.\nMonitor for efficacy.",
+      "implications": {
+        "CYP2C19": "Decreased plasma concentrations of PPIs compared to CYP2C19 NMs; increased risk of therapeutic failure"
+      }
+    },
+    {
+      "recommendationId": 8481159,
+      "guidelineId": "PA166251441",
+      "drug": "omeprazole",
+      "rxnormId": "RxNorm:7646",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate standard starting daily dose. Consider increasing dose by 50-100% for the treatment of H. pylori infection and erosive esophagitis. Daily dose may be given in divided doses.\nMonitor for efficacy.",
+      "implications": {
+        "CYP2C19": "Normal PPI metabolism; may be at increased risk of therapeutic failure compared to CYP2C19 IMs and PMs"
+      }
+    },
+    {
+      "recommendationId": 8481160,
+      "guidelineId": "PA166251441",
+      "drug": "omeprazole",
+      "rxnormId": "RxNorm:7646",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "implications": {
+        "CYP2C19": "Likely increased plasma concentration of PPI compared to CYP2C19 NMs; likely increased chance of efficacy and potentially toxicity"
+      }
+    },
+    {
+      "recommendationId": 8481161,
+      "guidelineId": "PA166251441",
+      "drug": "omeprazole",
+      "rxnormId": "RxNorm:7646",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "implications": {
+        "CYP2C19": "Increased plasma concentration of PPI compared to CYP2C19 NMs; increased chance of efficacy and potentially toxicity"
+      }
+    },
+    {
+      "recommendationId": 8481162,
+      "guidelineId": "PA166251441",
+      "drug": "omeprazole",
+      "rxnormId": "RxNorm:7646",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "implications": {
+        "CYP2C19": "Likely increased plasma concentration of PPI compared to CYP2C19 NMs; likely increased chance of efficacy and potentially toxicity"
+      }
+    },
+    {
+      "recommendationId": 8481163,
+      "guidelineId": "PA166251441",
+      "drug": "omeprazole",
+      "rxnormId": "RxNorm:7646",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "implications": {
+        "CYP2C19": "Increased plasma concentration of PPI compared to CYP2C19 NMs; increased chance of efficacy and potentially toxicity"
+      }
+    },
+    {
+      "recommendationId": 8481173,
+      "guidelineId": "PA166251441",
+      "drug": "pantoprazole",
+      "rxnormId": "RxNorm:40790",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Increase starting daily dose by 100%. Daily dose may be given in divided doses. Monitor for efficacy.",
+      "implications": {
+        "CYP2C19": "Decreased plasma concentrations of PPIs compared to CYP2C19 NMs; increased risk of therapeutic failure"
+      }
+    },
+    {
+      "recommendationId": 8481174,
+      "guidelineId": "PA166251441",
+      "drug": "pantoprazole",
+      "rxnormId": "RxNorm:40790",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate standard starting daily dose. Consider increasing dose by 50-100% for the treatment of H. pylori infection and erosive esophagitis. Daily dose may be given in divided doses.\nMonitor for efficacy.",
+      "implications": {
+        "CYP2C19": "Decreased plasma concentrations of PPIs compared to CYP2C19 NMs; increased risk of therapeutic failure"
+      }
+    },
+    {
+      "recommendationId": 8481175,
+      "guidelineId": "PA166251441",
+      "drug": "pantoprazole",
+      "rxnormId": "RxNorm:40790",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate standard starting daily dose. Consider increasing dose by 50-100% for the treatment of H. pylori infection and erosive esophagitis. Daily dose may be given in divided doses.\nMonitor for efficacy.",
+      "implications": {
+        "CYP2C19": "Normal PPI metabolism; may be at increased risk of therapeutic failure compared to CYP2C19 IMs and PMs"
+      }
+    },
+    {
+      "recommendationId": 8481176,
+      "guidelineId": "PA166251441",
+      "drug": "pantoprazole",
+      "rxnormId": "RxNorm:40790",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "implications": {
+        "CYP2C19": "Likely increased plasma concentration of PPI compared to CYP2C19 NMs; likely increased chance of efficacy and potentially toxicity"
+      }
+    },
+    {
+      "recommendationId": 8481177,
+      "guidelineId": "PA166251441",
+      "drug": "pantoprazole",
+      "rxnormId": "RxNorm:40790",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "implications": {
+        "CYP2C19": "Increased plasma concentration of PPI compared to CYP2C19 NMs; increased chance of efficacy and potentially toxicity"
+      }
+    },
+    {
+      "recommendationId": 8481178,
+      "guidelineId": "PA166251441",
+      "drug": "pantoprazole",
+      "rxnormId": "RxNorm:40790",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "implications": {
+        "CYP2C19": "Likely increased plasma concentration of PPI compared to CYP2C19 NMs; likely increased chance of efficacy and potentially toxicity"
+      }
+    },
+    {
+      "recommendationId": 8481179,
+      "guidelineId": "PA166251441",
+      "drug": "pantoprazole",
+      "rxnormId": "RxNorm:40790",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "implications": {
+        "CYP2C19": "Increased plasma concentration of PPI compared to CYP2C19 NMs; increased chance of efficacy and potentially toxicity"
+      }
+    },
+    {
+      "recommendationId": 8481332,
+      "guidelineId": "PA166251464",
+      "drug": "piroxicam",
+      "rxnormId": "RxNorm:8356",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "2.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer"
+      },
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.",
+      "implications": {
+        "CYP2C9": "Normal metabolism"
+      }
+    },
+    {
+      "recommendationId": 8481333,
+      "guidelineId": "PA166251464",
+      "drug": "piroxicam",
+      "rxnormId": "RxNorm:8356",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.5"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.",
+      "implications": {
+        "CYP2C9": "Mildly reduced metabolism"
+      }
+    },
+    {
+      "recommendationId": 8481334,
+      "guidelineId": "PA166251464",
+      "drug": "piroxicam",
+      "rxnormId": "RxNorm:8356",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Choose an alternative therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo or choose an NSAID metabolized by CYP2C9 but with a shorter half-life (see CPIC THERAPEUTIC RECOMMENDATIONS FOR CELECOXIB, FLURBIPROFEN, LORNOXICAM, AND IBUPROFEN BASED ON CYP2C9 PHENOTYPE).",
+      "implications": {
+        "CYP2C9": "Moderately reduced metabolism; higher plasma concentrations may increase probability of toxicities"
+      }
+    },
+    {
+      "recommendationId": 8481335,
+      "guidelineId": "PA166251464",
+      "drug": "piroxicam",
+      "rxnormId": "RxNorm:8356",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.5"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Choose an alternative therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo or choose an NSAID metabolized by CYP2C9 but with a shorter half-life (see CPIC THERAPEUTIC RECOMMENDATIONS FOR CELECOXIB, FLURBIPROFEN, LORNOXICAM, AND IBUPROFEN BASED ON CYP2C9 PHENOTYPE).",
+      "implications": {
+        "CYP2C9": "Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      }
+    },
+    {
+      "recommendationId": 8481336,
+      "guidelineId": "PA166251464",
+      "drug": "piroxicam",
+      "rxnormId": "RxNorm:8356",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Choose an alternative therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo or choose an NSAID metabolized by CYP2C9 but with a shorter half-life (see CPIC THERAPEUTIC RECOMMENDATIONS FOR CELECOXIB, FLURBIPROFEN, LORNOXICAM, AND IBUPROFEN BASED ON CYP2C9 PHENOTYPE).",
+      "implications": {
+        "CYP2C9": "Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      }
     },
     {
       "recommendationId": 8481338,
@@ -1417,7 +3188,11 @@
       "phenotypes": {
         "SLCO1B1": "Increased Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+      "implications": {
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      }
     },
     {
       "recommendationId": 8481339,
@@ -1431,7 +3206,11 @@
       "phenotypes": {
         "SLCO1B1": "Normal Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+      "implications": {
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      }
     },
     {
       "recommendationId": 8481340,
@@ -1445,7 +3224,11 @@
       "phenotypes": {
         "SLCO1B1": "Possible Decreased Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤ 2mg as a starting dose and adjust doses of pitavastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >1mg. If dose >2mg needed for desired efficacy, consider an alternative statin (see Figure 1 of PMID: 35152405 for recommendations for alternative statins) or combination therapy (i.e. pitavastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "SLCO1B1": "Increased pitavastatin exposure as compared to normal function which may translate to increased myopathy risk"
+      }
     },
     {
       "recommendationId": 8481341,
@@ -1459,7 +3242,11 @@
       "phenotypes": {
         "SLCO1B1": "Decreased Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤ 2mg as a starting dose and adjust doses of pitavastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >1mg. If dose >2mg needed for desired efficacy, consider an alternative statin (see Figure 1 of PMID: 35152405 for recommendations for alternative statins) or combination therapy (i.e. pitavastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "SLCO1B1": "Increased pitavastatin exposure as compared to normal function which may translate to increased myopathy risk"
+      }
     },
     {
       "recommendationId": 8481342,
@@ -1473,7 +3260,11 @@
       "phenotypes": {
         "SLCO1B1": "Poor Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤1mg as a starting dose and adjust doses of pitavastatin based on disease-specific guidelines. If dose >1mg needed for desired efficacy, consider an alternative statin (see Figure 1 of PMID: 35152405 for recommendations for alternative statins) or combination therapy (i.e. pitavastatin plus non-statin guideline directed medical therapy)(PMID: 30423391).",
+      "implications": {
+        "SLCO1B1": "Increased pitavastatin exposure as compared to normal and decreased function which may translate to increased myopathy risk."
+      }
     },
     {
       "recommendationId": 8481344,
@@ -1487,7 +3278,11 @@
       "phenotypes": {
         "SLCO1B1": "Increased Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+      "implications": {
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      }
     },
     {
       "recommendationId": 8481345,
@@ -1501,7 +3296,11 @@
       "phenotypes": {
         "SLCO1B1": "Normal Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+      "implications": {
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      }
     },
     {
       "recommendationId": 8481346,
@@ -1515,7 +3314,11 @@
       "phenotypes": {
         "SLCO1B1": "Possible Decreased Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses of pravastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy with pravastatin especially with doses >40mg per day.",
+      "implications": {
+        "SLCO1B1": "Increased pravastatin exposure as compared to normal function; Typical myopathy risk with doses ≤40 mg."
+      }
     },
     {
       "recommendationId": 8481347,
@@ -1529,7 +3332,11 @@
       "phenotypes": {
         "SLCO1B1": "Decreased Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses of pravastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy with pravastatin especially with doses >40mg per day.",
+      "implications": {
+        "SLCO1B1": "Increased pravastatin exposure as compared to normal function; Typical myopathy risk with doses ≤40 mg."
+      }
     },
     {
       "recommendationId": 8481348,
@@ -1543,7 +3350,11 @@
       "phenotypes": {
         "SLCO1B1": "Poor Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤40mg as a starting dose and adjust doses of pravastatin based on disease-specific guidelines. If patient is tolerating 40mg dose but higher potency is needed, a higher dose (>40mg) or an alternative statin (see Figure 1 of of PMID: 35152405 for recommendations for alternative statins) or combination therapy (i.e. pravastatin plus non-statin guideline directed medical therapy)(PMID: 30423391) could be considered. Prescriber should be aware of possible increased risk for myopathy especially with pravastatin doses >40mg.",
+      "implications": {
+        "SLCO1B1": "Increased pravastatin statin exposure as compared to normal and decreased function; Typical myopathy risk with doses ≤40 mg."
+      }
     },
     {
       "recommendationId": 8481355,
@@ -1559,7 +3370,12 @@
         "ABCG2": "Poor Function",
         "SLCO1B1": "Decreased Function"
       },
-      "classification": "Optional"
+      "classification": "Optional",
+      "drugRecommendation": "Prescribe ≤10mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >10mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+      }
     },
     {
       "recommendationId": 8481356,
@@ -1575,7 +3391,12 @@
         "ABCG2": "Poor Function",
         "SLCO1B1": "Possible Decreased Function"
       },
-      "classification": "Optional"
+      "classification": "Optional",
+      "drugRecommendation": "Prescribe ≤10mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >10mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+      }
     },
     {
       "recommendationId": 8481357,
@@ -1591,7 +3412,12 @@
         "ABCG2": "Poor Function",
         "SLCO1B1": "Poor Function"
       },
-      "classification": "Optional"
+      "classification": "Optional",
+      "drugRecommendation": "Prescribe ≤10mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >10mg needed for desired efficacy, consider combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function and decreased function; Typical myopathy risk with doses ≤20 mg."
+      }
     },
     {
       "recommendationId": 8481358,
@@ -1607,7 +3433,12 @@
         "ABCG2": "Normal Function",
         "SLCO1B1": "Poor Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose > 20mg needed for desired efficacy, consider combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function and decreased function; Typical myopathy risk with doses ≤20 mg."
+      }
     },
     {
       "recommendationId": 8481359,
@@ -1623,7 +3454,12 @@
         "ABCG2": "Poor Function",
         "SLCO1B1": "Increased Function"
       },
-      "classification": "Optional"
+      "classification": "Optional",
+      "drugRecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      }
     },
     {
       "recommendationId": 8481360,
@@ -1639,7 +3475,12 @@
         "ABCG2": "Poor Function",
         "SLCO1B1": "Normal Function"
       },
-      "classification": "Optional"
+      "classification": "Optional",
+      "drugRecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      }
     },
     {
       "recommendationId": 8481361,
@@ -1655,7 +3496,12 @@
         "ABCG2": "Decreased Function",
         "SLCO1B1": "Poor Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >20mg needed for desired efficacy, consider combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function and decreased function; Typical myopathy risk with doses ≤20 mg."
+      }
     },
     {
       "recommendationId": 8481362,
@@ -1671,7 +3517,12 @@
         "ABCG2": "Decreased Function",
         "SLCO1B1": "Increased Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      }
     },
     {
       "recommendationId": 8481363,
@@ -1687,7 +3538,12 @@
         "ABCG2": "Normal Function",
         "SLCO1B1": "Increased Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
+      "implications": {
+        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      }
     },
     {
       "recommendationId": 8481364,
@@ -1703,7 +3559,12 @@
         "ABCG2": "Decreased Function",
         "SLCO1B1": "Normal Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      }
     },
     {
       "recommendationId": 8481365,
@@ -1719,7 +3580,12 @@
         "ABCG2": "Normal Function",
         "SLCO1B1": "Normal Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
+      "implications": {
+        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      }
     },
     {
       "recommendationId": 8481366,
@@ -1735,7 +3601,12 @@
         "ABCG2": "Decreased Function",
         "SLCO1B1": "Decreased Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg.",
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+      }
     },
     {
       "recommendationId": 8481367,
@@ -1751,7 +3622,12 @@
         "ABCG2": "Decreased Function",
         "SLCO1B1": "Possible Decreased Function"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg.",
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+      }
     },
     {
       "recommendationId": 8481368,
@@ -1767,7 +3643,12 @@
         "ABCG2": "Normal Function",
         "SLCO1B1": "Decreased Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg.",
+      "implications": {
+        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+      }
     },
     {
       "recommendationId": 8481369,
@@ -1783,7 +3664,12 @@
         "ABCG2": "Normal Function",
         "SLCO1B1": "Possible Decreased Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg.",
+      "implications": {
+        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+      }
     },
     {
       "recommendationId": 8481444,
@@ -1797,7 +3683,11 @@
       "phenotypes": {
         "SLCO1B1": "Increased Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+      "implications": {
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      }
     },
     {
       "recommendationId": 8481445,
@@ -1811,7 +3701,11 @@
       "phenotypes": {
         "SLCO1B1": "Normal Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+      "implications": {
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      }
     },
     {
       "recommendationId": 8481446,
@@ -1825,7 +3719,11 @@
       "phenotypes": {
         "SLCO1B1": "Possible Decreased Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins). If simvastatin therapy is warranted, limit dose to <20mg/day.",
+      "implications": {
+        "SLCO1B1": "Increased simvastatin acid exposure as compared to normal function; increased risk of myopathy"
+      }
     },
     {
       "recommendationId": 8481447,
@@ -1839,7 +3737,11 @@
       "phenotypes": {
         "SLCO1B1": "Decreased Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins). If simvastatin therapy is warranted, limit dose to <20mg/day.",
+      "implications": {
+        "SLCO1B1": "Increased simvastatin acid exposure as compared to normal function; increased risk of myopathy"
+      }
     },
     {
       "recommendationId": 8481448,
@@ -1853,7 +3755,101 @@
       "phenotypes": {
         "SLCO1B1": "Poor Function"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "implications": {
+        "SLCO1B1": "Increased simvastatin acid exposure compared to normal and decreased function; highly increased myopathy risk"
+      }
+    },
+    {
+      "recommendationId": 8481482,
+      "guidelineId": "PA166251464",
+      "drug": "tenoxicam",
+      "rxnormId": "RxNorm:37790",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "2.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer"
+      },
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.",
+      "implications": {
+        "CYP2C9": "Normal metabolism"
+      }
+    },
+    {
+      "recommendationId": 8481483,
+      "guidelineId": "PA166251464",
+      "drug": "tenoxicam",
+      "rxnormId": "RxNorm:37790",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.5"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.",
+      "implications": {
+        "CYP2C9": "Mildly reduced metabolism"
+      }
+    },
+    {
+      "recommendationId": 8481484,
+      "guidelineId": "PA166251464",
+      "drug": "tenoxicam",
+      "rxnormId": "RxNorm:37790",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "1.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Choose an alternative therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo or choose an NSAID metabolized by CYP2C9 but with a shorter half-life (see CPIC THERAPEUTIC RECOMMENDATIONS FOR CELECOXIB, FLURBIPROFEN, LORNOXICAM, AND IBUPROFEN BASED ON CYP2C9 PHENOTYPE).",
+      "implications": {
+        "CYP2C9": "Moderately reduced metabolism; higher plasma concentrations may increase probability of toxicities"
+      }
+    },
+    {
+      "recommendationId": 8481485,
+      "guidelineId": "PA166251464",
+      "drug": "tenoxicam",
+      "rxnormId": "RxNorm:37790",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.5"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Choose an alternative therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo or choose an NSAID metabolized by CYP2C9 but with a shorter half-life (see CPIC THERAPEUTIC RECOMMENDATIONS FOR CELECOXIB, FLURBIPROFEN, LORNOXICAM, AND IBUPROFEN BASED ON CYP2C9 PHENOTYPE).",
+      "implications": {
+        "CYP2C9": "Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      }
+    },
+    {
+      "recommendationId": 8481486,
+      "guidelineId": "PA166251464",
+      "drug": "tenoxicam",
+      "rxnormId": "RxNorm:37790",
+      "population": "general",
+      "lookupKey": {
+        "CYP2C9": "0.0"
+      },
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "classification": "Optional",
+      "drugRecommendation": "Choose an alternative therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo or choose an NSAID metabolized by CYP2C9 but with a shorter half-life (see CPIC THERAPEUTIC RECOMMENDATIONS FOR CELECOXIB, FLURBIPROFEN, LORNOXICAM, AND IBUPROFEN BASED ON CYP2C9 PHENOTYPE).",
+      "implications": {
+        "CYP2C9": "Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      }
     },
     {
       "recommendationId": 8481488,
@@ -1869,7 +3865,12 @@
         "TPMT": "Normal Metabolizer",
         "NUDT15": "Normal Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with standard starting dose of thioguanine (e.g., 40 mg/m2/day for malignancy). During therapy, adjust the doses of myelosuppressive agents, as per standard clinical practice. It usually takes at least 2 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "implications": {
+        "TPMT": "TPMT NMs have lower erythrocyte concentrations of TGN metabolites compared to TPMT IMs and TPMT PMs. This is the 'normal' pattern.",
+        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia and myelosuppression."
+      }
     },
     {
       "recommendationId": 8481489,
@@ -1885,7 +3886,12 @@
         "TPMT": "Normal Metabolizer",
         "NUDT15": "Intermediate Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with decreased starting doses (30-80% of standard starting dose) if standard starting dose is ≥40 mg/m2/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of thioguanine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing thioguanine over other agents.",
+      "implications": {
+        "TPMT": "TPMT NMs have lower erythrocyte concentrations of TGN metabolites compared to TPMT IMs and TPMT PMs. This is the 'normal' pattern. TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression."
+      }
     },
     {
       "recommendationId": 8481490,
@@ -1901,7 +3907,12 @@
         "TPMT": "Normal Metabolizer",
         "NUDT15": "Possible Intermediate Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with decreased starting doses (30-80% of standard starting dose) if standard starting dose is ≥40 mg/m2/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of thioguanine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing thioguanine over other agents.",
+      "implications": {
+        "TPMT": "TPMT NMs have lower erythrocyte concentrations of TGN metabolites compared to TPMT IMs and TPMT PMs. This is the 'normal' pattern. TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression."
+      }
     },
     {
       "recommendationId": 8481491,
@@ -1917,7 +3928,12 @@
         "TPMT": "Intermediate Metabolizer",
         "NUDT15": "Normal Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with decreased starting doses (30-80% of standard starting dose) if standard starting dose is ≥40 mg/m2/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of thioguanine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing thioguanine over other agents.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression."
+      }
     },
     {
       "recommendationId": 8481492,
@@ -1933,7 +3949,12 @@
         "TPMT": "Possible Intermediate Metabolizer",
         "NUDT15": "Normal Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with decreased starting doses (30-80% of standard starting dose) if standard starting dose is ≥40 mg/m2/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of thioguanine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing thioguanine over other agents.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression."
+      }
     },
     {
       "recommendationId": 8481494,
@@ -1949,7 +3970,12 @@
         "TPMT": "Possible Intermediate Metabolizer",
         "NUDT15": "Poor Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily. During therapy, adjust thioguanine doses based on degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing thioguanine over other agents.",
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8481495,
@@ -1965,7 +3991,12 @@
         "TPMT": "Intermediate Metabolizer",
         "NUDT15": "Poor Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily. During therapy, adjust thioguanine doses based on degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing thioguanine over other agents.",
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8481496,
@@ -1981,7 +4012,12 @@
         "TPMT": "Normal Metabolizer",
         "NUDT15": "Poor Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily. During therapy, adjust thioguanine doses based on degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing thioguanine over other agents.",
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8481498,
@@ -1997,7 +4033,12 @@
         "TPMT": "Poor Metabolizer",
         "NUDT15": "Possible Intermediate Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily. During therapy, adjust thioguanine doses based on degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing thioguanine over other agents.",
+      "implications": {
+        "TPMT": "TPMT PMs have extremelly high erythrocyte concentrations of TGN metabolites compared to TPMT NMs.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8481499,
@@ -2013,7 +4054,12 @@
         "TPMT": "Poor Metabolizer",
         "NUDT15": "Intermediate Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily. During therapy, adjust thioguanine doses based on degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing thioguanine over other agents.",
+      "implications": {
+        "TPMT": "TPMT PMs have extremelly high erythrocyte concentrations of TGN metabolites compared to TPMT NMs.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8481500,
@@ -2029,7 +4075,12 @@
         "TPMT": "Poor Metabolizer",
         "NUDT15": "Normal Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily. During therapy, adjust thioguanine doses based on degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing thioguanine over other agents.",
+      "implications": {
+        "TPMT": "TPMT PMs have extremelly high erythrocyte concentrations of TGN metabolites compared to TPMT NMs.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8481501,
@@ -2045,7 +4096,12 @@
         "TPMT": "Poor Metabolizer",
         "NUDT15": "Poor Metabolizer"
       },
-      "classification": "Strong"
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily. During therapy, adjust thioguanine doses based on degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing thioguanine over other agents.",
+      "implications": {
+        "TPMT": "TPMT PMs have extremelly high erythrocyte concentrations of TGN metabolites compared to TPMT NMs.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease."
+      }
     },
     {
       "recommendationId": 8481502,
@@ -2061,7 +4117,12 @@
         "TPMT": "Intermediate Metabolizer",
         "NUDT15": "Intermediate Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with decreased starting doses (20%-50% of standard starting dose) if standard starting dose is ≥ 40 mg/m2/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of thioguanine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing thioguanine over other agents.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM."
+      }
     },
     {
       "recommendationId": 8481503,
@@ -2077,7 +4138,12 @@
         "TPMT": "Possible Intermediate Metabolizer",
         "NUDT15": "Intermediate Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with decreased starting doses (20%-50% of standard starting dose) if standard starting dose is ≥ 40 mg/m2/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of thioguanine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing thioguanine over other agents.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM."
+      }
     },
     {
       "recommendationId": 8481504,
@@ -2093,7 +4159,12 @@
         "TPMT": "Intermediate Metabolizer",
         "NUDT15": "Possible Intermediate Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with decreased starting doses (20%-50% of standard starting dose) if standard starting dose is ≥ 40 mg/m2/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of thioguanine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing thioguanine over other agents.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM."
+      }
     },
     {
       "recommendationId": 8481505,
@@ -2109,7 +4180,264 @@
         "TPMT": "Possible Intermediate Metabolizer",
         "NUDT15": "Possible Intermediate Metabolizer"
       },
-      "classification": "Moderate"
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with decreased starting doses (20%-50% of standard starting dose) if standard starting dose is ≥ 40 mg/m2/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of thioguanine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing thioguanine over other agents.",
+      "implications": {
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites compared to TPMT NMs.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM."
+      }
+    },
+    {
+      "recommendationId": 8481786,
+      "guidelineId": "PA166251456",
+      "drug": "voriconazole",
+      "rxnormId": "RxNorm:121243",
+      "population": "adults",
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.",
+      "implications": {
+        "CYP2C19": "In patients for whom an ultrarapid metabolizer genotype (*17/*17) is identified, the probability of attainment of therapeutic voriconazole concentrations is small with standard dosing"
+      }
+    },
+    {
+      "recommendationId": 8481787,
+      "guidelineId": "PA166251456",
+      "drug": "voriconazole",
+      "rxnormId": "RxNorm:121243",
+      "population": "adults",
+      "lookupKey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.",
+      "implications": {
+        "CYP2C19": "In patients for whom a rapid metabolizer genotype (*1/*17) is identified, the probability of attainment of therapeutic concentrations is modest with standard dosing"
+      }
+    },
+    {
+      "recommendationId": 8481788,
+      "guidelineId": "PA166251456",
+      "drug": "voriconazole",
+      "rxnormId": "RxNorm:121243",
+      "population": "adults",
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with recommended standard of care dosing",
+      "implications": {
+        "CYP2C19": "Normal voriconazole metabolism"
+      }
+    },
+    {
+      "recommendationId": 8481789,
+      "guidelineId": "PA166251456",
+      "drug": "voriconazole",
+      "rxnormId": "RxNorm:121243",
+      "population": "adults",
+      "lookupKey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with recommended standard of care dosing",
+      "implications": {
+        "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole compared with normal metabolizers"
+      }
+    },
+    {
+      "recommendationId": 8481790,
+      "guidelineId": "PA166251456",
+      "drug": "voriconazole",
+      "rxnormId": "RxNorm:121243",
+      "population": "adults",
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with recommended standard of care dosing",
+      "implications": {
+        "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole compared with normal metabolizers"
+      }
+    },
+    {
+      "recommendationId": 8481791,
+      "guidelineId": "PA166251456",
+      "drug": "voriconazole",
+      "rxnormId": "RxNorm:121243",
+      "population": "adults",
+      "lookupKey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole. In the event that voriconazole is considered to be the most appropriate agent, based on clinical advice, for a patient with poor metabolizer genotype, voriconazole should be administered at a preferably lower than standard dosage with careful therapeutic drug monitoring.",
+      "implications": {
+        "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole and may increase probability of adverse events"
+      }
+    },
+    {
+      "recommendationId": 8481792,
+      "guidelineId": "PA166251456",
+      "drug": "voriconazole",
+      "rxnormId": "RxNorm:121243",
+      "population": "adults",
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole. In the event that voriconazole is considered to be the most appropriate agent, based on clinical advice, for a patient with poor metabolizer genotype, voriconazole should be administered at a preferably lower than standard dosage with careful therapeutic drug monitoring.",
+      "implications": {
+        "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole and may increase probability of adverse events"
+      }
+    },
+    {
+      "recommendationId": 8481778,
+      "guidelineId": "PA166251456",
+      "drug": "voriconazole",
+      "rxnormId": "RxNorm:121243",
+      "population": "pediatrics",
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include liposomal amphotericin B and posaconazole.",
+      "implications": {
+        "CYP2C19": "In patients for whom an ultrarapid metabolizer genotype (*17/*17) is identified, the probability of attainment of therapeutic concentrations is small"
+      }
+    },
+    {
+      "recommendationId": 8481779,
+      "guidelineId": "PA166251456",
+      "drug": "voriconazole",
+      "rxnormId": "RxNorm:121243",
+      "population": "pediatrics",
+      "lookupKey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with recommended standard of care dosing. Use therapeutic drug monitoring to titrate dose to therapeutic trough concentrations.",
+      "implications": {
+        "CYP2C19": "In patients for whom a rapid metabolizer genotype (*1/*17) is identified, the probability of attainment of therapeutic concentrations is variable."
+      }
+    },
+    {
+      "recommendationId": 8481780,
+      "guidelineId": "PA166251456",
+      "drug": "voriconazole",
+      "rxnormId": "RxNorm:121243",
+      "population": "pediatrics",
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "classification": "Strong",
+      "drugRecommendation": "Initiate therapy with recommended standard of care dosing",
+      "implications": {
+        "CYP2C19": "Normal voriconazole metabolism"
+      }
+    },
+    {
+      "recommendationId": 8481781,
+      "guidelineId": "PA166251456",
+      "drug": "voriconazole",
+      "rxnormId": "RxNorm:121243",
+      "population": "pediatrics",
+      "lookupKey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with recommended standard of care dosing",
+      "implications": {
+        "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole compared with normal metabolizers"
+      }
+    },
+    {
+      "recommendationId": 8481782,
+      "guidelineId": "PA166251456",
+      "drug": "voriconazole",
+      "rxnormId": "RxNorm:121243",
+      "population": "pediatrics",
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Initiate therapy with recommended standard of care dosing",
+      "implications": {
+        "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole compared with normal metabolizers"
+      }
+    },
+    {
+      "recommendationId": 8481783,
+      "guidelineId": "PA166251456",
+      "drug": "voriconazole",
+      "rxnormId": "RxNorm:121243",
+      "population": "pediatrics",
+      "lookupKey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include liposomal amphotericin B and posaconazole. In the event that voriconazole is considered to be the most appropriate agent, based on clinical advice, for a patient with poor metabolizer genotype, voriconazole should be administered at a preferably lower than standard dosage with careful therapeutic drug monitoring.",
+      "implications": {
+        "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole and may increase probability of adverse events"
+      }
+    },
+    {
+      "recommendationId": 8481784,
+      "guidelineId": "PA166251456",
+      "drug": "voriconazole",
+      "rxnormId": "RxNorm:121243",
+      "population": "pediatrics",
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "classification": "Moderate",
+      "drugRecommendation": "Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include liposomal amphotericin B and posaconazole. In the event that voriconazole is considered to be the most appropriate agent, based on clinical advice, for a patient with poor metabolizer genotype, voriconazole should be administered at a preferably lower than standard dosage with careful therapeutic drug monitoring.",
+      "implications": {
+        "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole and may increase probability of adverse events"
+      }
     }
   ]
 }

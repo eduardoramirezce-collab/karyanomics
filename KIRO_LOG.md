@@ -36,17 +36,4 @@ Record actual Kiro activity with its prompt/task, files changed, checks, and com
 - Kai recorded Kiro Vibe mode work at 14:10 to extend VCF scope with NUDT15, CYP4F2 and ABCG2 and to add rosuvastatin; see `745d1e1`.
 - Kai recorded Kiro Vibe mode work at 14:40 for `callStarAlleles`, generated PharmCAT 3.4.0 definitions and CPIC phenotype table, EARS spec, and sample/fast-check tests; see `88d0257`. The caller matches the bundled PharmCAT reports but is not a clinically validated assay.
 
-## 2026-10-24 — Caller and guidance integration (Edu/Codex)
 
-- Codex merged Kai's latest `main` into `clinical-data`, reconciled shared types and docs, and wired the Maya synthetic VCF call into the clopidogrel demo. Uploaded VCFs remain outside guidance because assay-quality and coverage evidence is still missing.
-- Codex blocked multi-sample/invalid VCF warnings at the caller, rejected ambiguous research-route calls, and read CPIC activity scores from caller output. This was not a Kiro coding session.
-
-## 2026-10-24 — Earlier clinical-data spec session (Edu/Kiro, back-filled)
-- Edu used Kiro to draft the first `pgx-clinical-data-layer` spec (requirements, design, tasks), the initial `.kiro/steering/clinical-safety.md`, and `data/SOURCE_INVENTORY.md`, committed in `926c409`. Kiro also proposed a Python/FastAPI service and a Next.js scaffold that were not adopted. Kai's `4074fa8` skeleton is the one in use. These files were later revised with Codex and by Kai, as logged above.
-- In that session, Kiro's first source inventory called CPIC content CC0. That was later corrected: do not assume CC0 or CC BY-SA, and confirm the ClinPGx data usage policy.
-
-## 2026-10-24 — Status audit and doc/steering sync (Edu/Kiro)
-- Edu used Kiro for a read-only audit of `main` at `4a0580a`. See `docs/STATUS_AUDIT_2026-10-24.md`.
-- Checks run: `npm test` 130/130 passed; `npm run validate:clinical` passed; `npx eslint .` passed; `npx next build --webpack` passed. On a fresh clone, `npx tsc --noEmit` failed with `LayoutProps` until `npx next typegen` ran, then passed.
-- Kiro probes, run on a throwaway copy and not committed, found that `PS` phase sets are ignored (a confident CYP2C19 `*2/*17` across different phase sets) and that FILTER/QUAL/GQ/DP do not affect calls.
-- Kiro updated README, `.kiro/steering/{clinical-safety,data-sources,structure,tech}.md`, `.kiro/specs/{star-allele-caller/requirements,pgx-engine/tasks,pgx-clinical-data-layer/tasks}.md`, `docs/CURRENT_GAPS.md` and `docs/IMPLEMENTATION_HANDOFF.md` to match the code and record the Kai/Edu task split. No code or clinical data changed.
