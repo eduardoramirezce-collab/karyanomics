@@ -37,3 +37,31 @@ describe("VCF loader", () => {
     expect(result).toEqual({ ok: false, message: "We couldn't load the sample patient Alex. Please try again." });
   });
 });
+
+import { buildDrugOptions, exactDrugOption, searchDrugOptions } from "../app/_portal/drug-search";
+import { findDemoAccount } from "../app/_portal/samples";
+import { listDrugTherapeuticGroups } from "../lib/pgx/drug-therapeutic-groups";
+
+describe("demo login", () => {
+  it("matches only the demo email and password", () => {
+    expect(findDemoAccount(" Maya@Example.com ", "demo-maya")?.id).toBe("maya");
+    expect(findDemoAccount("maya@example.com", "wrong")).toBeUndefined();
+    expect(findDemoAccount("", "")).toBeUndefined();
+  });
+});
+
+describe("medication name search", () => {
+  const options = buildDrugOptions(listDrugTherapeuticGroups());
+  it("suggests statins for 'st'", () => {
+    const labels = searchDrugOptions("st", options, 50).map((option) => option.label);
+    expect(labels).toContain("simvastatin");
+    expect(labels).toContain("atorvastatin");
+  });
+  it("maps a brand to its ingredient and prefers generics on exact match", () => {
+    const plavix = exactDrugOption("plavix", options);
+    expect(plavix?.drug.drug).toBe("clopidogrel");
+    expect(plavix?.brand).toBe("Plavix");
+    expect(exactDrugOption("Simvastatin", options)?.brand).toBeNull();
+    expect(exactDrugOption("nope", options)).toBeNull();
+  });
+});

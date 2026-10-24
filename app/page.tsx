@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { card, primaryButton } from "./_portal/ui";
+import { card, primaryButton, textLink } from "./_portal/ui";
 
 const STEPS = ["Order a test", "Get your results", "Check your medications"];
 
 export default function Home() {
   return (
-    <main className="mx-auto flex w-full max-w-5xl flex-col gap-12 px-5 py-12 sm:py-16">
+    <main className="mx-auto flex w-full max-w-3xl flex-col gap-12 px-5 py-12 sm:py-16">
       <section className="flex flex-col gap-3 text-center">
         <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Karyanomics</h1>
         <p className="mx-auto max-w-xl text-lg text-slate-700">
@@ -13,21 +13,19 @@ export default function Home() {
         </p>
       </section>
 
-      <section aria-label="Get started" className="grid gap-5 sm:grid-cols-2">
+      <section aria-label="Get started" className="flex flex-col gap-4">
         <div className={`${card} flex flex-col gap-4 p-6`}>
-          <h2 className="text-2xl font-semibold text-slate-900">View your results</h2>
-          <p className="flex-1 text-base text-slate-700">
-            Log into your account and view your pharmacogenomic results.
-          </p>
+          <h2 className="text-2xl font-semibold text-slate-900">Login</h2>
+          <p className="text-base text-slate-700">Log into your account and view your pharmacogenomic results.</p>
           <p className="text-sm text-slate-600">Pharmacogenomic means how your genes affect your medicines.</p>
-          <Link href="/login" className={primaryButton}>Sign in</Link>
+          <Link href="/login" className={`${primaryButton} self-start`}>Log in</Link>
         </div>
-        <div className={`${card} flex flex-col gap-4 p-6`}>
-          <h2 className="text-2xl font-semibold text-slate-900">Order your test</h2>
-          <p className="flex-1 text-base text-slate-700">
-            One saliva sample. Results for 8 genes that affect common medications.
+        <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
+          <h2 className="text-lg font-semibold text-slate-900">Haven&apos;t been tested yet?</h2>
+          <p className="mt-1 text-base text-slate-700">
+            Order your test with one saliva sample. See how 8 of your genes may affect common medications.
           </p>
-          <Link href="/order" className={primaryButton}>Order a test</Link>
+          <p className="mt-3"><Link href="/order" className={textLink}>Order your test</Link></p>
         </div>
       </section>
 
