@@ -42,11 +42,11 @@ caused an event. NPI/openFDA data must never be turned into clinical advice.
   terms match the CPIC vocabulary, which is what lets a PharmCAT result be
   matched against CPIC recommendations.
 - **Source:** https://pharmcat.clinpgx.org/examples/
-- **Use here:** regression examples for phenotype calls and report structure.
-  We do **not** treat PharmCAT reports as independent corroboration of the CPIC
-  recommendation they display.
+- **Planned use:** regression examples for phenotype calls and report structure.
+  PharmCAT is **not yet integrated**. We do **not** treat its reports as
+  independent corroboration of the CPIC recommendation they display.
 
-## 3. openFDA
+## 3. openFDA (planned; no app route yet)
 
 - **Provides:** NDC directory (barcode/NDC → `generic_name`) and drug
   adverse-event reports.
@@ -56,7 +56,7 @@ caused an event. NPI/openFDA data must never be turned into clinical advice.
 - **License/terms:** U.S. FDA public data. A report is not proof of causation.
 - **Use here:** drug display and NDC scanning only. Never a recommendation.
 
-## 4. CMS NPPES NPI Registry
+## 4. CMS NPPES NPI Registry (planned; no app route yet)
 
 - **Provides:** clinician name, taxonomy/specialty, practice address for a given
   NPI.

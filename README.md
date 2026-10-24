@@ -9,6 +9,8 @@ Built at **Hackachusetts 2026** · Track: **Healthcare & Biotech** · Built with
 > **Live demo:** _coming soon_
 > **Demo video:** _coming soon_
 
+**Implemented today:** a browser-only file intake page (`/patient`), structural checks for PGx JSON / VCF / four-column raw text, a fictional Maya example, and a versioned two-row CPIC snapshot. Uploaded files are **not** interpreted into recommendations. The clinician portal, NPI check, NDC lookup, openFDA panel, and broader gene–drug coverage below are planned, not yet implemented. See [API and upload register](./docs/API_AND_UPLOAD_REGISTER.md), [clinical change log](./docs/CLINICAL_CHANGELOG.md), and [current gaps](./docs/CURRENT_GAPS.md).
+
 ---
 
 ## The problem
@@ -74,7 +76,7 @@ Open http://localhost:3000.
 
 ```bash
 npm test                 # unit + property-based tests
-npm run fetch:clinpgx    # refresh the bundled gene-drug snapshot (optional)
+npm run fetch:clinpgx    # fetch an ignored candidate for review; does not update bundled data
 ```
 
 No API keys are required; all external APIs used are public.

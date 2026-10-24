@@ -35,3 +35,14 @@
   the snapshot as clinically reviewed.
 - Integrate the synthetic persona in the frontend; it is not yet a user-facing
   persona picker.
+
+## Upload and source-awareness increment (2026-10-24)
+
+- [x] Parse structured PGx JSON, VCF and four-column consumer raw text locally; classify no-call, review-required and external-caller states.
+- [x] Add a patient intake page that never uploads genetic content or displays clinician-only recommendation wording.
+- [x] Add a synthetic sample file and parser tests.
+- [x] Maintain an implemented-vs-planned API register, change log and gap list.
+- [ ] Select a real de-identified lab export and document field/quality mapping.
+- [ ] Add a validated allele/phenotype pipeline for GRCh38 VCF and outside calls; pin source/tool versions.
+- [ ] Build clinician review/authentication before interpreting real uploads.
+- [ ] Add RxNorm drug normalization and NDC mapping with tests before multi-drug lookups.

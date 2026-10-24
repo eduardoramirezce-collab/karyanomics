@@ -1,0 +1,16 @@
+{
+  "format": "karyanomics-pgx-v1",
+  "synthetic": true,
+  "labName": "Fictional Demo Lab",
+  "reportDate": "2026-10-24",
+  "assayMethod": "Synthetic test fixture; not an assay",
+  "coveredVariants": ["synthetic CYP2C19 coverage"],
+  "geneResults": [
+    {
+      "gene": "CYP2C19",
+      "diplotype": "*2/*2",
+      "phenotype": "Poor Metabolizer",
+      "callStatus": "complete"
+    }
+  ]
+}

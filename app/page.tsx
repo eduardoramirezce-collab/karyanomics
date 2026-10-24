@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="flex flex-1 flex-col items-center justify-center gap-10 p-8 text-center">
@@ -11,18 +13,15 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col gap-4 sm:flex-row">
-        <button
-          type="button"
+        <Link
+          href="/patient"
           className="rounded-lg bg-blue-600 px-6 py-3 text-base font-medium text-white transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
         >
           I&apos;m a patient
-        </button>
-        <button
-          type="button"
-          className="rounded-lg border border-gray-300 px-6 py-3 text-base font-medium text-gray-900 transition-colors hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:border-gray-700 dark:text-gray-100 dark:hover:bg-gray-800"
-        >
-          I&apos;m a clinician
-        </button>
+        </Link>
+        <span className="rounded-lg border border-gray-300 px-6 py-3 text-base font-medium text-gray-500 dark:border-gray-700 dark:text-gray-400">
+          Clinician view coming soon
+        </span>
       </div>
     </main>
   );
