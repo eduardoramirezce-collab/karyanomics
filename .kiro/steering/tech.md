@@ -5,7 +5,7 @@
 - **Styling:** Tailwind CSS v4 (with `@tailwindcss/turbopack`)
 - **Testing:** Vitest 4 + fast-check (property-based testing)
 - **Linting:** ESLint 9 with `eslint-config-next`
-- **Barcode scanning:** html5-qrcode (NDC lookup)
+- **Barcode scanning:** html5-qrcode (NDC lookup) — PLANNED; not installed yet
 - **Runtime:** Node.js 20+
 
 ## External data sources
@@ -17,9 +17,12 @@ All public, no API keys required:
 - **CMS NPPES** — clinician NPI verification
 - **PubMed / PubChem** — citations and compound identifiers
 
-Server-side API routes proxy external calls: `/api/drug` (openFDA) and
-`/api/npi` (CMS NPPES). The bundled gene-drug snapshot lives in `/data` and is
-refreshed at build time by `scripts/fetch-clinpgx.ts`.
+PLANNED server-side API routes will proxy external calls: `/api/drug` (openFDA)
+and `/api/npi` (CMS NPPES). Neither exists yet, and no code calls openFDA or
+NPPES today. The bundled snapshots live in `/data`. Build-time scripts in
+`scripts/*.mjs` (for example `scripts/fetch-clinpgx.mjs`) write ignored
+candidates to `data/candidates/` for review; they never overwrite a curated
+snapshot.
 
 ## Conventions
 
@@ -40,6 +43,12 @@ npm run build            # production build
 npm run start            # serve the production build
 npm test                 # run unit + property-based tests (vitest run)
 npm run lint             # run ESLint
-npm run fetch:clinpgx    # refresh the bundled gene-drug snapshot (optional)
+npm run validate:clinical      # provenance/consistency checks for all bundled clinical data
+npx next typegen && npx tsc --noEmit  # typecheck; typegen first or a fresh clone fails on `LayoutProps`
+npx next build --webpack       # production build check used in the handoff
+npm run fetch:clinpgx    # write an ignored CPIC candidate for review (does not update bundled data)
 npm run fetch:pgx-definitions  # regenerate allele definitions + CPIC phenotype table
 ```
+
+Verify every change with `npm test`, `npm run validate:clinical`, typecheck,
+`npx eslint .`, and `npx next build --webpack`.

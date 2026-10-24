@@ -1,7 +1,17 @@
 # Implementation handoff for Kiro or another coding assistant
 
-Updated 2026-10-24 after Kai's `88d0257` main commit and the clinical-data merge.
-Read `README.md`, `.kiro/steering/clinical-safety.md`, `.kiro/steering/data-sources.md`, and `docs/CURRENT_GAPS.md` before changing the pipeline.
+Updated 2026-10-24 after Kai's `88d0257` main commit, the clinical-data merge, and the [status audit](./STATUS_AUDIT_2026-10-24.md) of `4a0580a`.
+Read `README.md`, `.kiro/steering/clinical-safety.md`, `.kiro/steering/data-sources.md`, `docs/CURRENT_GAPS.md`, and `docs/STATUS_AUDIT_2026-10-24.md` before changing the pipeline. Branch new work from `main`; `feature/vcf-input` and `feature/star-allele-caller` are already merged and stale.
+
+## Current split (from the audit, non-overlapping)
+
+| Kai (VCF → call evidence) | Edu (guidance, drug identity, clinician UI) |
+| --- | --- |
+| 1. PS-aware phasing: `lib/pgx/parseVcf.ts`, `lib/pgx/callStarAlleles.ts`, their tests | 1. Consume computed evidence instead of caller-supplied flags: `lib/pgx/sample-assessment.ts`, `assess.ts`, `assess-patient.ts`, `research-recommendation-route.ts` |
+| 2. Computed per-gene evidence (FILTER/QUAL/GQ/DP, coverage, build): new `lib/pgx/callEvidence.ts` | 2. NDC/product → ingredient: new `lib/pgx/drug-identity.ts`, fetch script, snapshot, validator |
+| 3. Quality and phase-set fixtures in `public/samples/` and `tests/helpers/pgxVcf.ts`; fix the CC0 label in `scripts/fetch-pgx-definitions.mjs` | 3. Clinician screen with real identity controls: `app/physician/`, `app/api/npi/` |
+
+Shared and reviewed into `main`: `lib/pgx/types.ts` (Kai adds `phaseSet` and the evidence type; Edu reviews), README, `.kiro/steering/*`, `KIRO_LOG.md`.
 
 ## Working pieces and owners
 
@@ -18,4 +28,4 @@ Read `README.md`, `.kiro/steering/clinical-safety.md`, `.kiro/steering/data-sour
 4. Build a clinician view with real identity controls. NPI lookup alone only checks a public identifier. Keep clinician-only detail separate from allowlisted patient summaries and never output self-directed dose/start/stop instructions.
 5. Update README, steering, specs, changelog and this handoff whenever behavior changes. Credit actual Kiro work in `KIRO_LOG.md`; do not label work done with another tool as Kiro.
 
-Verify with `npm test`, `npx tsc --noEmit`, `npx eslint .`, `npx next build --webpack`, and `npm run validate:clinical`. The data refresh scripts write candidate files for review; never silently replace a curated snapshot.
+Verify with `npm test`, `npx next typegen && npx tsc --noEmit` (plain `tsc` fails on a fresh clone with `LayoutProps`), `npx eslint .`, `npx next build --webpack`, and `npm run validate:clinical`. The data refresh scripts write candidate files for review; never silently replace a curated snapshot.

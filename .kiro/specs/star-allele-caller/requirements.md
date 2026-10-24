@@ -114,8 +114,8 @@ phase, so that I can order confirmatory testing.
 
 #### Acceptance criteria
 
-1. WHEN all heterozygous positions of a gene are phased (`|`) THE system SHALL use
-   the given phase only.
+1. WHEN all heterozygous positions of a gene are phased (`|`) within one phase
+   set (see criterion 6) THE system SHALL use the given phase only.
 2. WHEN a gene has two or more unphased heterozygous positions THE system SHALL
    consider every arrangement of them across the two copies.
 3. WHEN more than one arrangement matches named alleles THE system SHALL prefer an
@@ -126,6 +126,11 @@ phase, so that I can order confirmatory testing.
    name the other matching diplotypes, if any, in the note.
 5. IF a gene has more than 10 unphased heterozygous positions THEN THE system
    SHALL return it as Indeterminate.
+6. WHEN phased (`|`) heterozygous positions of a gene carry different `PS`
+   (phase set) values THE system SHALL treat their relative phase as unknown,
+   as if unphased, and apply criteria 2–5. Phased genotypes without `PS` follow
+   the VCF 4.2 rule (same phase set). _Added by the 2026-10-24 audit; not yet
+   implemented. `parseVcf` does not read `PS` today._
 
 ### Requirement 6: Diplotype to phenotype
 
