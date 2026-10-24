@@ -183,7 +183,25 @@ if (!existingOnly) {
   }
 }
 
-const genes = [...new Set(records.flatMap((record) => Object.keys(record.lookupKey)))].sort();
+let dosingAlgorithm = existing?.dosingAlgorithm ?? null;
+let pairGenes = null;
+if (!entry.expectRecommendations) {
+  // Algorithm-only guideline (warfarin): store CPIC's own pointer, never a dose.
+  if (rows.length) stop("CPIC now publishes recommendation rows for this drug; review before promoting");
+  const notes = guideline.notesonusage;
+  const url = typeof notes === "string" ? notes.match(/https?:\/\/\S+?\.(?:png|pdf|jpg)/)?.[0] : null;
+  if (!url) stop("guideline notesonusage has no algorithm/diagram URL");
+  dosingAlgorithm = {
+    name: "CPIC warfarin recommendation diagram (see guideline notes on usage)",
+    url,
+    pmid: latestPublication.pmid,
+    cpicNotesOnUsageVerbatim: notes,
+    clinicianMustUseAlgorithmDirectly: true,
+  };
+  pairGenes = [...new Set(candidate.pair.filter((p) => p.usedforrecommendation === "Yes" && !p.provisional)
+    .map((p) => p.genesymbol))].sort();
+}
+const genes = pairGenes ?? [...new Set(records.flatMap((record) => Object.keys(record.lookupKey)))].sort();
 const cpicLevels = {};
 for (const gene of genes) {
   const pair = candidate.pair.find((item) => item.genesymbol === gene && item.usedforrecommendation === "Yes" && !item.provisional);
@@ -206,7 +224,7 @@ const body = {
     usageTermsUrl: USAGE_TERMS_URL,
   },
   pair: { genes, drug: entry.drug, rxnormId: drugRow.drugid, cpicLevels },
-  dosingAlgorithm: existing?.dosingAlgorithm ?? null,
+  dosingAlgorithm,
   records,
 };
 const previousBody = existing && {

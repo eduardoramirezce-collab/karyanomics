@@ -20,11 +20,32 @@ export const GUIDANCE = Object.freeze([
     drug: "clopidogrel",
     snapshotPath: "data/cpic-cyp2c19-clopidogrel.v1.json",
     candidatePath: "data/candidates/cpic-cyp2c19-clopidogrel.json",
-    populations: ["CVI ACS PCI"],
+    populations: ["CVI ACS PCI", "CVI non-ACS non-PCI", "NVI"],
     alternativesVocabulary: ["prasugrel", "ticagrelor", "ticlopidine"],
     nonNormalFinding: "reduced_activation",
     expectRecommendations: true,
   },
+  ...[
+    ["slco1b1-simvastatin", "SLCO1B1, ABCG2, CYP2C9, and Statins", "simvastatin"],
+    ["cyp2c9-vkorc1-cyp4f2-warfarin", "CYP2C9, VKORC1, CYP4F2 and Warfarin", "warfarin"],
+    ["tpmt-nudt15-azathioprine", "TPMT, NUDT15 and Thiopurines", "azathioprine"],
+    ["tpmt-nudt15-mercaptopurine", "TPMT, NUDT15 and Thiopurines", "mercaptopurine"],
+    ["dpyd-fluorouracil", "DPYD and Fluoropyrimidines", "fluorouracil"],
+    ["dpyd-capecitabine", "DPYD and Fluoropyrimidines", "capecitabine"],
+    ["cyp2c19-citalopram", "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants", "citalopram"],
+    ["cyp2c19-escitalopram", "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants", "escitalopram"],
+    ["cyp2c19-cyp2b6-sertraline", "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants", "sertraline"],
+  ].map(([slug, guidelineName, drug]) => ({
+    slug,
+    guidelineName,
+    drug,
+    snapshotPath: `data/cpic-${slug}.v1.json`,
+    candidatePath: `data/candidates/cpic-${slug}.json`,
+    populations: ["general"],
+    alternativesVocabulary: [],
+    nonNormalFinding: "pgx_factor_identified",
+    expectRecommendations: drug !== "warfarin",
+  })),
 ]);
 
 export function guidanceBySlug(slug) {

@@ -1,0 +1,1046 @@
+{
+  "schemaVersion": 2,
+  "snapshotId": "cpic-cyp2c19-cyp2b6-sertraline-2026-10-24-r1",
+  "retrievedAt": "2026-10-24",
+  "reviewStatus": "source_checked_demo_only",
+  "source": {
+    "name": "CPIC",
+    "guidelineName": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
+    "guidelineId": "PA166251452",
+    "guidelineVersion": 25,
+    "guidelineUrl": "https://www.clinpgx.org/guideline/PA166251452",
+    "apiUrl": "https://api.cpicpgx.org/v1/recommendation_view?drugname=eq.sertraline&guidelinename=eq.CYP2D6%2C%20CYP2C19%2C%20CYP2B6%2C%20SLC6A4%2C%20HTR2A%20and%20Serotonin%20Reuptake%20Inhibitor%20Antidepressants&select=*&limit=1000",
+    "publicationPmid": "37032427",
+    "usageTermsUrl": "https://www.clinpgx.org/page/dataUsagePolicy"
+  },
+  "pair": {
+    "genes": [
+      "CYP2B6",
+      "CYP2C19"
+    ],
+    "drug": "sertraline",
+    "rxnormId": "RxNorm:36437",
+    "cpicLevels": {
+      "CYP2B6": "B",
+      "CYP2C19": "A"
+    }
+  },
+  "dosingAlgorithm": null,
+  "records": [
+    {
+      "sourceRecommendationId": 8481383,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "strength": "Optional",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose. If patient does not adequately respond to recommended maintenance dosing, consider titrating to a higher\nmaintenance dose or switching to a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19 or CYP2B6.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481384,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "strength": "Optional",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose. If patient does not adequately respond to recommended maintenance dosing, consider titrating to a higher\nmaintenance dose or switching to a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19 or CYP2B6.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481385,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Normal metabolism of sertraline to less active compounds.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481386,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481387,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "strength": "Optional",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481390,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "strength": "Optional",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose. If patient does not adequately respond to recommended maintenance dosing, consider titrating to a higher\nmaintenance dose or switching to a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19 or CYP2B6.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481391,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "strength": "Optional",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose. If patient does not adequately respond to recommended maintenance dosing, consider titrating to a higher\nmaintenance dose or switching to a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19 or CYP2B6.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481392,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Normal metabolism of sertraline to less active compounds.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481393,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481394,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "strength": "Optional",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481397,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Normal metabolism"
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481398,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Normal metabolism"
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481399,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Normal metabolism of sertraline to less active compounds.",
+        "CYP2C19": "Normal metabolism"
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481400,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Normal metabolism"
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481401,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "strength": "Optional",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider a lower starting dose, slower titration schedule and 25% reduction of standard maintenance dose as compared to CYP2B6 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2B6.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "CYP2C19": "Normal metabolism"
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481404,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481405,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481406,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Normal metabolism of sertraline to less active compounds.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481407,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "strength": "Optional",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481408,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "strength": "Optional",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2B6 normal metabolizers",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481411,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481412,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481413,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Normal metabolism of sertraline to less active compounds.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481414,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "strength": "Optional",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481415,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "strength": "Optional",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2B6 normal metabolizers",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481418,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "strength": "Optional",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481419,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "strength": "Optional",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481420,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Normal metabolism of sertraline to less active compounds.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481421,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481422,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "strength": "Optional",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Select an alternative antidepressant not primarily metabolized by CYP2C19 or CYP2B6.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481425,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "strength": "Optional",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481426,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "strength": "Optional",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481427,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Normal metabolism of sertraline to less active compounds.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481428,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481429,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "strength": "Optional",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Select an alternative antidepressant not primarily metabolized by CYP2C19 or CYP2B6.",
+      "cpicImplicationsVerbatim": {
+        "CYP2B6": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    }
+  ]
+}

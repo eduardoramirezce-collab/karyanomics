@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "guidelines": [
     {
-      "sourceSnapshotId": "cpic-cyp2c19-clopidogrel-2026-10-24-r3",
+      "sourceSnapshotId": "cpic-cyp2c19-clopidogrel-2026-10-24-r4",
       "reviewStatus": "source_checked_demo_only",
       "source": {
         "guidelineUrl": "https://www.clinpgx.org/guideline/PA166251443",
@@ -76,6 +76,1587 @@
             "CYP2C19": "Ultrarapid Metabolizer"
           },
           "patientText": "This guideline does not link this CYP2C19 result to a difference in how clopidogrel works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480386,
+          "context": "acs_pci",
+          "lookupKey": {
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may mean clopidogrel works less well for this condition. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480388,
+          "context": "acs_pci",
+          "lookupKey": {
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may mean clopidogrel works less well for this condition. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480393,
+          "context": "non_acs_pci",
+          "lookupKey": {
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "patientText": "This guideline does not link this CYP2C19 result to a difference in how clopidogrel works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480396,
+          "context": "non_acs_pci",
+          "lookupKey": {
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may mean clopidogrel works less well for this condition. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480397,
+          "context": "non_acs_pci",
+          "lookupKey": {
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may mean clopidogrel works less well for this condition. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480401,
+          "context": "neurovascular",
+          "lookupKey": {
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "patientText": "This guideline does not link this CYP2C19 result to a difference in how clopidogrel works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480402,
+          "context": "neurovascular",
+          "lookupKey": {
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may mean clopidogrel works less well for this condition. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480403,
+          "context": "neurovascular",
+          "lookupKey": {
+            "CYP2C19": "Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Intermediate Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may mean clopidogrel works less well for this condition. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480404,
+          "context": "neurovascular",
+          "lookupKey": {
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may mean clopidogrel works less well for this condition. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480405,
+          "context": "neurovascular",
+          "lookupKey": {
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may mean clopidogrel works less well for this condition. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        }
+      ]
+    },
+    {
+      "sourceSnapshotId": "cpic-slco1b1-simvastatin-2026-10-24-r1",
+      "reviewStatus": "source_checked_demo_only",
+      "source": {
+        "guidelineUrl": "https://www.clinpgx.org/guideline/PA166264281",
+        "guidelineVersion": 72,
+        "publicationPmid": "35152405"
+      },
+      "pair": {
+        "genes": [
+          "SLCO1B1"
+        ],
+        "drug": "simvastatin",
+        "rxnormId": "RxNorm:36567"
+      },
+      "algorithmOnly": false,
+      "records": [
+        {
+          "sourceRecommendationId": 8481444,
+          "context": "general",
+          "lookupKey": {
+            "SLCO1B1": "Increased Function"
+          },
+          "phenotypes": {
+            "SLCO1B1": "Increased Function"
+          },
+          "patientText": "This guideline does not link this SLCO1B1 result to a difference in how simvastatin works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481445,
+          "context": "general",
+          "lookupKey": {
+            "SLCO1B1": "Normal Function"
+          },
+          "phenotypes": {
+            "SLCO1B1": "Normal Function"
+          },
+          "patientText": "This guideline does not link this SLCO1B1 result to a difference in how simvastatin works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481446,
+          "context": "general",
+          "lookupKey": {
+            "SLCO1B1": "Possible Decreased Function"
+          },
+          "phenotypes": {
+            "SLCO1B1": "Possible Decreased Function"
+          },
+          "patientText": "Your SLCO1B1 result may affect how your body handles simvastatin. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481447,
+          "context": "general",
+          "lookupKey": {
+            "SLCO1B1": "Decreased Function"
+          },
+          "phenotypes": {
+            "SLCO1B1": "Decreased Function"
+          },
+          "patientText": "Your SLCO1B1 result may affect how your body handles simvastatin. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481448,
+          "context": "general",
+          "lookupKey": {
+            "SLCO1B1": "Poor Function"
+          },
+          "phenotypes": {
+            "SLCO1B1": "Poor Function"
+          },
+          "patientText": "Your SLCO1B1 result may affect how your body handles simvastatin. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        }
+      ]
+    },
+    {
+      "sourceSnapshotId": "cpic-cyp2c9-vkorc1-cyp4f2-warfarin-2026-10-24-r1",
+      "reviewStatus": "source_checked_demo_only",
+      "source": {
+        "guidelineUrl": "https://www.clinpgx.org/guideline/PA166251465",
+        "guidelineVersion": 72,
+        "publicationPmid": "28198005"
+      },
+      "pair": {
+        "genes": [
+          "CYP2C9",
+          "CYP4F2",
+          "VKORC1"
+        ],
+        "drug": "warfarin",
+        "rxnormId": "RxNorm:11289"
+      },
+      "algorithmOnly": true,
+      "records": []
+    },
+    {
+      "sourceSnapshotId": "cpic-tpmt-nudt15-azathioprine-2026-10-24-r1",
+      "reviewStatus": "source_checked_demo_only",
+      "source": {
+        "guidelineUrl": "https://www.clinpgx.org/guideline/PA166251442",
+        "guidelineVersion": 71,
+        "publicationPmid": "41618934"
+      },
+      "pair": {
+        "genes": [
+          "NUDT15",
+          "TPMT"
+        ],
+        "drug": "azathioprine",
+        "rxnormId": "RxNorm:1256"
+      },
+      "algorithmOnly": false,
+      "records": [
+        {
+          "sourceRecommendationId": 8480053,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Normal Metabolizer",
+            "TPMT": "Normal Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Normal Metabolizer",
+            "TPMT": "Normal Metabolizer"
+          },
+          "patientText": "This guideline does not link this NUDT15 and TPMT results to a difference in how azathioprine works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480054,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Intermediate Metabolizer",
+            "TPMT": "Normal Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Intermediate Metabolizer",
+            "TPMT": "Normal Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480055,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Possible Intermediate Metabolizer",
+            "TPMT": "Normal Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Possible Intermediate Metabolizer",
+            "TPMT": "Normal Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480056,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Normal Metabolizer",
+            "TPMT": "Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Normal Metabolizer",
+            "TPMT": "Intermediate Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480057,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Normal Metabolizer",
+            "TPMT": "Possible Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Normal Metabolizer",
+            "TPMT": "Possible Intermediate Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480059,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Poor Metabolizer",
+            "TPMT": "Possible Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Poor Metabolizer",
+            "TPMT": "Possible Intermediate Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480060,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Poor Metabolizer",
+            "TPMT": "Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Poor Metabolizer",
+            "TPMT": "Intermediate Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480061,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Poor Metabolizer",
+            "TPMT": "Normal Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Poor Metabolizer",
+            "TPMT": "Normal Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480063,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Possible Intermediate Metabolizer",
+            "TPMT": "Poor Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Possible Intermediate Metabolizer",
+            "TPMT": "Poor Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480064,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Intermediate Metabolizer",
+            "TPMT": "Poor Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Intermediate Metabolizer",
+            "TPMT": "Poor Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480065,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Normal Metabolizer",
+            "TPMT": "Poor Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Normal Metabolizer",
+            "TPMT": "Poor Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480066,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Poor Metabolizer",
+            "TPMT": "Poor Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Poor Metabolizer",
+            "TPMT": "Poor Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480067,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Intermediate Metabolizer",
+            "TPMT": "Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Intermediate Metabolizer",
+            "TPMT": "Intermediate Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480068,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Intermediate Metabolizer",
+            "TPMT": "Possible Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Intermediate Metabolizer",
+            "TPMT": "Possible Intermediate Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480069,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Possible Intermediate Metabolizer",
+            "TPMT": "Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Possible Intermediate Metabolizer",
+            "TPMT": "Intermediate Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480070,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Possible Intermediate Metabolizer",
+            "TPMT": "Possible Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Possible Intermediate Metabolizer",
+            "TPMT": "Possible Intermediate Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        }
+      ]
+    },
+    {
+      "sourceSnapshotId": "cpic-tpmt-nudt15-mercaptopurine-2026-10-24-r1",
+      "reviewStatus": "source_checked_demo_only",
+      "source": {
+        "guidelineUrl": "https://www.clinpgx.org/guideline/PA166251442",
+        "guidelineVersion": 71,
+        "publicationPmid": "41618934"
+      },
+      "pair": {
+        "genes": [
+          "NUDT15",
+          "TPMT"
+        ],
+        "drug": "mercaptopurine",
+        "rxnormId": "RxNorm:103"
+      },
+      "algorithmOnly": false,
+      "records": [
+        {
+          "sourceRecommendationId": 8481068,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Normal Metabolizer",
+            "TPMT": "Normal Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Normal Metabolizer",
+            "TPMT": "Normal Metabolizer"
+          },
+          "patientText": "This guideline does not link this NUDT15 and TPMT results to a difference in how mercaptopurine works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481069,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Intermediate Metabolizer",
+            "TPMT": "Normal Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Intermediate Metabolizer",
+            "TPMT": "Normal Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481070,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Possible Intermediate Metabolizer",
+            "TPMT": "Normal Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Possible Intermediate Metabolizer",
+            "TPMT": "Normal Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481071,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Normal Metabolizer",
+            "TPMT": "Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Normal Metabolizer",
+            "TPMT": "Intermediate Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481072,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Normal Metabolizer",
+            "TPMT": "Possible Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Normal Metabolizer",
+            "TPMT": "Possible Intermediate Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481074,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Poor Metabolizer",
+            "TPMT": "Possible Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Poor Metabolizer",
+            "TPMT": "Possible Intermediate Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481075,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Poor Metabolizer",
+            "TPMT": "Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Poor Metabolizer",
+            "TPMT": "Intermediate Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481076,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Poor Metabolizer",
+            "TPMT": "Normal Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Poor Metabolizer",
+            "TPMT": "Normal Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481078,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Possible Intermediate Metabolizer",
+            "TPMT": "Poor Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Possible Intermediate Metabolizer",
+            "TPMT": "Poor Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481079,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Intermediate Metabolizer",
+            "TPMT": "Poor Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Intermediate Metabolizer",
+            "TPMT": "Poor Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481080,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Normal Metabolizer",
+            "TPMT": "Poor Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Normal Metabolizer",
+            "TPMT": "Poor Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481081,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Poor Metabolizer",
+            "TPMT": "Poor Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Poor Metabolizer",
+            "TPMT": "Poor Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481082,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Intermediate Metabolizer",
+            "TPMT": "Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Intermediate Metabolizer",
+            "TPMT": "Intermediate Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481083,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Intermediate Metabolizer",
+            "TPMT": "Possible Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Intermediate Metabolizer",
+            "TPMT": "Possible Intermediate Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481084,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Possible Intermediate Metabolizer",
+            "TPMT": "Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Possible Intermediate Metabolizer",
+            "TPMT": "Intermediate Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481085,
+          "context": "general",
+          "lookupKey": {
+            "NUDT15": "Possible Intermediate Metabolizer",
+            "TPMT": "Possible Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "NUDT15": "Possible Intermediate Metabolizer",
+            "TPMT": "Possible Intermediate Metabolizer"
+          },
+          "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        }
+      ]
+    },
+    {
+      "sourceSnapshotId": "cpic-dpyd-fluorouracil-2026-10-24-r1",
+      "reviewStatus": "source_checked_demo_only",
+      "source": {
+        "guidelineUrl": "https://www.clinpgx.org/guideline/PA166251462",
+        "guidelineVersion": 72,
+        "publicationPmid": "29152729"
+      },
+      "pair": {
+        "genes": [
+          "DPYD"
+        ],
+        "drug": "fluorouracil",
+        "rxnormId": "RxNorm:4492"
+      },
+      "algorithmOnly": false,
+      "records": [
+        {
+          "sourceRecommendationId": 8480742,
+          "context": "general",
+          "lookupKey": {
+            "DPYD": "2.0"
+          },
+          "phenotypes": {
+            "DPYD": "Normal Metabolizer"
+          },
+          "patientText": "This guideline does not link this DPYD result to a difference in how fluorouracil works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480743,
+          "context": "general",
+          "lookupKey": {
+            "DPYD": "1.5"
+          },
+          "phenotypes": {
+            "DPYD": "Intermediate Metabolizer"
+          },
+          "patientText": "Your DPYD result may affect how your body handles fluorouracil. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480744,
+          "context": "general",
+          "lookupKey": {
+            "DPYD": "1.0"
+          },
+          "phenotypes": {
+            "DPYD": "Intermediate Metabolizer"
+          },
+          "patientText": "Your DPYD result may affect how your body handles fluorouracil. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480745,
+          "context": "general",
+          "lookupKey": {
+            "DPYD": "0.5"
+          },
+          "phenotypes": {
+            "DPYD": "Poor Metabolizer"
+          },
+          "patientText": "Your DPYD result may affect how your body handles fluorouracil. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480746,
+          "context": "general",
+          "lookupKey": {
+            "DPYD": "0.0"
+          },
+          "phenotypes": {
+            "DPYD": "Poor Metabolizer"
+          },
+          "patientText": "Your DPYD result may affect how your body handles fluorouracil. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        }
+      ]
+    },
+    {
+      "sourceSnapshotId": "cpic-dpyd-capecitabine-2026-10-24-r1",
+      "reviewStatus": "source_checked_demo_only",
+      "source": {
+        "guidelineUrl": "https://www.clinpgx.org/guideline/PA166251462",
+        "guidelineVersion": 72,
+        "publicationPmid": "29152729"
+      },
+      "pair": {
+        "genes": [
+          "DPYD"
+        ],
+        "drug": "capecitabine",
+        "rxnormId": "RxNorm:194000"
+      },
+      "algorithmOnly": false,
+      "records": [
+        {
+          "sourceRecommendationId": 8480747,
+          "context": "general",
+          "lookupKey": {
+            "DPYD": "2.0"
+          },
+          "phenotypes": {
+            "DPYD": "Normal Metabolizer"
+          },
+          "patientText": "This guideline does not link this DPYD result to a difference in how capecitabine works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480748,
+          "context": "general",
+          "lookupKey": {
+            "DPYD": "1.5"
+          },
+          "phenotypes": {
+            "DPYD": "Intermediate Metabolizer"
+          },
+          "patientText": "Your DPYD result may affect how your body handles capecitabine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480749,
+          "context": "general",
+          "lookupKey": {
+            "DPYD": "1.0"
+          },
+          "phenotypes": {
+            "DPYD": "Intermediate Metabolizer"
+          },
+          "patientText": "Your DPYD result may affect how your body handles capecitabine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480750,
+          "context": "general",
+          "lookupKey": {
+            "DPYD": "0.5"
+          },
+          "phenotypes": {
+            "DPYD": "Poor Metabolizer"
+          },
+          "patientText": "Your DPYD result may affect how your body handles capecitabine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480751,
+          "context": "general",
+          "lookupKey": {
+            "DPYD": "0.0"
+          },
+          "phenotypes": {
+            "DPYD": "Poor Metabolizer"
+          },
+          "patientText": "Your DPYD result may affect how your body handles capecitabine. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        }
+      ]
+    },
+    {
+      "sourceSnapshotId": "cpic-cyp2c19-citalopram-2026-10-24-r1",
+      "reviewStatus": "source_checked_demo_only",
+      "source": {
+        "guidelineUrl": "https://www.clinpgx.org/guideline/PA166251452",
+        "guidelineVersion": 25,
+        "publicationPmid": "37032427"
+      },
+      "pair": {
+        "genes": [
+          "CYP2C19"
+        ],
+        "drug": "citalopram",
+        "rxnormId": "RxNorm:2556"
+      },
+      "algorithmOnly": false,
+      "records": [
+        {
+          "sourceRecommendationId": 8480161,
+          "context": "general",
+          "lookupKey": {
+            "CYP2C19": "Ultrarapid Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Ultrarapid Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may affect how your body handles citalopram. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480162,
+          "context": "general",
+          "lookupKey": {
+            "CYP2C19": "Rapid Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Rapid Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may affect how your body handles citalopram. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480163,
+          "context": "general",
+          "lookupKey": {
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "patientText": "This guideline does not link this CYP2C19 result to a difference in how citalopram works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480164,
+          "context": "general",
+          "lookupKey": {
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may affect how your body handles citalopram. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480165,
+          "context": "general",
+          "lookupKey": {
+            "CYP2C19": "Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Intermediate Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may affect how your body handles citalopram. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480166,
+          "context": "general",
+          "lookupKey": {
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may affect how your body handles citalopram. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480167,
+          "context": "general",
+          "lookupKey": {
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may affect how your body handles citalopram. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        }
+      ]
+    },
+    {
+      "sourceSnapshotId": "cpic-cyp2c19-escitalopram-2026-10-24-r1",
+      "reviewStatus": "source_checked_demo_only",
+      "source": {
+        "guidelineUrl": "https://www.clinpgx.org/guideline/PA166251452",
+        "guidelineVersion": 25,
+        "publicationPmid": "37032427"
+      },
+      "pair": {
+        "genes": [
+          "CYP2C19"
+        ],
+        "drug": "escitalopram",
+        "rxnormId": "RxNorm:321988"
+      },
+      "algorithmOnly": false,
+      "records": [
+        {
+          "sourceRecommendationId": 8480169,
+          "context": "general",
+          "lookupKey": {
+            "CYP2C19": "Ultrarapid Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Ultrarapid Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may affect how your body handles escitalopram. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480170,
+          "context": "general",
+          "lookupKey": {
+            "CYP2C19": "Rapid Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Rapid Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may affect how your body handles escitalopram. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480171,
+          "context": "general",
+          "lookupKey": {
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "patientText": "This guideline does not link this CYP2C19 result to a difference in how escitalopram works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480172,
+          "context": "general",
+          "lookupKey": {
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may affect how your body handles escitalopram. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480173,
+          "context": "general",
+          "lookupKey": {
+            "CYP2C19": "Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Intermediate Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may affect how your body handles escitalopram. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480174,
+          "context": "general",
+          "lookupKey": {
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may affect how your body handles escitalopram. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8480175,
+          "context": "general",
+          "lookupKey": {
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "patientText": "Your CYP2C19 result may affect how your body handles escitalopram. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        }
+      ]
+    },
+    {
+      "sourceSnapshotId": "cpic-cyp2c19-cyp2b6-sertraline-2026-10-24-r1",
+      "reviewStatus": "source_checked_demo_only",
+      "source": {
+        "guidelineUrl": "https://www.clinpgx.org/guideline/PA166251452",
+        "guidelineVersion": 25,
+        "publicationPmid": "37032427"
+      },
+      "pair": {
+        "genes": [
+          "CYP2B6",
+          "CYP2C19"
+        ],
+        "drug": "sertraline",
+        "rxnormId": "RxNorm:36437"
+      },
+      "algorithmOnly": false,
+      "records": [
+        {
+          "sourceRecommendationId": 8481383,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Ultrarapid Metabolizer",
+            "CYP2C19": "Ultrarapid Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Ultrarapid Metabolizer",
+            "CYP2C19": "Ultrarapid Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481384,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Rapid Metabolizer",
+            "CYP2C19": "Ultrarapid Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Rapid Metabolizer",
+            "CYP2C19": "Ultrarapid Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481385,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Normal Metabolizer",
+            "CYP2C19": "Ultrarapid Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Normal Metabolizer",
+            "CYP2C19": "Ultrarapid Metabolizer"
+          },
+          "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481386,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Intermediate Metabolizer",
+            "CYP2C19": "Ultrarapid Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Intermediate Metabolizer",
+            "CYP2C19": "Ultrarapid Metabolizer"
+          },
+          "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481387,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Poor Metabolizer",
+            "CYP2C19": "Ultrarapid Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Poor Metabolizer",
+            "CYP2C19": "Ultrarapid Metabolizer"
+          },
+          "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481390,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Ultrarapid Metabolizer",
+            "CYP2C19": "Rapid Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Ultrarapid Metabolizer",
+            "CYP2C19": "Rapid Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481391,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Rapid Metabolizer",
+            "CYP2C19": "Rapid Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Rapid Metabolizer",
+            "CYP2C19": "Rapid Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481392,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Normal Metabolizer",
+            "CYP2C19": "Rapid Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Normal Metabolizer",
+            "CYP2C19": "Rapid Metabolizer"
+          },
+          "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481393,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Intermediate Metabolizer",
+            "CYP2C19": "Rapid Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Intermediate Metabolizer",
+            "CYP2C19": "Rapid Metabolizer"
+          },
+          "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481394,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Poor Metabolizer",
+            "CYP2C19": "Rapid Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Poor Metabolizer",
+            "CYP2C19": "Rapid Metabolizer"
+          },
+          "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481397,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Ultrarapid Metabolizer",
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Ultrarapid Metabolizer",
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481398,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Rapid Metabolizer",
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Rapid Metabolizer",
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481399,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Normal Metabolizer",
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Normal Metabolizer",
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481400,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Intermediate Metabolizer",
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Intermediate Metabolizer",
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481401,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Poor Metabolizer",
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Poor Metabolizer",
+            "CYP2C19": "Normal Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481404,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Ultrarapid Metabolizer",
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Ultrarapid Metabolizer",
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481405,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Rapid Metabolizer",
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Rapid Metabolizer",
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481406,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Normal Metabolizer",
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Normal Metabolizer",
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481407,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Intermediate Metabolizer",
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Intermediate Metabolizer",
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481408,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Poor Metabolizer",
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Poor Metabolizer",
+            "CYP2C19": "Likely Intermediate Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481411,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Ultrarapid Metabolizer",
+            "CYP2C19": "Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Ultrarapid Metabolizer",
+            "CYP2C19": "Intermediate Metabolizer"
+          },
+          "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481412,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Rapid Metabolizer",
+            "CYP2C19": "Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Rapid Metabolizer",
+            "CYP2C19": "Intermediate Metabolizer"
+          },
+          "patientText": "This guideline does not link this CYP2B6 and CYP2C19 results to a difference in how sertraline works. Other factors still affect treatment.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481413,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Normal Metabolizer",
+            "CYP2C19": "Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Normal Metabolizer",
+            "CYP2C19": "Intermediate Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481414,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Intermediate Metabolizer",
+            "CYP2C19": "Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Intermediate Metabolizer",
+            "CYP2C19": "Intermediate Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481415,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Poor Metabolizer",
+            "CYP2C19": "Intermediate Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Poor Metabolizer",
+            "CYP2C19": "Intermediate Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481418,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Ultrarapid Metabolizer",
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Ultrarapid Metabolizer",
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481419,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Rapid Metabolizer",
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Rapid Metabolizer",
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481420,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Normal Metabolizer",
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Normal Metabolizer",
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481421,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Intermediate Metabolizer",
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Intermediate Metabolizer",
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481422,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Poor Metabolizer",
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Poor Metabolizer",
+            "CYP2C19": "Likely Poor Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481425,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Ultrarapid Metabolizer",
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Ultrarapid Metabolizer",
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481426,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Rapid Metabolizer",
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Rapid Metabolizer",
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481427,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Normal Metabolizer",
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Normal Metabolizer",
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481428,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Intermediate Metabolizer",
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Intermediate Metabolizer",
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
+          "humanClinicalReview": false
+        },
+        {
+          "sourceRecommendationId": 8481429,
+          "context": "general",
+          "lookupKey": {
+            "CYP2B6": "Poor Metabolizer",
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "phenotypes": {
+            "CYP2B6": "Poor Metabolizer",
+            "CYP2C19": "Poor Metabolizer"
+          },
+          "patientText": "Your CYP2B6 and CYP2C19 results may affect how your body handles sertraline. Discuss the result with your prescriber or pharmacist.",
           "humanClinicalReview": false
         }
       ]

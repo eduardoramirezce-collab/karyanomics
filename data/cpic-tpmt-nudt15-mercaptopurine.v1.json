@@ -1,0 +1,495 @@
+{
+  "schemaVersion": 2,
+  "snapshotId": "cpic-tpmt-nudt15-mercaptopurine-2026-10-24-r1",
+  "retrievedAt": "2026-10-24",
+  "reviewStatus": "source_checked_demo_only",
+  "source": {
+    "name": "CPIC",
+    "guidelineName": "TPMT, NUDT15 and Thiopurines",
+    "guidelineId": "PA166251442",
+    "guidelineVersion": 71,
+    "guidelineUrl": "https://www.clinpgx.org/guideline/PA166251442",
+    "apiUrl": "https://api.cpicpgx.org/v1/recommendation_view?drugname=eq.mercaptopurine&guidelinename=eq.TPMT%2C%20NUDT15%20and%20Thiopurines&select=*&limit=1000",
+    "publicationPmid": "41618934",
+    "usageTermsUrl": "https://www.clinpgx.org/page/dataUsagePolicy"
+  },
+  "pair": {
+    "genes": [
+      "NUDT15",
+      "TPMT"
+    ],
+    "drug": "mercaptopurine",
+    "rxnormId": "RxNorm:103",
+    "cpicLevels": {
+      "NUDT15": "A",
+      "TPMT": "A"
+    }
+  },
+  "dosingAlgorithm": null,
+  "records": [
+    {
+      "sourceRecommendationId": 8481068,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Normal Metabolizer",
+        "TPMT": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Normal Metabolizer",
+        "TPMT": "Normal Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with standard starting dose of mecaptopurine (e.g., 75 mg/m2/day for malignancy or 1.5 mg/kg/day for nonmalignancy). During therapy, adjust the doses of myelosuppressive agents, as per standard clinical practice. It usually takes at least 2 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia and myelosuppression.",
+        "TPMT": "TPMT NMs have lower erythrocyte concentrations of TGN metabolites and higher concentrations of MeMPNs compared to TPMT IMs and TPMT PMs. This is the 'normal' pattern."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "This guideline does not link this NUDT15 and TPMT results to a difference in how mercaptopurine works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481069,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Intermediate Metabolizer",
+        "TPMT": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Intermediate Metabolizer",
+        "TPMT": "Normal Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with decreased starting doses (30-80% of standard starting dose) if starting dose is ≥75 mg/m2/day (for malignancy) or ≥1.5 mg/kg/day (for nonmalignancy). If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing mercaptopurine over other agents.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression.",
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs when receiving standard dose. TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs when receiving standard dose."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481070,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Possible Intermediate Metabolizer",
+        "TPMT": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Possible Intermediate Metabolizer",
+        "TPMT": "Normal Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with decreased starting doses (30-80% of standard starting dose) if starting dose is ≥75 mg/m2/day (for malignancy) or ≥1.5 mg/kg/day (for nonmalignancy). If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing mercaptopurine over other agents.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression.",
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs when receiving standard dose. TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs when receiving standard dose."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481071,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Normal Metabolizer",
+        "TPMT": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Normal Metabolizer",
+        "TPMT": "Intermediate Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with decreased starting doses (30-80% of standard starting dose) if starting dose is ≥75 mg/m2/day (for malignancy) or ≥1.5 mg/kg/day (for nonmalignancy). If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing mercaptopurine over other agents.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression.",
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs when receiving standard dose."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481072,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Normal Metabolizer",
+        "TPMT": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Normal Metabolizer",
+        "TPMT": "Possible Intermediate Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with decreased starting doses (30-80% of standard starting dose) if starting dose is ≥75 mg/m2/day (for malignancy) or ≥1.5 mg/kg/day (for nonmalignancy). If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing mercaptopurine over other agents.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression.",
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs when receiving standard dose."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481074,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Poor Metabolizer",
+        "TPMT": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Poor Metabolizer",
+        "TPMT": "Possible Intermediate Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "For malignancy: initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily (e.g. 10 mg/m2/day given 3 days/week). During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For nonmalignancy: consider alternative nonthiopurine immunosuppressant therapy.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease.",
+        "TPMT": "n/a"
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481075,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Poor Metabolizer",
+        "TPMT": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Poor Metabolizer",
+        "TPMT": "Intermediate Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "For malignancy: initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily (e.g. 10 mg/m2/day given 3 days/week). During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For nonmalignancy: consider alternative nonthiopurine immunosuppressant therapy.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease.",
+        "TPMT": "n/a"
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481076,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Poor Metabolizer",
+        "TPMT": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Poor Metabolizer",
+        "TPMT": "Normal Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "For malignancy: initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily (e.g. 10 mg/m2/day given 3 days/week). During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For nonmalignancy: consider alternative nonthiopurine immunosuppressant therapy.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease.",
+        "TPMT": "n/a"
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481078,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Possible Intermediate Metabolizer",
+        "TPMT": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Possible Intermediate Metabolizer",
+        "TPMT": "Poor Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "For malignancy: initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily (e.g. 10 mg/m2/day given 3 days/week). During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For nonmalignancy: consider alternative nonthiopurine immunosuppressant therapy.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease.",
+        "TPMT": "TPMT PMs have extremelly high erythrocyte concentrations of TGN metabolites and no MeMPN compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481079,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Intermediate Metabolizer",
+        "TPMT": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Intermediate Metabolizer",
+        "TPMT": "Poor Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "For malignancy: initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily (e.g. 10 mg/m2/day given 3 days/week). During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For nonmalignancy: consider alternative nonthiopurine immunosuppressant therapy.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease.",
+        "TPMT": "TPMT PMs have extremelly high erythrocyte concentrations of TGN metabolites and no MeMPN compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481080,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Normal Metabolizer",
+        "TPMT": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Normal Metabolizer",
+        "TPMT": "Poor Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "For malignancy: initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily (e.g. 10 mg/m2/day given 3 days/week). During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For nonmalignancy: consider alternative nonthiopurine immunosuppressant therapy.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease.",
+        "TPMT": "TPMT PMs have extremelly high erythrocyte concentrations of TGN metabolites and no MeMPN compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481081,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Poor Metabolizer",
+        "TPMT": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Poor Metabolizer",
+        "TPMT": "Poor Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "For malignancy: initiate therapy with drastically reduced starting doses. Reduce starting dose by 10-fold and reduce frequency to thrice weekly instead of daily (e.g. 10 mg/m2/day given 3 days/week). During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 4-6 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For nonmalignancy: consider alternative nonthiopurine immunosuppressant therapy.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease.",
+        "TPMT": "TPMT PMs have extremelly high erythrocyte concentrations of TGN metabolites and no MeMPN compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481082,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Intermediate Metabolizer",
+        "TPMT": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Intermediate Metabolizer",
+        "TPMT": "Intermediate Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with decreased starting doses (20-50% of standard starting dose) if starting dose is ≥75 mg/m2/day (for malignancy) or ≥1.5 mg/kg/day (for nonmalignancy). If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing mercaptopurine over other agents.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM.",
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481083,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Intermediate Metabolizer",
+        "TPMT": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Intermediate Metabolizer",
+        "TPMT": "Possible Intermediate Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with decreased starting doses (20-50% of standard starting dose) if starting dose is ≥75 mg/m2/day (for malignancy) or ≥1.5 mg/kg/day (for nonmalignancy). If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing mercaptopurine over other agents.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM.",
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481084,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Possible Intermediate Metabolizer",
+        "TPMT": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Possible Intermediate Metabolizer",
+        "TPMT": "Intermediate Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with decreased starting doses (20-50% of standard starting dose) if starting dose is ≥75 mg/m2/day (for malignancy) or ≥1.5 mg/kg/day (for nonmalignancy). If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing mercaptopurine over other agents.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM.",
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481085,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Possible Intermediate Metabolizer",
+        "TPMT": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Possible Intermediate Metabolizer",
+        "TPMT": "Possible Intermediate Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with decreased starting doses (20-50% of standard starting dose) if starting dose is ≥75 mg/m2/day (for malignancy) or ≥1.5 mg/kg/day (for nonmalignancy). If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust mercaptopurine doses based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment. If myelosuppression occurs, and the patient is on combination therapy, emphasis should be on reducing mercaptopurine over other agents.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM.",
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles mercaptopurine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    }
+  ]
+}

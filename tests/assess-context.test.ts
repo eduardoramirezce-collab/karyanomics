@@ -21,7 +21,8 @@ describe("0.1 clinical context is taken from the matched record", () => {
     // Relabel a real row as non-ACS (population and context together) to prove
     // assess() reads record.context instead of a literal.
     const copy = clopidogrelSnapshotCopy();
-    copy.records = copy.records.map((row) => ({ ...row, population: "CVI non-ACS non-PCI", context: "non_acs_pci" }));
+    copy.records = copy.records.filter((row) => row.context === "acs_pci")
+      .map((row) => ({ ...row, population: "CVI non-ACS non-PCI", context: "non_acs_pci" }));
     const relabeled = parseGuidanceSnapshot(copy, "relabeled-fixture");
 
     const result = assess(poorMetabolizer("non_acs_pci"), [relabeled]);

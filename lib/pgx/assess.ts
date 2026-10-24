@@ -9,14 +9,32 @@
  * It never computes a dose. Dose text appears only inside verbatim CPIC fields.
  */
 
-import clopidogrel from "../../data/cpic-cyp2c19-clopidogrel.v1.json";
+import s_cyp2c19Clopidogrel from "../../data/cpic-cyp2c19-clopidogrel.v1.json";
+import s_slco1b1Simvastatin from "../../data/cpic-slco1b1-simvastatin.v1.json";
+import s_cyp2c9Vkorc1Cyp4f2Warfarin from "../../data/cpic-cyp2c9-vkorc1-cyp4f2-warfarin.v1.json";
+import s_tpmtNudt15Azathioprine from "../../data/cpic-tpmt-nudt15-azathioprine.v1.json";
+import s_tpmtNudt15Mercaptopurine from "../../data/cpic-tpmt-nudt15-mercaptopurine.v1.json";
+import s_dpydFluorouracil from "../../data/cpic-dpyd-fluorouracil.v1.json";
+import s_dpydCapecitabine from "../../data/cpic-dpyd-capecitabine.v1.json";
+import s_cyp2c19Citalopram from "../../data/cpic-cyp2c19-citalopram.v1.json";
+import s_cyp2c19Escitalopram from "../../data/cpic-cyp2c19-escitalopram.v1.json";
+import s_cyp2c19Cyp2b6Sertraline from "../../data/cpic-cyp2c19-cyp2b6-sertraline.v1.json";
 import { matchGuidance } from "./guidance-match";
 import { parseGuidanceSnapshot, type GuidanceSnapshot } from "./guidance-snapshot";
 import type { ClinicalAssessment, ClinicalAssessmentInput } from "./types";
 
 /** Every bundled CPIC guidance snapshot, validated at module load. */
 export const BUNDLED_GUIDANCE_SNAPSHOTS: readonly GuidanceSnapshot[] = Object.freeze([
-  parseGuidanceSnapshot(clopidogrel, "cpic-cyp2c19-clopidogrel.v1.json"),
+  parseGuidanceSnapshot(s_cyp2c19Clopidogrel, "cpic-cyp2c19-clopidogrel.v1.json"),
+  parseGuidanceSnapshot(s_slco1b1Simvastatin, "cpic-slco1b1-simvastatin.v1.json"),
+  parseGuidanceSnapshot(s_cyp2c9Vkorc1Cyp4f2Warfarin, "cpic-cyp2c9-vkorc1-cyp4f2-warfarin.v1.json"),
+  parseGuidanceSnapshot(s_tpmtNudt15Azathioprine, "cpic-tpmt-nudt15-azathioprine.v1.json"),
+  parseGuidanceSnapshot(s_tpmtNudt15Mercaptopurine, "cpic-tpmt-nudt15-mercaptopurine.v1.json"),
+  parseGuidanceSnapshot(s_dpydFluorouracil, "cpic-dpyd-fluorouracil.v1.json"),
+  parseGuidanceSnapshot(s_dpydCapecitabine, "cpic-dpyd-capecitabine.v1.json"),
+  parseGuidanceSnapshot(s_cyp2c19Citalopram, "cpic-cyp2c19-citalopram.v1.json"),
+  parseGuidanceSnapshot(s_cyp2c19Escitalopram, "cpic-cyp2c19-escitalopram.v1.json"),
+  parseGuidanceSnapshot(s_cyp2c19Cyp2b6Sertraline, "cpic-cyp2c19-cyp2b6-sertraline.v1.json"),
 ]);
 
 export function assess(

@@ -1,0 +1,495 @@
+{
+  "schemaVersion": 2,
+  "snapshotId": "cpic-tpmt-nudt15-azathioprine-2026-10-24-r1",
+  "retrievedAt": "2026-10-24",
+  "reviewStatus": "source_checked_demo_only",
+  "source": {
+    "name": "CPIC",
+    "guidelineName": "TPMT, NUDT15 and Thiopurines",
+    "guidelineId": "PA166251442",
+    "guidelineVersion": 71,
+    "guidelineUrl": "https://www.clinpgx.org/guideline/PA166251442",
+    "apiUrl": "https://api.cpicpgx.org/v1/recommendation_view?drugname=eq.azathioprine&guidelinename=eq.TPMT%2C%20NUDT15%20and%20Thiopurines&select=*&limit=1000",
+    "publicationPmid": "41618934",
+    "usageTermsUrl": "https://www.clinpgx.org/page/dataUsagePolicy"
+  },
+  "pair": {
+    "genes": [
+      "NUDT15",
+      "TPMT"
+    ],
+    "drug": "azathioprine",
+    "rxnormId": "RxNorm:1256",
+    "cpicLevels": {
+      "NUDT15": "A",
+      "TPMT": "A"
+    }
+  },
+  "dosingAlgorithm": null,
+  "records": [
+    {
+      "sourceRecommendationId": 8480053,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Normal Metabolizer",
+        "TPMT": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Normal Metabolizer",
+        "TPMT": "Normal Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with standard starting dose (e.g., 2 mg/kg/day for autoimmune diseases). During therapy, adjust doses of azathioprine based on disease-specific guidelines. It usually takes at least 2 weeks to reach steady state after each dose adjustment.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia and myelosuppression.",
+        "TPMT": "TPMT NMs have lower erythrocyte concentrations of TGN metabolites and higher concentrations of MeMPNs compared to TPMT IMs and TPMT PMs. This is the 'normal' pattern."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "This guideline does not link this NUDT15 and TPMT results to a difference in how azathioprine works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480054,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Intermediate Metabolizer",
+        "TPMT": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Intermediate Metabolizer",
+        "TPMT": "Normal Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with reduced starting doses (30-80% of standard starting dose) if standard starting dose is ≥2 mg/kg/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of azathioprine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression.",
+        "TPMT": "TPMT NMs have lower erythrocyte concentrations of TGN metabolites and higher concentrations of MeMPNs compared to TPMT IMs and TPMT PMs. This is the 'normal' pattern. TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480055,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Possible Intermediate Metabolizer",
+        "TPMT": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Possible Intermediate Metabolizer",
+        "TPMT": "Normal Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with reduced starting doses (30-80% of standard starting dose) if standard starting dose is ≥2 mg/kg/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of azathioprine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression.",
+        "TPMT": "TPMT NMs have lower erythrocyte concentrations of TGN metabolites and higher concentrations of MeMPNs compared to TPMT IMs and TPMT PMs. This is the 'normal' pattern. TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480056,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Normal Metabolizer",
+        "TPMT": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Normal Metabolizer",
+        "TPMT": "Intermediate Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with reduced starting doses (30-80% of standard starting dose) if standard starting dose is ≥2 mg/kg/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of azathioprine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression.",
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480057,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Normal Metabolizer",
+        "TPMT": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Normal Metabolizer",
+        "TPMT": "Possible Intermediate Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with reduced starting doses (30-80% of standard starting dose) if standard starting dose is ≥2 mg/kg/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of azathioprine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression.",
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480059,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Poor Metabolizer",
+        "TPMT": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Poor Metabolizer",
+        "TPMT": "Possible Intermediate Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider alternative nonthiopurine immunosuppressant therapy.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease.",
+        "TPMT": "n/a"
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480060,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Poor Metabolizer",
+        "TPMT": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Poor Metabolizer",
+        "TPMT": "Intermediate Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider alternative nonthiopurine immunosuppressant therapy.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease.",
+        "TPMT": "n/a"
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480061,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Poor Metabolizer",
+        "TPMT": "Normal Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Poor Metabolizer",
+        "TPMT": "Normal Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider alternative nonthiopurine immunosuppressant therapy.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease.",
+        "TPMT": "n/a"
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480063,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Possible Intermediate Metabolizer",
+        "TPMT": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Possible Intermediate Metabolizer",
+        "TPMT": "Poor Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider alternative nonthiopurine immunosuppressant therapy.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease.",
+        "TPMT": "TPMT PMs have extremely high erythrocyte concentrations of TGN metabolites and no MeMPN compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480064,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Intermediate Metabolizer",
+        "TPMT": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Intermediate Metabolizer",
+        "TPMT": "Poor Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider alternative nonthiopurine immunosuppressant therapy.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease.",
+        "TPMT": "TPMT PMs have extremely high erythrocyte concentrations of TGN metabolites and no MeMPN compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480065,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Normal Metabolizer",
+        "TPMT": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Normal Metabolizer",
+        "TPMT": "Poor Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider alternative nonthiopurine immunosuppressant therapy.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease.",
+        "TPMT": "TPMT PMs have extremely high erythrocyte concentrations of TGN metabolites and no MeMPN compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480066,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Poor Metabolizer",
+        "TPMT": "Poor Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Poor Metabolizer",
+        "TPMT": "Poor Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Consider alternative nonthiopurine immunosuppressant therapy.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Fatal toxicity possible without dose decrease.",
+        "TPMT": "TPMT PMs have extremely high erythrocyte concentrations of TGN metabolites and no MeMPN compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480067,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Intermediate Metabolizer",
+        "TPMT": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Intermediate Metabolizer",
+        "TPMT": "Intermediate Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with reduced starting doses (20%-50% of standard starting dose) if standard starting dose is ≥ 2 mg/kg/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of azathioprine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM.",
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480068,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Intermediate Metabolizer",
+        "TPMT": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Intermediate Metabolizer",
+        "TPMT": "Possible Intermediate Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with reduced starting doses (20%-50% of standard starting dose) if standard starting dose is ≥ 2 mg/kg/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of azathioprine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM.",
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480069,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Possible Intermediate Metabolizer",
+        "TPMT": "Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Possible Intermediate Metabolizer",
+        "TPMT": "Intermediate Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with reduced starting doses (20%-50% of standard starting dose) if standard starting dose is ≥ 2 mg/kg/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of azathioprine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM.",
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480070,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "NUDT15": "Possible Intermediate Metabolizer",
+        "TPMT": "Possible Intermediate Metabolizer"
+      },
+      "phenotypes": {
+        "NUDT15": "Possible Intermediate Metabolizer",
+        "TPMT": "Possible Intermediate Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Initiate therapy with reduced starting doses (20%-50% of standard starting dose) if standard starting dose is ≥ 2 mg/kg/day. If starting dose is already below standard starting dose, dose reduction might not be necessary. During therapy, adjust the doses of azathioprine based on the degree of myelosuppression and disease-specific guidelines. It usually takes at least 2-4 weeks of stable dosing to reach steady state after each dose adjustment.",
+      "cpicImplicationsVerbatim": {
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia and myelosuppression. Higher risk of toxicity compared to single IM.",
+        "TPMT": "TPMT IMs have moderate to high erythrocyte concentrations of TGN metabolites and low concentrations of MeMPNs compared to TPMT NMs."
+      },
+      "cpicCommentsVerbatim": "Standard starting doses may vary by patient characteristics and/or treatment regimens and according to local clinical practice.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your NUDT15 and TPMT results may affect how your body handles azathioprine. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    }
+  ]
+}

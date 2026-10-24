@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 2,
+  "snapshotId": "cpic-dpyd-fluorouracil-2026-10-24-r1",
+  "retrievedAt": "2026-10-24",
+  "reviewStatus": "source_checked_demo_only",
+  "source": {
+    "name": "CPIC",
+    "guidelineName": "DPYD and Fluoropyrimidines",
+    "guidelineId": "PA166251462",
+    "guidelineVersion": 72,
+    "guidelineUrl": "https://www.clinpgx.org/guideline/PA166251462",
+    "apiUrl": "https://api.cpicpgx.org/v1/recommendation_view?drugname=eq.fluorouracil&guidelinename=eq.DPYD%20and%20Fluoropyrimidines&select=*&limit=1000",
+    "publicationPmid": "29152729",
+    "usageTermsUrl": "https://www.clinpgx.org/page/dataUsagePolicy"
+  },
+  "pair": {
+    "genes": [
+      "DPYD"
+    ],
+    "drug": "fluorouracil",
+    "rxnormId": "RxNorm:4492",
+    "cpicLevels": {
+      "DPYD": "A"
+    }
+  },
+  "dosingAlgorithm": null,
+  "records": [
+    {
+      "sourceRecommendationId": 8480742,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "DPYD": "2.0"
+      },
+      "phenotypes": {
+        "DPYD": "Normal Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Based on genotype, there is no indication to change dose or therapy. Use label-recommended dosage and administration.",
+      "cpicImplicationsVerbatim": {
+        "DPYD": "Normal DPD activity and \"normal\" risk for fluoropyrimidine toxicity"
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "This guideline does not link this DPYD result to a difference in how fluorouracil works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480743,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "DPYD": "1.5"
+      },
+      "phenotypes": {
+        "DPYD": "Intermediate Metabolizer"
+      },
+      "strength": "Moderate",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Reduce starting dose by 50% followed by titration of dose based on toxicity or therapeutic drug monitoring (if available).",
+      "cpicImplicationsVerbatim": {
+        "DPYD": "Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs"
+      },
+      "cpicCommentsVerbatim": "Increase the dose in patients experiencing no or clinically tolerable toxicity in the first two cycles to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your DPYD result may affect how your body handles fluorouracil. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480744,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "DPYD": "1.0"
+      },
+      "phenotypes": {
+        "DPYD": "Intermediate Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Reduce starting dose by 50% followed by titration of dose based on toxicity or therapeutic drug monitoring (if available). Patients with the c.2846A>T/c.2846A>T genotype may require >50% reduction in starting dose.",
+      "cpicImplicationsVerbatim": {
+        "DPYD": "Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs"
+      },
+      "cpicCommentsVerbatim": "Increase the dose in patients experiencing no or clinically tolerable toxicity in the first two cycles to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your DPYD result may affect how your body handles fluorouracil. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480745,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "DPYD": "0.5"
+      },
+      "phenotypes": {
+        "DPYD": "Poor Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Avoid use of 5-fluorouracil or 5-fluorouracil prodrug-based regimens. In the event, based on clinical advice, alternative agents are not considered a suitable therapeutic option, 5-fluorouracil should be administered at a strongly reduced dose with early therapeutic drug monitoring.",
+      "cpicImplicationsVerbatim": {
+        "DPYD": "Complete DPD deficiency and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs."
+      },
+      "cpicCommentsVerbatim": "If available, a phenotyping test (see main text for further details) should be considered to estimate the starting dose. In absence of phenotyping data, a dose of <25% of the normal starting dose is estimated assuming additive effects of alleles on 5-FU clearance. Therapeutic drug monitoring should be done at the earliest time point possible (e.g., minimum time point in steady state) in order to immediately discontinue therapy if the drug level is too high.",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your DPYD result may affect how your body handles fluorouracil. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8480746,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "DPYD": "0.0"
+      },
+      "phenotypes": {
+        "DPYD": "Poor Metabolizer"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Avoid use of 5-fluorouracil or 5-fluorouracil prodrug-based regimens.",
+      "cpicImplicationsVerbatim": {
+        "DPYD": "Complete DPD deficiency and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs."
+      },
+      "cpicCommentsVerbatim": "n/a",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your DPYD result may affect how your body handles fluorouracil. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    }
+  ]
+}

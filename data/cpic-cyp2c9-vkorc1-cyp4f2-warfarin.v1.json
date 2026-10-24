@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 2,
+  "snapshotId": "cpic-cyp2c9-vkorc1-cyp4f2-warfarin-2026-10-24-r1",
+  "retrievedAt": "2026-10-24",
+  "reviewStatus": "source_checked_demo_only",
+  "source": {
+    "name": "CPIC",
+    "guidelineName": "CYP2C9, VKORC1, CYP4F2 and Warfarin",
+    "guidelineId": "PA166251465",
+    "guidelineVersion": 72,
+    "guidelineUrl": "https://www.clinpgx.org/guideline/PA166251465",
+    "apiUrl": "https://api.cpicpgx.org/v1/recommendation_view?drugname=eq.warfarin&guidelinename=eq.CYP2C9%2C%20VKORC1%2C%20CYP4F2%20and%20Warfarin&select=*&limit=1000",
+    "publicationPmid": "28198005",
+    "usageTermsUrl": "https://www.clinpgx.org/page/dataUsagePolicy"
+  },
+  "pair": {
+    "genes": [
+      "CYP2C9",
+      "CYP4F2",
+      "VKORC1"
+    ],
+    "drug": "warfarin",
+    "rxnormId": "RxNorm:11289",
+    "cpicLevels": {
+      "CYP2C9": "A",
+      "CYP4F2": "A",
+      "VKORC1": "A"
+    }
+  },
+  "dosingAlgorithm": {
+    "name": "CPIC warfarin recommendation diagram (see guideline notes on usage)",
+    "url": "http://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png",
+    "pmid": "28198005",
+    "cpicNotesOnUsageVerbatim": "Warfarin recommendation does not follow simple diplotype to phenotype translation. Read the guideline text and follow the recommendation diagram found at http://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png",
+    "clinicianMustUseAlgorithmDirectly": true
+  },
+  "records": []
+}

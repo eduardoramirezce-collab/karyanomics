@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 2,
+  "snapshotId": "cpic-slco1b1-simvastatin-2026-10-24-r1",
+  "retrievedAt": "2026-10-24",
+  "reviewStatus": "source_checked_demo_only",
+  "source": {
+    "name": "CPIC",
+    "guidelineName": "SLCO1B1, ABCG2, CYP2C9, and Statins",
+    "guidelineId": "PA166264281",
+    "guidelineVersion": 72,
+    "guidelineUrl": "https://www.clinpgx.org/guideline/PA166264281",
+    "apiUrl": "https://api.cpicpgx.org/v1/recommendation_view?drugname=eq.simvastatin&guidelinename=eq.SLCO1B1%2C%20ABCG2%2C%20CYP2C9%2C%20and%20Statins&select=*&limit=1000",
+    "publicationPmid": "35152405",
+    "usageTermsUrl": "https://www.clinpgx.org/page/dataUsagePolicy"
+  },
+  "pair": {
+    "genes": [
+      "SLCO1B1"
+    ],
+    "drug": "simvastatin",
+    "rxnormId": "RxNorm:36567",
+    "cpicLevels": {
+      "SLCO1B1": "A"
+    }
+  },
+  "dosingAlgorithm": null,
+  "records": [
+    {
+      "sourceRecommendationId": 8481444,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "SLCO1B1": "Increased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Increased Function"
+      },
+      "strength": "Strong",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+      "cpicImplicationsVerbatim": {
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      },
+      "cpicCommentsVerbatim": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "This guideline does not link this SLCO1B1 result to a difference in how simvastatin works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481445,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "SLCO1B1": "Normal Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Normal Function"
+      },
+      "strength": "Strong",
+      "finding": "no_pgx_change_identified",
+      "cpicRecommendationVerbatim": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+      "cpicImplicationsVerbatim": {
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      },
+      "cpicCommentsVerbatim": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "This guideline does not link this SLCO1B1 result to a difference in how simvastatin works. Other factors still affect treatment.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481446,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins). If simvastatin therapy is warranted, limit dose to <20mg/day.",
+      "cpicImplicationsVerbatim": {
+        "SLCO1B1": "Increased simvastatin acid exposure as compared to normal function; increased risk of myopathy"
+      },
+      "cpicCommentsVerbatim": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your SLCO1B1 result may affect how your body handles simvastatin. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481447,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "SLCO1B1": "Decreased Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Decreased Function"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins). If simvastatin therapy is warranted, limit dose to <20mg/day.",
+      "cpicImplicationsVerbatim": {
+        "SLCO1B1": "Increased simvastatin acid exposure as compared to normal function; increased risk of myopathy"
+      },
+      "cpicCommentsVerbatim": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "alternatives": [],
+      "doseTextPresent": true,
+      "patientText": "Your SLCO1B1 result may affect how your body handles simvastatin. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    },
+    {
+      "sourceRecommendationId": 8481448,
+      "population": "general",
+      "context": "general",
+      "lookupKey": {
+        "SLCO1B1": "Poor Function"
+      },
+      "phenotypes": {
+        "SLCO1B1": "Poor Function"
+      },
+      "strength": "Strong",
+      "finding": "pgx_factor_identified",
+      "cpicRecommendationVerbatim": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "cpicImplicationsVerbatim": {
+        "SLCO1B1": "Increased simvastatin acid exposure compared to normal and decreased function; highly increased myopathy risk"
+      },
+      "cpicCommentsVerbatim": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "alternatives": [],
+      "doseTextPresent": false,
+      "patientText": "Your SLCO1B1 result may affect how your body handles simvastatin. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": null,
+      "humanClinicalReview": false,
+      "reviewStatus": "source_checked_demo_only",
+      "reviewedBy": null,
+      "reviewedOn": null
+    }
+  ]
+}
