@@ -5,6 +5,7 @@
 - Merged `feature/vcf-input` commit `bfdd24f` into `clinical-data`: browser-only `parseVcf`, the VCF upload component, three synthetic sample VCFs, PharmCAT 3.4.0 reference outputs, and parser tests. No source-backed CPIC row or API was changed.
 - Reused `parseVcf` inside the existing VCF format inspector and retained the JSON/raw-TSV inspector as a separate path. The patient page now has one VCF chooser and a separate fictional phenotype guidance example; choosing a VCF does not produce a drug assessment.
 - Reconciled shared types, steering, specs, README, and API/gap register. `callDiplotypes`, phenotype lookup, validated coverage and quality gate, and VCF-to-guidance testing remain open. The source snapshot remains `humanClinicalReview: false`.
+- Added a fixture-only handoff test that reads CYP2C19 diplotypes/phenotypes from Kai's PharmCAT reports for Maya, Alex, and Sam and checks that our exact ACS/PCI lookup selects the expected CPIC recommendation IDs. This is not an end-to-end VCF allele-calling test.
 
 ## 2026-10-24 — Browser intake and source register
 

@@ -53,4 +53,5 @@
 - [x] Accept only exact clopidogrel or RxNorm:32968 identifiers; keep NDC/brand normalization out of scope until sourced.
 - [x] Reject self-reported lab-report calls, even when their own JSON says complete.
 - [x] Merge Kai's VCF parser, upload component, and sample reference fixtures without duplicating VCF parsing or presenting a parsed file as verified.
+- [x] Compare the CYP2C19 rows in Kai's PharmCAT reference reports with the exact CPIC guidance lookup in a fixture-only handoff test. This validates shared vocabulary, not VCF allele calling.
 - [ ] Integrate with Kai's allele/phenotype caller after it is implemented and validated; verify sample VCF → phenotype → guidance end to end.
