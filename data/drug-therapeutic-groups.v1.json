@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "status": "editorial_navigation_only_not_clinical_guidance",
+  "basis": "Drug names and guideline families come from data/cpic-gene-drug-catalog.v1.json. Broad therapeutic-area buckets are project navigation labels, not CPIC patient-response classes or indications for prescribing.",
+  "groups": [
+    { "id": "analgesics", "label": "Analgesics" },
+    { "id": "cardiovascular", "label": "Cardiovascular" },
+    { "id": "endocrine", "label": "Endocrine" },
+    { "id": "gi", "label": "Gastrointestinal (GI)" },
+    { "id": "id", "label": "Infectious disease (ID)" },
+    { "id": "immune", "label": "Immune" },
+    { "id": "neuro", "label": "Neurology (Neuro)" },
+    { "id": "psych", "label": "Psychiatry (Psych)" },
+    { "id": "miscellaneous", "label": "Miscellaneous" }
+  ],
+  "guidelineFamilies": [
+    { "guideline": "CYP2C9 and NSAIDs", "groupId": "analgesics", "family": "NSAIDs" },
+    { "guideline": "CYP2C19 and Clopidogrel", "groupId": "cardiovascular", "family": "Antiplatelet" },
+    { "guideline": "SLCO1B1, ABCG2, CYP2C9, and Statins", "groupId": "cardiovascular", "family": "Statins" },
+    { "guideline": "CYP2C9, VKORC1, CYP4F2 and Warfarin", "groupId": "cardiovascular", "family": "Anticoagulant" },
+    { "guideline": "CYP2C19 and Proton Pump Inhibitors", "groupId": "gi", "family": "Proton pump inhibitors" },
+    { "guideline": "CYP2C19 and Voriconazole", "groupId": "id", "family": "Antifungal" },
+    { "guideline": "TPMT, NUDT15 and Thiopurines", "groupId": "immune", "family": "Thiopurines" },
+    { "guideline": "CYP2C9, HLA-B and Phenytoin", "groupId": "neuro", "family": "Antiseizure medicines" },
+    { "guideline": "CYP2D6, CYP2C19 and Tricyclic Antidepressants", "groupId": "psych", "family": "Tricyclic antidepressants" },
+    { "guideline": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants", "groupId": "psych", "family": "Serotonin reuptake inhibitor antidepressants" }
+  ]
+}

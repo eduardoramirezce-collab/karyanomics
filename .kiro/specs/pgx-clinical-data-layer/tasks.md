@@ -72,3 +72,10 @@
 - [x] Record Kai's caller handoff fields and clinical-review gates in `docs/PHENOTYPE_TO_GUIDANCE_RESEARCH.md`.
 - [ ] Confirm ClinPGx usage terms and have qualified clinical review of the additional source rows before any new patient or clinician guidance is published.
 - [ ] Connect the validated Kai caller only after it provides the required per-gene evidence and passes PharmCAT fixture comparison.
+
+## Medication browsing taxonomy (2026-10-24)
+
+- [x] Map all ten CPIC guideline families and 34 distinct RxNorm ingredients into the team's nine therapeutic areas; preserve medication family, indexed genes, and guideline link.
+- [x] Add a `/drugs` research catalog linked from patient intake, with explicit empty Endocrine and Miscellaneous groups and no patient-response claims.
+- [x] Test complete one-time ingredient coverage, multi-gene aggregation, and exact identity. Record the editorial/source distinction in the API register and steering.
+- [ ] Validate broader classes and cross-indication use with NLM RxClass and qualified clinical review before treating the taxonomy as a clinical classification.

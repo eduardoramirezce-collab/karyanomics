@@ -28,3 +28,4 @@ Record actual Kiro activity with its prompt/task, files changed, checks, and com
 - Codex added a fixture-only PharmCAT report → CPIC guidance handoff test; it uses Kai's reference outputs and does not implement or claim VCF allele calling.
 - Codex later built the eight-target-gene PharmCAT/CPIC research catalog and exact pair-candidate lookup. This was not a Kiro session; the catalog is not clinical guidance.
 - Codex researched CPIC's exact recommendation lookup keys and added a research-only source-row router for clopidogrel, thiopurines and statins, while flagging warfarin's separate algorithm. This was not a Kiro session; no new patient guidance was published.
+- Codex added the nine-area medication research taxonomy, exact-RxNorm grouping, `/drugs` browse page, tests and source/gap documentation. This was not a Kiro session; Kiro steering and tasks were updated so both teammates' AI tools see the same boundaries.

@@ -65,6 +65,17 @@ ID, classification and provenance, never a prescribing instruction or dose.
 Caller evidence is a **trusted handoff contract**, not something upload JSON
 can self-assert. See `docs/PHENOTYPE_TO_GUIDANCE_RESEARCH.md`.
 
+### Medication browse taxonomy: `drug-therapeutic-groups.ts`
+
+`data/drug-therapeutic-groups.v1.json` assigns each of the ten indexed CPIC
+guideline families to one of nine team-selected therapeutic areas and a more
+specific medication family. The pure function deduplicates 41 gene–drug pairs
+into 34 exact-RxNorm ingredients and collects their indexed target genes. The
+`/drugs` page shows the nine areas and CPIC links; empty groups stay empty. This
+is an editorial navigation index. It neither consumes a genotype nor assigns
+a patient-response category, drug suitability, indication, or dose. Some source
+guidelines require genes outside the eight target genes.
+
 ## Identifier map (how sources connect)
 
 - Gene symbol (`CYP2C19`) and phenotype term are the CPIC/PharmCAT vocabulary.

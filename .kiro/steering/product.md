@@ -44,6 +44,13 @@ rather than guessing.
 
 Target eight-gene scope: **CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT, NUDT15, CYP4F2, ABCG2.** The current guidance snapshot covers only CYP2C19 + clopidogrel for ACS/PCI. The CPIC A/B pair catalog for all eight genes is a research index, not patient guidance. Kai's full PharmCAT sample reports remain caller-validation fixtures.
 
+The `/drugs` page browses the 34 distinct ingredients in that research index by
+the team's nine therapeutic areas: Analgesics, Cardiovascular, Endocrine, GI,
+ID, Immune, Neuro, Psych, and Miscellaneous. These broad areas and specific
+medication-family labels organize the catalog; they do not classify a patient's
+response or establish a prescribing indication. Empty groups do not imply that
+no relevant drug exists outside the current index.
+
 **CYP2D6 is not callable from a VCF.** It comes only from an optional
 outside-call input; if absent, CYP2D6 is `Indeterminate` with the explanation
 "CYP2D6 cannot be determined from this file." DPYD remains outside the eight-gene target scope. NUDT15 is a target gene, but no validated NUDT15 allele/phenotype caller exists yet.

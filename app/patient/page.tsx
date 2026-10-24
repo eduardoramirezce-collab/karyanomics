@@ -37,6 +37,7 @@ export default function PatientPage() {
         <h1 className="text-3xl font-bold">PGx file intake</h1>
         <p>Choose a file to check its format and missing calls. The file stays in your browser. This prototype does not store or send your genetic data.</p>
       </header>
+      <p><Link href="/drugs" className="text-blue-700 underline dark:text-blue-300">Browse the medication research catalog by category →</Link></p>
       <VcfUpload />
       <section className="space-y-3 rounded-xl border border-gray-300 p-5 dark:border-gray-700" aria-labelledby="upload-heading">
         <h2 id="upload-heading" className="text-xl font-semibold">Check another PGx file</h2>

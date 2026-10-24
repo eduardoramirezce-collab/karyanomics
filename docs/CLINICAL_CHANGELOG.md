@@ -1,5 +1,11 @@
 # Clinical data and API change log
 
+## 2026-10-24 — Nine-area medication research catalog
+
+- Added an editorial taxonomy matching the team's Analgesics, Cardiovascular, Endocrine, GI, ID, Immune, Neuro, Psych, and Miscellaneous groups. It maps the ten guideline families in the existing CPIC pair index to 34 distinct exact-RxNorm ingredients; no external data source or patient-response rule was added.
+- Added `/drugs` browsing with medication family, indexed genes and guideline link. Empty Endocrine/Miscellaneous groups state that no indexed drugs are available. The page does not use uploaded results or show medication recommendations.
+- Recorded NLM RxClass as a researched future classification cross-check, not an implemented API. See `docs/PHENOTYPE_TO_GUIDANCE_RESEARCH.md` for counts and interpretation limits.
+
 ## 2026-10-24 — Exact source-row routing prepared
 
 - Researched current CPIC API lookup keys and primary guidelines for clopidogrel, thiopurines, statins and warfarin. Pinned guideline versions 71/72/71/72 respectively and 134 usable research-only source-row IDs for the first three families; warfarin is explicitly algorithm-based.

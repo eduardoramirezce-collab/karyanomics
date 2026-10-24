@@ -6,6 +6,24 @@ Updated 2026-10-24. Scope: CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT, NUDT15, CYP4F
 
 CPIC guidelines explain how a **known, reliable genetic result** can inform use of a **specific medication**. They do not rank every drug for a patient or prove that a drug will work, fail, or be safe. The starting question is: “For this medication and this clinical context, is there a source row that matches the verified result?” Final drug and dose decisions belong to a clinician. [CPIC guideline purpose](https://cpicpgx.org/guidelines/).
 
+## Drug browsing categories
+
+`data/drug-therapeutic-groups.v1.json` maps the ten CPIC guideline families in our eight-gene catalog into the team's nine requested navigation areas. `listDrugTherapeuticGroups()` deduplicates the 41 gene–drug pairs into 34 exact-RxNorm ingredients, retaining every indexed gene and the source guideline. The `/drugs` page displays the groups, medication families, and guideline links without using a patient's genotype.
+
+| Area | Indexed drugs | Medication families in this index |
+| --- | ---: | --- |
+| Analgesics | 7 | NSAIDs |
+| Cardiovascular | 9 | Statins, antiplatelet, anticoagulant |
+| Endocrine | 0 | None yet |
+| GI | 4 | Proton pump inhibitors |
+| ID (infectious disease) | 1 | Antifungal |
+| Immune | 3 | Thiopurines |
+| Neuro | 2 | Phenytoin-type antiseizure medicines |
+| Psych | 8 | Tricyclic and serotonin reuptake inhibitor antidepressants |
+| Miscellaneous | 0 | None yet |
+
+These broad areas are editorial browse labels, **not** CPIC response categories or a list of all clinical indications. For example, thiopurines also have non-immune uses. Source pairs for antidepressants and phenytoin can depend on genes outside our eight-gene scope, so showing them in the catalog does not imply we can interpret them. A separate patient-specific response category must wait for verified allele/phenotype calls, the exact clinical context, reviewed source rows, and qualified clinical review. Do not label an indexed drug “safe,” “effective,” or “no response” from group membership or a normal PGx call.
+
 ## Source-backed routes implemented for research
 
 | Guideline family | Target genes and exact input | Current route status |
