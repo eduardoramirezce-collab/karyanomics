@@ -69,7 +69,7 @@ Never returns a dose; never calls the network.
 ### Data files
 
 - `data/allele-definitions.json`: star-allele defining positions per gene
-  (CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT). Positions sourced from
+  (CYP2C19, CYP2C9, VKORC1, CYP4F2, SLCO1B1, ABCG2, TPMT, NUDT15). Positions sourced from
   ClinPGx/PharmCAT, never invented. Currently placeholder (`TODO`) coordinates.
 - `data/cpic-cyp2c19-clopidogrel.v1.json`: reviewed CPIC recommendation, verbatim.
 - `public/samples/maya.vcf` + `data/samples/maya.phenotype.json`: a synthetic

@@ -1,5 +1,5 @@
 {
-  "_comment": "Star-allele defining positions per gene, read by callDiplotypes(). Allele names only for now. Every chrom/pos/ref/alt is a TODO placeholder: Kai will fill these from ClinPGx/PharmCAT. NEVER invent genomic coordinates.",
+  "_comment": "Star-allele defining positions per gene, read by callDiplotypes(). Allele names only for now, and only a starter subset per gene; names match PharmCAT 3.4.0's definition files. Every chrom/pos/ref/alt is a TODO placeholder: Kai will fill these (and the full allele lists) from ClinPGx/PharmCAT. NEVER invent genomic coordinates.",
   "genome": "GRCh38",
   "source": "TODO: ClinPGx / PharmCAT allele definition tables",
   "retrievedAt": "TODO",
@@ -7,6 +7,14 @@
     {
       "gene": "CYP2C19",
       "alleles": [
+        {
+          "gene": "CYP2C19",
+          "allele": "*38",
+          "_comment": "PharmCAT's reference allele for CYP2C19 (reported as *38/*38 for Alex and Sam). PharmCAT also defines *1 separately.",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        },
         {
           "gene": "CYP2C19",
           "allele": "*1",
@@ -68,7 +76,14 @@
       "alleles": [
         {
           "gene": "VKORC1",
-          "allele": "-1639G>A (rs9923231)",
+          "allele": "rs9923231 reference (C)",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        },
+        {
+          "gene": "VKORC1",
+          "allele": "rs9923231 variant (T)",
           "variants": [
             { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
           ]
@@ -121,6 +136,63 @@
         {
           "gene": "TPMT",
           "allele": "*3C",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        }
+      ]
+    },
+    {
+      "gene": "NUDT15",
+      "alleles": [
+        {
+          "gene": "NUDT15",
+          "allele": "*1",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        },
+        {
+          "gene": "NUDT15",
+          "allele": "*3",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        }
+      ]
+    },
+    {
+      "gene": "CYP4F2",
+      "alleles": [
+        {
+          "gene": "CYP4F2",
+          "allele": "*1",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        },
+        {
+          "gene": "CYP4F2",
+          "allele": "*3",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        }
+      ]
+    },
+    {
+      "gene": "ABCG2",
+      "alleles": [
+        {
+          "gene": "ABCG2",
+          "allele": "rs2231142 reference (G)",
+          "variants": [
+            { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
+          ]
+        },
+        {
+          "gene": "ABCG2",
+          "allele": "rs2231142 variant (T)",
           "variants": [
             { "chrom": "TODO", "pos": "TODO", "ref": "TODO", "alt": "TODO" }
           ]

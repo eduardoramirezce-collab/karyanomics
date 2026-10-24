@@ -42,13 +42,26 @@ rather than guessing.
 
 ## Scope
 
-Genes called from VCF: **CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT.**
+Genes called from VCF: **CYP2C19, CYP2C9, VKORC1, CYP4F2, SLCO1B1, ABCG2, TPMT,
+NUDT15.**
+
+Gene-drug coverage (CPIC level A):
+
+- CYP2C19: clopidogrel, citalopram, escitalopram, sertraline, omeprazole
+- CYP2C9 + VKORC1 + CYP4F2: warfarin
+- SLCO1B1: simvastatin
+- SLCO1B1 + ABCG2: rosuvastatin
+- TPMT + NUDT15: azathioprine, mercaptopurine
+- CYP2D6 (outside call only): codeine, tramadol, ondansetron
+
+When a CPIC guideline uses several genes for one drug (warfarin, rosuvastatin,
+thiopurines), the result must use all of them. If any of those genes is
+`Indeterminate`, do not present a result from the remaining genes as complete.
 
 **CYP2D6 is not callable from a VCF.** It comes only from an optional
 outside-call input; if absent, CYP2D6 is `Indeterminate` with the explanation
-"CYP2D6 cannot be determined from this file." DPYD and NUDT15 are out of scope
-for VCF calling today (azathioprine and mercaptopurine remain covered under
-TPMT).
+"CYP2D6 cannot be determined from this file." Other genes PharmCAT reports
+(e.g. DPYD, G6PD, RYR1, CFTR) are out of scope today.
 
 Genetic data stays on the device and is never sent to any server route; no real
 patient data is stored in the repo.

@@ -41,6 +41,19 @@
     indication, strength. No model-authored clinical wording.
   - _Requirements: 6.1_
 
+- [ ] 8a. Pull and review CPIC data for the remaining guidelines
+  - CYP2C19 + SSRIs (citalopram, escitalopram, sertraline); CYP2C19 + PPIs
+    (omeprazole); CYP2C9/VKORC1/CYP4F2 + warfarin; SLCO1B1/ABCG2 + statins
+    (simvastatin, rosuvastatin); TPMT/NUDT15 + thiopurines (azathioprine,
+    mercaptopurine); CYP2D6 + opioids (codeine, tramadol) and ondansetron.
+  - Same rules as task 8: verbatim text, full provenance, human review.
+  - _Requirements: 6.1, 6a.1, 6a.2, 6a.3_
+
+- [ ] 8b. Handle multi-gene drugs in `assess`
+  - Warfarin, rosuvastatin, thiopurines use every gene their guideline needs;
+    an Indeterminate required gene never yields a result shown as complete.
+  - _Requirements: 6a.1, 6a.2, 6a.3, 6a.4_
+
 - [x] 9. Add the Maya sample patient + answer key
   - `public/samples/maya.vcf` (synthetic, labeled) and
     `data/samples/maya.phenotype.json` (PharmCAT reference output).

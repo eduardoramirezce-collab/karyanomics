@@ -17,9 +17,14 @@ every result is computed from the file. The pipeline is:
 6. **Report:** a plain-language patient view and a clinician view (behind the
    NPI gate).
 
-Genes called from VCF: **CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT.** CYP2D6 is not
-callable from a VCF and comes only from the optional outside-call input. DPYD and
-NUDT15 are out of scope for VCF calling today.
+Genes called from VCF: **CYP2C19, CYP2C9, VKORC1, CYP4F2, SLCO1B1, ABCG2, TPMT,
+NUDT15.** CYP2D6 is not callable from a VCF and comes only from the optional
+outside-call input. Other genes PharmCAT reports (e.g. DPYD) are out of scope
+today.
+
+Some drugs use several genes under one CPIC guideline: warfarin (CYP2C9, VKORC1,
+CYP4F2), rosuvastatin (SLCO1B1, ABCG2), and azathioprine/mercaptopurine (TPMT,
+NUDT15).
 
 Genetic data is processed entirely client-side and is never sent to a server.
 All clinical wording comes from a reviewed source file, and all allele positions
@@ -134,6 +139,25 @@ drug and get a source-backed result, so that the result traces to a real source.
    substitute a different indication's recommendation.
 5. THE `assess` function SHALL be pure, SHALL NOT perform network or storage
    I/O, and SHALL NOT compute or output a medication dose.
+
+### Requirement 6a: Drugs that use several genes
+
+**User story:** As a patient, I want a result for warfarin, rosuvastatin, or a
+thiopurine to reflect every gene CPIC uses for it, so that I never see a
+half-answer presented as a full one.
+
+#### Acceptance criteria
+
+1. WHEN `assess` evaluates warfarin THEN the system SHALL use CYP2C9, VKORC1, and
+   CYP4F2 as the CPIC warfarin guideline specifies.
+2. WHEN `assess` evaluates rosuvastatin THEN the system SHALL use SLCO1B1 and
+   ABCG2.
+3. WHEN `assess` evaluates azathioprine or mercaptopurine THEN the system SHALL
+   use TPMT and NUDT15.
+4. IF any gene the guideline requires is `Indeterminate` THEN the system SHALL
+   NOT present a result from the remaining genes as complete, and SHALL return
+   `indeterminate` or `insufficient_data` with a reason naming the missing gene,
+   unless the reviewed CPIC data gives a recommendation for that case.
 
 ### Requirement 7: End-to-end sample (Maya)
 

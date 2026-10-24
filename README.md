@@ -40,12 +40,15 @@ The patient side **never tells anyone to start, stop, or change a dose**. That d
 | Gene | Called from | Drugs |
 | --- | --- | --- |
 | CYP2C19 | VCF | clopidogrel, citalopram/escitalopram, sertraline, omeprazole |
-| CYP2C9 + VKORC1 | VCF | warfarin |
+| CYP2C9 + VKORC1 + CYP4F2 | VCF | warfarin |
 | SLCO1B1 | VCF | simvastatin |
-| TPMT | VCF | azathioprine, mercaptopurine |
+| SLCO1B1 + ABCG2 | VCF | rosuvastatin |
+| TPMT + NUDT15 | VCF | azathioprine, mercaptopurine |
 | CYP2D6 | outside call only | codeine, tramadol, ondansetron |
 
-CYP2D6 can't be called from a VCF (it needs copy-number and structural analysis that genotyping/VCF data doesn't capture). It comes only from an optional **outside-call** input; if none is provided it shows as **Indeterminate** with the explanation "CYP2D6 cannot be determined from this file." DPYD and NUDT15 are out of scope for VCF calling today.
+Rows with more than one gene follow a single CPIC guideline that uses those genes together.
+
+CYP2D6 can't be called from a VCF (it needs copy-number and structural analysis that genotyping/VCF data doesn't capture). It comes only from an optional **outside-call** input; if none is provided it shows as **Indeterminate** with the explanation "CYP2D6 cannot be determined from this file." Other genes PharmCAT reports (e.g. DPYD, G6PD, RYR1) are out of scope today.
 
 ---
 
