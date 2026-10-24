@@ -5,15 +5,14 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const candidate = JSON.parse(await readFile(join(root, "data/candidates/cpic-recommendation-index.json"), "utf8"));
 const catalog = JSON.parse(await readFile(join(root, "data/cpic-gene-drug-catalog.v1.json"), "utf8"));
-const selectedGuidelines = [
-  "CYP2C19 and Clopidogrel",
-  "SLCO1B1, ABCG2, CYP2C9, and Statins",
-  "TPMT, NUDT15 and Thiopurines",
-  "CYP2C9, VKORC1, CYP4F2 and Warfarin",
-];
+const selectedGuidelines = [...new Set(catalog.genes.flatMap(({ pairs }) => pairs.map(({ guideline }) => guideline)))].sort();
 const blockedLookupValues = new Set(["No Result", "Indeterminate", "n/a"]);
+const catalogGenes = (drug, guideline) => new Set(catalog.genes.filter(({ pairs }) =>
+  pairs.some((pair) => pair.drug === drug && pair.guideline === guideline)).map(({ gene }) => gene));
+let skippedUncalledGenes = 0;
 const rows = candidate.rows.filter((row) =>
   selectedGuidelines.includes(row.guidelinename) &&
+  (Object.keys(row.lookupkey ?? {}).every((gene) => catalogGenes(row.drugname, row.guidelinename).has(gene)) || (skippedUncalledGenes++, false)) &&
   Object.keys(row.lookupkey ?? {}).length > 0 &&
   Object.values(row.lookupkey).every((value) => typeof value === "string" && !blockedLookupValues.has(value)),
 );
@@ -64,6 +63,8 @@ const routes = rows.map((row) => {
     lookupKey: row.lookupkey,
     phenotypes: row.phenotypes,
     classification: row.classification,
+    drugRecommendation: row.drugrecommendation,
+    implications: row.implications,
   };
 }).sort((a, b) => a.drug.localeCompare(b.drug) ||
   a.population.localeCompare(b.population) || a.recommendationId - b.recommendationId);
@@ -79,7 +80,7 @@ const result = {
     usageTermsUrl: "https://www.clinpgx.org/page/dataUsagePolicy",
     usageTermsReviewPending: true,
   },
-  exclusion: "No Result, Indeterminate, and n/a lookup values excluded; no recommendation text or dose is stored.",
+  exclusion: "No Result, Indeterminate, and n/a lookup values excluded. Rows keyed on genes outside the eight-gene catalog are excluded. drugRecommendation and implications are copied verbatim from CPIC for clinician display only.",
   guidelines: guidelines.map(({ name, version, url, clinpgxid, genes, notesonusage }) =>
     ({ name, version, url, guidelineId: clinpgxid, genes, notesonusage })),
   routeCount: routes.length,
@@ -90,4 +91,4 @@ await mkdir(destination, { recursive: true });
 const output = join(destination, "cpic-recommendation-routes.json");
 await writeFile(output, JSON.stringify(result, null, 2) + "\n");
 console.log(`Saved research-only candidate: ${output}`);
-console.log(`${guidelines.length} guidelines; ${routes.length} exact source lookup rows without recommendation text.`);
+console.log(`${guidelines.length} guidelines; ${routes.length} exact source lookup rows; ${skippedUncalledGenes} rows skipped (genes outside the catalog).`);

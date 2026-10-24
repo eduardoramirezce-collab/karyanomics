@@ -62,10 +62,29 @@ export default function DrugResultCard({ result }: { result: DrugResult }) {
               <li key={index} className="rounded-lg border border-slate-200 bg-white p-3 text-sm text-slate-800">
                 <p className="font-semibold">{row.population ?? "No population"}</p>
                 {row.kind === "source_row" ? (
-                  <p>
-                    CPIC classification (strength): {row.classification} · Recommendation ID {row.recommendationId} ·
-                    Guideline version {row.guidelineVersion} · {row.reviewNote}
-                  </p>
+                  <>
+                    <p>
+                      CPIC classification (strength): {row.classification} · Recommendation ID {row.recommendationId} ·
+                      Guideline version {row.guidelineVersion} · {row.reviewNote}
+                    </p>
+                    <div className="mt-2 flex flex-col gap-1 border-t border-slate-200 pt-2">
+                      <p className="font-semibold text-slate-900">CPIC recommendation (verbatim)</p>
+                      <blockquote className="border-l-4 border-slate-300 pl-3 text-slate-900">{row.drugRecommendation || "Not available in the bundled source rows."}</blockquote>
+                      {Object.keys(row.implications).length > 0 && (
+                        <dl className="flex flex-col gap-1">
+                          {Object.entries(row.implications).map(([gene, text]) => (
+                            <div key={gene}>
+                              <dt className="font-mono font-semibold">{gene} implications (verbatim)</dt>
+                              <dd>{text}</dd>
+                            </div>
+                          ))}
+                        </dl>
+                      )}
+                      <p>
+                        <a className={textLink} href={row.guidelineUrl} target="_blank" rel="noreferrer">CPIC guideline (source)</a>
+                      </p>
+                    </div>
+                  </>
                 ) : (
                   <p>{row.note}</p>
                 )}

@@ -9,7 +9,7 @@ const targetGenes = new Set(catalog.genes.map(({ gene }) => gene));
 const blocked = new Set(["No Result", "Indeterminate", "n/a"]);
 if (data.schemaVersion !== 1 || data.status !== "research_routing_only_not_patient_guidance" ||
     data.source?.usageTermsReviewPending !== true || data.routeCount !== data.routes.length ||
-    data.guidelines.length !== 4 ||
+    data.guidelines.length !== new Set(catalog.genes.flatMap(({ pairs }) => pairs.map(({ guideline }) => guideline))).size ||
     JSON.stringify(data).match(/"(?:patientText|clinicianSummary|dose|recommendationText)"\s*:/i)) {
   throw new Error("Research routing metadata is incomplete or contains clinical text");
 }

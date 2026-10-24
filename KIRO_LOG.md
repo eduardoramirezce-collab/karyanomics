@@ -42,3 +42,4 @@ Record actual Kiro activity with its prompt/task, files changed, checks, and com
 - Codex blocked multi-sample/invalid VCF warnings at the caller, rejected ambiguous research-route calls, and read CPIC activity scores from caller output. This was not a Kiro coding session.
 
 - 2026-10-24 16:10 EDT · Spec mode: portal-frontend · Built the demo portal: public home, /order demo form, /login with patient and demo-NPI clinician tabs, /portal with gene cards and per-drug results by category, the pure `lib/pgx/drugResult.ts` helper with unit and fast-check tests, a browser-only session (sessionStorage holds only role/npi/sampleId), and a /patient → /login redirect. Built in Kiro.
+- Vibe mode: CPIC recommendation text on clinician cards

@@ -121,6 +121,11 @@ export type RouteRow =
       classification: string;
       recommendationId: number;
       guidelineVersion: number;
+      guidelineUrl: string;
+      /** CPIC drugrecommendation, copied verbatim. Clinician-only. */
+      drugRecommendation: string;
+      /** CPIC implications by gene, copied verbatim. Clinician-only. */
+      implications: Record<string, string>;
       reviewNote: "Clinical review not complete";
     }
   | { kind: "note"; population: string | null; status: NonSourceRowStatus; note: string }
@@ -306,12 +311,16 @@ function callerEvidence(input: DrugResultInput): CallerEvidence[] {
 function routeRow(result: ResearchRouteResult | null, population: string | null): RouteRow {
   if (!result) return { kind: "error", population, note: LOOKUP_FAILED_NOTE };
   if (result.status === "source_row_for_clinician_review") {
+    const sourceRow = routeData.routes.find((route) => route.recommendationId === result.recommendationId);
     return {
       kind: "source_row",
       population: result.population,
       classification: result.classification,
       recommendationId: result.recommendationId,
       guidelineVersion: result.guidelineVersion,
+      guidelineUrl: result.guidelineUrl,
+      drugRecommendation: sourceRow?.drugRecommendation ?? "",
+      implications: (sourceRow?.implications ?? {}) as Record<string, string>,
       reviewNote: "Clinical review not complete",
     };
   }
