@@ -13,6 +13,8 @@ Built at **Hackachusetts 2026** · Track: **Healthcare & Biotech** · Built with
 
 **Team handoff:** Kai owns VCF → diplotype/phenotype (`parseVcf`, allele definitions, caller); Edu owns phenotype + drug + indication → CPIC-linked guidance (`assess`, curated snapshot, patient-safe projection). `DiplotypeCall[]` in `lib/pgx/types.ts` is the boundary. The parser, pinned PharmCAT 3.4.0 definitions, eight-gene caller, and sample fixtures are merged. The caller does not yet establish clinical assay quality. A complete, verified call is required before guidance; missing/ambiguous calls remain Indeterminate. Shared README/steering changes should be merged to `main` through review so both branches inherit one direction.
 
+**Latest status audit (2026-10-24):** see [docs/STATUS_AUDIT_2026-10-24.md](./docs/STATUS_AUDIT_2026-10-24.md) for check results, what is demo vs research-only, and the current Kai/Edu task split. Known caller limits: phase sets (`PS`) are ignored, and FILTER/QUAL/`GQ`/`DP` are not used. No uploaded VCF call is clinical-quality. The clinician portal and `/api` routes do not exist yet.
+
 **Research routing in progress:** an exact phenotype/activity-score + drug + population matcher now identifies CPIC recommendation IDs for clopidogrel, thiopurines and selected statins, and flags warfarin for its separate guideline algorithm. It returns provenance for clinician review, **not a medication recommendation to a patient**. See [phenotype-to-guidance research and caller handoff](./docs/PHENOTYPE_TO_GUIDANCE_RESEARCH.md).
 
 **Medication groups:** `/drugs` browses 34 indexed ingredients in Analgesics (7), Cardiovascular (9), Endocrine (0), GI (4), ID (1), Immune (3), Neuro (2), Psych (8), and Miscellaneous (0). The broad labels are navigation choices, not source-backed claims about a drug's only use or a person's response. Each drug keeps its specific medication family, exact RxNorm ID, indexed genes, and CPIC guideline link. Endocrine and Miscellaneous remain visible as empty groups rather than implying coverage.
@@ -82,6 +84,10 @@ Open http://localhost:3000.
 
 ```bash
 npm test                 # unit + property-based tests
+npm run validate:clinical # provenance checks for all bundled clinical data
+npx next typegen && npx tsc --noEmit # typecheck (typegen first on a fresh clone)
+npx eslint .             # lint
+npx next build --webpack # production build check
 npm run fetch:clinpgx    # fetch an ignored candidate for review; does not update bundled data
 npm run fetch:pgx-definitions # regenerate caller definitions and phenotype table for review
 ```
@@ -117,7 +123,9 @@ Build time
   └─ scripts/fetch-pgx-definitions.mjs → PharmCAT / CPIC → /data/*.json
 ```
 
-**Stack:** Next.js (App Router) · TypeScript · Tailwind CSS · Vitest · fast-check · html5-qrcode
+**Stack:** Next.js (App Router) · TypeScript · Tailwind CSS · Vitest · fast-check · html5-qrcode (planned, not installed yet)
+
+The server routes and build-time box above describe the target design. Today no `/api` route exists, and the build-time scripts are `scripts/*.mjs`, which write candidates for review.
 
 ### Repo structure
 
@@ -126,12 +134,14 @@ karyanomics/
 ├── .kiro/                 # Kiro specs, steering, hooks, MCP settings (do not gitignore)
 │   ├── specs/
 │   ├── steering/
-│   ├── hooks/
-│   └── settings/
+│   ├── hooks/             # planned
+│   └── settings/          # planned
 ├── app/                   # Next.js pages and API routes
-│   ├── patient/
-│   ├── physician/
-│   └── api/
+│   ├── patient/           # VCF upload, samples, Maya demo
+│   ├── drugs/             # research medication catalog
+│   ├── physician/         # planned (not created yet)
+│   └── api/               # planned: /api/drug, /api/npi (not created yet)
+├── docs/                  # handoff, gaps, status audit, clinical change log
 ├── lib/pgx/               # PGx engine: types, VCF parser, star-allele caller, phenotype, recommendations
 ├── data/                  # Cited gene-drug snapshot + allele definitions + sample patients
 │   ├── allele-definitions.json   # Pinned PharmCAT defining positions for eight genes
@@ -149,7 +159,7 @@ karyanomics/
 
 Current use and planned extensions (see `KIRO_LOG.md` for the actual sessions):
 
-- **Spec-driven development:** Kiro Vibe mode was used for the VCF direction, parser, upload component, fixtures, and EARS-style VCF-input requirements. The clinical-data and PGx-engine specs track the remaining handoff.
+- **Spec-driven development:** Kiro was used to draft the first clinical-data spec, the `clinical-safety.md` steering, and the source inventory, and later for the 2026-10-24 status audit. Kiro Vibe mode was used for the VCF direction, parser, upload component, fixtures, and EARS-style VCF-input requirements. Much of the clinical-data implementation was done with Codex (see `KIRO_LOG.md`). The clinical-data and PGx-engine specs track the remaining handoff.
 - **Steering:** a `clinical-safety.md` steering file, always included, that enforces our core rule: patient-facing text never instructs starting, stopping, or dosing a medication, and every recommendation cites its source.
 - **Validation:** parser tests include generated-input properties; clinical snapshots have a separate provenance validator. Agent hooks for automatic checks are planned.
 - **API use:** the CPIC candidate-fetch script is build-time only. openFDA routes and any Kiro MCP integrations are planned.

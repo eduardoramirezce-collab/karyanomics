@@ -85,4 +85,13 @@
 - [x] Pin NLM Prescribable RxNorm release/version and current U.S. brand aliases for all 34 CPIC ingredients, with BN/SBD provenance and no combination or veterinary-only brands.
 - [x] Add a candidate-only refresh script, snapshot validation, exact display search, `/drugs` names, NLM attribution, and tests.
 - [ ] Add validated NDC/product-to-ingredient resolution before using a brand or scanned package to enter PGx guidance.
+
+## Status audit follow-ups (2026-10-24, Edu)
+
+See `docs/STATUS_AUDIT_2026-10-24.md`.
+
+- [ ] Replace caller-supplied `callStatus` / `CallerEvidence` in `sample-assessment.ts`, `assess.ts`, `assess-patient.ts` and `research-recommendation-route.ts` with Kai's computed per-gene evidence once it lands. `toMayaSampleAssessment` currently treats FILTER `.` as passing.
+- [ ] Decide whether to add the CPIC "Likely Intermediate/Poor Metabolizer" ACS/PCI rows (IDs 8480386, 8480388) to the demo snapshot; today they return `insufficient_data`.
+- [ ] Add `lib/pgx/drug-identity.ts`: exact NDC → RxNorm ingredient(s), combination products rejected or split, with a candidate-only refresh script and validator.
+- [ ] Build `app/physician/` and `app/api/npi/` with real identity controls before showing clinician CPIC wording.
 - [ ] Review monthly source changes and consider a separately labeled historical/non-U.S. alias index if needed for medication-history search.

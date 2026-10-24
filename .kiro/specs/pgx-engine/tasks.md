@@ -71,4 +71,8 @@
   - _Requirements: 9.1, 9.2, 9.3_
 
 - [ ] 12. Add independently validated coverage, FILTER/genotype-quality and assay provenance before routing uploaded VCFs to guidance.
+  - Audit 2026-10-24: FILTER is parsed but unused by the caller; QUAL, GQ, DP are not read. Build a computed per-gene evidence object (`lib/pgx/callEvidence.ts`, Kai) that replaces the caller-supplied `CallerEvidence`; Edu's guidance code consumes it.
+- [ ] 12a. PS-aware phasing (Kai)
+  - Read `PS` in `parseVcf`; in `callStarAlleles`, hets in different phase sets are unphased relative to each other. Add tests with multiple PS blocks.
+  - _Requirements: star-allele-caller 5.6_
 - [x] 13. Reject ambiguous research calls and route activity scores from `DiplotypeCall` rather than a separate caller-independent field.
