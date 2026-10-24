@@ -24,15 +24,19 @@
     "validate:clinical": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/validate-clinical-data.mjs && node scripts/validate-gene-drug-catalog.mjs && node scripts/validate-recommendation-routes.mjs && node scripts/validate-rxnorm-drug-names.mjs"
   },
   "dependencies": {
+    "@gsap/react": "2.1.2",
+    "gsap": "3.15.0",
     "next": "16.4.3",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "three": "0.186.1"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "0.186.0",
     "eslint": "^9",
     "eslint-config-next": "16.4.3",
     "fast-check": "^4.10.2",

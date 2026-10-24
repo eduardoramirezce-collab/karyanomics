@@ -35,7 +35,7 @@ function Standard38() {
       <span
         role="tooltip"
         id={id}
-        className={`invisible absolute bottom-full left-0 z-10 mb-1 w-56 rounded-lg bg-slate-900 px-3 py-2 font-sans text-sm font-normal text-white shadow-lg ${dismissed ? "" : "group-hover:visible group-focus:visible"}`}
+        className={`invisible absolute bottom-full left-0 z-10 mb-1.5 w-56 max-w-[70vw] rounded-xl bg-ink px-3 py-2 font-sans text-sm font-normal text-white shadow-[0_12px_30px_-12px_rgba(27,31,75,0.7)] ${dismissed ? "" : "group-hover:visible group-focus:visible"}`}
       >
         {STANDARD_38_TOOLTIP}
       </span>

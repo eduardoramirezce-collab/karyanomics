@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Instrument_Serif, Inter } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "./_portal/session";
 import SiteFooter from "./_portal/SiteFooter";
 import SiteHeader from "./_portal/SiteHeader";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
   subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -25,9 +29,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-white text-slate-800">
+      <body className="flex min-h-full flex-col bg-paper text-ink">
         <SessionProvider>
           <SiteHeader />
           <div className="flex flex-1 flex-col">{children}</div>
