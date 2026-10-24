@@ -92,15 +92,16 @@ describe("warfarin: reference the algorithm, never a dose", () => {
   });
 });
 
+// Live-data drift check: each case runs only after `npm run fetch:clinpgx` (data/candidates/ is gitignored).
 describe("Stage 4: every dose string is copied from its CPIC source", () => {
   const verbatimSource: Record<string, (row: Record<string, unknown>) => string[]> = {
     cpicRecommendationVerbatim: (row) => [row.drugrecommendation as string],
     cpicCommentsVerbatim: (row) => [row.comments as string],
     cpicImplicationsVerbatim: (row) => Object.values((row.implications ?? {}) as Record<string, string>),
   };
-  it.each(GUIDANCE.map((entry) => [entry.slug, entry.candidatePath] as const))("%s", (slug, candidatePath) => {
+  it.for(GUIDANCE.map((entry) => [entry.slug, entry.candidatePath] as const))("%s", ([slug, candidatePath], { skip }) => {
     const path = join(process.cwd(), candidatePath);
-    if (!existsSync(path)) throw new Error(`Missing live candidate ${candidatePath}. Run \`npm run fetch:clinpgx\` first.`);
+    if (!existsSync(path)) return skip(`No live candidate at ${candidatePath}. Run \`npm run fetch:clinpgx\` to check this snapshot against CPIC.`);
     const candidate = JSON.parse(readFileSync(path, "utf8")) as { recommendations: Record<string, unknown>[] };
     const snapshot = BUNDLED_GUIDANCE_SNAPSHOTS.find((item) => item.snapshotId.startsWith(`cpic-${slug}-`))!;
     for (const record of snapshot.records) {
