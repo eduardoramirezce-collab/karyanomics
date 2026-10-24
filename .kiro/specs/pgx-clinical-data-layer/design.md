@@ -76,6 +76,15 @@ is an editorial navigation index. It neither consumes a genotype nor assigns
 a patient-response category, drug suitability, indication, or dose. Some source
 guidelines require genes outside the eight target genes.
 
+`data/rxnorm-drug-names.v1.json` adds an independently versioned NLM
+Prescribable RxNorm display-name layer. It keys each generic to the exact CPIC
+ingredient RxNorm ID, and each current U.S. brand to BN and supporting
+single-ingredient SBD IDs. The browse function joins by ingredient ID and
+fails if an indexed generic is missing. `findDrugDisplayMatches()` returns
+catalog entries for exact aliases only; it is never passed to the clinical
+router. The patient page cites NLM and does not imply a brand or product is
+appropriate for a person's genotype.
+
 ## Identifier map (how sources connect)
 
 - Gene symbol (`CYP2C19`) and phenotype term are the CPIC/PharmCAT vocabulary.

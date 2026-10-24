@@ -1,9 +1,21 @@
 import catalog from "../../data/cpic-gene-drug-catalog.v1.json";
 import taxonomy from "../../data/drug-therapeutic-groups.v1.json";
+import names from "../../data/rxnorm-drug-names.v1.json";
+
+export interface BrandName {
+  name: string;
+  rxnormId: string;
+  singleIngredientProductRxnormIds: string[];
+}
 
 export interface DrugResearchEntry {
   drug: string;
+  genericName: string;
   rxnormId: string;
+  brandNames: BrandName[];
+  brandStatus: "active_single_ingredient_brand_found" |
+    "none_found_in_current_us_prescribable_subset" |
+    "ingredient_not_in_current_us_prescribable_subset";
   family: string;
   groupId: string;
   guideline: string;
@@ -25,6 +37,7 @@ export function listDrugTherapeuticGroups(): TherapeuticGroup[] {
     drugs: [] as DrugResearchEntry[],
   }]));
   const familyByGuideline = new Map(taxonomy.guidelineFamilies.map((entry) => [entry.guideline, entry]));
+  const namesByIngredient = new Map(names.drugs.map((entry) => [entry.ingredientRxnormId, entry]));
   const byRxnorm = new Map<string, DrugResearchEntry>();
 
   for (const { gene, pairs } of catalog.genes) {
@@ -39,9 +52,19 @@ export function listDrugTherapeuticGroups(): TherapeuticGroup[] {
         }
         if (!existing.indexedGenes.includes(gene)) existing.indexedGenes.push(gene);
       } else {
+        const nameEntry = namesByIngredient.get(pair.rxnormId);
+        if (!nameEntry || nameEntry.genericName !== pair.drug) {
+          throw new Error(`Missing RxNorm names for CPIC ingredient: ${pair.rxnormId}`);
+        }
         byRxnorm.set(pair.rxnormId, {
           drug: pair.drug,
+          genericName: nameEntry.genericName,
           rxnormId: pair.rxnormId,
+          brandNames: nameEntry.brandNames.map((brand) => ({
+            ...brand,
+            singleIngredientProductRxnormIds: [...brand.singleIngredientProductRxnormIds],
+          })),
+          brandStatus: nameEntry.brandStatus as DrugResearchEntry["brandStatus"],
           family: family.family,
           groupId: family.groupId,
           guideline: pair.guideline,
@@ -71,4 +94,13 @@ export function findDrugResearchEntry(query: string): DrugResearchEntry | undefi
   if (!key) return undefined;
   return listDrugTherapeuticGroups().flatMap((group) => group.drugs)
     .find((drug) => drug.drug.toLowerCase() === key || drug.rxnormId.toLowerCase() === key);
+}
+
+/** Exact generic/brand display lookup only. Never route this result to PGx guidance. */
+export function findDrugDisplayMatches(query: string): DrugResearchEntry[] {
+  const key = query.trim().toLowerCase();
+  if (!key) return [];
+  return listDrugTherapeuticGroups().flatMap((group) => group.drugs)
+    .filter((drug) => drug.genericName.toLowerCase() === key ||
+      drug.brandNames.some((brand) => brand.name.toLowerCase() === key));
 }

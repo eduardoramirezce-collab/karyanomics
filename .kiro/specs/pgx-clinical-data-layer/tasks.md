@@ -79,3 +79,10 @@
 - [x] Add a `/drugs` research catalog linked from patient intake, with explicit empty Endocrine and Miscellaneous groups and no patient-response claims.
 - [x] Test complete one-time ingredient coverage, multi-gene aggregation, and exact identity. Record the editorial/source distinction in the API register and steering.
 - [ ] Validate broader classes and cross-indication use with NLM RxClass and qualified clinical review before treating the taxonomy as a clinical classification.
+
+## Generic and brand display names (2026-10-24)
+
+- [x] Pin NLM Prescribable RxNorm release/version and current U.S. brand aliases for all 34 CPIC ingredients, with BN/SBD provenance and no combination or veterinary-only brands.
+- [x] Add a candidate-only refresh script, snapshot validation, exact display search, `/drugs` names, NLM attribution, and tests.
+- [ ] Add validated NDC/product-to-ingredient resolution before using a brand or scanned package to enter PGx guidance.
+- [ ] Review monthly source changes and consider a separately labeled historical/non-U.S. alias index if needed for medication-history search.

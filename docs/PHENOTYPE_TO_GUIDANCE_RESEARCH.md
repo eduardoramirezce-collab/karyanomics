@@ -10,6 +10,8 @@ CPIC guidelines explain how a **known, reliable genetic result** can inform use 
 
 `data/drug-therapeutic-groups.v1.json` maps the ten CPIC guideline families in our eight-gene catalog into the team's nine requested navigation areas. `listDrugTherapeuticGroups()` deduplicates the 41 gene–drug pairs into 34 exact-RxNorm ingredients, retaining every indexed gene and the source guideline. The `/drugs` page displays the groups, medication families, and guideline links without using a patient's genotype.
 
+The separate `data/rxnorm-drug-names.v1.json` joins those 34 ingredients to 60 active U.S. Prescribable RxNorm brand concepts. Each brand has its own RxNorm ID and at least one single-ingredient branded product ID as evidence. Generic names remain the canonical CPIC ingredient names. `findDrugDisplayMatches()` accepts exact generic or brand names for catalog display only; the CPIC route matcher still requires the exact generic ingredient or ingredient RxNorm ID. Brand text does not establish product identity, formulation, active ingredients in a combination, or dose. [NLM Prescribable RxNorm scope](https://www.nlm.nih.gov/research/umls/rxnorm/docs/prescribe.html), [related-concept API](https://www.lhncbc.nlm.nih.gov/RxNav/APIs/api-Prescribable.getRelatedByType.html).
+
 | Area | Indexed drugs | Medication families in this index |
 | --- | ---: | --- |
 | Analgesics | 7 | NSAIDs |

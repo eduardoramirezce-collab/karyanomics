@@ -1,0 +1,759 @@
+{
+  "schemaVersion": 1,
+  "status": "research_display_aliases_not_product_or_pgx_verification",
+  "fetchedAt": "2026-10-24T18:41:39.530Z",
+  "source": {
+    "name": "U.S. National Library of Medicine Prescribable RxNorm API",
+    "version": "05-Oct-2026",
+    "apiVersion": "3.1.356",
+    "ingredientPropertiesUrlTemplate": "https://rxnav.nlm.nih.gov/REST/Prescribe/rxcui/{rxcui}/properties.json",
+    "nonPrescribableIdentityUrlTemplate": "https://rxnav.nlm.nih.gov/REST/rxcui/{rxcui}/properties.json",
+    "relatedUrlTemplate": "https://rxnav.nlm.nih.gov/REST/Prescribe/rxcui/{rxcui}/related.json?tty=BN+SBD",
+    "documentationUrl": "https://www.lhncbc.nlm.nih.gov/RxNav/APIs/api-Prescribable.getRelatedByType.html",
+    "scopeUrl": "https://www.nlm.nih.gov/research/umls/rxnorm/docs/prescribe.html",
+    "termsUrl": "https://www.lhncbc.nlm.nih.gov/RxNav/TermsofService.html"
+  },
+  "scopeSource": "data/cpic-gene-drug-catalog.v1.json",
+  "inclusion": "Current U.S. Prescribable RxNorm BN concepts with at least one active SBD whose name names one ingredient. Combination products and exclusive veterinary products are excluded; historical, international, discontinued and unlinked brand names may be absent.",
+  "ingredientCount": 34,
+  "brandCount": 60,
+  "drugs": [
+    {
+      "genericName": "amitriptyline",
+      "ingredientRxnormId": "RxNorm:704",
+      "brandNames": [
+        {
+          "name": "Elavil",
+          "rxnormId": "RxNorm:42940",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:856836"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "atorvastatin",
+      "ingredientRxnormId": "RxNorm:83367",
+      "brandNames": [
+        {
+          "name": "Atorvaliq",
+          "rxnormId": "RxNorm:2631862",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:2631867"
+          ]
+        },
+        {
+          "name": "Lipitor",
+          "rxnormId": "RxNorm:153165",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:262095",
+            "RxNorm:617314",
+            "RxNorm:617318",
+            "RxNorm:617320"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "azathioprine",
+      "ingredientRxnormId": "RxNorm:1256",
+      "brandNames": [
+        {
+          "name": "Azasan",
+          "rxnormId": "RxNorm:404872",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:404475",
+            "RxNorm:404476"
+          ]
+        },
+        {
+          "name": "Imuran",
+          "rxnormId": "RxNorm:202559",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:105611"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "celecoxib",
+      "ingredientRxnormId": "RxNorm:140587",
+      "brandNames": [
+        {
+          "name": "Celebrex",
+          "rxnormId": "RxNorm:215927",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:213468",
+            "RxNorm:213469",
+            "RxNorm:352314",
+            "RxNorm:686381"
+          ]
+        },
+        {
+          "name": "Elyxyb",
+          "rxnormId": "RxNorm:2373455",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:2373460"
+          ]
+        },
+        {
+          "name": "Vyscoxa",
+          "rxnormId": "RxNorm:2721530",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:2721535"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "citalopram",
+      "ingredientRxnormId": "RxNorm:2556",
+      "brandNames": [
+        {
+          "name": "Celexa",
+          "rxnormId": "RxNorm:215928",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:213344",
+            "RxNorm:213345",
+            "RxNorm:284591"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "clomipramine",
+      "ingredientRxnormId": "RxNorm:2597",
+      "brandNames": [
+        {
+          "name": "Anafranil",
+          "rxnormId": "RxNorm:756",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:857299",
+            "RxNorm:857303",
+            "RxNorm:857307"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "clopidogrel",
+      "ingredientRxnormId": "RxNorm:32968",
+      "brandNames": [
+        {
+          "name": "Plavix",
+          "rxnormId": "RxNorm:174742",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:213169",
+            "RxNorm:749198"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "dexlansoprazole",
+      "ingredientRxnormId": "RxNorm:816346",
+      "brandNames": [
+        {
+          "name": "Dexilant",
+          "rxnormId": "RxNorm:902621",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:902624",
+            "RxNorm:902626"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "doxepin",
+      "ingredientRxnormId": "RxNorm:3638",
+      "brandNames": [
+        {
+          "name": "Prudoxin",
+          "rxnormId": "RxNorm:261625",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:1000093"
+          ]
+        },
+        {
+          "name": "Silenor",
+          "rxnormId": "RxNorm:966788",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:966791",
+            "RxNorm:966795"
+          ]
+        },
+        {
+          "name": "Zonalon",
+          "rxnormId": "RxNorm:9801",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:1000095"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "escitalopram",
+      "ingredientRxnormId": "RxNorm:321988",
+      "brandNames": [
+        {
+          "name": "Lexapro",
+          "rxnormId": "RxNorm:352741",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:352272",
+            "RxNorm:352273",
+            "RxNorm:404408"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "flurbiprofen",
+      "ingredientRxnormId": "RxNorm:4502",
+      "brandNames": [
+        {
+          "name": "Ansaid",
+          "rxnormId": "RxNorm:203411",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:205626"
+          ]
+        },
+        {
+          "name": "Lurbipr",
+          "rxnormId": "RxNorm:2712487",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:2712492"
+          ]
+        },
+        {
+          "name": "Lurbiro",
+          "rxnormId": "RxNorm:2720350",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:2720355"
+          ]
+        },
+        {
+          "name": "Ocufen",
+          "rxnormId": "RxNorm:93588",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:1243587"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "fluvastatin",
+      "ingredientRxnormId": "RxNorm:41127",
+      "brandNames": [
+        {
+          "name": "Lescol",
+          "rxnormId": "RxNorm:151972",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:103919",
+            "RxNorm:687048"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "fosphenytoin",
+      "ingredientRxnormId": "RxNorm:72236",
+      "brandNames": [
+        {
+          "name": "Cerebyx",
+          "rxnormId": "RxNorm:134860",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:1670197",
+            "RxNorm:1670201"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "ibuprofen",
+      "ingredientRxnormId": "RxNorm:5640",
+      "brandNames": [
+        {
+          "name": "Addaprin",
+          "rxnormId": "RxNorm:900431",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:900434"
+          ]
+        },
+        {
+          "name": "Advil",
+          "rxnormId": "RxNorm:153010",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:153008",
+            "RxNorm:206878",
+            "RxNorm:731531",
+            "RxNorm:731533",
+            "RxNorm:731535",
+            "RxNorm:731536"
+          ]
+        },
+        {
+          "name": "Caldolor",
+          "rxnormId": "RxNorm:854184",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:2178275",
+            "RxNorm:854187"
+          ]
+        },
+        {
+          "name": "Genpril",
+          "rxnormId": "RxNorm:217324",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:206886"
+          ]
+        },
+        {
+          "name": "Ibu",
+          "rxnormId": "RxNorm:217693",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:206905",
+            "RxNorm:206913",
+            "RxNorm:206917"
+          ]
+        },
+        {
+          "name": "Ibuprohm",
+          "rxnormId": "RxNorm:850404",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:850424"
+          ]
+        },
+        {
+          "name": "Motrin",
+          "rxnormId": "RxNorm:202488",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:201126",
+            "RxNorm:544393",
+            "RxNorm:606990",
+            "RxNorm:792242",
+            "RxNorm:854762"
+          ]
+        },
+        {
+          "name": "Neoprofen",
+          "rxnormId": "RxNorm:637194",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:637197"
+          ]
+        },
+        {
+          "name": "Proprinal",
+          "rxnormId": "RxNorm:1300262",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:1300267",
+            "RxNorm:2673691"
+          ]
+        },
+        {
+          "name": "Samson 8",
+          "rxnormId": "RxNorm:541710",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:541713"
+          ]
+        },
+        {
+          "name": "Wal-Profen",
+          "rxnormId": "RxNorm:643099",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:643102",
+            "RxNorm:644386"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "imipramine",
+      "ingredientRxnormId": "RxNorm:5691",
+      "brandNames": [],
+      "brandStatus": "none_found_in_current_us_prescribable_subset"
+    },
+    {
+      "genericName": "lansoprazole",
+      "ingredientRxnormId": "RxNorm:17128",
+      "brandNames": [
+        {
+          "name": "Prevacid",
+          "rxnormId": "RxNorm:83156",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:206205",
+            "RxNorm:206206",
+            "RxNorm:596918",
+            "RxNorm:866152"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "lornoxicam",
+      "ingredientRxnormId": "RxNorm:20890",
+      "brandNames": [],
+      "brandStatus": "ingredient_not_in_current_us_prescribable_subset"
+    },
+    {
+      "genericName": "lovastatin",
+      "ingredientRxnormId": "RxNorm:6472",
+      "brandNames": [
+        {
+          "name": "Altoprev",
+          "rxnormId": "RxNorm:541841",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:884383",
+            "RxNorm:997006",
+            "RxNorm:997007"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "meloxicam",
+      "ingredientRxnormId": "RxNorm:41493",
+      "brandNames": [
+        {
+          "name": "Anjeso",
+          "rxnormId": "RxNorm:2281107",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:2281111"
+          ]
+        },
+        {
+          "name": "Mobic",
+          "rxnormId": "RxNorm:152699",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:152697",
+            "RxNorm:152698"
+          ]
+        },
+        {
+          "name": "Qamzova",
+          "rxnormId": "RxNorm:2727441",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:2727445"
+          ]
+        },
+        {
+          "name": "Qmiiz",
+          "rxnormId": "RxNorm:2118582",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:2118588",
+            "RxNorm:2118591"
+          ]
+        },
+        {
+          "name": "Vivlodex",
+          "rxnormId": "RxNorm:1722350",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:1722355",
+            "RxNorm:1722359"
+          ]
+        },
+        {
+          "name": "Xifyrm",
+          "rxnormId": "RxNorm:2717316",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:2717320"
+          ]
+        },
+        {
+          "name": "Zybic",
+          "rxnormId": "RxNorm:2730291",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:2730296"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "mercaptopurine",
+      "ingredientRxnormId": "RxNorm:103",
+      "brandNames": [
+        {
+          "name": "Purixan",
+          "rxnormId": "RxNorm:1536485",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:1536490"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "omeprazole",
+      "ingredientRxnormId": "RxNorm:7646",
+      "brandNames": [
+        {
+          "name": "Prilosec",
+          "rxnormId": "RxNorm:203345",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:207212",
+            "RxNorm:211691",
+            "RxNorm:213295",
+            "RxNorm:608796",
+            "RxNorm:797061",
+            "RxNorm:797065"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "pantoprazole",
+      "ingredientRxnormId": "RxNorm:40790",
+      "brandNames": [
+        {
+          "name": "Protonix",
+          "rxnormId": "RxNorm:261624",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:284400",
+            "RxNorm:352125",
+            "RxNorm:763308",
+            "RxNorm:885257"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "phenytoin",
+      "ingredientRxnormId": "RxNorm:8183",
+      "brandNames": [
+        {
+          "name": "Dilantin",
+          "rxnormId": "RxNorm:202740",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:1313884",
+            "RxNorm:1313887",
+            "RxNorm:855673",
+            "RxNorm:855871"
+          ]
+        },
+        {
+          "name": "Phenytek",
+          "rxnormId": "RxNorm:352891",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:855863",
+            "RxNorm:855875"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "piroxicam",
+      "ingredientRxnormId": "RxNorm:8356",
+      "brandNames": [
+        {
+          "name": "Feldene",
+          "rxnormId": "RxNorm:197288",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:105929",
+            "RxNorm:105930"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "pitavastatin",
+      "ingredientRxnormId": "RxNorm:861634",
+      "brandNames": [
+        {
+          "name": "Livalo",
+          "rxnormId": "RxNorm:861612",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:861646",
+            "RxNorm:861650",
+            "RxNorm:861654"
+          ]
+        },
+        {
+          "name": "Nikita",
+          "rxnormId": "RxNorm:2689113",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:2689119",
+            "RxNorm:2689123",
+            "RxNorm:2689127"
+          ]
+        },
+        {
+          "name": "Zypitamag",
+          "rxnormId": "RxNorm:2001255",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:2001264",
+            "RxNorm:2001268"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "pravastatin",
+      "ingredientRxnormId": "RxNorm:42463",
+      "brandNames": [
+        {
+          "name": "Pravachol",
+          "rxnormId": "RxNorm:203333",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:904469",
+            "RxNorm:904477"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "rosuvastatin",
+      "ingredientRxnormId": "RxNorm:301542",
+      "brandNames": [
+        {
+          "name": "Crestor",
+          "rxnormId": "RxNorm:320864",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:859421",
+            "RxNorm:859426",
+            "RxNorm:859749",
+            "RxNorm:859753"
+          ]
+        },
+        {
+          "name": "Ezallor",
+          "rxnormId": "RxNorm:2167558",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:2167563",
+            "RxNorm:2167567",
+            "RxNorm:2167571",
+            "RxNorm:2167575"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "sertraline",
+      "ingredientRxnormId": "RxNorm:36437",
+      "brandNames": [
+        {
+          "name": "Zoloft",
+          "rxnormId": "RxNorm:82728",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:208149",
+            "RxNorm:208161",
+            "RxNorm:212233",
+            "RxNorm:861066"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "simvastatin",
+      "ingredientRxnormId": "RxNorm:36567",
+      "brandNames": [
+        {
+          "name": "Flolipid",
+          "rxnormId": "RxNorm:1944257",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:1944262",
+            "RxNorm:1944266"
+          ]
+        },
+        {
+          "name": "Zocor",
+          "rxnormId": "RxNorm:196503",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:104490",
+            "RxNorm:104491",
+            "RxNorm:152923",
+            "RxNorm:208220"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "tenoxicam",
+      "ingredientRxnormId": "RxNorm:37790",
+      "brandNames": [],
+      "brandStatus": "ingredient_not_in_current_us_prescribable_subset"
+    },
+    {
+      "genericName": "thioguanine",
+      "ingredientRxnormId": "RxNorm:10485",
+      "brandNames": [
+        {
+          "name": "Tabloid",
+          "rxnormId": "RxNorm:151956",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:105590"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "trimipramine",
+      "ingredientRxnormId": "RxNorm:10834",
+      "brandNames": [],
+      "brandStatus": "none_found_in_current_us_prescribable_subset"
+    },
+    {
+      "genericName": "voriconazole",
+      "ingredientRxnormId": "RxNorm:121243",
+      "brandNames": [
+        {
+          "name": "Vfend",
+          "rxnormId": "RxNorm:338272",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:352218",
+            "RxNorm:352219",
+            "RxNorm:352220",
+            "RxNorm:546624"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    },
+    {
+      "genericName": "warfarin",
+      "ingredientRxnormId": "RxNorm:11289",
+      "brandNames": [
+        {
+          "name": "Jantoven",
+          "rxnormId": "RxNorm:405155",
+          "singleIngredientProductRxnormIds": [
+            "RxNorm:855292",
+            "RxNorm:855300",
+            "RxNorm:855306",
+            "RxNorm:855316",
+            "RxNorm:855322",
+            "RxNorm:855328",
+            "RxNorm:855336",
+            "RxNorm:855342",
+            "RxNorm:855348"
+          ]
+        }
+      ],
+      "brandStatus": "active_single_ingredient_brand_found"
+    }
+  ]
+}

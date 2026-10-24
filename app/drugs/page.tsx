@@ -24,13 +24,17 @@ export default function DrugsPage() {
           ? <p className="text-sm">No drugs from the current eight-gene CPIC research index are in this group yet.</p>
           : <ul className="grid gap-3 sm:grid-cols-2">
             {group.drugs.map((drug) => <li key={drug.rxnormId} className="rounded-lg border border-gray-200 p-3 dark:border-gray-800">
-              <p className="font-semibold capitalize">{drug.drug}</p>
+              <p className="font-semibold capitalize">{drug.genericName}</p>
+              <p className="text-sm">U.S. brand names: {drug.brandNames.length
+                ? drug.brandNames.map((brand) => brand.name).join(", ")
+                : "None found in the current prescribable RxNorm subset"}</p>
               <p className="text-sm">{drug.family} · {drug.rxnormId}</p>
               <p className="text-sm">Indexed gene{drug.indexedGenes.length === 1 ? "" : "s"}: {drug.indexedGenes.join(", ")}</p>
               <a href={drug.guidelineUrl} target="_blank" rel="noreferrer" className="text-sm text-blue-700 underline dark:text-blue-300">CPIC guideline</a>
             </li>)}</ul>}
       </section>)}
-      <p className="text-sm">Categories are broad navigation labels. A medication may have other uses or require genes beyond the ones indexed here. This catalog does not provide patient-specific responses, prescriptions, or doses.</p>
+      <p className="text-sm">Categories are broad navigation labels. A medication may have other uses or require genes beyond the ones indexed here. Brand names are current U.S. RxNorm display aliases for single-ingredient products; names and availability can change. A brand name alone does not verify an exact product or dose. This catalog does not provide patient-specific responses or prescriptions.</p>
+      <p className="text-xs">This product uses publicly available data from the U.S. National Library of Medicine (NLM), National Institutes of Health, Department of Health and Human Services; NLM is not responsible for the product and does not endorse or recommend this or any other product.</p>
     </main>
   );
 }

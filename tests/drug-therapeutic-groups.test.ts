@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import catalog from "../data/cpic-gene-drug-catalog.v1.json";
-import { findDrugResearchEntry, listDrugTherapeuticGroups } from "../lib/pgx/drug-therapeutic-groups";
+import names from "../data/rxnorm-drug-names.v1.json";
+import { findDrugDisplayMatches, findDrugResearchEntry, listDrugTherapeuticGroups } from "../lib/pgx/drug-therapeutic-groups";
 
 describe("research-only therapeutic-area navigation", () => {
   it("places every indexed ingredient once in the requested nine groups", () => {
@@ -26,5 +27,17 @@ describe("research-only therapeutic-area navigation", () => {
     });
     expect(findDrugResearchEntry("rosuvastatin")?.indexedGenes).toEqual(["ABCG2", "SLCO1B1"]);
     expect(findDrugResearchEntry("Lipitor")).toBeUndefined();
+  });
+
+  it("keeps current U.S. brand names as display aliases, not clinical identifiers", () => {
+    const drugs = listDrugTherapeuticGroups().flatMap((group) => group.drugs);
+    expect(drugs.reduce((count, drug) => count + drug.brandNames.length, 0)).toBe(names.brandCount);
+    expect(findDrugResearchEntry("Plavix")).toBeUndefined();
+    expect(findDrugDisplayMatches(" Plavix ").map((drug) => drug.genericName)).toEqual(["clopidogrel"]);
+    expect(findDrugDisplayMatches("Lipitor").map((drug) => drug.rxnormId)).toEqual(["RxNorm:83367"]);
+    expect(findDrugDisplayMatches("Advil PM")).toEqual([]);
+    expect(findDrugDisplayMatches("Clomicalm")).toEqual([]);
+    expect(findDrugResearchEntry("lornoxicam")?.brandStatus)
+      .toBe("ingredient_not_in_current_us_prescribable_subset");
   });
 });

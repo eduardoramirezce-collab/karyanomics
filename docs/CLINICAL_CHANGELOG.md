@@ -1,5 +1,11 @@
 # Clinical data and API change log
 
+## 2026-10-24 — Current U.S. generic and brand-name snapshot
+
+- Added a versioned NLM Prescribable RxNorm snapshot (release 05-Oct-2026): all 34 CPIC catalog ingredients and 60 current U.S. brand mappings, each with BN and supporting single-ingredient SBD identifiers. Four ingredients have no current U.S. brand in that source. Veterinary-only and combination brands were excluded; historical/non-U.S. names were not claimed.
+- Added a build-time API fetcher that writes an ignored candidate, a validator, exact display-only brand lookup, and generic/brand labels on `/drugs`. No genetic data is sent to NLM, and brand names are not accepted as clinical route identifiers.
+- Recorded source scope, refresh steps, product-identity gap, and NLM attribution in the API register, Kiro steering/specs, and research handoff.
+
 ## 2026-10-24 — Nine-area medication research catalog
 
 - Added an editorial taxonomy matching the team's Analgesics, Cardiovascular, Endocrine, GI, ID, Immune, Neuro, Psych, and Miscellaneous groups. It maps the ten guideline families in the existing CPIC pair index to 34 distinct exact-RxNorm ingredients; no external data source or patient-response rule was added.

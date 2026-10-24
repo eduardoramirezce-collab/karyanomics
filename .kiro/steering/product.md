@@ -50,6 +50,9 @@ ID, Immune, Neuro, Psych, and Miscellaneous. These broad areas and specific
 medication-family labels organize the catalog; they do not classify a patient's
 response or establish a prescribing indication. Empty groups do not imply that
 no relevant drug exists outside the current index.
+The same browse page shows generic names and current U.S. brand aliases from
+NLM Prescribable RxNorm for display. A brand name is not a verified product,
+ingredient combination, formulation, or permission to issue PGx guidance.
 
 **CYP2D6 is not callable from a VCF.** It comes only from an optional
 outside-call input; if absent, CYP2D6 is `Indeterminate` with the explanation
