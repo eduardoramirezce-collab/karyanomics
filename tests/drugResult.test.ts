@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import guidance from "../data/patient-guidance.v1.json";
+import guidanceData from "../data/patient-guidance.v1.json";
 import { analyzeVcf } from "../lib/pgx/analyzeVcf";
 import { listDrugTherapeuticGroups, type DrugResearchEntry } from "../lib/pgx/drug-therapeutic-groups";
 import {
@@ -22,6 +22,9 @@ const samples = Object.fromEntries((["maya", "alex", "sam"] as const).map((id) =
   id, analyzeVcf(readFileSync(join(process.cwd(), `public/samples/${id}.vcf`), "utf8")),
 ])) as Record<SampleId, ReturnType<typeof analyzeVcf>>;
 
+const guidance = guidanceData.guidelines.find((g) => g.pair.drug === "clopidogrel") as unknown as
+  { records: { context: string; phenotypes: Record<string, string>; patientText: string }[] };
+
 const drugs = listDrugTherapeuticGroups().flatMap((group) => group.drugs);
 function drug(name: string): DrugResearchEntry {
   const entry = drugs.find((item) => item.drug === name);
@@ -38,7 +41,7 @@ function run(id: SampleId, name: string, role: Role = "patient", upload = false)
 describe("drugResult with the bundled sample VCFs", () => {
   it("Maya + clopidogrel: may change, with the CYP2C19 patient text", () => {
     const result = run("maya", "clopidogrel");
-    const poorText = guidance.records.find((row) => row.phenotype === "Poor Metabolizer" && row.context === "acs_pci")!.patientText;
+    const poorText = guidance.records.find((row) => row.phenotypes.CYP2C19 === "Poor Metabolizer" && row.context === "acs_pci")!.patientText;
     expect(result.status).toBe("Your genes may change how this works");
     expect(result.level).toBe("may-differ");
     expect(result.genes).toEqual([{ gene: "CYP2C19", phenotypeText: "Poor Metabolizer" }]);
