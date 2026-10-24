@@ -24,7 +24,7 @@
   - _Requirements: 1.4 (labeling synthetic data)_
 
 - [x] 6. Test matching and Indeterminate cases
-  - Matched (two phenotypes), indeterminate, unsupported drug, unmatched
+  - Matched (five phenotypes), indeterminate, unsupported drug, unmatched
     indication, provenance.
   - _Requirements: 3.1, 3.2, 3.3, 3.4, 1.2_
 
@@ -46,3 +46,11 @@
 - [ ] Add a validated allele/phenotype pipeline for GRCh38 VCF and outside calls; pin source/tool versions.
 - [ ] Build clinician review/authentication before interpreting real uploads.
 - [ ] Add RxNorm drug normalization and NDC mapping with tests before multi-drug lookups.
+
+## Phenotype → guidance increment (2026-10-24)
+
+- [x] Merge the VCF/`DiplotypeCall` type contract from main without modifying Kai's parser/caller.
+- [x] Match five CYP2C19 phenotypes to exact clopidogrel ACS/PCI CPIC recommendation IDs.
+- [x] Accept only exact clopidogrel or RxNorm:32968 identifiers; keep NDC/brand normalization out of scope until sourced.
+- [x] Reject self-reported lab-report calls, even when their own JSON says complete.
+- [ ] Integrate with Kai's caller after he pushes, and verify sample VCF → phenotype → guidance end to end.

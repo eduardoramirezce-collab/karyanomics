@@ -9,7 +9,9 @@ Built at **Hackachusetts 2026** · Track: **Healthcare & Biotech** · Built with
 > **Live demo:** _coming soon_
 > **Demo video:** _coming soon_
 
-**Implemented today:** a browser-only file intake page (`/patient`), structural checks for PGx JSON / VCF / four-column raw text, a fictional Maya example, and a versioned two-row CPIC snapshot with a separate patient-safe browser snapshot. Uploaded files are **not** interpreted into recommendations. The clinician portal, NPI check, NDC lookup, openFDA panel, and broader gene–drug coverage below are planned, not yet implemented. See [API and upload register](./docs/API_AND_UPLOAD_REGISTER.md), [clinical change log](./docs/CLINICAL_CHANGELOG.md), and [current gaps](./docs/CURRENT_GAPS.md).
+**Implemented today:** a browser-only file intake page (`/patient`), structural checks for PGx JSON / VCF / four-column raw text, a fictional Maya example, and a versioned five-row CPIC snapshot with a separate patient-safe browser snapshot. Uploaded files are **not** interpreted into recommendations. The clinician portal, NPI check, NDC lookup, openFDA panel, validated VCF-to-phenotype caller, and broader gene–drug coverage below are planned, not yet implemented. See [API and upload register](./docs/API_AND_UPLOAD_REGISTER.md), [clinical change log](./docs/CLINICAL_CHANGELOG.md), and [current gaps](./docs/CURRENT_GAPS.md).
+
+**Team handoff:** Kai owns VCF → diplotype/phenotype (`parseVcf`, allele definitions, caller); Edu owns phenotype + drug + indication → CPIC-linked guidance (`assess`, reviewed snapshot, patient-safe projection). `DiplotypeCall[]` in `lib/pgx/types.ts` is the boundary. A complete, verified call is required before guidance; missing/ambiguous calls remain Indeterminate. Shared README/steering changes should be merged to `main` through review so both branches inherit one direction.
 
 ---
 
@@ -17,7 +19,7 @@ Built at **Hackachusetts 2026** · Track: **Healthcare & Biotech** · Built with
 
 The same prescription can work well for one person, do nothing for another, and cause harm in a third, partly because of genes that control how drugs are metabolized. Clinical guidelines for these gene-drug pairs already exist (CPIC), but the tests are expensive and the reports are hard to read. Most patients never see this information, and the ones who do often can't act on it.
 
-## What Karyanomics does
+## Planned experience
 
 ### Patient side
 - **Load a genotype:** upload a VCF file, or load one of three sample patients. The file is parsed **in your browser and never uploaded**.
@@ -51,14 +53,11 @@ CYP2D6 can't be called from a VCF (it needs copy-number and structural analysis 
 
 ---
 
-## Try it
+## Demo and local run
 
-### For judges
-1. Open the live demo link above (no login required).
-2. **Patient:** click **Load sample patient: Maya**, then search `clopidogrel`. The app parses Maya's VCF, calls her CYP2C19 diplotype (`*2/*2` → Poor Metabolizer), and shows the result.
-3. **Clinician:** click **"I'm a clinician"**, then **"Judge demo access"** to view the full clinical detail without a real NPI.
+### Current demo
 
-All sample patients are synthetic. No real genetic data is stored in this repo.
+Open `/patient` and show the fictional Maya example. The browser intake can recognize VCF, PGx JSON, and raw TSV formats, but it does not yet call diplotypes or interpret uploaded files. The clinician portal and three-VCF-sample flow described below are planned. No real genetic data is stored in the repo.
 
 ### Run locally
 
@@ -84,7 +83,7 @@ No API keys are required; all external APIs used are public.
 
 ## How it works
 
-The app computes everything from a genotype file. The pipeline:
+The target pipeline is below. Today, the VCF-to-phenotype caller is still being built; only the synthetic Maya phenotype exercises the guidance lookup:
 
 1. **Input:** a single-sample GRCh38 VCF (your upload or a bundled sample), plus an optional "outside call" input for CYP2D6.
 2. **Parse VCF:** read `CHROM`, `POS`, `REF`, `ALT`, and the sample's `GT` field (phased `|` or unphased `/`).

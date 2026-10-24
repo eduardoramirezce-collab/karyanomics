@@ -21,7 +21,7 @@ education and demonstration only — not a medical device, not medical advice.
 
 ## Pipeline (how a result is produced)
 
-Everything is computed from a genotype file — no hand-made phenotypes:
+Target pipeline: a validated call will ultimately be computed from a genotype file. Today the VCF caller is not implemented, and the guidance demo uses a clearly labeled synthetic phenotype:
 
 1. **Input:** a single-sample GRCh38 VCF (user upload or a bundled sample),
    plus an optional "outside call" input for CYP2D6.
@@ -42,7 +42,7 @@ rather than guessing.
 
 ## Scope
 
-Genes called from VCF: **CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT.**
+Planned VCF gene coverage: **CYP2C19, CYP2C9, VKORC1, SLCO1B1, TPMT.** The current guidance snapshot covers only CYP2C19 + clopidogrel for ACS/PCI.
 
 **CYP2D6 is not callable from a VCF.** It comes only from an optional
 outside-call input; if absent, CYP2D6 is `Indeterminate` with the explanation
@@ -52,3 +52,10 @@ TPMT).
 
 Genetic data stays on the device and is never sent to any server route; no real
 patient data is stored in the repo.
+
+## Branch ownership
+
+- Kai: VCF input → validated diplotype/phenotype. Owns parser, allele definitions, caller, and reference fixtures.
+- Edu: validated phenotype + exact drug identity + indication → CPIC-linked guidance. Owns the curated recommendation snapshot, `assess`, patient-safe projection, source validation, and clinical-data docs.
+- Shared contract: `DiplotypeCall[]` in `lib/pgx/types.ts`; a call is eligible for guidance only after the caller confirms build, coverage, quality, and ambiguity. Source label alone is not verification.
+- Shared README/steering/spec changes should go through review into `main` so both branches inherit the same direction.

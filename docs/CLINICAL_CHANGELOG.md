@@ -15,3 +15,10 @@
 - Added source inventory and PGx research pipeline. Candidate downloads remain ignored until human review.
 
 This log records repository data-workflow changes. Git history is the authoritative file-by-file audit; source refreshes must retain retrieval timestamps and IDs.
+
+## 2026-10-24 — Main VCF contract joined to phenotype-guidance layer
+
+- Merged main's VCF/`DiplotypeCall` types and PGx-engine spec into `clinical-data`; left Kai's parser/caller implementation untouched. The committed `data/allele-definitions.json` still has TODO coordinates and cannot support real calls.
+- Expanded the CYP2C19 + clopidogrel ACS/PCI demo snapshot from two to five source-linked phenotypes: Poor, Intermediate, Normal, Rapid, and Ultrarapid. New rows map to CPIC recommendation IDs 8480387, 8480384, and 8480383; every row remains `humanClinicalReview: false`. Refreshed the allowlisted patient snapshot (`r2`).
+- Both assessment paths now accept exact `RxNorm:32968` or `clopidogrel` identity and reject self-reported `lab-report` calls even if a file claims completeness. No NDC/brand inference was added.
+- Main had committed a raw CPIC candidate file. The merge kept it locally for validation but removed it from branch tracking; candidates remain ignored until reviewed for redistribution.

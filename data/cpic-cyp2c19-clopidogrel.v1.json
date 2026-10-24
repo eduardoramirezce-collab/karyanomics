@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "snapshotId": "cpic-cyp2c19-clopidogrel-2026-10-24",
+  "snapshotId": "cpic-cyp2c19-clopidogrel-2026-10-24-r2",
   "retrievedAt": "2026-10-24",
   "reviewStatus": "source_checked_demo_only",
   "source": {
@@ -30,6 +30,16 @@
       "humanClinicalReview": false
     },
     {
+      "sourceRecommendationId": 8480387,
+      "phenotype": "Intermediate Metabolizer",
+      "context": "acs_pci",
+      "strength": "Strong",
+      "finding": "reduced_activation",
+      "patientText": "Your CYP2C19 result may reduce how well clopidogrel works for this condition. Discuss the result with your prescriber or pharmacist.",
+      "clinicianSummary": "CPIC guidance for CYP2C19 intermediate metabolizers with ACS or PCI supports considering an alternative antiplatelet when appropriate. Review the full guideline and contraindications.",
+      "humanClinicalReview": false
+    },
+    {
       "sourceRecommendationId": 8480385,
       "phenotype": "Normal Metabolizer",
       "context": "acs_pci",
@@ -37,6 +47,26 @@
       "finding": "no_pgx_change_identified",
       "patientText": "This CYP2C19 result does not identify a clopidogrel-related genetic change covered by this guideline. Other factors still affect treatment.",
       "clinicianSummary": "The CPIC guideline does not call for a CYP2C19-based change for a normal metabolizer with ACS or PCI. Review the full guideline and patient context.",
+      "humanClinicalReview": false
+    },
+    {
+      "sourceRecommendationId": 8480384,
+      "phenotype": "Rapid Metabolizer",
+      "context": "acs_pci",
+      "strength": "Strong",
+      "finding": "no_pgx_change_identified",
+      "patientText": "This CYP2C19 result does not identify a clopidogrel-related genetic change covered by this guideline. Other factors still affect treatment.",
+      "clinicianSummary": "The CPIC guideline does not call for a CYP2C19-based change for a rapid metabolizer with ACS or PCI. Review the full guideline and patient context.",
+      "humanClinicalReview": false
+    },
+    {
+      "sourceRecommendationId": 8480383,
+      "phenotype": "Ultrarapid Metabolizer",
+      "context": "acs_pci",
+      "strength": "Strong",
+      "finding": "no_pgx_change_identified",
+      "patientText": "This CYP2C19 result does not identify a clopidogrel-related genetic change covered by this guideline. Other factors still affect treatment.",
+      "clinicianSummary": "The CPIC guideline does not call for a CYP2C19-based change for an ultrarapid metabolizer with ACS or PCI. Review the full guideline and patient context.",
       "humanClinicalReview": false
     }
   ]

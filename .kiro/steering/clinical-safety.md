@@ -17,8 +17,8 @@ inclusion: always
 - Clinician screens are only reachable after the NPI gate.
 
 ## Data integrity
-- Never invent clinical content. Every recommendation must come from data/recommendations.json, and every entry must cite a CPIC guideline and a PMID.
-- If a gene has no data for this user, or cannot be determined (e.g. CYP2D6, which is not callable from a VCF), return "Indeterminate". Never guess a phenotype.
+- Never invent clinical content. Every guidance row must come from a versioned source-linked file under `data/`, with CPIC guideline ID/version, recommendation ID, context, and PMID. The current curated file is `data/cpic-cyp2c19-clopidogrel.v1.json`; its wording is source-checked demo text awaiting qualified clinical review.
+- If a gene has no data for this user, or cannot be determined (e.g. CYP2D6, which is not callable from a VCF), return "Indeterminate". Never guess a phenotype. A `DiplotypeCall.source` label alone does not prove validation; require complete build/coverage/quality checks before assessment.
 - If a VCF lacks coverage at any defining position for a gene, return "Indeterminate" for that gene. Never assume reference.
 - Reject VCFs that are not single-sample or not GRCh38 with a clear user-facing error.
 - openFDA adverse event data must always be shown with: "These are reports, not proof the drug caused the reaction."

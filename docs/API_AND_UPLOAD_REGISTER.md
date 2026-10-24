@@ -34,7 +34,7 @@ PDFs, compressed files, arbitrary JSON, and multi-sample VCF interpretation are 
 - `needs_external_caller`: VCF or raw SNP data needs a validated allele/phenotype workflow.
 - `invalid`: file cannot be safely recognized.
 
-Only the fictional Maya case uses the source-backed `assess()` lookup today. It is labeled as synthetic and its wording still awaits clinical review. The UI does not expose the full CPIC recommendation or doses to a patient.
+Only explicitly complete fictional or validated caller results use the source-backed `assess()` lookup today. Five CYP2C19 phenotypes are covered for clopidogrel/ACS-PCI; the VCF caller is still unimplemented. It is labeled as synthetic and its wording still awaits clinical review. The UI does not expose the full CPIC recommendation or doses to a patient.
 
 ## Refresh and review
 

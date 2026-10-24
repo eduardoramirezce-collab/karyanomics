@@ -1,8 +1,8 @@
 # Tasks — PGx engine (VCF pipeline)
 
 - [ ] 1. Confirm shared types in `lib/pgx/types.ts`
-  - `VcfVariant`, `AlleleDefinition`, `DiplotypeCall`, `GeneResult.source`, and
-    the `parseVcf` / `callDiplotypes` signatures are present as stubs.
+  - `VcfVariant`, `AlleleDefinition`, `DiplotypeCall`, and `GeneResult.source` are type-only contracts.
+  - Put implementations in `parse-vcf.ts` and `call-diplotypes.ts`; do not add throwing stubs to `types.ts`.
   - _Requirements: 1.1, 3.1, 4.2_
 
 - [ ] 2. Implement `parseVcf(text)` in `lib/pgx/parse-vcf.ts`
@@ -56,3 +56,8 @@
     reference/Indeterminate; patient text never contains stop/take/dose
     instructions.
   - _Requirements: 9.1, 9.2, 9.3_
+
+## Branch handoff status (2026-10-24)
+
+- Edu's `clinical-data` branch implements step 7 for one exact gene/drug/indication: CYP2C19 + clopidogrel + ACS/PCI, with five phenotype rows. Source-linked wording is **not yet clinically reviewed**, so task 8 is still open as written.
+- Kai's VCF parser/caller, sample VCF and PharmCAT answer key remain open. Do not present the end-to-end pipeline as complete before these are tested together.

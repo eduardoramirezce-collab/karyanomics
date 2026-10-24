@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceSnapshotId": "cpic-cyp2c19-clopidogrel-2026-10-24",
+  "sourceSnapshotId": "cpic-cyp2c19-clopidogrel-2026-10-24-r2",
   "reviewStatus": "source_checked_demo_only",
   "source": {
     "guidelineUrl": "https://www.clinpgx.org/guideline/PA166251443",
@@ -9,7 +9,8 @@
   },
   "pair": {
     "gene": "CYP2C19",
-    "drug": "clopidogrel"
+    "drug": "clopidogrel",
+    "rxnormId": "RxNorm:32968"
   },
   "records": [
     {
@@ -20,10 +21,31 @@
       "humanClinicalReview": false
     },
     {
+      "phenotype": "Intermediate Metabolizer",
+      "context": "acs_pci",
+      "patientText": "Your CYP2C19 result may reduce how well clopidogrel works for this condition. Discuss the result with your prescriber or pharmacist.",
+      "sourceRecommendationId": 8480387,
+      "humanClinicalReview": false
+    },
+    {
       "phenotype": "Normal Metabolizer",
       "context": "acs_pci",
       "patientText": "This CYP2C19 result does not identify a clopidogrel-related genetic change covered by this guideline. Other factors still affect treatment.",
       "sourceRecommendationId": 8480385,
+      "humanClinicalReview": false
+    },
+    {
+      "phenotype": "Rapid Metabolizer",
+      "context": "acs_pci",
+      "patientText": "This CYP2C19 result does not identify a clopidogrel-related genetic change covered by this guideline. Other factors still affect treatment.",
+      "sourceRecommendationId": 8480384,
+      "humanClinicalReview": false
+    },
+    {
+      "phenotype": "Ultrarapid Metabolizer",
+      "context": "acs_pci",
+      "patientText": "This CYP2C19 result does not identify a clopidogrel-related genetic change covered by this guideline. Other factors still affect treatment.",
+      "sourceRecommendationId": 8480383,
       "humanClinicalReview": false
     }
   ]

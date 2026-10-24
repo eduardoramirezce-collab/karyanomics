@@ -14,7 +14,7 @@ const publicSnapshot = {
     guidelineVersion: source.source.guidelineVersion,
     publicationPmid: source.source.publicationPmid,
   },
-  pair: { gene: source.pair.gene, drug: source.pair.drug },
+  pair: { gene: source.pair.gene, drug: source.pair.drug, rxnormId: source.pair.rxnormId },
   records: source.records.map((row) => ({
     phenotype: row.phenotype,
     context: row.context,

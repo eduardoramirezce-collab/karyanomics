@@ -23,5 +23,10 @@ describe("patient-safe assessment boundary", () => {
 
   it("keeps unverified uploaded calls indeterminate", () => {
     expect(assessPatient({ ...maya, callStatus: "unverified" }).status).toBe("indeterminate");
+    expect(assessPatient({
+      ...maya,
+      drug: "RxNorm:32968",
+      geneResults: [{ gene: "CYP2C19", diplotype: "*2/*2", phenotype: "Poor Metabolizer", source: "lab-report" }],
+    }).status).toBe("indeterminate");
   });
 });

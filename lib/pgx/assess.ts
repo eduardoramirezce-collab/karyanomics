@@ -15,11 +15,13 @@ export function assess(input: ClinicalAssessmentInput): ClinicalAssessment {
   }
 
   const geneResult = geneResults[0];
-  if (!geneResult.diplotype || geneResult.phenotype === "Indeterminate") {
+  if (!geneResult.diplotype || geneResult.phenotype === "Indeterminate" ||
+      !["vcf", "outside-call", "demo"].includes(geneResult.source)) {
     return { status: "indeterminate", reason: "missing_or_unverified_call" };
   }
 
-  if (input.drug.trim().toLowerCase() !== snapshotData.pair.drug) {
+  const drugId = input.drug.trim().toLowerCase();
+  if (drugId !== snapshotData.pair.drug && drugId !== snapshotData.pair.rxnormId.toLowerCase()) {
     return { status: "insufficient_data", reason: "unsupported_pair" };
   }
   if (!input.context) {

@@ -12,3 +12,8 @@ Record actual Kiro activity with its prompt/task, files changed, checks, and com
 - Merged main's VCF direction into `clinical-data` and kept the phenotype → drug/indication guidance boundary.
 - The CPIC snapshot, patient-safe snapshot, browser intake, API register, and tests were implemented with Codex, not Kiro.
 - Earlier Kiro steering was reconciled with the source usage policy and client-only genetic data rules.
+
+## 2026-10-24 — Clinical guidance increment (Edu/clinical-data)
+
+- Codex merged the main VCF contract, extended five source-linked CYP2C19/clopidogrel ACS/PCI rows, and aligned patient-safe output and tests. This was not a Kiro coding session.
+- Kai's VCF parser, allele caller, and reference fixtures remain his branch work.
